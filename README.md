@@ -11,7 +11,14 @@ Your task is to build a simple microservice using the Python Flask framework.  T
 2. /download
     - Retrieves and downloads a single file, using the filename as the key.
 
-3. We will be looking at understanding of web services fundamentals, including usage of appropriate error response — you should force a failure condition to demonstrate.  We will also be looking more broadly at Python code structure, layout, and other best practices.  Feel free to incorporate whatever else you feel appropriate and feasible.  Finally, please provide a way to install dependencies and run/test the app.
+3. We will be looking at understanding of web services fundamentals, including usage of appropriate error response.
+    — You should force a failure condition to demonstrate.
+    
+4. We will also be looking more broadly at Python code structure, layout, and other best practices.
+
+5. Feel free to incorporate whatever else you feel appropriate and feasible.
+
+6. Finally, please provide a way to install dependencies and run/test the app.
 
 ## Design
 
