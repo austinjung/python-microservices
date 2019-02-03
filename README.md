@@ -6,16 +6,16 @@ Your task is to build a simple microservice using the Python Flask framework.  T
 ## Requirements
 
 1. /upload
-    Uploads one file at a time.  Feel free to define what the payload looks like.  You can go ahead and persist the files to the filesystem somewhere.
+    - Uploads one file at a time.  Feel free to define what the payload looks like.  You can go ahead and persist the files to the filesystem somewhere.
 
 2. /download
-    Retrieves and downloads a single file, using the filename as the key.
+    - Retrieves and downloads a single file, using the filename as the key.
 
 3. We will be looking at understanding of web services fundamentals, including usage of appropriate error response — you should force a failure condition to demonstrate.  We will also be looking more broadly at Python code structure, layout, and other best practices.  Feel free to incorporate whatever else you feel appropriate and feasible.  Finally, please provide a way to install dependencies and run/test the app.
 
 ## Design
 
-1. `/` will redict to `/upload`.
+1. `http://localhost:5000/` will redict to `http://localhost:5000/upload`
     - This page will list all uploaded files. And you can upload a file using UI.
     - Or you can use curl to upload a file.
     ```
@@ -23,8 +23,34 @@ Your task is to build a simple microservice using the Python Flask framework.  T
     ```
     
 2. When file upload fails, the error will show and a link to `upload` will be provided
+    - The upload file should have an extension.
+    - Only these extension will be allowed. `txt`, `rtf`, `doc`, `docx`, `xls`, `xlsx`, `pdf`
+    - The upload file name should be unique in the download folder of server.
+    - If upload file has any of the above issue, the server will show the corresponding error.
 
-3. Upload file 
+3. Upload file using API endpoint `http://localhost:5000/upload/your-upload-file-name.ext`
+    - You can use curl or your program to upload file
+    ```
+    curl -i -X POST -H "Content-Type: application/json" --data-binary "@/Users/austinjung/Documents/sample.pdf" http://localhost:5000/upload/my_upload.pdf
+    ```
+    
+4. You can get all file names using API `http://localhost:5000/download`
+    - You can use curl or your program to get file names
+    ```
+    ```
+    - And the response will be
+    ```
+    [
+{
+"filename": "Austin-Jung_2019_resume.pdf",
+"url": "http://localhost:5000/download/Austin-Jung_2019_resume.pdf"
+},
+{
+"filename": "sample.pdf",
+"url": "http://localhost:5000/download/sample.pdf"
+}
+]
+```
 
 
 ## Deployment
