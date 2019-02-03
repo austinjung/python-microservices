@@ -44,6 +44,7 @@ Your task is to build a simple microservice using the Python Flask framework.  T
 4. You can get all file names using API `http://localhost:5000/download`
     - You can use curl or your program to get file names
     ```
+    curl -i -X GET -H "Content-Type: application/json" http://localhost:5000/download
     ```
     - And the response will be
     ```json
@@ -58,7 +59,12 @@ Your task is to build a simple microservice using the Python Flask framework.  T
         }
     ]
     ```
-
+    
+5. You can download a file using API `http://localhost:5000/download/sample.pdf`
+    - You can use curl or your program to get file names
+    ```
+    curl -i -X GET -H "Content-Type: application/json" http://localhost:5000/download/sample.pdf --output sample.pdf
+    ```
 
 ## Deployment
 
