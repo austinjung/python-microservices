@@ -69,20 +69,16 @@ Your task is to build a simple microservice using the Python Flask framework.  T
 ## Deployment
 
 1. This project repository is [https://github.com/austinjung/python-microservices](https://github.com/austinjung/python-microservices)
-2. The project repository is linked with [Austin's Docker Cloud](https://cloud.docker.com/swarm/austinjung/repository/registry-1.docker.io/austinjung/async-http-proxy-python/general)
-3. In your docker, run the following line.
-    ```
-    $ docker run -p 8080:8080 austinjung/async-http-proxy-python:latest
-    ```
-    or 
+
+2. The project repository is linked with [Austin's Docker Cloud](https://cloud.docker.com/repository/docker/austinjung/python-microservices/general)
+
+3. Clone this repository
     ```
     git clone git@github.com:austinjung/python-microservices.git
+    ```
+
+3. In your docker, run the following line.
+    ```
     cd python-microservices
     $ docker-compose down && docker-compose up --build -d
     ```
-
-## Things do-to
-
-1. Some images or contents are blocked by 'Referrer Policy: no-referrer-when-downgrade', 'Access-Control-Allow_Origin', or 'cross-origin frame' etc.
-2. Do proper post method.
-and more
