@@ -6,10 +6,10 @@ Your task is to build a simple microservice using the Python Flask framework.  T
 ## Requirements
 
 1. /upload
-  * Uploads one file at a time.  Feel free to define what the payload looks like.  You can go ahead and persist the files to the filesystem somewhere.
+    Uploads one file at a time.  Feel free to define what the payload looks like.  You can go ahead and persist the files to the filesystem somewhere.
 
 2. /download
-  * Retrieves and downloads a single file, using the filename as the key.
+    Retrieves and downloads a single file, using the filename as the key.
 
 3. We will be looking at understanding of web services fundamentals, including usage of appropriate error response — you should force a failure condition to demonstrate.  We will also be looking more broadly at Python code structure, layout, and other best practices.  Feel free to incorporate whatever else you feel appropriate and feasible.  Finally, please provide a way to install dependencies and run/test the app.
 
