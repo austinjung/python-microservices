@@ -57,6 +57,7 @@ class UploadFolderManager(object):
             raise UploadFolderException(
                 '{filename} exists'.format(filename=filename)
             )
+        return ext
 
     def save_uploaded_file_from_api(self, filename, file_data):
         new_filename = secure_filename(filename)
