@@ -78,7 +78,7 @@ Your task is to build a simple microservice using the Python Flask framework.  T
     ```
     git clone git@github.com:austinjung/python-microservices.git
     cd python-microservices
-    $ docker-compose up
+    $ docker-compose down && docker-compose up --build -d
     ```
 
 ## Things do-to
