@@ -46,18 +46,18 @@ Your task is to build a simple microservice using the Python Flask framework.  T
     ```
     ```
     - And the response will be
-    ```
+    ```json
     [
-{
-"filename": "Austin-Jung_2019_resume.pdf",
-"url": "http://localhost:5000/download/Austin-Jung_2019_resume.pdf"
-},
-{
-"filename": "sample.pdf",
-"url": "http://localhost:5000/download/sample.pdf"
-}
-]
-```
+        {
+            "filename": "Austin-Jung_2019_resume.pdf",
+            "url": "http://localhost:5000/download/Austin-Jung_2019_resume.pdf"
+        },
+        {
+            "filename": "sample.pdf",
+            "url": "http://localhost:5000/download/sample.pdf"
+        }
+    ]
+    ```
 
 
 ## Deployment
