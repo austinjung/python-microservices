@@ -1,0 +1,42 @@
+version: '3.7'
+
+services:
+
+  web:
+    command: uwsgi --ini ./uwsgi.ini
+    restart: always
+    build:
+      context: .
+      dockerfile: docker/Dockerfile-local
+    container_name: python-microservices-web
+    image: local-python-microservices
+    volumes:
+      - type: bind
+        source: ./microservices
+        target: /app
+    networks:
+      - internal
+      - external
+
+  nginx:
+    container_name: webapp-nginx
+    image: nginx:latest
+    restart: always
+    volumes:
+      - ./nginx/:/etc/nginx/
+      - type: bind
+        source: ./microservices
+        target: /tmp
+    ports:
+      - "5000:5000"
+    networks:
+      - external
+    depends_on:
+      - web
+
+
+networks:
+  internal:
+    driver: bridge
+  external:
+    driver: bridge
