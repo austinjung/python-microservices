@@ -68,7 +68,7 @@ Your task is to build a simple microservice using the Python Flask framework.  T
 
 ## Deployment
 
-1. This project repository is [https://bitbucket.org/austinjung/asyncproxyinpython](https://bitbucket.org/austinjung/asyncproxyinpython)
+1. This project repository is [https://github.com/austinjung/python-microservices](https://github.com/austinjung/python-microservices)
 2. The project repository is linked with [Austin's Docker Cloud](https://cloud.docker.com/swarm/austinjung/repository/registry-1.docker.io/austinjung/async-http-proxy-python/general)
 3. In your docker, run the following line.
     ```
@@ -76,7 +76,7 @@ Your task is to build a simple microservice using the Python Flask framework.  T
     ```
     or 
     ```
-    clone the project repository
+    git clone this project repository
     cd /to/the_top_folder_of_the_project
     $ docker-compose up
     ```
