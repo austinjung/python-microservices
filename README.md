@@ -82,3 +82,12 @@ Your task is to build a simple microservice using the Python Flask framework.  T
     cd python-microservices
     $ docker-compose down && docker-compose up --build -d
     ```
+
+## Tests
+
+1. At the project folder, run pytest
+    ```
+    cd python-microservices
+    $ pytest
+    ```
+
