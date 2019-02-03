@@ -1,6 +1,5 @@
 # python-microservices
 simple microservices
-# AsyncProxy - Python Programming Task
 
 Your task is to build a simple microservice using the Python Flask framework.  This microservice should be responsible for uploading and downloading typical types of files (txt, pdf, png, jpg, etc.).
 
@@ -16,16 +15,16 @@ Your task is to build a simple microservice using the Python Flask framework.  T
 
 ## Design
 
-1. I built a simple AsyncProxy server based on [aiohttp](http://aiohttp.readthedocs.io/en/stable/). The reasons are:
-    - aiohttp is based on [asyncio — Asynchronous I/O, event loop, coroutines and tasks module og python 3.4+](https://docs.python.org/3.6/library/asyncio.html#module-asyncio)
-    - aiohttp supports both Client and HTTP Server. 
-    - aiohttp supports both Server WebSockets and Client WebSockets out-of-the-box.
-    - aiohttp Web-server has Middlewares, Signals and pluggable routing.
+1. `/` will redict to `/upload`.
+    - This page will list all uploaded files. And you can upload a file using UI.
+    - Or you can use curl to upload a file.
+    ```
+    curl -i -X POST -H "Content-Type: multipart/form-data" -F "file=@/path/to/file/sample.pdf" http://localhost:5000/upload
+    ```
     
-2. The default proxy target server is set to http://youtube.com
-    - Browsing **http://localhost:8080** will response with the content of **http://youtube.com**
-    - Browsing **http://localhost:8080/stats** will give **the current stats of the AsyncProxy server**.
-    - Browsing **http://localhost:8080/?target_url=http://python.org** will **change proxy target to python.org** and response with the content of http://python.org 
+2. When file upload fails, the error will show and a link to `upload` will be provided
+
+3. Upload file 
 
 
 ## Deployment
