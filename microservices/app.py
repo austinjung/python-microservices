@@ -114,7 +114,7 @@ def get_file(filename):
     )
 
 
-@api.route('/upload/<string:filename>', methods=['POST'])
+@api.route(SHARE_FOLDER_UPLOAD_URL + '/<string:filename>', methods=['POST'])
 def upload_file(filename):
     """Upload a file with api."""
     try:
@@ -127,7 +127,7 @@ def upload_file(filename):
         abort(400, str(e))
 
 
-@api.route('/upload', methods=['POST', 'GET'])
+@api.route(SHARE_FOLDER_UPLOAD_URL, methods=['POST', 'GET'])
 def upload_file_from_form():
     """Upload a file from form."""
     if request.method == 'POST':

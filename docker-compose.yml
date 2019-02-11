@@ -28,7 +28,7 @@ services:
         source: ./microservices
         target: /tmp
     ports:
-      - "5000:5000"
+      - "8000:5000"
     networks:
       - external
     depends_on:
