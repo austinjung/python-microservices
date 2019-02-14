@@ -22,11 +22,11 @@ Your task is to build a simple microservice using the Python Flask framework.  T
 
 ## Design
 
-1. `http://localhost:5000/` will redict to `http://localhost:5000/upload`
+1. `http://localhost:8000/` will redict to `http://localhost:8000/upload`
     - This page will list all uploaded files. And you can upload a file using UI.
     - Or you can use curl to upload a file.
     ```
-    curl -i -X POST -H "Content-Type: multipart/form-data" -F "file=@/path/to/file/sample.pdf" http://localhost:5000/upload
+    curl -i -X POST -H "Content-Type: multipart/form-data" -F "file=@/path/to/file/sample.pdf" http://localhost:8000/upload
     ```
     
 2. When file upload fails, the error will show and a link to `upload` will be provided
@@ -35,35 +35,35 @@ Your task is to build a simple microservice using the Python Flask framework.  T
     - The upload file name should be unique in the download folder of server.
     - If upload file has any of the above issue, the server will show the corresponding error.
 
-3. Upload file using API endpoint `http://localhost:5000/upload/your-upload-file-name.ext`
+3. Upload file using API endpoint `http://localhost:8000/upload/your-upload-file-name.ext`
     - You can use curl or your program to upload file
     ```
-    curl -i -X POST -H "Content-Type: application/json" --data-binary "@/Users/austinjung/Documents/sample.pdf" http://localhost:5000/upload/my_upload.pdf
+    curl -i -X POST -H "Content-Type: application/json" --data-binary "@/Users/austinjung/Documents/sample.pdf" http://localhost:8000/upload/my_upload.pdf
     ```
     
-4. You can get all file names using API `http://localhost:5000/download`
+4. You can get all file names using API `http://localhost:8000/download`
     - You can use curl or your program to get file names
     ```
-    curl -i -X GET -H "Content-Type: application/json" http://localhost:5000/download
+    curl -i -X GET -H "Content-Type: application/json" http://localhost:8000/download
     ```
     - And the response will be
     ```json
     [
         {
             "filename": "Austin-Jung_2019_resume.pdf",
-            "url": "http://localhost:5000/download/Austin-Jung_2019_resume.pdf"
+            "url": "http://localhost:8000/download/Austin-Jung_2019_resume.pdf"
         },
         {
             "filename": "sample.pdf",
-            "url": "http://localhost:5000/download/sample.pdf"
+            "url": "http://localhost:8000/download/sample.pdf"
         }
     ]
     ```
     
-5. You can download a file using API `http://localhost:5000/download/sample.pdf`
+5. You can download a file using API `http://localhost:8000/download/sample.pdf`
     - You can use curl or your program to get file names
     ```
-    curl -i -X GET -H "Content-Type: application/json" http://localhost:5000/download/sample.pdf --output sample.pdf
+    curl -i -X GET -H "Content-Type: application/json" http://localhost:8000/download/sample.pdf --output sample.pdf
     ```
 
 ## Deployment
