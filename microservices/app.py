@@ -13,7 +13,7 @@ SHARE_FOLDER_LIST_URL = '/download'
 SHARE_FOLDER_DOWNLOAD_BASE_URL = SHARE_FOLDER_LIST_URL + '/'
 SHARE_FOLDER_UPLOAD_URL = '/upload'
 DEFAULT_ALLOWED_EXTENSIONS = (
-    'txt', 'rtf', 'doc', 'docx', 'xls', 'xlsx', 'pdf',
+    'txt', 'rtf', 'doc', 'docx', 'xls', 'xlsx', 'pdf', 'mp4', 'zip',
 )
 
 
