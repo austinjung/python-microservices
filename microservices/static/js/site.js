@@ -28,7 +28,7 @@ $(function() {
           dataType: "json",
           contentType: "application/json; charset=utf-8",
           type: "POST",
-          url: "http://localhost:5000/find_codes",
+          url: "http://localhost:9000/find_codes",
           data: JSON.stringify({
             concept_text: concept,
             context_text: context,
@@ -50,7 +50,6 @@ $(function() {
           }
         });
       });
-
 
   $("input[name='keyword']").on("input", mark);
   // $("input[type='checkbox']").on("change", mark);

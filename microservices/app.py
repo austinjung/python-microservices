@@ -36,9 +36,11 @@ if not os.path.exists(SHARE_FOLDER):
 # Directories
 BASE_DIR = os.path.dirname(__file__)
 MED_EMBEDDINGS_PATH = os.path.join(BASE_DIR, 'models', 'med_embeddings_dict.json')
+MED_TERMINOLOGY_PATH = os.path.join(BASE_DIR, 'models', 'med_processed_terminologies.json')
 
 
 med_embeddings = set(read_json(MED_EMBEDDINGS_PATH))
+med_processed_terminologies = read_json(MED_TERMINOLOGY_PATH)
 
 stop_words = {
     "/", "-", ",", "(", ")", "[", "]", "upper", "left", "right", "down", "lower", "region",
@@ -224,6 +226,10 @@ def api_find_code():
         r = requests.post(endpoint_url, json=request.json)
         if r.status_code == 200:
             response = json.loads(r.content)
+            for result in response['results']:
+                concept_key = ' '.join(preprocess_text_for_med_embedding(result['synonym']))
+                result_dict = med_processed_terminologies.get(concept_key, (result['code'], result['synonym']))
+                result['synonym'] = result_dict[1]
         else:
             response = {
                 "message": "Error on get med-embedding terminology",
@@ -270,4 +276,4 @@ def upload_file_from_form():
 
 
 if __name__ == '__main__':
-    api.run(host='0.0.0.0')
+    api.run(host='0.0.0.0', port=9000)
