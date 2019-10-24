@@ -10,12 +10,6 @@
     <script src="../../static/js/site.js"></script>
     <script>
     $(document).ready(function(){
-      let dropdown = $('#med-code-dropdown');
-
-      dropdown.empty();
-
-      dropdown.append('<option selected="true" disabled>Choose med code</option>');
-      dropdown.prop('selectedIndex', 0);
 
       $("#get-suggestion").click(function(){
         var context = $.trim($("#context").val());
@@ -30,31 +24,6 @@
           }),
           success: function(data,status){
             $("input[name='keyword']").val(data.key_tokens);
-          }
-        });
-      });
-
-      $("#get-codes").click(function(){
-        var concept = $.trim($("input[name='keyword']").val());
-        var context = $.trim($("#context").val());
-        var entity_type = $("#entity-type-dropdown option:selected").val();
-        $.ajax({
-          dataType: "json",
-          contentType: "application/json; charset=utf-8",
-          type: "POST",
-          url: "http://localhost:5000/find_codes",
-          data: JSON.stringify({
-            concept_text: concept,
-            context_text: context,
-            entity_type: entity_type
-          }),
-          success: function(data, status){
-            for (let i = 0; i < data.results.length; i++) {
-              option = document.createElement('option');
-              option.text = data.results[i].synonym + ": " + data.results[i].synonym;
-              option.value = data.results[i].code;
-              dropdown.add(option);
-            }
           }
         });
       });
@@ -115,6 +84,7 @@
     <div class="panel panel-default col-lg-10 mt-3">
       <div class="panel-body context">
         <select id="med-code-dropdown" name="med-code" class="browser-default custom-select col-lg-12">
+            <option selected>Choose med code</option>
         </select>
       </div>
     </div>
