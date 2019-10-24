@@ -5,8 +5,8 @@ FROM python:3.6.9
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-ADD . /app
-# ADD requirements.txt /app
+ADD ./microservices /app
+ADD requirements.txt /app
 
 # Expose the port uWSGI will listen on
 EXPOSE 5000
@@ -18,3 +18,4 @@ RUN pip install -r requirements.txt
 ENV FLASK_ENV=development
 ENV FLASK_DEBUG=1
 ENV API_TOKEN=python-microservices-key
+CMD python app.py

@@ -3,3 +3,4 @@ uWSGI==2.0.17.1
 pytest==4.2.0
 mock==2.0.0
 pytest-mock==1.10.0
+requests

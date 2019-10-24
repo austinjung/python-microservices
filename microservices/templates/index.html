@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <script src="../../static/js/site.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#get-suggestion").click(function(){
+        var context = $.trim($("#context").val());
+        $("#highlighted").text(context);
+        $.ajax({
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          type: "POST",
+          url: "http://localhost:5000/get_terminologies",
+          data: JSON.stringify({
+            context: context
+          }),
+          success: function(data,status){
+            $("input[name='keyword']").val(data.key_tokens);
+          }
+        });
+      });
+    });
+    </script>
+</head>
+<body>
+
+    <h2 class="text-center">Example with Med-embedded terminology service</h2>
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="search row">
+          <div class="col-lg-10 ml-3">
+            <span class="text-center">Suggested words:</span>
+            <input type="text" name="keyword" class="form-control input-sm" placeholder="Lorem ipsum...">
+          </div>
+        </div>
+        <div class="search row justify-content-center">
+          <div class="mt-3 ml-5 mr-5 col-md-4">
+            <button id="get-suggestion" type="button" class="btn btn-info align-right">Get suggestion for highlight</button>
+          </div>
+          <div class="mt-3 ml-5 col-md-4">
+            <button id="get-codes" type="button" class="btn btn-success center-block">Get suggestion for cancer related codes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-default col-lg-12 mt-3">
+      <div class="panel-body context">
+        <p id="highlighted" class="col-lg-10 border border-info"></p>
+      </div>
+    </div>
+
+    <div class="panel panel-default col-lg-12">
+      <div class="panel-body">
+        <textarea id="context" rows="10" cols="168"></textarea>
+      </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+body {
+  margin: 15px;
+}
+
+div.search span,
+div.search input[name="keyword"] {
+  display: block;
+}
+
+div.search input[name="keyword"] {
+  margin-top: 4px;
+}
+
+div.panel {
+  margin-bottom: 15px;
+}
+
+div.panel .panel-body p:last-child {
+  margin-bottom: 0;
+}
+
+mark {
+  padding: 0;
+}
+
+.mark, mark {
+    padding: .2em;
+    background-color: #ffff00;
+}

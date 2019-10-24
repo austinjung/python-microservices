@@ -5,7 +5,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 2.7 (microservices-venv)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.6 (ciitizen-document-classification-service) (2)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
