@@ -151,7 +151,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549167391000</updated>
-      <workItem from="1571860317071" duration="18673000" />
+      <workItem from="1571860317071" duration="20508000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -181,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571879919333</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add entity type dropdown list">
+      <created>1571887090226</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571887090226</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -224,9 +231,10 @@
     <MESSAGE value="Add .idea to .gitignore" />
     <MESSAGE value="Add dockerfile-prod" />
     <MESSAGE value="Add med-embedding service examples" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add med-embedding service examples" />
+    <MESSAGE value="Add entity type dropdown list" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add entity type dropdown list" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1571887002481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1571889421921" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>
