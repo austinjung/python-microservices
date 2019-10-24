@@ -24,6 +24,8 @@ $(function() {
         var concept = $.trim($("input[name='keyword']").val());
         var context = $.trim($("#context").val());
         var entity_type = "";
+        var med_code_detail = "";
+        $("#med-code-detail").val(med_code_detail);
         $.each($("#entity-type-dropdown option:selected"), function(){
           if ($(this).val() !== "")
             entity_type = entity_type + "," + $(this).val();
@@ -47,10 +49,12 @@ $(function() {
 
             for (var i = 0; i < data.results.length; i++) {
               var option = document.createElement('option');
-              option.text = data.results[i].code + ": " + data.results[i].synonym;
+              option.text = data.results[i].code + ": " + data.results[i].terminology + ": " + data.results[i].synonym;
               option.value = data.results[i].code;
               dropdown.append(option);
+              med_code_detail += option.text + "\n\n";
             }
+            $("#med-code-detail").val(med_code_detail);
           }
         });
       });
