@@ -23,12 +23,16 @@ $(function() {
   $("#get-codes").click(function(){
         var concept = $.trim($("input[name='keyword']").val());
         var context = $.trim($("#context").val());
-        var entity_type = $("#entity-type-dropdown option:selected").val();
+        var entity_type = "";
+        $.each($("#entity-type-dropdown option:selected"), function(){
+          if ($(this).val() !== "")
+            entity_type = entity_type + "," + $(this).val();
+        });
         $.ajax({
           dataType: "json",
           contentType: "application/json; charset=utf-8",
           type: "POST",
-          url: "http://localhost:9000/find_codes",
+          url: "http://localhost:5000/find_codes",
           data: JSON.stringify({
             concept_text: concept,
             context_text: context,
@@ -50,6 +54,24 @@ $(function() {
           }
         });
       });
+
+  $("#get-suggestion").click(function(){
+        var context = $.trim($("#context").val());
+        $("#highlighted").text(context);
+        $.ajax({
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          type: "POST",
+          url: "http://localhost:5000/get_terminologies",
+          data: JSON.stringify({
+            context: context
+          }),
+          success: function(data,status){
+            $("input[name='keyword']").val(data.key_tokens);
+            mark();
+          }
+        });
+  });
 
   $("input[name='keyword']").on("input", mark);
   // $("input[type='checkbox']").on("change", mark);

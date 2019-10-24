@@ -223,13 +223,15 @@ def api_find_code():
     """find code from med-embedding terminology service"""
     if request.method == 'POST':
         endpoint_url = "https://api.dev.ciitizen.net/medembed/find_codes"
+        # endpoint_url = "http://localhost:3000/medembed/find_codes"
         r = requests.post(endpoint_url, json=request.json)
         if r.status_code == 200:
             response = json.loads(r.content)
             for result in response['results']:
                 concept_key = ' '.join(preprocess_text_for_med_embedding(result['synonym']))
-                result_dict = med_processed_terminologies.get(concept_key, (result['code'], result['synonym']))
-                result['synonym'] = result_dict[1]
+                result_dict = med_processed_terminologies.get(concept_key, (result['code'], "REVIEWED", result['synonym']))
+                result['terminology'] = result_dict[1]
+                result['synonym'] = result_dict[2]
         else:
             response = {
                 "message": "Error on get med-embedding terminology",
@@ -276,4 +278,4 @@ def upload_file_from_form():
 
 
 if __name__ == '__main__':
-    api.run(host='0.0.0.0', port=9000)
+    api.run(host='0.0.0.0', port=5000)
