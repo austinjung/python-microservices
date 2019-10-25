@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/models/med_embeddings_dict.json" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/models/med_embeddings_dict.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/models/med_processed_terminologies.json" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/models/med_processed_terminologies.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -152,7 +153,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549167391000</updated>
-      <workItem from="1571860317071" duration="30726000" />
+      <workItem from="1571860317071" duration="32337000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -217,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571944870679</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add suggested code details">
+      <created>1571952086267</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1571952086267</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -265,9 +273,10 @@
     <MESSAGE value="Add get code logic and populate to suggested dropdown list" />
     <MESSAGE value="Change port and use terminology dict" />
     <MESSAGE value="Change to multiple select entity type and add terminology info to suggested codes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change to multiple select entity type and add terminology info to suggested codes" />
+    <MESSAGE value="Add suggested code details" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add suggested code details" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1571951943440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1571977682020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>
