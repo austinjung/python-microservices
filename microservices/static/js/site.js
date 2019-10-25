@@ -49,7 +49,7 @@ $(function() {
 
             for (var i = 0; i < data.results.length; i++) {
               var option = document.createElement('option');
-              option.text = data.results[i].code + ": " + data.results[i].terminology + ": " + data.results[i].synonym;
+              option.text = data.results[i].code + ": " + data.results[i].entity_type + ": " + data.results[i].terminology + ": " + data.results[i].synonym;
               option.value = data.results[i].code;
               dropdown.append(option);
               med_code_detail += option.text + "\n\n";

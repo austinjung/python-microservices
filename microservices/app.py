@@ -41,6 +41,9 @@ MED_TERMINOLOGY_PATH = os.path.join(BASE_DIR, 'models', 'med_processed_terminolo
 
 med_embeddings = set(read_json(MED_EMBEDDINGS_PATH))
 med_processed_terminologies = read_json(MED_TERMINOLOGY_PATH)
+keys = list(med_processed_terminologies.keys())
+for key in keys:
+    med_processed_terminologies[' '.join(sorted(key.split()))] = med_processed_terminologies.pop(key)
 
 stop_words = {
     "/", "-", ",", "(", ")", "[", "]", "upper", "left", "right", "down", "lower", "region",
@@ -229,7 +232,8 @@ def api_find_code():
             response = json.loads(r.content)
             for result in response['results']:
                 concept_key = ' '.join(preprocess_text_for_med_embedding(result['synonym']))
-                result_dict = med_processed_terminologies.get(concept_key, (result['code'], "REVIEWED", result['synonym']))
+                sorted_key = ' '.join(sorted(concept_key.split()))
+                result_dict = med_processed_terminologies.get(sorted_key, (result['code'], "REVIEWED", result['synonym']))
                 result['terminology'] = result_dict[1]
                 result['synonym'] = result_dict[2]
         else:
