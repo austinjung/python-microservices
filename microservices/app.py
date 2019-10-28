@@ -3,6 +3,7 @@ import requests
 import json
 import re
 from datetime import datetime
+from collections import defaultdict
 
 from pyciiml.utils.file_utils import read_json
 
@@ -36,11 +37,17 @@ if not os.path.exists(SHARE_FOLDER):
 # Directories
 BASE_DIR = os.path.dirname(__file__)
 MED_EMBEDDINGS_PATH = os.path.join(BASE_DIR, 'models', 'med_embeddings_dict.json')
+CIITIZEN_MED_DICTIONARY_PATH = os.path.join(BASE_DIR, 'models', 'ciitizen_medical_dictionary.json')
+MERCK_MED_DICTIONARY_PATH = os.path.join(BASE_DIR, 'models', 'merck_medical_dictionary.json')
+
 MED_TERMINOLOGY_PATH = os.path.join(BASE_DIR, 'models', 'med_processed_terminologies.json')
 
 
-med_embeddings = set(read_json(MED_EMBEDDINGS_PATH))
-med_processed_terminologies = read_json(MED_TERMINOLOGY_PATH)
+# med_embeddings = set(read_json(MED_EMBEDDINGS_PATH))
+med_embeddings = set(read_json(CIITIZEN_MED_DICTIONARY_PATH)).union(set(read_json(MERCK_MED_DICTIONARY_PATH)))
+
+
+med_processed_terminologies = read_json(MED_TERMINOLOGY_PATH)  # To display original highlighted context
 keys = list(med_processed_terminologies.keys())
 for key in keys:
     med_processed_terminologies[' '.join(sorted(key.split()))] = med_processed_terminologies.pop(key)
@@ -207,8 +214,9 @@ def api_get_terminologies():
     """get med-embedding terminologies"""
     if request.method == 'POST':
         context = request.json['context']
-        preprocessed_context = set(preprocess_text_for_med_embedding(context))
-        key_tokens = preprocessed_context.intersection(med_embeddings)
+        # preprocessed_context = set(preprocess_text_for_med_embedding(context))
+        processed_context = set(context.lower().split())
+        key_tokens = processed_context.intersection(med_embeddings)
         response = {
             "key_tokens": " ".join(key_tokens),
             "message": HTTPStatus.OK.phrase,
@@ -221,29 +229,113 @@ def api_get_terminologies():
         return make_response(jsonify(response), response["status-code"])
 
 
+# @api.route(MED_TERMINOLOGY_FIND_CODE, methods=['POST'])
+# def api_find_code():
+#     """find code from med-embedding terminology service"""
+#     if request.method == 'POST':
+#         endpoint_url = "https://api.dev.ciitizen.net/medembed/find_codes"
+#         # endpoint_url = "http://localhost:3000/medembed/find_codes"
+#         r = requests.post(endpoint_url, json=request.json)
+#         if r.status_code == 200:
+#             response = json.loads(r.content)
+#             for result in response['results']:
+#                 concept_key = ' '.join(preprocess_text_for_med_embedding(result['synonym']))
+#                 sorted_key = ' '.join(sorted(concept_key.split()))
+#                 result_dict = med_processed_terminologies.get(sorted_key, (result['code'], "REVIEWED", result['synonym']))
+#                 result['terminology'] = result_dict[1]
+#                 result['synonym'] = result_dict[2]
+#         else:
+#             response = {
+#                 "message": "Error on get med-embedding terminology",
+#                 "status-code": r.status_code,
+#                 "method": request.method,
+#                 "timestamp": datetime.now().isoformat(),
+#                 "url": request.url,
+#             }
+#
+#         return make_response(jsonify(response), response["status-code"])
+
+
+def get_t2_find_code(payload, max_results=5):
+    payload["max_results"] = max_results
+
+    endpoint_url = "https://api.dev.ciitizen.net/medembed/find_codes"
+    # endpoint_url = "http://localhost:3000/medembed/find_codes"
+    r = requests.post(endpoint_url, json=payload)
+    return r
+
+
+def get_end_index_for_payload(start_index, window_length, context):
+    end_index = start_index
+    length_of_context = len(context)
+    for idx in range(start_index, start_index + window_length):
+        if idx >= length_of_context or context[idx] in ['\\n', '\n']:
+            return end_index
+        end_index = idx
+    return end_index
+
+
+def generate_payload(processed_context, concept_window_length=10, context_window_length=15):
+    payloads = []
+    for index, token in enumerate(processed_context):
+        try:
+            int(token)  # skip integer token
+            continue
+        except ValueError:
+            concept_end_idx = get_end_index_for_payload(index, concept_window_length, processed_context)
+            if concept_end_idx == index:
+                continue
+            suppressed_text = re.sub(suppress_words, '', token)
+            if suppressed_text in ['']:
+                continue
+            context_end_idx = get_end_index_for_payload(index, context_window_length, processed_context)
+            if token in med_embeddings:
+                payload = {
+                    "concept_text": ' '.join(processed_context[index: concept_end_idx]),
+                    "context_text": ' '.join(processed_context[index: context_end_idx]),
+                    "entity_type": "",
+                    "start_idx": index,
+                    "last_idx": concept_end_idx,
+                }
+                payloads.append(payload)
+    return payloads
+
+
 @api.route(MED_TERMINOLOGY_FIND_CODE, methods=['POST'])
 def api_find_code():
     """find code from med-embedding terminology service"""
+    find_code_results = defaultdict(lambda: [None, None, 0.0, 0.0, 0, 0])
     if request.method == 'POST':
-        endpoint_url = "https://api.dev.ciitizen.net/medembed/find_codes"
-        # endpoint_url = "http://localhost:3000/medembed/find_codes"
-        r = requests.post(endpoint_url, json=request.json)
-        if r.status_code == 200:
-            response = json.loads(r.content)
-            for result in response['results']:
-                concept_key = ' '.join(preprocess_text_for_med_embedding(result['synonym']))
-                sorted_key = ' '.join(sorted(concept_key.split()))
-                result_dict = med_processed_terminologies.get(sorted_key, (result['code'], "REVIEWED", result['synonym']))
-                result['terminology'] = result_dict[1]
-                result['synonym'] = result_dict[2]
-        else:
-            response = {
-                "message": "Error on get med-embedding terminology",
-                "status-code": r.status_code,
-                "method": request.method,
-                "timestamp": datetime.now().isoformat(),
-                "url": request.url,
-            }
+        context = request.json['context_text']
+        processed_context = context.lower().replace('\\n', '\n').split()
+        payloads = generate_payload(processed_context)
+        response = {}
+        for payload in payloads:
+            r = get_t2_find_code(payload)
+            if r.status_code == 200:
+                response = json.loads(r.content)
+                for result in response['results']:
+                    if find_code_results[result['code']][2] == 0.0:
+                        find_code_results[result['code']][0] = result['terminology']
+                        find_code_results[result['code']][1] = result['entity_type']
+                    find_code_results[result['code']][2] += result['confidence']
+                    if result['confidence'] > find_code_results[result['code']][3]:
+                        find_code_results[result['code']][3] = result['confidence']
+                        find_code_results[result['code']][4] = payload['start_idx']
+                        find_code_results[result['code']][5] = payload['last_idx']
+            else:
+                pass
+
+        sorted_find_code_results = sorted(find_code_results.items(), key=lambda kv: kv[1][2], reverse=True)
+        response['results'] = []
+        for result in sorted_find_code_results[:10]:
+            response['results'].append({
+                'code': result[0],
+                'terminology': result[1][0],
+                'entity_type': result[1][1],
+                'confidence': result[1][3],
+                'synonym': ' '.join(processed_context[result[1][4]: result[1][5]])
+            })
 
         return make_response(jsonify(response), response["status-code"])
 

@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/microservices/models/ciitizen_medical_dictionary.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/models/merck_medical_dictionary.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/models/med_embeddings_dict.json" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/models/med_embeddings_dict.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/models/med_processed_terminologies.json" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/models/med_processed_terminologies.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,13 +42,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/microservices" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/microservices/models" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/docker" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/microservices" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -154,7 +153,10 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1549167391000</updated>
-      <workItem from="1571860317071" duration="37563000" />
+      <workItem from="1571860317071" duration="38889000" />
+      <workItem from="1572109252760" duration="222000" />
+      <workItem from="1572110575238" duration="23000" />
+      <workItem from="1572110632314" duration="13379000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -233,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571978206367</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Fix finding suggested code by sorted_key">
+      <created>1572037831450</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1572037831451</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -271,6 +280,19 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add simple dockerized microservices" />
     <MESSAGE value="Add .idea to .gitignore" />
@@ -282,9 +304,10 @@
     <MESSAGE value="Change port and use terminology dict" />
     <MESSAGE value="Change to multiple select entity type and add terminology info to suggested codes" />
     <MESSAGE value="Add suggested code details" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add suggested code details" />
+    <MESSAGE value="Fix finding suggested code by sorted_key" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix finding suggested code by sorted_key" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572035652013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572302563130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>
