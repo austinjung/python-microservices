@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/microservices/models/ciitizen_medical_dictionary.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/models/merck_medical_dictionary.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
     </list>
@@ -156,7 +154,7 @@
       <workItem from="1571860317071" duration="38889000" />
       <workItem from="1572109252760" duration="222000" />
       <workItem from="1572110575238" duration="23000" />
-      <workItem from="1572110632314" duration="13379000" />
+      <workItem from="1572110632314" duration="19439000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -242,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572037831451</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add first version of finding highlighted and code">
+      <created>1572304874404</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1572304874404</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -305,9 +310,10 @@
     <MESSAGE value="Change to multiple select entity type and add terminology info to suggested codes" />
     <MESSAGE value="Add suggested code details" />
     <MESSAGE value="Fix finding suggested code by sorted_key" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix finding suggested code by sorted_key" />
+    <MESSAGE value="Add first version of finding highlighted and code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add first version of finding highlighted and code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572302563130" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572310132416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

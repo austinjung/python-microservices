@@ -256,6 +256,22 @@ def api_get_terminologies():
 #         return make_response(jsonify(response), response["status-code"])
 
 
+def get_weighted_concept_score(kv):
+    occurance = len(kv[1])
+    return kv[1][0]['concept_score'] * (1 + occurance * 0.01)
+
+
+def sort_by_code_weight_with_same_parent(results):
+    code_weight_dict = defaultdict(list)
+    for result in results:
+        code_weight_dict[result['code']].append(result)
+    sorted_by_code_weight = sorted(code_weight_dict.items(), key=get_weighted_concept_score, reverse=True)
+    sorted_results = []
+    for code, results_with_same_code in sorted_by_code_weight:
+        sorted_results.append(results_with_same_code[0])
+    return sorted_results
+
+
 def get_t2_find_code(payload, max_results=5):
     payload["max_results"] = max_results
 
@@ -301,41 +317,43 @@ def generate_payload(processed_context, concept_window_length=10, context_window
     return payloads
 
 
+def generate_payload_by_line(processed_context_lines, entity_type=""):
+    payloads = []
+    for line in processed_context_lines:
+        processed_line = ' '.join(preprocess_text_for_med_embedding(line))
+        payload = {
+            "concept_text": processed_line,
+            "context_text": processed_line,
+            "entity_type": entity_type,
+            "highlighted": processed_line
+        }
+        payloads.append(payload)
+    return payloads
+
+
 @api.route(MED_TERMINOLOGY_FIND_CODE, methods=['POST'])
 def api_find_code():
     """find code from med-embedding terminology service"""
-    find_code_results = defaultdict(lambda: [None, None, 0.0, 0.0, 0, 0])
+    find_code_results = []
     if request.method == 'POST':
         context = request.json['context_text']
-        processed_context = context.lower().replace('\\n', '\n').split()
-        payloads = generate_payload(processed_context)
+        entity_type = request.json['entity_type']
+        processed_context_lines = context.lower().replace('\\n', '\n').split('\n\n').split('\n')
+        payloads = generate_payload_by_line(processed_context_lines, entity_type=entity_type)
         response = {}
         for payload in payloads:
             r = get_t2_find_code(payload)
             if r.status_code == 200:
                 response = json.loads(r.content)
                 for result in response['results']:
-                    if find_code_results[result['code']][2] == 0.0:
-                        find_code_results[result['code']][0] = result['terminology']
-                        find_code_results[result['code']][1] = result['entity_type']
-                    find_code_results[result['code']][2] += result['confidence']
-                    if result['confidence'] > find_code_results[result['code']][3]:
-                        find_code_results[result['code']][3] = result['confidence']
-                        find_code_results[result['code']][4] = payload['start_idx']
-                        find_code_results[result['code']][5] = payload['last_idx']
+                    result['synonym'] = payload['concept_text']
+                find_code_results.extend(response['results'])
             else:
                 pass
 
-        sorted_find_code_results = sorted(find_code_results.items(), key=lambda kv: kv[1][2], reverse=True)
-        response['results'] = []
-        for result in sorted_find_code_results[:10]:
-            response['results'].append({
-                'code': result[0],
-                'terminology': result[1][0],
-                'entity_type': result[1][1],
-                'confidence': result[1][3],
-                'synonym': ' '.join(processed_context[result[1][4]: result[1][5]])
-            })
+        sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
+        sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
+        response['results'] = sorted_top_concept
 
         return make_response(jsonify(response), response["status-code"])
 
