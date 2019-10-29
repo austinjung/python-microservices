@@ -338,7 +338,7 @@ def api_find_code():
     if request.method == 'POST':
         context = request.json['context_text']
         entity_type = request.json['entity_type']
-        processed_context_lines = context.lower().replace('\\n', '\n').split('\n\n').split('\n')
+        processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
         payloads = generate_payload_by_line(processed_context_lines, entity_type=entity_type)
         response = {}
         for payload in payloads:
