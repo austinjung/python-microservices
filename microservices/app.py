@@ -27,7 +27,8 @@ SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
 DEFAULT_ALLOWED_EXTENSIONS = (
-    'txt', 'rtf', 'doc', 'docx', 'xls', 'xlsx', 'pdf', 'mp4', 'zip',
+    # 'txt', 'rtf', 'doc', 'docx', 'xls', 'xlsx', 'pdf', 'mp4', 'zip',
+    'json', 'jsonl'
 )
 
 
@@ -250,33 +251,6 @@ def api_get_terminologies():
         return make_response(jsonify(response), response["status-code"])
 
 
-# @api.route(MED_TERMINOLOGY_FIND_CODE, methods=['POST'])
-# def api_find_code():
-#     """find code from med-embedding terminology service"""
-#     if request.method == 'POST':
-#         endpoint_url = "https://api.dev.ciitizen.net/medembed/find_codes"
-#         # endpoint_url = "http://localhost:3000/medembed/find_codes"
-#         r = requests.post(endpoint_url, json=request.json)
-#         if r.status_code == 200:
-#             response = json.loads(r.content)
-#             for result in response['results']:
-#                 concept_key = ' '.join(preprocess_text_for_med_embedding(result['synonym']))
-#                 sorted_key = ' '.join(sorted(concept_key.split()))
-#                 result_dict = med_processed_terminologies.get(sorted_key, (result['code'], "REVIEWED", result['synonym']))
-#                 result['terminology'] = result_dict[1]
-#                 result['synonym'] = result_dict[2]
-#         else:
-#             response = {
-#                 "message": "Error on get med-embedding terminology",
-#                 "status-code": r.status_code,
-#                 "method": request.method,
-#                 "timestamp": datetime.now().isoformat(),
-#                 "url": request.url,
-#             }
-#
-#         return make_response(jsonify(response), response["status-code"])
-
-
 def get_weighted_concept_score(kv):
     occurance = len(kv[1])
     return kv[1][0]['concept_score'] * (1 + occurance * 0.01)
@@ -422,36 +396,17 @@ def api_find_code():
 
 
 @api.route(SHARE_FOLDER_UPLOAD_URL, methods=['POST', 'GET'])
+@api.route('/file_upload.html', methods=['GET', 'POST'])
 def upload_file_from_form():
     """Upload a file from form."""
     if request.method == 'POST':
         try:
-            file = request.files['file']
-            api.shared_folder_manager.save_uploaded_file_from_form(file)
-            return redirect(url_for('list_files'))
+            files = request.files['files']
+            api.shared_folder_manager.save_uploaded_file_from_form(files)
+            return make_response(jsonify({'message': '{0} uploaded'.format(files.filename)}), 200)
         except UploadFolderException as e:
-            upload_url = (
-                request.url_root[:-1] + url_for('.upload_file_from_form')
-            )
-            return """
-            <!doctype html>
-            <title>Upload file error</title>
-            <h1>Upload file error</h1>
-            <p>{error}</p>
-            <a href={upload_url}>Try again</a>
-            """.format(
-                error=str(e), upload_url=upload_url
-            )
-    return """
-    <!doctype html>
-    <title>Upload new File</title>
-    <h1>Upload new File</h1>
-    <form action="" method=post enctype=multipart/form-data>
-      <p><input type=file name=file>
-         <input type=submit value=Upload></p>
-    </form>
-    <p>%s</p>
-    """ % "<br>".join(api.shared_folder_manager.get_file_names_in_folder())
+            return make_response(jsonify({'message': '{0}'.format(e)}), 400)
+    return render_template('file_upload.html')
 
 
 if __name__ == '__main__':

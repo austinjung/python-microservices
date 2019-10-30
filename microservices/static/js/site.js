@@ -19,6 +19,19 @@ $(function() {
 
   var possibleOptions;
 
+  var sortObject = function(obj) {
+    if(typeof obj !== 'object')
+        return obj;
+    var temp = {};
+    var keys = [];
+    for(var key in obj)
+        keys.push(key);
+    keys.sort();
+    for(var index in keys)
+        temp[keys[index]] = sortObject(obj[keys[index]]);
+    return temp;
+  };
+
   $("#get-codes").click(function(){
         var concept = $.trim($("input[name='keyword']").val());
         var context = $.trim($("#context").val());
@@ -52,7 +65,7 @@ $(function() {
               data.results[i].code_details.Code = data.results[i].code;
               data.results[i].code_details.Terminology = data.results[i].terminology;
               data.results[i].code_details.Entity_type = data.results[i].entity_type;
-              possibleOptions[data.results[i].code] = data.results[i].code_details;
+              possibleOptions[data.results[i].code] = sortObject(data.results[i].code_details);
               option.value = data.results[i].code;
               dropdown.append(option);
             }
@@ -88,5 +101,39 @@ $(function() {
     var pretty = JSON.stringify(possibleOptions[selectedCode], undefined, 8);
     $("#med-code-detail").val(pretty);
   });
+
+  var add_alert = function(message) {
+      var message_block = $('#message-block');
+      var alert_div = document.createElement('div');
+      $(alert_div).addClass("alert");
+      var button = document.createElement('span');
+      $(button).addClass("closebtn");
+      $(button).html("&times;");
+      $(alert_div).append(button);
+      $(alert_div).append("<strong>Danger!</strong> " + message);
+      message_block.append(alert_div);
+      button.onclick = function(){
+          var div = this.parentElement;
+          div.style.opacity = "0";
+          setTimeout(function(){ div.style.display = "none"; }, 600);
+      };
+  };
+
+  var add_success_alert = function(message) {
+      var message_block = $('#message-block');
+      var alert_div = document.createElement('div');
+      $(alert_div).addClass("alert success");
+      var button = document.createElement('span');
+      $(button).addClass("closebtn");
+      $(button).html("&times;");
+      $(alert_div).append(button);
+      $(alert_div).append("<strong>Success!</strong> " + message);
+      message_block.append(alert_div);
+      button.onclick = function(){
+          var div = this.parentElement;
+          div.style.opacity = "0";
+          setTimeout(function(){ div.style.display = "none"; }, 600);
+      };
+  };
 
 });
