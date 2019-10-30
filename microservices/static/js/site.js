@@ -7,9 +7,6 @@ $(function() {
 
     // Determine selected options
     var options = {debug: false, diacritics: true, separateWordSearch: true};
-    // $("input[name='opt[]']").each(function() {
-    //   options[$(this).val()] = $(this).is(":checked");
-    // });
 
     // Remove previous marked elements and mark
     // the new keyword inside the context
@@ -20,12 +17,13 @@ $(function() {
     });
   };
 
+  var possibleOptions;
+
   $("#get-codes").click(function(){
         var concept = $.trim($("input[name='keyword']").val());
         var context = $.trim($("#context").val());
         var entity_type = "";
-        var med_code_detail = "";
-        $("#med-code-detail").val(med_code_detail);
+        $("#med-code-detail").val("");
         $.each($("#entity-type-dropdown option:selected"), function(){
           if ($(this).val() !== "")
             entity_type = entity_type + "," + $(this).val();
@@ -47,14 +45,20 @@ $(function() {
             dropdown.append('<option selected>Choose med code</option>');
             dropdown.prop('selectedIndex', 0);
 
+            possibleOptions = {};
             for (var i = 0; i < data.results.length; i++) {
               var option = document.createElement('option');
               option.text = data.results[i].code + ": " + data.results[i].entity_type + ": " + data.results[i].terminology + ": " + data.results[i].synonym;
+              data.results[i].code_details.Code = data.results[i].code;
+              data.results[i].code_details.Terminology = data.results[i].terminology;
+              data.results[i].code_details.Entity_type = data.results[i].entity_type;
+              possibleOptions[data.results[i].code] = data.results[i].code_details;
               option.value = data.results[i].code;
               dropdown.append(option);
-              med_code_detail += option.text + "\n\n";
             }
-            $("#med-code-detail").val(med_code_detail);
+            var pretty = JSON.stringify(possibleOptions[data.results[0].code], undefined, 8);
+            $("#med-code-detail").val(pretty);
+            $('#med-code-dropdown').val(data.results[0].code);
           }
         });
       });
@@ -78,6 +82,11 @@ $(function() {
   });
 
   $("input[name='keyword']").on("input", mark);
-  // $("input[type='checkbox']").on("change", mark);
+
+  $('#med-code-dropdown').change(function(){
+    var selectedCode = $(this).children("option:selected").val();
+    var pretty = JSON.stringify(possibleOptions[selectedCode], undefined, 8);
+    $("#med-code-detail").val(pretty);
+  });
 
 });

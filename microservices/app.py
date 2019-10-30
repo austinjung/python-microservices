@@ -41,6 +41,7 @@ CIITIZEN_MED_DICTIONARY_PATH = os.path.join(BASE_DIR, 'models', 'ciitizen_medica
 MERCK_MED_DICTIONARY_PATH = os.path.join(BASE_DIR, 'models', 'merck_medical_dictionary.json')
 
 MED_TERMINOLOGY_PATH = os.path.join(BASE_DIR, 'models', 'med_processed_terminologies.json')
+MED_TERMINOLOGY_CODE_PATH = os.path.join(BASE_DIR, 'models', 'med_terminology_code_verbose.json')
 
 
 # med_embeddings = set(read_json(MED_EMBEDDINGS_PATH))
@@ -51,6 +52,8 @@ med_processed_terminologies = read_json(MED_TERMINOLOGY_PATH)  # To display orig
 keys = list(med_processed_terminologies.keys())
 for key in keys:
     med_processed_terminologies[' '.join(sorted(key.split()))] = med_processed_terminologies.pop(key)
+
+med_terminology_code_verbose = read_json(MED_TERMINOLOGY_CODE_PATH)
 
 stop_words = {
     "/", "-", ",", "(", ")", "[", "]", "upper", "left", "right", "down", "lower", "region",
@@ -83,6 +86,24 @@ suppress_words_patterns = [
     r'<', r'>', r'\^',
 ]
 suppress_words = r'|'.join(map(r'(?:{})'.format, suppress_words_patterns))
+
+suppress_words_patterns_for_highlight = [
+    r'\s?\d{1,2}/\d{1,2}/\d{2,4}\s?',
+    r'(january|jan|february|feb|march|mar|april|apr|may|june|jun)\s+\d{1,2},\s?\d{2,4}\s?',
+    r'(july|jul|august|aug|september|sep|october|oct|november|nov|december|dec)\s+\d{1,2},\s?\d{2,4}\s?'
+    r'(January|Jan|February|Feb|March|Mar|April|Apr|May|June|Jun)\s+\d{1,2},\s?\d{2,4}\s?',
+    r'(July|Jul|August|Aug|September|Sep|October|Oct|November|Nov|December|Dec)\s+\d{1,2},\s?\d{2,4}\s?'
+    r'\s?\d{1,2}:\d{1,2}\s\bpm\b|\bPM\b|\bam\b|\bAM\b\s+',
+    r'\s?\d{1,2}:\d{1,2}\s+',
+    r'\s?\d{1,2}-\d{1,2}-\d{2,4}\s?',
+    r'\s?\d+\s+day[s]?',
+    r'\s?(\(|\[|\{)?\d+(\.|\)|\]|\}|)?',
+    r'\s+\d+',
+    r'</sub>', r'<sub>',
+    r'</sup>', r'<sup>',
+    r'<', r'>', r'\^',
+]
+suppress_words_for_highlight = r'|'.join(map(r'(?:{})'.format, suppress_words_patterns_for_highlight))
 
 replace_words = r'/|\\n'
 
@@ -331,6 +352,43 @@ def generate_payload_by_line(processed_context_lines, entity_type=""):
     return payloads
 
 
+def append_highlighted(prev_highlighted, start_idx, end_idx, concept_line_text, highlighted_tokens):
+    if start_idx < end_idx:
+        if prev_highlighted:
+            highlighted_tokens.append(
+                "<span class='highlighted'>{0}</span>".format(concept_line_text[start_idx: end_idx])
+            )
+        else:
+            highlighted_tokens.append(
+                "<span class='normal'>{0}</span>".format(concept_line_text[start_idx: end_idx])
+            )
+    return not prev_highlighted, end_idx, end_idx
+
+
+def get_highlight(concept_line_text):
+    highlighted_tokens = []
+    start_idx = 0
+    end_idx = 0
+    index = 0
+    highlighted = False
+    suppressed_text = re.sub(suppress_words_for_highlight, '', concept_line_text)
+    for token in concept_line_text.split():
+        if token not in suppressed_text or token.lower() not in med_embeddings:
+            if highlighted:
+                highlighted, start_idx, end_idx = append_highlighted(
+                    highlighted, start_idx, end_idx, concept_line_text, highlighted_tokens
+                )
+        else:
+            if not highlighted:
+                highlighted, start_idx, end_idx = append_highlighted(
+                    highlighted, start_idx, end_idx, concept_line_text, highlighted_tokens
+                )
+        index += len(token) + 1
+        end_idx = index
+    append_highlighted(highlighted, start_idx, end_idx, concept_line_text, highlighted_tokens)
+    return highlighted_tokens
+
+
 @api.route(MED_TERMINOLOGY_FIND_CODE, methods=['POST'])
 def api_find_code():
     """find code from med-embedding terminology service"""
@@ -353,9 +411,14 @@ def api_find_code():
 
         sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
         sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
+        for concept in sorted_top_concept:
+            concept['highlighted'] = ''.join(get_highlight(concept['synonym']))
+            concept['code_details'] = med_terminology_code_verbose[concept['code']]
         response['results'] = sorted_top_concept
+        if len(sorted_top_concept) == 0:
+            response['message'] = "No match found"
 
-        return make_response(jsonify(response), response["status-code"])
+        return make_response(jsonify(response), response.get("status-code", 400))
 
 
 @api.route(SHARE_FOLDER_UPLOAD_URL, methods=['POST', 'GET'])
