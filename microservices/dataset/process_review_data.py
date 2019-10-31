@@ -1,10 +1,10 @@
-import os
 import json
+import os
+from collections import OrderedDict
 from datetime import datetime
-from collections import defaultdict, OrderedDict
 
-from pyciiml.utils.logging_utils import CustomLogger
 from pyciiml.utils.file_utils import check_create_dir, read_json, write_json
+from pyciiml.utils.logging_utils import CustomLogger
 
 # Directories
 BASE_DIR = os.path.dirname(__file__)
@@ -48,7 +48,9 @@ def build_current_working_dataset(json_filename, json_file_full_path, dataset_fi
     total_dataset_count_in_file = 0
     total_processing_dataset_count_in_file = 0
     total_accepted_dataset_count_in_file = 0
+    total_partially_accepted_dataset_count_in_file = 0
     total_rejected_dataset_count_in_file = 0
+    total_not_started_dataset_count = 0
     precision = 0.0
     for review_obj in review_json_objs:
         if review_obj['entityType'] not in terminology_entity_types:
@@ -75,22 +77,28 @@ def build_current_working_dataset(json_filename, json_file_full_path, dataset_fi
                         'selected': review_obj['selected']['text'],
                     }
                 }
+                total_not_started_dataset_count += 1
             except KeyError:
                 total_dataset_count_in_file -= 1
         elif 'accepted' in local_dataset[source_key]:
             total_accepted_dataset_count_in_file += 1
+            precision += local_dataset[source_key]['precision']
+        elif 'partially_accepted' in local_dataset[source_key]:
+            total_partially_accepted_dataset_count_in_file += 1
             precision += local_dataset[source_key]['precision']
         elif 'rejected' in local_dataset[source_key]:
             total_rejected_dataset_count_in_file += 1
         elif 'inferred' in local_dataset[source_key]:
             total_processing_dataset_count_in_file += 1
         else:
-            total_dataset_count_in_file -= 1
+            total_not_started_dataset_count += 1
     dataset_status[json_filename] = {
         'total_dataset': total_dataset_count_in_file,
         'accepted_dataset': total_accepted_dataset_count_in_file,
-        'annotated_dataset': total_accepted_dataset_count_in_file,
+        'partially_accepted_dataset': total_partially_accepted_dataset_count_in_file,
+        'rejected_dataset': total_rejected_dataset_count_in_file,
         'processing_dataset': total_processing_dataset_count_in_file,
+        'not_started': total_not_started_dataset_count,
         'precision': precision,
         'updated': datetime.now().strftime(DATETIME_FORMAT)
     }
@@ -127,5 +135,25 @@ def generate_review_dataset(dataset_dir=DATASET_DIR):
             else:
                 write_json(dataset, dataset_path)
             dataset = build_current_working_dataset(file, full_file_path, dataset_path)
+    dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+    write_json(dataset_status, dataset_status_file_path)
+
+
+def add_dataset(file, dataset_dir=DATASET_DIR):
+    global dataset, dataset_status
+    dataset_status_file_path = os.path.join(dataset_dir, DATASET_STATUS_FILE)
+    if os.path.exists(dataset_status_file_path):
+        dataset_status = read_reviewed_json(dataset_status_file_path)
+    else:
+        write_json(dataset_status, dataset_status_file_path)
+    if file != DATASET_STATUS_FILE and (file.endswith('.json') or file.endswith('.jsonl')):
+        full_file_path = os.path.join(SHARE_FOLDER, file)
+        dataset_path = os.path.join(DATASET_DIR, file)
+        dataset_path = '{0}.data'.format(''.join(dataset_path.split('.')[:-1]))
+        if os.path.exists(dataset_path):
+            dataset = read_reviewed_json(dataset_path)
+        else:
+            write_json(dataset, dataset_path)
+        dataset = build_current_working_dataset(file, full_file_path, dataset_path)
     dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
     write_json(dataset_status, dataset_status_file_path)

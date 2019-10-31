@@ -2,10 +2,11 @@ import os
 import requests
 import json
 import re
+from zipfile import ZipFile
 from datetime import datetime
 from collections import defaultdict
 
-from pyciiml.utils.file_utils import read_json
+from pyciiml.utils.file_utils import read_json, remove_file, write_json
 
 from flask import (
     Flask, request, abort, jsonify, make_response,
@@ -18,49 +19,44 @@ import nltk
 from nltk import word_tokenize
 nltk.download('punkt')
 
-from dataset.process_review_data import generate_review_dataset, dataset_status, dataset, terminology_entity_types
+from dataset.process_review_data import (
+    generate_review_dataset, add_dataset, DATASET_STATUS_FILE
+)
 
 
 ROOT_URL = '/'
 SHARE_FOLDER = 'shared-files'
+DATASET_FOLDER = 'dataset'
 SHARE_FOLDER_DOWNLOAD_URL = '/download'
-SHARE_FOLDER_LIST_URL = '/list'
+SHARE_FOLDER_URL = '/{0}'.format(SHARE_FOLDER)
+DATASET_FOLDER_URL = '/{0}'.format(DATASET_FOLDER)
 SHARE_FOLDER_VIEW_URL = '/view/'
 SHARE_FOLDER_DELETE_URL = '/delete/'
 SHARE_FOLDER_DOWNLOAD_BASE_URL = SHARE_FOLDER_DOWNLOAD_URL + '/'
+DATASET_EXPORT_URL = '/dataset/export'
+PROCESS_STATUS_URL = '/status'
 SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
-DEFAULT_ALLOWED_EXTENSIONS = (
-    # 'txt', 'rtf', 'doc', 'docx', 'xls', 'xlsx', 'pdf', 'mp4', 'zip',
-    'json', 'jsonl'
-)
+DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl')
 
-PROCESS_FOLDER = 'process-files'
 
 if not os.path.exists(SHARE_FOLDER):
     os.makedirs(SHARE_FOLDER)
-if not os.path.exists(PROCESS_FOLDER):
-    os.makedirs(PROCESS_FOLDER)
+if not os.path.exists(DATASET_FOLDER):
+    os.makedirs(DATASET_FOLDER)
 
 # Directories
 BASE_DIR = os.path.dirname(__file__)
-MED_EMBEDDINGS_PATH = os.path.join(BASE_DIR, 'models', 'med_embeddings_dict.json')
+DATASET_ABSOLUTE_PATH = os.path.join(BASE_DIR, 'dataset')
+EXPORT_ZIP_FILE_NAME = 'terminology_dataset.zip'
+EXPORT_ZIP_FILE_PATH = os.path.join(DATASET_FOLDER, EXPORT_ZIP_FILE_NAME)
 CIITIZEN_MED_DICTIONARY_PATH = os.path.join(BASE_DIR, 'models', 'ciitizen_medical_dictionary.json')
 MERCK_MED_DICTIONARY_PATH = os.path.join(BASE_DIR, 'models', 'merck_medical_dictionary.json')
 
-MED_TERMINOLOGY_PATH = os.path.join(BASE_DIR, 'models', 'med_processed_terminologies.json')
 MED_TERMINOLOGY_CODE_PATH = os.path.join(BASE_DIR, 'models', 'med_terminology_code_verbose.json')
 
-
-# med_embeddings = set(read_json(MED_EMBEDDINGS_PATH))
 med_embeddings = set(read_json(CIITIZEN_MED_DICTIONARY_PATH)).union(set(read_json(MERCK_MED_DICTIONARY_PATH)))
-
-
-med_processed_terminologies = read_json(MED_TERMINOLOGY_PATH)  # To display original highlighted context
-keys = list(med_processed_terminologies.keys())
-for key in keys:
-    med_processed_terminologies[' '.join(sorted(key.split()))] = med_processed_terminologies.pop(key)
 
 med_terminology_code_verbose = read_json(MED_TERMINOLOGY_CODE_PATH)
 
@@ -177,6 +173,7 @@ class UploadFolderManager(object):
         self.validate_filename(new_filename)
         with open(os.path.join(self.upload_folder, new_filename), 'wb') as fp:
             fp.write(file_data)
+        add_dataset(new_filename)
         return '{filename} uploaded'.format(filename=new_filename)
 
     def save_uploaded_file_from_form(self, file):
@@ -187,10 +184,14 @@ class UploadFolderManager(object):
         filename = secure_filename(file.filename)
         self.validate_filename(filename)
         file.save(os.path.join(self.upload_folder, filename))
+        add_dataset(filename)
         return '{filename} uploaded'.format(filename=filename)
 
     def get_upload_folder(self):
         return self.upload_folder
+
+    def get_export_abs_folder(self):
+        return DATASET_ABSOLUTE_PATH
 
 
 api = Flask(__name__)
@@ -203,20 +204,26 @@ def hello_world():
     return render_template('index.html')
 
 
-@api.route(SHARE_FOLDER_LIST_URL)
-def list_files():
-    """Endpoint to list files on the server."""
+@api.route(PROCESS_STATUS_URL)
+def show_status():
+    """Endpoint to show process status."""
     files = []
-    base_url = request.url_root[:-1]
-    for filename in api.shared_folder_manager.get_file_names_in_folder():
-        path = os.path.join(api.shared_folder_manager.upload_folder, filename)
-        if os.path.isfile(path):
+    from dataset.process_review_data import dataset_status
+    for filename, status in dataset_status.items():
+        if '.json' in filename:
             files.append({
                 'filename': filename,
-                'progress': 80,
-                'precision': 90,
+                'progress': (status['total_dataset'] - status['not_started']) * 100 / status['total_dataset'],
+                'precision': status['precision'],
+                'total_dataset': status['total_dataset'],
+                'accepted_dataset': status['accepted_dataset'] * 100 / status['total_dataset'],
+                'partially_accepted_dataset': status['partially_accepted_dataset'] * 100 / status['total_dataset'],
+                'rejected_dataset': status['rejected_dataset'] * 100 / status['total_dataset'],
+                'processing_dataset': status['processing_dataset'] * 100 / status['total_dataset'],
+                'not_started': status['not_started'] * 100 / status['total_dataset'],
+                "updated": status['updated']
             })
-    return render_template('list_files.html', files=files)
+    return render_template('process_status.html', files=files)
 
 
 @api.route(SHARE_FOLDER_DOWNLOAD_BASE_URL + '<string:filename>')
@@ -225,6 +232,27 @@ def download_file(filename):
     return send_from_directory(
         api.shared_folder_manager.get_upload_folder(),
         filename,
+        as_attachment=True
+    )
+
+
+def zip_dataset(full_path_files):
+    with ZipFile(EXPORT_ZIP_FILE_PATH, mode='w') as zf:
+        for file in full_path_files:
+            zf.write(file)
+
+
+@api.route(DATASET_EXPORT_URL)
+def export_dataset():
+    """Download a dataset as a attachment."""
+    files = [
+        os.path.join(DATASET_FOLDER, file) for file in os.listdir(DATASET_FOLDER)
+        if file.endswith('.data')
+    ]
+    zip_dataset(files)
+    return send_from_directory(
+        DATASET_FOLDER,
+        EXPORT_ZIP_FILE_NAME,
         as_attachment=True
     )
 
@@ -421,7 +449,7 @@ def upload_file_from_form():
 
 @api.route(SHARE_FOLDER_VIEW_URL + '<string:filename>', methods=['POST', 'GET'])
 def view_file(filename):
-    """Upload a file from form."""
+    """view a file"""
     if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
         file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)
         file_content = json.dumps(read_json(file_path), indent=8)
@@ -430,15 +458,23 @@ def view_file(filename):
         return render_template('json_viewer.html', filename=filename, error=True, file_content='')
 
 
-@api.route(SHARE_FOLDER_DELETE_URL + '<string:filename>', methods=['POST'])
+@api.route(SHARE_FOLDER_DELETE_URL + '<string:filename>', methods=['POST', 'GET'])
 def delete_file(filename):
-    """Upload a file from form."""
+    """delete file"""
     if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
-        file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)
-        file_content = json.dumps(read_json(file_path), indent=8)
-        return render_template('json_viewer.html', filename=filename, error=False, file_content=file_content)
-    else:
-        return render_template('json_viewer.html', filename=filename, error=True, file_content='')
+        try:
+            from dataset.process_review_data import dataset_status
+            file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)
+            dataset_folder = os.path.join(BASE_DIR, DATASET_FOLDER)
+            dataset_path = os.path.join(dataset_folder, filename).replace('.jsonl', '.data').replace('.json', '.data')
+            remove_file(file_path)
+            remove_file(dataset_path)
+            dataset_status.pop(filename)
+            dataset_status_file_path = os.path.join(dataset_folder, DATASET_STATUS_FILE)
+            write_json(dataset_status, dataset_status_file_path)
+            return make_response(jsonify({'message': '{0} deleted'.format(filename)}), 200)
+        except Exception as e:
+            return make_response(jsonify({'message': '{0}'.format(e)}), 400)
 
 
 if __name__ == '__main__':
