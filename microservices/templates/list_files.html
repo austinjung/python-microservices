@@ -23,27 +23,25 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>File name</th>
-            <th>Lastname</th>
-            <th>Email</th>
+            <th>
+                <input type="checkbox" class="select-all-input">
+            </th>
+            <th>Filename</th>
+            <th>Progress</th>
+            <th>Precision</th>
         </tr>
         </thead>
         <tbody>
+        {% for file in files %}
         <tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
+            <td>
+                <input type="checkbox" class="select-all-input" id="{{ file.filename }}">
+            </td>
+            <td>{{ file.filename }}</td>
+            <td>{{ file.progress }}%</td>
+            <td>{{ file.precision }}%</td>
         </tr>
-        <tr>
-            <td>Mary</td>
-            <td>Moe</td>
-            <td>mary@example.com</td>
-        </tr>
-        <tr>
-            <td>July</td>
-            <td>Dooley</td>
-            <td>july@example.com</td>
-        </tr>
+        {% endfor %}
         </tbody>
     </table>
 </div>

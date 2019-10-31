@@ -22,7 +22,7 @@ nltk.download('punkt')
 ROOT_URL = '/'
 SHARE_FOLDER = 'shared-files'
 SHARE_FOLDER_DOWNLOAD_URL = '/download'
-SHARE_FOLDER_LIST_URL = '/list/'
+SHARE_FOLDER_LIST_URL = '/list'
 SHARE_FOLDER_VIEW_URL = '/view/'
 SHARE_FOLDER_DELETE_URL = '/delete/'
 SHARE_FOLDER_DOWNLOAD_BASE_URL = SHARE_FOLDER_DOWNLOAD_URL + '/'
@@ -206,9 +206,10 @@ def list_files():
         if os.path.isfile(path):
             files.append({
                 'filename': filename,
-                'url': base_url + url_for('.get_file', filename=filename)
+                'progress': 80,
+                'precision': 90,
             })
-    return make_response(jsonify(files)), 200
+    return render_template('list_files.html', files=files)
 
 
 @api.route(SHARE_FOLDER_DOWNLOAD_BASE_URL + '<string:filename>')
