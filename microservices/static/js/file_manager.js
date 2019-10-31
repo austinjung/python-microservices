@@ -22,7 +22,7 @@ $(function() {
 
     var add_uploaded_file_to_list = function(file) {
         var list_group = $('.list-group');
-        var file_item = "<a href=\"#\" class=\"list-group-item list-group-item-success\"><span class=\"badge alert-success pull-right\">Success</span>" + file.name + "</a>";
+        var file_item = "<a href=\"/view/" + file.name + "\" class=\"list-group-item list-group-item-success\"><span class=\"badge alert-success pull-right\">Success</span>" + file.name + "</a>";
         list_group.append(file_item);
     };
 

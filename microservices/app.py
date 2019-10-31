@@ -22,6 +22,7 @@ nltk.download('punkt')
 ROOT_URL = '/'
 SHARE_FOLDER = 'shared-files'
 SHARE_FOLDER_LIST_URL = '/download'
+SHARE_FOLDER_VIEW_URL = '/view/'
 SHARE_FOLDER_DOWNLOAD_BASE_URL = SHARE_FOLDER_LIST_URL + '/'
 SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
@@ -396,7 +397,6 @@ def api_find_code():
 
 
 @api.route(SHARE_FOLDER_UPLOAD_URL, methods=['POST', 'GET'])
-@api.route('/file_upload.html', methods=['GET', 'POST'])
 def upload_file_from_form():
     """Upload a file from form."""
     if request.method == 'POST':
@@ -407,6 +407,17 @@ def upload_file_from_form():
         except UploadFolderException as e:
             return make_response(jsonify({'message': '{0}'.format(e)}), 400)
     return render_template('file_upload.html')
+
+
+@api.route(SHARE_FOLDER_VIEW_URL + '<string:filename>', methods=['POST', 'GET'])
+def view_file(filename):
+    """Upload a file from form."""
+    if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
+        file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)
+        file_content = json.dumps(read_json(file_path), indent=8)
+        return render_template('json_viewer.html', filename=filename, error=False, file_content=file_content)
+    else:
+        return render_template('json_viewer.html', filename=filename, error=True, file_content='')
 
 
 if __name__ == '__main__':
