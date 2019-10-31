@@ -18,6 +18,8 @@ import nltk
 from nltk import word_tokenize
 nltk.download('punkt')
 
+from dataset.process_review_data import generate_review_dataset, dataset_status, dataset, terminology_entity_types
+
 
 ROOT_URL = '/'
 SHARE_FOLDER = 'shared-files'
@@ -34,9 +36,12 @@ DEFAULT_ALLOWED_EXTENSIONS = (
     'json', 'jsonl'
 )
 
+PROCESS_FOLDER = 'process-files'
 
 if not os.path.exists(SHARE_FOLDER):
     os.makedirs(SHARE_FOLDER)
+if not os.path.exists(PROCESS_FOLDER):
+    os.makedirs(PROCESS_FOLDER)
 
 # Directories
 BASE_DIR = os.path.dirname(__file__)
@@ -58,6 +63,8 @@ for key in keys:
     med_processed_terminologies[' '.join(sorted(key.split()))] = med_processed_terminologies.pop(key)
 
 med_terminology_code_verbose = read_json(MED_TERMINOLOGY_CODE_PATH)
+
+generate_review_dataset()
 
 stop_words = {
     "/", "-", ",", "(", ")", "[", "]", "upper", "left", "right", "down", "lower", "region",
