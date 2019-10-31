@@ -14,7 +14,7 @@ DATASET_STATUS_FILE = "dataset_status.json"
 LOGS_DIR = os.path.join(BASE_DIR, "../logs")
 
 DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S'
-INITIAL_MODIFIED = datetime(year=2000, month=1, day=1,)
+INITIAL_MODIFIED = datetime(year=2000, month=1, day=1, )
 
 # Loggers
 check_create_dir(LOGS_DIR)
@@ -42,6 +42,7 @@ def read_reviewed_json(file_full_path):
 
 
 def build_current_working_dataset(json_filename, json_file_full_path, dataset_file_full_path):
+    global dataset_status
     local_dataset = OrderedDict()
     review_json_objs = read_reviewed_json(json_file_full_path)
     total_dataset_count_in_file = 0
@@ -108,6 +109,7 @@ def change_current_working_dataset(json_filename, dataset_filename):
     else:
         dataset = build_current_working_dataset(json_filename, json_file_path, dataset_file_path)
 
+
 def generate_review_dataset(dataset_dir=DATASET_DIR):
     global dataset, dataset_status
     dataset_status_file_path = os.path.join(dataset_dir, DATASET_STATUS_FILE)
@@ -124,56 +126,6 @@ def generate_review_dataset(dataset_dir=DATASET_DIR):
                 dataset = read_reviewed_json(dataset_path)
             else:
                 write_json(dataset, dataset_path)
-            review_json_objs = read_reviewed_json(full_file_path)
-            total_dataset_count_in_file = 0
-            total_processing_dataset_count_in_file = 0
-            total_accepted_dataset_count_in_file = 0
-            total_rejected_dataset_count_in_file = 0
-            precision = 0.0
-            for review_obj in review_json_objs:
-                if review_obj['entityType'] not in terminology_entity_types:
-                    continue
-                source_key = review_obj['source']['text']  # source text will be key
-                if source_key == '':
-                    source_key = review_obj['selected']['text']
-                if source_key == '':
-                    source_key = review_obj['highlighted']['text']
-                if source_key == '':
-                    continue
-                total_dataset_count_in_file += 1
-                if source_key not in dataset:
-                    try:
-                        dataset[source_key] = {
-                            'd': review_obj['source']['provenance']['d'],
-                            'p': review_obj['source']['provenance']['p'],
-                            'sectionType': review_obj['sectionType'],
-                            'entityType': review_obj['entityType'],
-                            'code': review_obj.get('code', None),
-                            'precision': 0.0,
-                            'original': {
-                                'highlighted': review_obj['highlighted']['text'],
-                                'selected': review_obj['selected']['text'],
-                            }
-                        }
-                    except KeyError:
-                        total_dataset_count_in_file -= 1
-                elif 'accepted' in dataset[source_key]:
-                    total_accepted_dataset_count_in_file += 1
-                    precision += dataset[source_key]['precision']
-                elif 'rejected' in dataset[source_key]:
-                    total_rejected_dataset_count_in_file += 1
-                elif 'inferred' in dataset[source_key]:
-                    total_processing_dataset_count_in_file += 1
-                else:
-                    total_dataset_count_in_file -= 1
-            dataset_status[file] = {
-                'total_dataset': total_dataset_count_in_file,
-                'accepted_dataset': total_accepted_dataset_count_in_file,
-                'annotated_dataset': total_accepted_dataset_count_in_file,
-                'processing_dataset': total_processing_dataset_count_in_file,
-                'precision': precision,
-                'updated': datetime.now().strftime(DATETIME_FORMAT)
-            }
-            write_json(dataset, dataset_path)
+            dataset = build_current_working_dataset(file, full_file_path, dataset_path)
     dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
     write_json(dataset_status, dataset_status_file_path)
