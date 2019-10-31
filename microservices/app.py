@@ -21,9 +21,11 @@ nltk.download('punkt')
 
 ROOT_URL = '/'
 SHARE_FOLDER = 'shared-files'
-SHARE_FOLDER_LIST_URL = '/download'
+SHARE_FOLDER_DOWNLOAD_URL = '/download'
+SHARE_FOLDER_LIST_URL = '/list/'
 SHARE_FOLDER_VIEW_URL = '/view/'
-SHARE_FOLDER_DOWNLOAD_BASE_URL = SHARE_FOLDER_LIST_URL + '/'
+SHARE_FOLDER_DELETE_URL = '/delete/'
+SHARE_FOLDER_DOWNLOAD_BASE_URL = SHARE_FOLDER_DOWNLOAD_URL + '/'
 SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
@@ -210,7 +212,7 @@ def list_files():
 
 
 @api.route(SHARE_FOLDER_DOWNLOAD_BASE_URL + '<string:filename>')
-def get_file(filename):
+def download_file(filename):
     """Download a file as a attachment."""
     return send_from_directory(
         api.shared_folder_manager.get_upload_folder(),
@@ -411,6 +413,17 @@ def upload_file_from_form():
 
 @api.route(SHARE_FOLDER_VIEW_URL + '<string:filename>', methods=['POST', 'GET'])
 def view_file(filename):
+    """Upload a file from form."""
+    if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
+        file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)
+        file_content = json.dumps(read_json(file_path), indent=8)
+        return render_template('json_viewer.html', filename=filename, error=False, file_content=file_content)
+    else:
+        return render_template('json_viewer.html', filename=filename, error=True, file_content='')
+
+
+@api.route(SHARE_FOLDER_DELETE_URL + '<string:filename>', methods=['POST'])
+def delete_file(filename):
     """Upload a file from form."""
     if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
         file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)

@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Ciitizen AI intern model DS-T2-V.01</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="../../static/css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
@@ -11,79 +12,84 @@
     <script src="../../static/js/site.js"></script>
 </head>
 <body>
-    <div class="message" id="message-block">
-    </div>
+<div class="message" id="message-block">
+</div>
 
-    <div class="jumbotron">
-      <h2 class="text-center">Ciitizen AI Med-Terminology Intern</h2>
-    </div>
+<div class="jumbotron">
+    <h2 class="text-center">Ciitizen AI Med-Terminology Intern</h2>
+</div>
 
-    <div class="panel panel-default">
-      <div class="panel-body">
+<div class="panel panel-default">
+    <div class="panel-body">
         <div class="search row">
-          <div class="col-lg-10 ml-3">
-            <span class="text-center">Suggested words:</span>
-            <input type="text" name="keyword" class="form-control input-sm" placeholder="Lorem ipsum...">
-          </div>
+            <div class="col-lg-10 ml-3">
+                <span class="text-center">Suggested words:</span>
+                <input type="text" name="keyword" class="form-control input-sm" placeholder="Lorem ipsum...">
+            </div>
         </div>
         <div class="search row justify-content-center">
-          <div class="mt-3 ml-5 mr-5 col-md-2">
-            <button id="get-suggestion" type="button" class="btn btn-info align-right">Highlight med-embeddings words</button>
-          </div>
-          <div class="mt-3 ml-5 col-md-2">
-            <select id="entity-type-dropdown" name="entity-type" class="mdb-select colorful-select dropdown-primary md-form" multiple>
-                <option selected value="">Choose entity type</option>
-                <option value="adverseReaction">Adverse Reaction</option>
-                <option value="chemotherapy">Chemotherapy</option>
-                <option value="clinicalStage">Clinical Stage</option>
-                <option value="diagnosis">Diagnosis</option>
-                <option value="diagnosticProcedure">Diagnostic Procedure</option>
-                <option value="diseaseStatus">Disease Status</option>
-                <option value="geneObservations">Gene Observations</option>
-                <option value="grade">Grade</option>
-                <option value="histologicalSubtype">Histological Subtype</option>
-                <option value="labResult">Lab Result</option>
-                <option value="medication">Medication</option>
-                <option value="metastasis">Metastasis</option>
-                <option value="molecularSubtype">Molecular Subtype</option>
-                <option value="primaryTumorLocation">Primary Tumor Location</option>
-                <option value="radiation">Radiation</option>
-                <option value="surgery">Surgery</option>
-                <option value="therapeuticProcedure">Therapeutic Procedure</option>
-            </select>
-          </div>
-          <div class="mt-3 ml-5 col-md-4">
-            <button id="get-codes" type="button" class="btn btn-success center-block">Get suggestion for cancer related codes</button>
-          </div>
+            <div class="mt-3 ml-5 mr-5 col-md-2">
+                <button id="get-suggestion" type="button" class="btn btn-info align-right">
+                    Highlight med-embeddings words
+                </button>
+            </div>
+            <div class="mt-3 ml-5 col-md-2">
+                <select id="entity-type-dropdown" name="entity-type"
+                        class="mdb-select colorful-select dropdown-primary md-form" multiple>
+                    <option selected value="">Choose entity type</option>
+                    <option value="adverseReaction">Adverse Reaction</option>
+                    <option value="chemotherapy">Chemotherapy</option>
+                    <option value="clinicalStage">Clinical Stage</option>
+                    <option value="diagnosis">Diagnosis</option>
+                    <option value="diagnosticProcedure">Diagnostic Procedure</option>
+                    <option value="diseaseStatus">Disease Status</option>
+                    <option value="geneObservations">Gene Observations</option>
+                    <option value="grade">Grade</option>
+                    <option value="histologicalSubtype">Histological Subtype</option>
+                    <option value="labResult">Lab Result</option>
+                    <option value="medication">Medication</option>
+                    <option value="metastasis">Metastasis</option>
+                    <option value="molecularSubtype">Molecular Subtype</option>
+                    <option value="primaryTumorLocation">Primary Tumor Location</option>
+                    <option value="radiation">Radiation</option>
+                    <option value="surgery">Surgery</option>
+                    <option value="therapeuticProcedure">Therapeutic Procedure</option>
+                </select>
+            </div>
+            <div class="mt-3 ml-5 col-md-4">
+                <button id="get-codes" type="button" class="btn btn-success center-block">
+                    Get suggestion for cancer related codes
+                </button>
+            </div>
         </div>
-      </div>
     </div>
+</div>
 
-    <div class="panel panel-default col-lg-12 mt-3">
-      <div class="panel-body context">
+<div class="panel panel-default col-lg-12 mt-3">
+    <div class="panel-body context">
         <p id="highlighted" class="col-lg-10 border border-info"></p>
-      </div>
     </div>
+</div>
 
-    <div class="panel panel-default col-lg-10 mt-3">
-      <div class="panel-body context">
+<div class="panel panel-default col-lg-10 mt-3">
+    <div class="panel-body context">
         <select id="med-code-dropdown" name="med-code" class="browser-default custom-select col-lg-12">
             <option selected>Choose med code</option>
         </select>
-      </div>
     </div>
+</div>
 
-    <div class="panel panel-default col-lg-12">
-      <div class="panel-body">
+<div class="panel panel-default col-lg-12">
+    <div class="panel-body">
         <textarea id="context" rows="10" cols="168"></textarea>
-      </div>
     </div>
+</div>
 
-    <div class="panel panel-default col-lg-12">
-      <div class="panel-body">
+<div class="panel panel-default col-lg-12">
+    <div class="panel-body">
         <textarea id="med-code-detail" rows="10" cols="168"></textarea>
-      </div>
     </div>
+</div>
 
 </body>
 </html>

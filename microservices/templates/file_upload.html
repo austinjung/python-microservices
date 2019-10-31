@@ -3,62 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Ciitizen AI intern model DS-T2-V.01</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="../../static/css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
-    <!------ Include the above in your HEAD tag ---------->
     <script src="../../static/js/file_manager.js"></script>
 </head>
 <body>
-    <div class="message" id="message-block">
-    </div>
+<div class="message" id="message-block">
+</div>
 
-    <div class="jumbotron">
-      <h2 class="text-center">Upload data to get med-terminology codes</h2>
-    </div>
+<div class="jumbotron">
+    <h2 class="text-center">Upload data to get med-terminology codes</h2>
+</div>
 
-    <div class="container">
-      <div class="panel panel-default">
+<div class="container">
+    <div class="panel panel-default">
         <div class="panel-body text-center">
-          <!-- Standar Form -->
-          <h4>Select files from your computer</h4>
-          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
-            <div class="form-inlin justify-content-center">
-              <div class="form-group">
-                <input type="file" name="files[]" id="js-upload-files" multiple>
-                <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
-              </div>
-            </div>
-          </form>
+            <!-- Standar Form -->
+            <h4>Select files from your computer</h4>
+            <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+                <div class="form-inlin justify-content-center">
+                    <div class="form-group">
+                        <input type="file" name="files[]" id="js-upload-files" multiple>
+                        <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
+    </div>
 
-      <div class="panel panel-default">
+    <div class="panel panel-default">
         <div class="panel-body">
-          <!-- Drop Zone -->
-          <h4>Or drag and drop files below</h4>
-          <div class="upload-drop-zone" id="drop-zone">
-            Just drag and drop files here
-          </div>
-
-          <!-- Progress Bar -->
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-              <span class="status">0%</span>
+            <!-- Drop Zone -->
+            <h4>Or drag and drop files below</h4>
+            <div class="upload-drop-zone" id="drop-zone">
+                Just drag and drop files here
             </div>
-          </div>
 
-          <!-- Upload Finished -->
-          <div class="js-upload-finished">
-            <h3>Processed files</h3>
-            <div class="list-group">
+            <!-- Progress Bar -->
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                     style="width: 0%;">
+                    <span class="status">0%</span>
+                </div>
             </div>
-          </div>
+
+            <!-- Upload Finished -->
+            <div class="js-upload-finished">
+                <h3>Processed files</h3>
+                <div class="list-group">
+                </div>
+            </div>
         </div>
-      </div>
-    </div> <!-- /container -->
+    </div>
+</div>
 </body>
 </html>

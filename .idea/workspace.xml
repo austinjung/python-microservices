@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/microservices/static/js/file_manager.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/templates/file_upload.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/templates/list_files.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/shared-files/Austin-Jung_2019_resume.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/shared-files/sample.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/static/js/file_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/file_manager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/templates/file_upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/file_upload.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/templates/json_viewer.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/json_viewer.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +46,8 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -163,7 +166,7 @@
       <workItem from="1571860317071" duration="38889000" />
       <workItem from="1572109252760" duration="222000" />
       <workItem from="1572110575238" duration="23000" />
-      <workItem from="1572110632314" duration="64496000" />
+      <workItem from="1572110632314" duration="70019000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -284,7 +287,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572460034142</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Add multiple file upload">
+      <created>1572477860272</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1572477860272</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add json viewer">
+      <created>1572482719590</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1572482719590</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -352,9 +369,11 @@
     <MESSAGE value="Fix line split logic - later we need to split line by nlp" />
     <MESSAGE value="Add selected code details" />
     <MESSAGE value="Temp shelves for file upload" />
-    <option name="LAST_COMMIT_MESSAGE" value="Temp shelves for file upload" />
+    <MESSAGE value="Add multiple file upload" />
+    <MESSAGE value="Add json viewer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add json viewer" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572477764087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572482509976" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

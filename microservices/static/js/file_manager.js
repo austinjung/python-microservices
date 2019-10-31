@@ -1,8 +1,5 @@
-$(function() {
+$(function () {
     'use strict';
-
-    // UPLOAD CLASS DEFINITION
-    // ======================
 
     var dropZone = document.getElementById('drop-zone');
     var uploadForm = document.getElementById('js-upload-form');
@@ -20,13 +17,13 @@ $(function() {
         $(".progress .progress-bar .status").text(+percent + "%");
     };
 
-    var add_uploaded_file_to_list = function(file) {
+    var add_uploaded_file_to_list = function (file) {
         var list_group = $('.list-group');
         var file_item = "<a href=\"/view/" + file.name + "\" class=\"list-group-item list-group-item-success\"><span class=\"badge alert-success pull-right\">Success</span>" + file.name + "</a>";
         list_group.append(file_item);
     };
 
-    var add_alert = function(message) {
+    var add_alert = function (message) {
         var message_block = $('#message-block');
         var alert_div = document.createElement('div');
         $(alert_div).addClass("alert");
@@ -36,14 +33,16 @@ $(function() {
         $(alert_div).append(button);
         $(alert_div).append("<strong>Danger!</strong> " + message);
         message_block.append(alert_div);
-        button.onclick = function(){
+        button.onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
         };
     };
 
-    var add_success_alert = function(message) {
+    var add_success_alert = function (message) {
         var message_block = $('#message-block');
         var alert_div = document.createElement('div');
         $(alert_div).addClass("alert success");
@@ -53,14 +52,16 @@ $(function() {
         $(alert_div).append(button);
         $(alert_div).append("<strong>Success!</strong> " + message);
         message_block.append(alert_div);
-        button.onclick = function(){
+        button.onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
-            setTimeout(function(){ div.style.display = "none"; }, 600);
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
         };
     };
 
-    var startUpload = function(file) {
+    var startUpload = function (file) {
         // reset progress bar
         $(".progress .progress-bar").css("width", "0%");
         $(".progress .progress-bar .status").text("0%");
@@ -78,7 +79,6 @@ $(function() {
                 return myXhr;
             },
             success: function (data) {
-                // your callback here
                 add_uploaded_file_to_list(file);
             },
             error: function (error) {
@@ -94,7 +94,7 @@ $(function() {
         });
     };
 
-    uploadForm.addEventListener('submit', function(e) {
+    uploadForm.addEventListener('submit', function (e) {
         var uploadFiles = document.getElementById('js-upload-files').files;
         e.preventDefault();
 
@@ -103,7 +103,7 @@ $(function() {
         }
     });
 
-    dropZone.ondrop = function(e) {
+    dropZone.ondrop = function (e) {
         e.preventDefault();
         this.className = 'upload-drop-zone';
 
@@ -113,12 +113,12 @@ $(function() {
         }
     };
 
-    dropZone.ondragover = function() {
+    dropZone.ondragover = function () {
         this.className = 'upload-drop-zone drop';
         return false;
     };
 
-    dropZone.ondragleave = function() {
+    dropZone.ondragleave = function () {
         this.className = 'upload-drop-zone';
         return false;
     };
