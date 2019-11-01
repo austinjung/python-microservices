@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/microservices/templates/site.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/dataset/process_review_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/dataset/process_review_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/templates/list_files.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/process_status.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/templates/file_upload.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/file_upload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/templates/json_viewer.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/json_viewer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/templates/process_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/process_status.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,9 +26,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -164,7 +168,7 @@
       <workItem from="1571860317071" duration="38889000" />
       <workItem from="1572109252760" duration="222000" />
       <workItem from="1572110575238" duration="23000" />
-      <workItem from="1572110632314" duration="100743000" />
+      <workItem from="1572110632314" duration="108309000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -334,7 +338,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572546298686</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Add status view, add and delete with sync-up dataset_status">
+      <created>1572562751039</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1572562751039</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -408,9 +419,10 @@
     <MESSAGE value="Add list template" />
     <MESSAGE value="Add dataset and status" />
     <MESSAGE value="Add change and build dataset" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add change and build dataset" />
+    <MESSAGE value="Add status view, add and delete with sync-up dataset_status" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add status view, add and delete with sync-up dataset_status" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572562628463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572572102699" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

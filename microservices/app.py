@@ -17,12 +17,12 @@ from http import HTTPStatus
 from string import punctuation
 import nltk
 from nltk import word_tokenize
+
 nltk.download('punkt')
 
 from dataset.process_review_data import (
     generate_review_dataset, add_dataset, DATASET_STATUS_FILE
 )
-
 
 ROOT_URL = '/'
 SHARE_FOLDER = 'shared-files'
@@ -39,7 +39,6 @@ SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
 DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl')
-
 
 if not os.path.exists(SHARE_FOLDER):
     os.makedirs(SHARE_FOLDER)
@@ -199,16 +198,18 @@ api.shared_folder_manager = UploadFolderManager(SHARE_FOLDER)
 
 
 @api.route(ROOT_URL)
-@api.route('/index.html', methods=['GET', 'POST'])
-def hello_world():
-    return render_template('index.html')
+def main_url():
+    from dataset.process_review_data import selected_dataset
+    current_doc_url = '/view/{0}'.format(selected_dataset)
+    return render_template('index.html', current_doc_url=current_doc_url, current_doc_name=selected_dataset)
 
 
 @api.route(PROCESS_STATUS_URL)
 def show_status():
     """Endpoint to show process status."""
     files = []
-    from dataset.process_review_data import dataset_status
+    from dataset.process_review_data import dataset_status, selected_dataset
+    current_doc_url = '/view/{0}'.format(selected_dataset)
     for filename, status in dataset_status.items():
         if '.json' in filename:
             files.append({
@@ -223,7 +224,8 @@ def show_status():
                 'not_started': status['not_started'] * 100 / status['total_dataset'],
                 "updated": status['updated']
             })
-    return render_template('process_status.html', files=files)
+    return render_template('process_status.html', files=files, current_doc_url=current_doc_url,
+                           current_doc_name=selected_dataset)
 
 
 @api.route(SHARE_FOLDER_DOWNLOAD_BASE_URL + '<string:filename>')
@@ -444,18 +446,24 @@ def upload_file_from_form():
             return make_response(jsonify({'message': '{0} uploaded'.format(files.filename)}), 200)
         except UploadFolderException as e:
             return make_response(jsonify({'message': '{0}'.format(e)}), 400)
-    return render_template('file_upload.html')
+    from dataset.process_review_data import selected_dataset
+    current_doc_url = '/view/{0}'.format(selected_dataset)
+    return render_template('file_upload.html', current_doc_url=current_doc_url, current_doc_name=selected_dataset)
 
 
 @api.route(SHARE_FOLDER_VIEW_URL + '<string:filename>', methods=['POST', 'GET'])
 def view_file(filename):
     """view a file"""
+    from dataset.process_review_data import selected_dataset
+    current_doc_url = '/view/{0}'.format(selected_dataset)
     if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
         file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)
         file_content = json.dumps(read_json(file_path), indent=8)
-        return render_template('json_viewer.html', filename=filename, error=False, file_content=file_content)
+        return render_template('json_viewer.html', filename=filename, error=False, file_content=file_content,
+                               current_doc_url=current_doc_url, current_doc_name=selected_dataset)
     else:
-        return render_template('json_viewer.html', filename=filename, error=True, file_content='')
+        return render_template('json_viewer.html', filename=filename, error=True, file_content='',
+                               current_doc_url=current_doc_url, current_doc_name=selected_dataset)
 
 
 @api.route(SHARE_FOLDER_DELETE_URL + '<string:filename>', methods=['POST', 'GET'])
@@ -463,7 +471,7 @@ def delete_file(filename):
     """delete file"""
     if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
         try:
-            from dataset.process_review_data import dataset_status
+            from dataset.process_review_data import dataset_status, selected_dataset
             file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)
             dataset_folder = os.path.join(BASE_DIR, DATASET_FOLDER)
             dataset_path = os.path.join(dataset_folder, filename).replace('.jsonl', '.data').replace('.json', '.data')
