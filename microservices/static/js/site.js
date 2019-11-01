@@ -35,7 +35,7 @@ $(function () {
         return temp;
     };
 
-    $("#get-codes").click(function () {
+    $(".infer-next").click(function () {
         var concept = $.trim($("input[name='keyword']").val());
         var context = $.trim($("#context").val());
         var entity_type = "";

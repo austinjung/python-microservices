@@ -1,7 +1,7 @@
 {% extends "site.html" %}
 {% block extra_menu %}
     <li class="nav-item">
-        <a class="nav-link" href="#">Process</a>
+        <a class="nav-link infer-next" href="#">Process</a>
     </li>
 {% endblock %}
 {% block content %}
@@ -13,19 +13,19 @@
     <div class="panel-body">
         <div class="search row">
             <div class="col-lg-10 ml-3">
-                <span class="text-center">Suggested words:</span>
+                <span class="text-center">Highlighted words:</span>
                 <input type="text" name="keyword" class="form-control input-sm" placeholder="Lorem ipsum...">
             </div>
         </div>
         <div class="search row justify-content-center">
             <div class="mt-3 ml-5 mr-5 col-md-2">
                 <button id="get-suggestion" type="button" class="btn btn-info align-right">
-                    Highlight med-embeddings words
+                    Modify highlight words
                 </button>
             </div>
             <div class="mt-3 ml-5 col-md-2">
                 <select id="entity-type-dropdown" name="entity-type"
-                        class="mdb-select colorful-select dropdown-primary md-form" multiple>
+                        class="mdb-select colorful-select dropdown-primary md-form">
                     <option selected value="">Choose entity type</option>
                     <option value="adverseReaction">Adverse Reaction</option>
                     <option value="chemotherapy">Chemotherapy</option>
@@ -47,8 +47,14 @@
                 </select>
             </div>
             <div class="mt-3 ml-5 col-md-4">
-                <button id="get-codes" type="button" class="btn btn-success center-block">
-                    Get suggestion for cancer related codes
+                <button id="accept-code" type="button" class="btn btn-success center-block">
+                    Accept
+                </button>
+                <button id="reject-code" type="button" class="btn btn-warning center-block">
+                    Reject
+                </button>
+                <button id="skip-code" type="button" class="btn btn-light center-block infer-next">
+                    Skip
                 </button>
             </div>
         </div>
