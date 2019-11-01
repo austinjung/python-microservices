@@ -61,19 +61,45 @@
     </div>
 
     <div class="row">
-    <div class="panel panel-default col-lg-12 mt-5">
-        <div class="panel-body context">
-            <select id="med-code-dropdown" name="med-code" class="col-lg-12 selectpicker"
-                    title="Choose Ciitizen Medical Code" data-live-search="true">
-            </select>
+        <div class="panel panel-default col-lg-12 mt-5">
+            <div class="panel-body context">
+                <select id="med-code-dropdown" name="med-code" class="col-lg-12 selectpicker"
+                        title="Choose Ciitizen Medical Code" data-live-search="true">
+                </select>
+            </div>
         </div>
-    </div>
     </div>
 
     <div class="row">
-    <div class="panel panel-default col-lg-12">
-        <div class="panel-body context text-center">
-            <textarea id="context" rows="10" cols="168"></textarea>
+        <div class="panel panel-default col-lg-12">
+            <div id="context" class="panel-body context text-center">
+                <div class="elementor-widget-wrap">
+                    <div class="elementor-element elementor-element-5260 elementor-widget elementor-widget-heading is-mac animated fadeIn"
+                         data-id="5260" data-element_type="widget"
+                         data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}" data-widget_type="heading.default">
+                        <div class="elementor-widget-container">
+                            <h2 class="elementor-heading-title elementor-size-default">When You Control Your Health
+                                Data, You Control Your Options.</h2></div>
+                    </div>
+                    <div class="elementor-element elementor-element-1fde elementor-widget elementor-widget-text-editor is-mac animated fadeIn"
+                         data-id="1fde" data-element_type="widget"
+                         data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}"
+                         data-widget_type="text-editor.default">
+                        <div class="elementor-widget-container">
+                            <div class="elementor-text-editor elementor-clearfix"><p>Ciitizen helps you collect,
+                                summarize, and share your medical records digitally, <b>free of charge</b>. You can use
+                                it to get a second opinion, coordinate with caregivers, or donate to research.</p>
+                                <p class="p1"><b>Starting with cancer, we are helping patients take control of their
+                                    health outcomes.</b></p></div>
+                        </div>
+                    </div>
+                    <div class="elementor-element elementor-element-348c elementor-widget elementor-widget-jet-button is-mac animated fadeIn"
+                         data-id="348c" data-element_type="widget"
+                         data-settings="{&quot;_animation&quot;:&quot;fadeIn&quot;}"
+                         data-widget_type="jet-button.default">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>
@@ -81,13 +107,15 @@
     <div class="row">
         <div class="col-lg-6">
             <div class="text-center">
-                <textarea id="med-code-detail" rows="10" cols="80"></textarea>
+                Synonyms
+                <textarea id="med-code-detail" rows="10" readonly></textarea>
             </div>
         </div>
 
         <div class="col-lg-6">
             <div class="text-center">
-                <textarea id="med-code-detail" rows="10" cols="80"></textarea>
+                Relations
+                <textarea id="med-code-detail" rows="10" readonly></textarea>
             </div>
         </div>
     </div>
