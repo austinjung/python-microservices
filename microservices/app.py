@@ -37,6 +37,7 @@ DATASET_EXPORT_URL = '/dataset/export'
 PROCESS_STATUS_URL = '/status'
 SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
+INFER_NEXT = '/infer_next'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
 DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl')
 
@@ -407,6 +408,43 @@ def get_highlight(concept_line_text):
 @api.route(MED_TERMINOLOGY_FIND_CODE, methods=['POST'])
 def api_find_code():
     """find code from med-embedding terminology service"""
+    find_code_results = []
+    if request.method == 'POST':
+        context = request.json['context_text']
+        entity_type = request.json['entity_type']
+        processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+        payloads = generate_payload_by_line(processed_context_lines, entity_type=entity_type)
+        response = {}
+        for payload in payloads:
+            r = get_t2_find_code(payload)
+            if r.status_code == 200:
+                response = json.loads(r.content)
+                for result in response['results']:
+                    result['synonym'] = payload['concept_text']
+                find_code_results.extend(response['results'])
+            else:
+                pass
+
+        sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
+        sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
+        for concept in sorted_top_concept:
+            concept['highlighted'] = ''.join(get_highlight(concept['synonym']))
+            concept['code_details'] = med_terminology_code_verbose[concept['code']]
+        response['results'] = sorted_top_concept
+        if len(sorted_top_concept) == 0:
+            response['message'] = "No match found"
+
+        return make_response(jsonify(response), response.get("status-code", 400))
+
+
+def get_next_dataset_context():
+    from dataset.process_review_data import dataset, dataset_status
+    pass
+
+
+@api.route(INFER_NEXT, methods=['POST'])
+def api_infer_next_code():
+    """find code from unprocessed dataset"""
     find_code_results = []
     if request.method == 'POST':
         context = request.json['context_text']

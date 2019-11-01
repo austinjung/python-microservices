@@ -5,84 +5,90 @@
     </li>
 {% endblock %}
 {% block content %}
-<div class="jumbotron">
-    <h2 class="text-center">Ciitizen AI Med-Terminology Intern</h2>
-</div>
+    <div class="jumbotron">
+        <h2 class="text-center">Ciitizen AI Med-Terminology Intern</h2>
+    </div>
 
-<div class="panel panel-default">
-    <div class="panel-body">
-        <div class="search row">
-            <div class="col-lg-10 ml-3">
-                <span class="text-center">Highlighted words:</span>
-                <input type="text" name="keyword" class="form-control input-sm" placeholder="Lorem ipsum...">
-            </div>
-        </div>
-        <div class="search row justify-content-center">
-            <div class="mt-3 ml-5 mr-5 col-md-2">
-                <button id="get-suggestion" type="button" class="btn btn-info align-right">
-                    Modify highlight words
-                </button>
-            </div>
-            <div class="mt-3 ml-5 col-md-2">
-                <select id="entity-type-dropdown" name="entity-type" class="selectpicker">
-                    <option selected value="">Choose entity type</option>
-                    <option value="adverseReaction">Adverse Reaction</option>
-                    <option value="chemotherapy">Chemotherapy</option>
-                    <option value="clinicalStage">Clinical Stage</option>
-                    <option value="diagnosis">Diagnosis</option>
-                    <option value="diagnosticProcedure">Diagnostic Procedure</option>
-                    <option value="diseaseStatus">Disease Status</option>
-                    <option value="geneObservations">Gene Observations</option>
-                    <option value="grade">Grade</option>
-                    <option value="histologicalSubtype">Histological Subtype</option>
-                    <option value="labResult">Lab Result</option>
-                    <option value="medication">Medication</option>
-                    <option value="metastasis">Metastasis</option>
-                    <option value="molecularSubtype">Molecular Subtype</option>
-                    <option value="primaryTumorLocation">Primary Tumor Location</option>
-                    <option value="radiation">Radiation</option>
-                    <option value="surgery">Surgery</option>
-                    <option value="therapeuticProcedure">Therapeutic Procedure</option>
-                </select>
-            </div>
-            <div class="mt-3 ml-5 col-md-4">
-                <button id="accept-code" type="button" class="btn btn-success center-block">
-                    Accept
-                </button>
-                <button id="reject-code" type="button" class="btn btn-warning center-block">
-                    Reject
-                </button>
-                <button id="skip-code" type="button" class="btn btn-light center-block infer-next">
-                    Skip
-                </button>
-            </div>
+    <div class="search row">
+        <div class="col-lg-12 text-center">
+            <span class="text-center">Highlighted words:</span>
+            <input type="text" name="keyword" class="form-control input-sm" placeholder="Lorem ipsum...">
         </div>
     </div>
-</div>
 
-<div class="panel panel-default col-lg-12 mt-3">
-    <div class="panel-body context">
-        <p id="highlighted" class="col-lg-10 border border-info"></p>
+    <div class="row">
+        <div class="mt-5 col text-center">
+            <button id="get-suggestion" type="button" class="btn btn-info align-right">
+                Modify highlight words
+            </button>
+        </div>
+        <div class="mt-5 col">
+            <select id="entity-type-dropdown" name="entity-type" class="selectpicker"
+                    title="Choose entity type title" data-live-search="true">
+                <option value="adverseReaction">Adverse Reaction</option>
+                <option value="chemotherapy">Chemotherapy</option>
+                <option value="clinicalStage">Clinical Stage</option>
+                <option value="diagnosis">Diagnosis</option>
+                <option value="diagnosticProcedure">Diagnostic Procedure</option>
+                <option value="diseaseStatus">Disease Status</option>
+                <option value="geneObservations">Gene Observations</option>
+                <option value="grade">Grade</option>
+                <option value="histologicalSubtype">Histological Subtype</option>
+                <option value="labResult">Lab Result</option>
+                <option value="medication">Medication</option>
+                <option value="metastasis">Metastasis</option>
+                <option value="molecularSubtype">Molecular Subtype</option>
+                <option value="primaryTumorLocation">Primary Tumor Location</option>
+                <option value="radiation">Radiation</option>
+                <option value="surgery">Surgery</option>
+                <option value="therapeuticProcedure">Therapeutic Procedure</option>
+            </select>
+        </div>
+        <div class="mt-5 col">
+            <button id="accept-code" type="button" class="btn btn-success center-block">
+                Accept
+            </button>
+            <button id="reject-code" type="button" class="btn btn-warning center-block">
+                Reject
+            </button>
+            <button type="button" class="btn btn-info center-block infer-next">
+                Reprocess
+            </button>
+            <button id="skip-code" type="button" class="btn btn-light center-block skip-next">
+                Skip
+            </button>
+        </div>
     </div>
-</div>
 
-<div class="panel panel-default col-lg-10 mt-3">
-    <div class="panel-body context">
-        <select id="med-code-dropdown" name="med-code" class="browser-default custom-select col-lg-12">
-            <option selected>Choose med code</option>
-        </select>
+    <div class="row">
+    <div class="panel panel-default col-lg-12 mt-5">
+        <div class="panel-body context">
+            <select id="med-code-dropdown" name="med-code" class="col-lg-12 selectpicker"
+                    title="Choose Ciitizen Medical Code" data-live-search="true">
+            </select>
+        </div>
     </div>
-</div>
+    </div>
 
-<div class="panel panel-default col-lg-12">
-    <div class="panel-body">
-        <textarea id="context" rows="10" cols="168"></textarea>
+    <div class="row">
+    <div class="panel panel-default col-lg-12">
+        <div class="panel-body context text-center">
+            <textarea id="context" rows="10" cols="168"></textarea>
+        </div>
     </div>
-</div>
+    </div>
 
-<div class="panel panel-default col-lg-12">
-    <div class="panel-body">
-        <textarea id="med-code-detail" rows="10" cols="168"></textarea>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="text-center">
+                <textarea id="med-code-detail" rows="10" cols="80"></textarea>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="text-center">
+                <textarea id="med-code-detail" rows="10" cols="80"></textarea>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}
