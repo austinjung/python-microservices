@@ -429,7 +429,10 @@ def api_find_code():
         sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
         for concept in sorted_top_concept:
             concept['highlighted'] = ''.join(get_highlight(concept['synonym']))
-            concept['code_details'] = med_terminology_code_verbose[concept['code']]
+            concept['code_details'] = {}
+            for code, code_entity_type in med_terminology_code_verbose.items():
+                if concept['code'] in code_entity_type:
+                    concept['code_details'] = code_entity_type[concept['code']]
         response['results'] = sorted_top_concept
         if len(sorted_top_concept) == 0:
             response['message'] = "No match found"
@@ -507,7 +510,7 @@ def api_infer_next_code():
                 selected_highlighted = concept['highlighted']
             concept.pop('children')
             concept.pop('parents')
-            concept['synonym'] = extract_synonym(med_terminology_code_verbose[concept['code']]['SY'])
+            concept['synonym'] = extract_synonym(med_terminology_code_verbose[concept['entity_type']][concept['code']]['SY'])
         response['results'] = sorted_top_concept
         response_context_lines = context.replace('\\n', '\n').replace('\n\n', '\n').split('\n')
         index = 0
@@ -515,9 +518,13 @@ def api_infer_next_code():
             processed_context_tokens = set(processed_context.split())
             selected_concept_tokens = set(selected_concept.split())
             if selected_concept_tokens.intersection(processed_context_tokens) == selected_concept_tokens:
-                response_context_lines[index] = selected_highlighted
+                response_context_lines[index] = "<mark class='c0177'>{0}</mark>".format(response_context_lines[index])
             index += 1
         response['context'] = '<br />'.join(response_context_lines)
+        entity_codes = []
+        for code, detail in med_terminology_code_verbose[concept['entity_type']].items():
+            entity_codes.append([code, detail['SY'][0]])
+        response['entity_codes'] = entity_codes
         if len(sorted_top_concept) == 0:
             response['message'] = "No match found"
         else:

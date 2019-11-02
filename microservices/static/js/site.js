@@ -48,8 +48,7 @@ $(function () {
             contentType: "application/json; charset=utf-8",
             type: "POST",
             url: "http://localhost:5000/infer_next",
-            data: JSON.stringify({
-            }),
+            data: JSON.stringify({}),
             success: function (data, status) {
                 if (data.message === 'OK') {
                     var dropdown = $('#med-code-dropdown');
@@ -57,19 +56,24 @@ $(function () {
                     dropdown.empty();
 
                     // possibleOptions = {};
+                    var suggested_codes = [];
                     for (var i = 0; i < data.results.length; i++) {
                         var option = document.createElement('option');
-                        option.text = data.results[i].code + ": " + data.results[i].synonym;
-                        // data.results[i].code_details.Code = data.results[i].code;
-                        // data.results[i].code_details.Terminology = data.results[i].terminology;
-                        // data.results[i].code_details.Entity_type = data.results[i].entity_type;
-                        // possibleOptions[data.results[i].code] = sortObject(data.results[i].code_details);
+                        option.text = data.results[i].code + ": " + data.results[i].synonym + " (confidence: " + data.results[i].confidence + ")";
                         option.value = data.results[i].code;
+                        suggested_codes.push(data.results[i].code);
                         dropdown.append(option);
+                    }
+                    for (var i_extra = 0; i_extra < data.entity_codes.length; i_extra++) {
+                        if (suggested_codes.indexOf(data.entity_codes[i_extra][0]) < 0) {
+                            var option_extra = document.createElement('option');
+                            option_extra.text = data.entity_codes[i_extra][0] + ": " + data.entity_codes[i_extra][1];
+                            option_extra.value = data.entity_codes[i_extra][0];
+                            dropdown.append(option_extra);
+                        }
                     }
                     // var pretty = JSON.stringify(possibleOptions[data.results[0].code], undefined, 8);
                     // $("#med-code-detail").val(pretty);
-                    // $('#med-code-dropdown').val(data.results[0].code);
                     $('#med-code-dropdown').selectpicker('refresh');
                     $('#med-code-dropdown').selectpicker('val', data.results[0].code);
                     $('#entity-type-dropdown').selectpicker('val', data.results[0].entity_type);
