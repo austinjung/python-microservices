@@ -11,15 +11,16 @@
 
     <div class="search row">
         <div class="col-lg-12 text-center">
-            <span class="text-center">Highlighted words:</span>
-            <input type="text" name="keyword" class="form-control input-sm" placeholder="Lorem ipsum...">
+            <span class="text-center">Selected words:</span>
+            <input type="text" name="keyword" class="form-control input-sm"
+                   placeholder="Select and copy keywords from context and click 'Reprocess with the above selected words' button">
         </div>
     </div>
 
     <div class="row">
         <div class="mt-5 col text-center">
             <button id="get-suggestion" type="button" class="btn btn-info align-right" disabled>
-                Modify highlight words
+                Reprocess with the above selected words
             </button>
         </div>
         <div class="mt-5 col">
@@ -73,7 +74,7 @@
     <div class="row">
         <div class="panel panel-default col-lg-12">
             <div class="panel-body text-center c0161 p-3">
-                <div id="context_text">
+                <div id="context_text" class="text-left">
                     {% include 'ciitizen-catch-phrase.html' %}
                 </div>
             </div>

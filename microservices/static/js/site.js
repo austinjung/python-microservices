@@ -10,9 +10,9 @@ $(function () {
 
         // Remove previous marked elements and mark
         // the new keyword inside the context
-        $(".context").unmark({
+        $(".context_text").unmark({
             done: function () {
-                $(".context").mark(keyword, options);
+                $(".context_text").mark(keyword, options);
             }
         });
     };
@@ -40,15 +40,8 @@ $(function () {
     };
 
     $(".infer-next").click(function () {
-        var concept = $.trim($("input[name='keyword']").val());
-        var context = $.trim($("#context").val());
-        var entity_type = "";
         $("#med-code-detail").val("");
-        $.each($("#entity-type-dropdown option:selected"), function () {
-            if ($(this).val() !== "") {
-                entity_type = entity_type + "," + $(this).val();
-            }
-        });
+        $("input[name='keyword']").val("");
         set_disable_all_button(true);
         $.ajax({
             dataType: "json",

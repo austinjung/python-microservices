@@ -165,7 +165,7 @@
       <workItem from="1571860317071" duration="38889000" />
       <workItem from="1572109252760" duration="222000" />
       <workItem from="1572110575238" duration="23000" />
-      <workItem from="1572110632314" duration="137854000" />
+      <workItem from="1572110632314" duration="141760000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -405,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572640890063</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Coding for process logic and UI">
+      <created>1572677088918</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1572677088918</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -457,7 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add med-embedding service examples" />
     <MESSAGE value="Add entity type dropdown list" />
     <MESSAGE value="Add get code logic" />
     <MESSAGE value="Add get code logic and populate to suggested dropdown list" />
@@ -482,9 +488,10 @@
     <MESSAGE value="Modify bootstrap select" />
     <MESSAGE value="Refactor index.html" />
     <MESSAGE value="Finalize index.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalize index.html" />
+    <MESSAGE value="Coding for process logic and UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Coding for process logic and UI" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572676895298" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572681189571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

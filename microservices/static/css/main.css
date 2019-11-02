@@ -124,3 +124,14 @@ textarea {
     border-radius: 0;
     flex-direction: row;
 }
+
+.c0177 {
+    color: inherit;
+    margin: 0 0.15em;
+    display: inline;
+    padding: 0.25em 0.4em;
+    background: #ffe184;
+    font-weight: bold;
+    line-height: 1;
+    -webkit-box-decoration-break: clone;
+}

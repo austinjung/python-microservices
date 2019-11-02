@@ -372,11 +372,11 @@ def append_highlighted(prev_highlighted, start_idx, end_idx, concept_line_text, 
     if start_idx < end_idx:
         if prev_highlighted:
             highlighted_tokens.append(
-                "<span class='highlighted'>{0}</span>".format(concept_line_text[start_idx: end_idx])
+                "<mark class='c0177'>{0}</mark>".format(concept_line_text[start_idx: end_idx])
             )
         else:
             highlighted_tokens.append(
-                "<span class='normal'>{0}</span>".format(concept_line_text[start_idx: end_idx])
+                "<span>{0}</span>".format(concept_line_text[start_idx: end_idx])
             )
     return not prev_highlighted, end_idx, end_idx
 
@@ -497,13 +497,27 @@ def api_infer_next_code():
 
         sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
         sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
+        selected_concept = None
+        selected_highlighted = None
         for concept in sorted_top_concept:
-            concept['highlighted'] = ''.join(get_highlight(concept['synonym']))
+            if selected_concept is None:
+                selected_concept = concept['synonym']
+            concept['highlighted'] = ' '.join(get_highlight(concept['synonym']))
+            if selected_highlighted is None:
+                selected_highlighted = concept['highlighted']
             concept.pop('children')
             concept.pop('parents')
             concept['synonym'] = extract_synonym(med_terminology_code_verbose[concept['code']]['SY'])
         response['results'] = sorted_top_concept
-        response['context'] = context.replace('\n', '<br />')
+        response_context_lines = context.replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+        index = 0
+        for processed_context in processed_context_lines:
+            processed_context_tokens = set(processed_context.split())
+            selected_concept_tokens = set(selected_concept.split())
+            if selected_concept_tokens.intersection(processed_context_tokens) == selected_concept_tokens:
+                response_context_lines[index] = selected_highlighted
+            index += 1
+        response['context'] = '<br />'.join(response_context_lines)
         if len(sorted_top_concept) == 0:
             response['message'] = "No match found"
         else:
