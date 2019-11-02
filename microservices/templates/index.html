@@ -62,8 +62,8 @@
 
     <div class="row">
         <div class="panel panel-default col-lg-12 mt-5">
-            <div class="panel-body context">
-                <select id="med-code-dropdown" name="med-code" class="col-lg-12 selectpicker"
+            <div class="panel-body">
+                <select id="med-code-dropdown" name="selected-med-code" class="col-lg-12 selectpicker"
                         title="Choose Ciitizen Medical Code" data-live-search="true">
                 </select>
             </div>
@@ -72,8 +72,10 @@
 
     <div class="row">
         <div class="panel panel-default col-lg-12">
-            <div id="context" class="panel-body context text-center">
-                {% include 'ciitizen-catch-phrase.html' %}
+            <div class="panel-body text-center c0161 p-3">
+                <div id="context_text">
+                    {% include 'ciitizen-catch-phrase.html' %}
+                </div>
             </div>
         </div>
     </div>
@@ -90,7 +92,7 @@
         <div class="col-lg-6">
             <div class="text-center">
                 Relations
-                <textarea id="med-code-detail" rows="10" readonly></textarea>
+                <textarea id="med-code-detail1" rows="10" readonly></textarea>
             </div>
         </div>
     </div>

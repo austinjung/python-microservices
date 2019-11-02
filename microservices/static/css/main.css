@@ -106,3 +106,21 @@ textarea {
      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
      box-sizing: border-box;         /* Opera/IE 8+ */
 }
+
+.c0161 {
+    flex: 1;
+    color: #444;
+    border: 1px solid #ddd;
+    margin: 40px auto 0 auto;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    max-width: 675px;
+    background: #fff;
+    box-shadow: 1px 1px 5px #ddd;
+    min-height: 100px;
+    font-family: "Lato", "Trebuchet MS", Roboto, Helvetica, Arial, sans-serif;
+    align-content: space-between;
+    border-radius: 0;
+    flex-direction: row;
+}

@@ -21,7 +21,7 @@ from nltk import word_tokenize
 nltk.download('punkt')
 
 from dataset.process_review_data import (
-    generate_review_dataset, add_dataset, DATASET_STATUS_FILE
+    generate_review_dataset, add_dataset, DATASET_STATUS_FILE, DATASET_DIR, DATETIME_FORMAT
 )
 
 ROOT_URL = '/'
@@ -437,9 +437,34 @@ def api_find_code():
         return make_response(jsonify(response), response.get("status-code", 400))
 
 
+def get_next_dataset(dataset, dataset_status, selected_dataset):
+    if dataset_status[selected_dataset]['not_started'] + dataset_status[selected_dataset]['processing_dataset'] <= 0:
+        for name, data in dataset_status.items():
+            if data['not_started'] + data['processing_dataset'] > 0:
+                selected_dataset = name
+                dataset = data
+                break
+    return selected_dataset, dataset
+
+
 def get_next_dataset_context():
-    from dataset.process_review_data import dataset, dataset_status
-    pass
+    from dataset.process_review_data import dataset, dataset_status, selected_dataset
+    selected_dataset, dataset = get_next_dataset(dataset, dataset_status, selected_dataset)
+    context_text = None
+    entity_type = None
+    if dataset is None:
+        return context_text, entity_type
+    processed = {'accepted', 'partially_accepted', 'rejected'}
+    for source, data in dataset.items():
+        if not processed.intersection(set(data.keys())):
+            context_text = source
+            entity_type = data['entityType']
+            break
+    return context_text, entity_type
+
+
+def extract_synonym(synonyms):
+    return synonyms[0]
 
 
 @api.route(INFER_NEXT, methods=['POST'])
@@ -447,8 +472,16 @@ def api_infer_next_code():
     """find code from unprocessed dataset"""
     find_code_results = []
     if request.method == 'POST':
-        context = request.json['context_text']
-        entity_type = request.json['entity_type']
+        context, entity_type = get_next_dataset_context()
+        if context is None:
+            response = {
+                "message": "All contexts were processed.",
+                "method": "POST",
+                "results": [],
+                "status-code": 200
+            }
+            return make_response(jsonify(response), response.get("status-code", 400))
+        from dataset.process_review_data import dataset, selected_dataset, dataset_status
         processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
         payloads = generate_payload_by_line(processed_context_lines, entity_type=entity_type)
         response = {}
@@ -466,12 +499,24 @@ def api_infer_next_code():
         sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
         for concept in sorted_top_concept:
             concept['highlighted'] = ''.join(get_highlight(concept['synonym']))
-            concept['code_details'] = med_terminology_code_verbose[concept['code']]
+            concept.pop('children')
+            concept.pop('parents')
+            concept['synonym'] = extract_synonym(med_terminology_code_verbose[concept['code']]['SY'])
         response['results'] = sorted_top_concept
+        response['context'] = context.replace('\n', '<br />')
         if len(sorted_top_concept) == 0:
             response['message'] = "No match found"
+        else:
+            response['message'] = "OK"
+        jsonify_response = jsonify(response)
+        dataset[context]['inferred'] = sorted_top_concept
+        dataset_file_path = os.path.join(DATASET_DIR, selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+        write_json(dataset, dataset_file_path)
+        dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+        dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
+        write_json(dataset_status, dataset_status_file_path)
 
-        return make_response(jsonify(response), response.get("status-code", 400))
+        return make_response(jsonify_response, response.get("status-code", 400))
 
 
 @api.route(SHARE_FOLDER_UPLOAD_URL, methods=['POST', 'GET'])

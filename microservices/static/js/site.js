@@ -35,6 +35,10 @@ $(function () {
         return temp;
     };
 
+    var set_disable_all_button = function (disable) {
+        $('button').prop('disabled', disable);
+    };
+
     $(".infer-next").click(function () {
         var concept = $.trim($("input[name='keyword']").val());
         var context = $.trim($("#context").val());
@@ -45,37 +49,46 @@ $(function () {
                 entity_type = entity_type + "," + $(this).val();
             }
         });
+        set_disable_all_button(true);
         $.ajax({
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: "POST",
-            url: "http://localhost:5000/find_codes",
+            url: "http://localhost:5000/infer_next",
             data: JSON.stringify({
-                concept_text: concept,
-                context_text: context,
-                entity_type: entity_type
             }),
             success: function (data, status) {
-                var dropdown = $('#med-code-dropdown');
+                if (data.message === 'OK') {
+                    var dropdown = $('#med-code-dropdown');
 
-                dropdown.empty();
-                dropdown.append('<option selected>Choose med code</option>');
-                dropdown.prop('selectedIndex', 0);
+                    dropdown.empty();
 
-                possibleOptions = {};
-                for (var i = 0; i < data.results.length; i++) {
-                    var option = document.createElement('option');
-                    option.text = data.results[i].code + ": " + data.results[i].entity_type + ": " + data.results[i].terminology + ": " + data.results[i].synonym;
-                    data.results[i].code_details.Code = data.results[i].code;
-                    data.results[i].code_details.Terminology = data.results[i].terminology;
-                    data.results[i].code_details.Entity_type = data.results[i].entity_type;
-                    possibleOptions[data.results[i].code] = sortObject(data.results[i].code_details);
-                    option.value = data.results[i].code;
-                    dropdown.append(option);
+                    // possibleOptions = {};
+                    for (var i = 0; i < data.results.length; i++) {
+                        var option = document.createElement('option');
+                        option.text = data.results[i].code + ": " + data.results[i].synonym;
+                        // data.results[i].code_details.Code = data.results[i].code;
+                        // data.results[i].code_details.Terminology = data.results[i].terminology;
+                        // data.results[i].code_details.Entity_type = data.results[i].entity_type;
+                        // possibleOptions[data.results[i].code] = sortObject(data.results[i].code_details);
+                        option.value = data.results[i].code;
+                        dropdown.append(option);
+                    }
+                    // var pretty = JSON.stringify(possibleOptions[data.results[0].code], undefined, 8);
+                    // $("#med-code-detail").val(pretty);
+                    // $('#med-code-dropdown').val(data.results[0].code);
+                    $('#med-code-dropdown').selectpicker('refresh');
+                    $('#med-code-dropdown').selectpicker('val', data.results[0].code);
+                    $('#entity-type-dropdown').selectpicker('val', data.results[0].entity_type);
+                    $("#context_text").html(data.context);
+                    set_disable_all_button(false);
+                } else {
+                    add_success_alert(data.message);
                 }
-                var pretty = JSON.stringify(possibleOptions[data.results[0].code], undefined, 8);
-                $("#med-code-detail").val(pretty);
-                $('#med-code-dropdown').val(data.results[0].code);
+            },
+            error: function (error) {
+                set_disable_all_button(false);
+                add_alert(error.responseJSON.message);
             }
         });
     });
@@ -100,11 +113,11 @@ $(function () {
 
     $("input[name='keyword']").on("input", mark);
 
-    $('#med-code-dropdown').change(function () {
-        var selectedCode = $(this).children("option:selected").val();
-        var pretty = JSON.stringify(possibleOptions[selectedCode], undefined, 8);
-        $("#med-code-detail").val(pretty);
-    });
+    // $('#med-code-dropdown').change(function () {
+    //     var selectedCode = $(this).children("option:selected").val();
+    //     var pretty = JSON.stringify(possibleOptions[selectedCode], undefined, 8);
+    //     $("#med-code-detail").val(pretty);
+    // });
 
     var add_alert = function (message) {
         var message_block = $('#message-block');
