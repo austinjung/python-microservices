@@ -24,15 +24,14 @@
         <div class="col-lg-12 text-center p-3">
             <span class="text-center">Selected words:</span>
             <input type="text" name="keyword" class="form-control input-sm"
-                   placeholder="Select and copy keywords from context and click 'Reprocess with the above selected words' button">
+                   placeholder="Select and copy keywords from context and click 'Reprocess' button">
         </div>
     </div>
 
     <div class="row">
-        <div class="mt-5 col text-center">
-            <button id="get-suggestion" type="button" class="btn btn-info align-right" disabled>
-                Reprocess with the above selected words
-            </button>
+        <div class="mt-5 col text-left">
+            <input type="text" name="extracted-code" class="form-control input-sm" disabled
+                   placeholder="No selected code by document processing pipeline">
         </div>
         <div class="mt-5 col">
             <select id="entity-type-dropdown" name="entity-type" class="selectpicker"
@@ -63,7 +62,7 @@
             <button id="reject-code" type="button" class="btn btn-warning center-block" disabled>
                 Reject
             </button>
-            <button type="button" class="btn btn-info center-block infer-next" disabled>
+            <button id="reprocess" type="button" class="btn btn-info center-block" disabled>
                 Reprocess
             </button>
             <button id="skip-code" type="button" class="btn btn-light center-block skip-next" disabled>
@@ -86,14 +85,14 @@
         <div class="col-lg-6">
             <div class="text-center">
                 Synonyms
-                <textarea id="med-code-detail" rows="10" readonly></textarea>
+                <textarea id="med-code-synonyms" rows="10" readonly></textarea>
             </div>
         </div>
 
         <div class="col-lg-6">
             <div class="text-center">
                 Relations
-                <textarea id="med-code-detail1" rows="10" readonly></textarea>
+                <textarea id="med-code-relations" rows="10" readonly></textarea>
             </div>
         </div>
     </div>

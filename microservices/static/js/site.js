@@ -17,7 +17,8 @@ $(function () {
         });
     };
 
-    var possibleOptions;
+    var user_modified_code = false;
+    var host_domain_url = window.location.protocol + "//" + window.location.host + "/";
 
     var sortObject = function (obj) {
         if (typeof obj !== 'object') {
@@ -47,17 +48,19 @@ $(function () {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: "POST",
-            url: "http://localhost:5000/infer_next",
+            url: host_domain_url + "infer_next",
             data: JSON.stringify({}),
             success: function (data, status) {
+                user_modified_code = false;
                 if (data.message === 'OK') {
                     var med_code_dropdown = $('#med-code-dropdown');
                     var entity_dropdown = $('#entity-type-dropdown');
 
                     med_code_dropdown.empty();
 
-                    // possibleOptions = {};
                     var suggested_codes = [];
+                    entity_dropdown.selectpicker('val', data.results[0].entity_type);
+                    entity_dropdown.prop('disabled', true);
                     for (var i = 0; i < data.results.length; i++) {
                         var option = document.createElement('option');
                         option.text = data.results[i].code + ": " + data.results[i].synonym + " (confidence: " + data.results[i].confidence + ")";
@@ -73,14 +76,12 @@ $(function () {
                             med_code_dropdown.append(option_extra);
                         }
                     }
-                    // var pretty = JSON.stringify(possibleOptions[data.results[0].code], undefined, 8);
-                    // $("#med-code-detail").val(pretty);
                     med_code_dropdown.selectpicker('refresh');
                     med_code_dropdown.selectpicker('val', data.results[0].code);
                     med_code_dropdown.prop('disabled', true);
-                    entity_dropdown.selectpicker('val', data.results[0].entity_type);
-                    entity_dropdown.prop('disabled', true);
                     $("#context_text").html(data.context);
+                    $("input[name='extracted-code']").val(data.extracted_code);
+                    $("input[name='keyword']").val(data.original_highlighted);
                     set_disable_all_button(false);
                 } else {
                     add_success_alert(data.message);
@@ -113,11 +114,32 @@ $(function () {
 
     $("input[name='keyword']").on("input", mark);
 
-    // $('#med-code-dropdown').change(function () {
-    //     var selectedCode = $(this).children("option:selected").val();
-    //     var pretty = JSON.stringify(possibleOptions[selectedCode], undefined, 8);
-    //     $("#med-code-detail").val(pretty);
-    // });
+    $('#med-code-dropdown').on("changed.bs.select", function(e, clickedIndex, newValue, oldValue) {
+        var data = {
+            entity_type: $('#entity-type-dropdown option:selected').val(),
+            code: this.value
+        };
+        $.ajax({
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            type: "POST",
+            url: host_domain_url + "terminology_code",
+            data: JSON.stringify(data),
+            success: function (data, status) {
+                user_modified_code = false;
+                if (data.message === 'OK') {
+                    $('#med-code-synonyms').html(data.synonyms);
+                    $('#med-code-relations').html(data.relations);
+                } else {
+                    add_success_alert(data.message);
+                }
+            },
+            error: function (error) {
+                set_disable_all_button(false);
+                add_alert(error.responseJSON.message);
+            }
+        });
+    });
 
     var add_alert = function (message) {
         var message_block = $('#message-block');

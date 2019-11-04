@@ -39,6 +39,7 @@ SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
 INFER_NEXT = '/infer_next'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
+GET_MED_TERMINOLOGY_CODE_URL = '/terminology_code'
 DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl')
 
 if not os.path.exists(SHARE_FOLDER):
@@ -293,6 +294,44 @@ def api_get_terminologies():
         return make_response(jsonify(response), response["status-code"])
 
 
+@api.route(GET_MED_TERMINOLOGY_CODE_URL, methods=['POST'])
+def api_get_terminology_code_detail():
+    """get med-embedding terminology code detail"""
+    if request.method == 'POST':
+        code = request.json['code']
+        entity_type = request.json['entity_type']
+        synonyms = []
+        relations = []
+        code_detail = med_terminology_code_verbose[entity_type][code]
+        attr_dict = {
+            'STY': "Top concept",
+            'CHD': "Parent",
+            "PAR": "Children",
+            'SY': "Synonym"
+        }
+        for attr, desc_list in code_detail.items():
+            if attr in attr_dict:
+                attr = attr_dict[attr]
+            if attr == 'Synonym':
+                for itm in desc_list:
+                    synonyms.append("{0}: {1}".format("Synonym", itm))
+            else:
+                for itm in desc_list:
+                    relations.append("{0}: {1}".format(attr, itm))
+                relations.append("")
+        response = {
+            "synonyms": "\n".join(synonyms),
+            "relations": "\n".join(relations),
+            "message": HTTPStatus.OK.phrase,
+            "status-code": HTTPStatus.OK,
+            "method": request.method,
+            "timestamp": datetime.now().isoformat(),
+            "url": request.url,
+        }
+
+        return make_response(jsonify(response), response["status-code"])
+
+
 def get_weighted_concept_score(kv):
     occurance = len(kv[1])
     return kv[1][0]['concept_score'] * (1 + occurance * 0.01)
@@ -429,10 +468,6 @@ def api_find_code():
         sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
         for concept in sorted_top_concept:
             concept['highlighted'] = ''.join(get_highlight(concept['synonym']))
-            concept['code_details'] = {}
-            for code, code_entity_type in med_terminology_code_verbose.items():
-                if concept['code'] in code_entity_type:
-                    concept['code_details'] = code_entity_type[concept['code']]
         response['results'] = sorted_top_concept
         if len(sorted_top_concept) == 0:
             response['message'] = "No match found"
@@ -455,6 +490,8 @@ def get_next_dataset_context():
     selected_dataset, dataset = get_next_dataset(dataset, dataset_status, selected_dataset)
     context_text = None
     entity_type = None
+    extracted_code = None
+    highlighted = None
     if dataset is None:
         return context_text, entity_type
     processed = {'accepted', 'partially_accepted', 'rejected'}
@@ -462,8 +499,10 @@ def get_next_dataset_context():
         if not processed.intersection(set(data.keys())):
             context_text = source
             entity_type = data['entityType']
+            extracted_code = data.get('code', 'No code extracted by document pipeline')
+            highlighted = data['original'].get('highlighted', '')
             break
-    return context_text, entity_type
+    return context_text, entity_type, extracted_code, highlighted
 
 
 def extract_synonym(synonyms):
@@ -475,7 +514,7 @@ def api_infer_next_code():
     """find code from unprocessed dataset"""
     find_code_results = []
     if request.method == 'POST':
-        context, entity_type = get_next_dataset_context()
+        context, entity_type, extracted_code, original_highlighted = get_next_dataset_context()
         if context is None:
             response = {
                 "message": "All contexts were processed.",
@@ -510,7 +549,7 @@ def api_infer_next_code():
                 selected_highlighted = concept['highlighted']
             concept.pop('children')
             concept.pop('parents')
-            concept['synonym'] = extract_synonym(med_terminology_code_verbose[concept['entity_type']][concept['code']]['SY'])
+            concept['synonym'] = extract_synonym(med_terminology_code_verbose[entity_type][concept['code']]['SY'])
         response['results'] = sorted_top_concept
         response_context_lines = context.replace('\\n', '\n').replace('\n\n', '\n').split('\n')
         index = 0
@@ -520,11 +559,13 @@ def api_infer_next_code():
             if selected_concept_tokens.intersection(processed_context_tokens) == selected_concept_tokens:
                 response_context_lines[index] = "<mark class='c0177'>{0}</mark>".format(response_context_lines[index])
             index += 1
-        response['context'] = '<br />'.join(response_context_lines)
+        response['context'] = '<br>'.join(response_context_lines)
         entity_codes = []
-        for code, detail in med_terminology_code_verbose[concept['entity_type']].items():
+        for code, detail in med_terminology_code_verbose[entity_type].items():
             entity_codes.append([code, detail['SY'][0]])
         response['entity_codes'] = entity_codes
+        response['extracted_code'] = extracted_code
+        response['original_highlighted'] = original_highlighted
         if len(sorted_top_concept) == 0:
             response['message'] = "No match found"
         else:
