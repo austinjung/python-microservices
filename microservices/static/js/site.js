@@ -51,9 +51,10 @@ $(function () {
             data: JSON.stringify({}),
             success: function (data, status) {
                 if (data.message === 'OK') {
-                    var dropdown = $('#med-code-dropdown');
+                    var med_code_dropdown = $('#med-code-dropdown');
+                    var entity_dropdown = $('#entity-type-dropdown');
 
-                    dropdown.empty();
+                    med_code_dropdown.empty();
 
                     // possibleOptions = {};
                     var suggested_codes = [];
@@ -62,21 +63,23 @@ $(function () {
                         option.text = data.results[i].code + ": " + data.results[i].synonym + " (confidence: " + data.results[i].confidence + ")";
                         option.value = data.results[i].code;
                         suggested_codes.push(data.results[i].code);
-                        dropdown.append(option);
+                        med_code_dropdown.append(option);
                     }
                     for (var i_extra = 0; i_extra < data.entity_codes.length; i_extra++) {
                         if (suggested_codes.indexOf(data.entity_codes[i_extra][0]) < 0) {
                             var option_extra = document.createElement('option');
                             option_extra.text = data.entity_codes[i_extra][0] + ": " + data.entity_codes[i_extra][1];
                             option_extra.value = data.entity_codes[i_extra][0];
-                            dropdown.append(option_extra);
+                            med_code_dropdown.append(option_extra);
                         }
                     }
                     // var pretty = JSON.stringify(possibleOptions[data.results[0].code], undefined, 8);
                     // $("#med-code-detail").val(pretty);
-                    $('#med-code-dropdown').selectpicker('refresh');
-                    $('#med-code-dropdown').selectpicker('val', data.results[0].code);
-                    $('#entity-type-dropdown').selectpicker('val', data.results[0].entity_type);
+                    med_code_dropdown.selectpicker('refresh');
+                    med_code_dropdown.selectpicker('val', data.results[0].code);
+                    med_code_dropdown.prop('disabled', true);
+                    entity_dropdown.selectpicker('val', data.results[0].entity_type);
+                    entity_dropdown.prop('disabled', true);
                     $("#context_text").html(data.context);
                     set_disable_all_button(false);
                 } else {
