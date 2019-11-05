@@ -27,6 +27,7 @@ ml_logger = CustomLogger(
 dataset_status = OrderedDict({'updated': INITIAL_MODIFIED.strftime(DATETIME_FORMAT)})
 dataset = OrderedDict()
 selected_dataset = None
+last_read_dataset = None
 terminology_entity_types = read_json(os.path.join(BASE_DIR, '../models', 'terminology_entity_types.json'))
 
 
@@ -104,13 +105,11 @@ def build_current_working_dataset(json_filename, json_file_full_path, dataset_fi
         'updated': datetime.now().strftime(DATETIME_FORMAT)
     }
     write_json(local_dataset, dataset_file_full_path)
-    if total_not_started_dataset_count + total_processing_dataset_count_in_file > 0:
-        selected_dataset = json_filename
     return local_dataset
 
 
 def change_current_working_dataset(json_filename, dataset_filename):
-    global dataset, selected_dataset
+    global dataset, selected_dataset, last_read_dataset
     json_file_path = os.path.join(SHARE_FOLDER, json_filename)
     json_last_modified_time = os.path.getmtime(json_file_path)
     dataset_file_path = os.path.join(DATASET_DIR, dataset_filename)
@@ -121,10 +120,11 @@ def change_current_working_dataset(json_filename, dataset_filename):
             selected_dataset = json_filename
     else:
         dataset = build_current_working_dataset(json_filename, json_file_path, dataset_file_path)
+    last_read_dataset = json_filename
 
 
 def generate_review_dataset(dataset_dir=DATASET_DIR):
-    global dataset, dataset_status
+    global dataset, dataset_status, selected_dataset, last_read_dataset
     dataset_status_file_path = os.path.join(dataset_dir, DATASET_STATUS_FILE)
     if os.path.exists(dataset_status_file_path):
         dataset_status = read_reviewed_json(dataset_status_file_path)
@@ -138,14 +138,17 @@ def generate_review_dataset(dataset_dir=DATASET_DIR):
             if os.path.exists(dataset_path):
                 dataset = read_reviewed_json(dataset_path)
             else:
-                write_json(dataset, dataset_path)
-            dataset = build_current_working_dataset(file, full_file_path, dataset_path)
+                dataset = build_current_working_dataset(file, full_file_path, dataset_path)
+            last_read_dataset = file
+            if selected_dataset is None and (
+                    dataset_status[file]['processing_dataset'] + dataset_status[file]['not_started'] > 0):
+                selected_dataset = file
     dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
     write_json(dataset_status, dataset_status_file_path)
 
 
 def add_dataset(file, dataset_dir=DATASET_DIR):
-    global dataset, dataset_status, selected_dataset
+    global dataset, dataset_status, selected_dataset, last_read_dataset
     dataset_status_file_path = os.path.join(dataset_dir, DATASET_STATUS_FILE)
     if os.path.exists(dataset_status_file_path):
         dataset_status = read_reviewed_json(dataset_status_file_path)
@@ -162,5 +165,6 @@ def add_dataset(file, dataset_dir=DATASET_DIR):
         current_selected_dataset = selected_dataset
         dataset = build_current_working_dataset(file, full_file_path, dataset_path)
         selected_dataset = current_selected_dataset
+        last_read_dataset = file
     dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
     write_json(dataset_status, dataset_status_file_path)

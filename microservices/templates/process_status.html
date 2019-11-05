@@ -26,14 +26,14 @@
                     <input type="checkbox" class="select-all-input" id="{{ file.filename }}">
                 </td>
                 <td>{{ file.filename }}</td>
-                <td>{{ file.progress }}%</td>
-                <td>{{ file.precision }}%</td>
+                <td>{{ "%.2f"|format(file.progress) }}%</td>
+                <td>{{ "%.2f"|format(file.precision) }}%</td>
                 <td>{{ file.total_dataset }}</td>
-                <td>{{ file.accepted_dataset }}%</td>
-                <td>{{ file.partially_accepted_dataset }}%</td>
-                <td>{{ file.rejected_dataset }}%</td>
-                <td>{{ file.processing_dataset }}%</td>
-                <td>{{ file.not_started }}%</td>
+                <td>{{ "%.2f"|format(file.accepted_dataset) }}%</td>
+                <td>{{ "%.2f"|format(file.partially_accepted_dataset) }}%</td>
+                <td>{{ "%.2f"|format(file.rejected_dataset) }}%</td>
+                <td>{{ "%.2f"|format(file.processing_dataset) }}%</td>
+                <td>{{ "%.2f"|format(file.not_started) }}%</td>
             </tr>
         {% endfor %}
         </tbody>

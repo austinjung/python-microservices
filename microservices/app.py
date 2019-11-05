@@ -350,7 +350,8 @@ def get_weighted_concept_score(kv):
 def sort_by_code_weight_with_same_parent(results):
     code_weight_dict = defaultdict(list)
     for result in results:
-        code_weight_dict[result['code']].append(result)
+        if result['code'] != 'None':
+            code_weight_dict[result['code']].append(result)
     sorted_by_code_weight = sorted(code_weight_dict.items(), key=get_weighted_concept_score, reverse=True)
     sorted_results = []
     for code, results_with_same_code in sorted_by_code_weight:
@@ -503,23 +504,28 @@ def api_find_code():
         return make_response(jsonify(response), response.get("status-code", 400))
 
 
-def get_next_dataset(dataset, dataset_status, selected_dataset):
+def get_next_dataset(dataset, dataset_status, selected_dataset, last_read_dataset):
     if dataset_status[selected_dataset]['not_started'] + dataset_status[selected_dataset]['processing_dataset'] <= 0:
         for name, data in dataset_status.items():
             if data['not_started'] + data['processing_dataset'] > 0:
                 selected_dataset = name
-                dataset = data
                 break
-    return selected_dataset, dataset
+    if selected_dataset != last_read_dataset:
+        import dataset.process_review_data as process_review_data
+        dataset = read_json(os.path.join(DATASET_DIR, selected_dataset.replace('.jsonl', '.data').replace('.json', '.data')))
+        process_review_data.dataset = dataset
+        process_review_data.last_read_dataset = selected_dataset
+    return dataset
 
 
 def get_next_dataset_context():
-    from dataset.process_review_data import dataset, dataset_status, selected_dataset
-    selected_dataset, dataset = get_next_dataset(dataset, dataset_status, selected_dataset)
+    from dataset.process_review_data import dataset, dataset_status, selected_dataset, last_read_dataset
+    dataset = get_next_dataset(dataset, dataset_status, selected_dataset, last_read_dataset)
     context_text = None
     entity_type = None
     extracted_code = None
     highlighted = None
+    inprogress = None
     if dataset is None:
         return context_text, entity_type
     processed = {'accepted', 'partially_accepted', 'rejected'}
@@ -529,8 +535,9 @@ def get_next_dataset_context():
             entity_type = data['entityType']
             extracted_code = data.get('code', 'No code extracted by document pipeline')
             highlighted = data['original'].get('highlighted', '')
+            inprogress = data.get('inferred', None) is not None
             break
-    return context_text, entity_type, extracted_code, highlighted
+    return context_text, entity_type, extracted_code, highlighted, inprogress
 
 
 def extract_synonym(synonyms):
@@ -542,7 +549,7 @@ def api_infer_next_code():
     """find code from unprocessed dataset"""
     find_code_results = []
     if request.method == 'POST':
-        context, entity_type, extracted_code, original_highlighted = get_next_dataset_context()
+        context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
         if context is None:
             response = {
                 "message": "All contexts were processed.",
@@ -618,6 +625,9 @@ def api_infer_next_code():
         dataset_file_path = os.path.join(DATASET_DIR,
                                          selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
         write_json(dataset, dataset_file_path)
+        if not inprogress:
+            dataset_status[selected_dataset]['processing_dataset'] += 1
+            dataset_status[selected_dataset]['not_started'] -= 1
         dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
         dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
         write_json(dataset_status, dataset_status_file_path)
