@@ -82,13 +82,21 @@ $(function () {
                     $("input[name='extracted-code']").val(data.extracted_code);
                     $("input[name='keyword']").val(data.original_highlighted);
                     set_disable_all_button(false);
+                    if (data.extracted_code === null) {
+                        $("#accept-extracted-code").prop('disabled', true);
+                    }
                     if (data.match_with_extracted) {
                         add_code_match_alert(data.extracted_code);
-                    } else {
+                    } else if (data.match_with_extracted === false){
                         add_code_mismatch_alert(data.extracted_code, data.results[0].code);
                     }
                 } else {
+                    set_disable_all_button(false);
                     add_success_alert(data.message);
+                    if (data.extracted_code !== null) {
+                        $("#accept-extracted-code").prop('disabled', false);
+                    }
+                    $("#accept-code").prop('disabled', true);
                 }
             },
             error: function (error) {

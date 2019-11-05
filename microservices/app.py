@@ -608,9 +608,9 @@ def api_infer_next_code():
             response['message'] = "No match found"
             response['match_with_extracted'] = False
         else:
-            if extracted_code == sorted_top_concept[0]['code']:
+            if extracted_code and extracted_code == sorted_top_concept[0]['code']:
                 response['match_with_extracted'] = True
-            else:
+            elif extracted_code:
                 response['match_with_extracted'] = False
             response['message'] = "OK"
         jsonify_response = jsonify(response)
