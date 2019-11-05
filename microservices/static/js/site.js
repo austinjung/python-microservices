@@ -17,8 +17,9 @@ $(function () {
         });
     };
 
-    var user_modified_code = false;
     var host_domain_url = window.location.protocol + "//" + window.location.host + "/";
+    var inferred_code;
+    var inferred_entity_type;
 
     var sortObject = function (obj) {
         if (typeof obj !== 'object') {
@@ -40,18 +41,14 @@ $(function () {
         $('button').prop('disabled', disable);
     };
 
-    $(".infer-next").click(function () {
-        $("#med-code-detail").val("");
-        $("input[name='keyword']").val("");
-        set_disable_all_button(true);
+    var ajax_infer_next = function (endpoint) {
         $.ajax({
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: "POST",
-            url: host_domain_url + "infer_next",
+            url: host_domain_url + endpoint,
             data: JSON.stringify({}),
             success: function (data, status) {
-                user_modified_code = false;
                 if (data.message === 'OK') {
                     var med_code_dropdown = $('#med-code-dropdown');
                     var entity_dropdown = $('#entity-type-dropdown');
@@ -60,6 +57,7 @@ $(function () {
 
                     var suggested_codes = [];
                     entity_dropdown.selectpicker('val', data.results[0].entity_type);
+                    inferred_entity_type = data.results[0].entity_type;
                     entity_dropdown.prop('disabled', true);
                     for (var i = 0; i < data.results.length; i++) {
                         var option = document.createElement('option');
@@ -78,6 +76,7 @@ $(function () {
                     }
                     med_code_dropdown.selectpicker('refresh');
                     med_code_dropdown.selectpicker('val', data.results[0].code);
+                    inferred_code = data.results[0].code;
                     $("#context_text").html(data.context);
                     $("input[name='extracted-code']").val(data.extracted_code);
                     $("input[name='keyword']").val(data.original_highlighted);
@@ -104,6 +103,13 @@ $(function () {
                 add_alert(error.responseJSON.message);
             }
         });
+    };
+
+    $(".infer-next").click(function () {
+        $("#med-code-detail").val("");
+        $("input[name='keyword']").val("");
+        set_disable_all_button(true);
+        ajax_infer_next("infer_next");
     });
 
     $("#get-suggestion").click(function () {
@@ -124,6 +130,17 @@ $(function () {
         });
     });
 
+    $("#accept-code").click(function () {
+        if (inferred_code !== $("#med-code-dropdown").val() || inferred_entity_type !== $("#entity-type-dropdown").val()) {
+            add_alert("Inferred code or entity type was changed.");
+            return
+        }
+        $("#med-code-detail").val("");
+        $("input[name='keyword']").val("");
+        set_disable_all_button(true);
+        ajax_infer_next("accept_and_process_next");
+    });
+
     $("input[name='keyword']").on("input", mark);
 
     $('#med-code-dropdown').on("changed.bs.select", function(e, clickedIndex, newValue, oldValue) {
@@ -138,7 +155,6 @@ $(function () {
             url: host_domain_url + "terminology_code",
             data: JSON.stringify(data),
             success: function (data, status) {
-                user_modified_code = false;
                 if (data.message === 'OK') {
                     $('#med-code-synonyms').html(data.synonyms);
                     $('#med-code-relations').html(data.relations);

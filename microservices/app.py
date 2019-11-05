@@ -38,6 +38,7 @@ PROCESS_STATUS_URL = '/status'
 SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
 INFER_NEXT = '/infer_next'
+ACCEPT_AND_PROCESS_NEXT = '/accept_and_process_next'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
 GET_MED_TERMINOLOGY_CODE_URL = '/terminology_code'
 DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl')
@@ -344,7 +345,7 @@ def get_weighted_concept_score(kv):
             if len(synonym.strip().lower().replace(kv[1][0]['synonym'], '').split()) == 0:
                 max_extra_score = 0.2
                 break
-    return kv[1][0]['concept_score'] * (1 + occurance * 0.01 + max_extra_score)
+    return kv[1][0]['concept_score'] * (1 + occurance * 0.01) + max_extra_score
 
 
 def sort_by_code_weight_with_same_parent(results):
@@ -408,6 +409,8 @@ def generate_payload_by_line(processed_context_lines, entity_type=""):
     payloads = []
     for line in processed_context_lines:
         processed_line = ' '.join(preprocess_text_for_med_embedding(line))
+        if processed_line == '':
+            continue
         payload = {
             "concept_text": processed_line,
             "context_text": processed_line,
@@ -544,95 +547,118 @@ def extract_synonym(synonyms):
     return synonyms[0]
 
 
-@api.route(INFER_NEXT, methods=['POST'])
-def api_infer_next_code():
+def infer_next_code():
     """find code from unprocessed dataset"""
     find_code_results = []
-    if request.method == 'POST':
-        context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
-        if context is None:
-            response = {
-                "message": "All contexts were processed.",
-                "method": "POST",
-                "results": [],
-                "status-code": 200
-            }
-            return make_response(jsonify(response), response.get("status-code", 400))
-        from dataset.process_review_data import dataset, selected_dataset, dataset_status
-        # if original_highlighted in ['', None]:
-        processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
-        payloads = generate_payload_by_line(processed_context_lines, entity_type=entity_type)
-        # else:
-        #     processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
-        #     payloads = generate_payload_by_highlighted(original_highlighted, processed_context_lines,
-        #                                                entity_type=entity_type)
-        response = {}
-        for payload in payloads:
-            r = get_t2_find_code(payload)
-            if r.status_code == 200:
-                response = json.loads(r.content)
-                for result in response['results']:
-                    result['synonym'] = payload['concept_text']
-                find_code_results.extend(response['results'])
-            else:
-                pass
+    context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
+    if context is None:
+        response = {
+            "message": "All contexts were processed.",
+            "method": "POST",
+            "results": [],
+            "status-code": 200
+        }
+        return make_response(jsonify(response), response.get("status-code", 400))
+    from dataset.process_review_data import dataset, selected_dataset, dataset_status
+    # if original_highlighted in ['', None]:
+    processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+    payloads = generate_payload_by_line(processed_context_lines, entity_type=entity_type)
+    # else:
+    #     processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+    #     payloads = generate_payload_by_highlighted(original_highlighted, processed_context_lines,
+    #                                                entity_type=entity_type)
+    response = {}
+    for payload in payloads:
+        r = get_t2_find_code(payload)
+        if r.status_code == 200:
+            response = json.loads(r.content)
+            for result in response['results']:
+                result['synonym'] = payload['concept_text']
+            find_code_results.extend(response['results'])
+        else:
+            pass
 
-        sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
-        sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
-        if original_highlighted in ['', None]:
-            selected_concept = None
-        else:
-            selected_concept = original_highlighted
-        selected_highlighted = None
-        for concept in sorted_top_concept:
-            if concept['code'] in ['None', ""]:
-                continue
-            if selected_concept is None:
-                selected_concept = concept['synonym']
-            concept['highlighted'] = ' '.join(get_highlight(concept['synonym']))
-            if selected_highlighted is None:
-                selected_highlighted = concept['highlighted']
-            concept.pop('children')
-            concept.pop('parents')
-            concept['synonym'] = extract_synonym(med_terminology_code_verbose[entity_type][concept['code']]['SY'])
-        response['results'] = sorted_top_concept
-        response_context_lines = context.replace('\\n', '\n').replace('\n\n', '\n').split('\n')
-        index = 0
-        for processed_context in processed_context_lines:
-            processed_context_tokens = set(processed_context.split())
-            selected_concept_tokens = set(selected_concept.split())
-            if selected_concept_tokens.intersection(processed_context_tokens) == selected_concept_tokens:
-                response_context_lines[index] = "<mark class='c0177'>{0}</mark>".format(response_context_lines[index])
-            index += 1
-        response['context'] = '<br>'.join(response_context_lines)
-        entity_codes = []
-        for code, detail in med_terminology_code_verbose[entity_type].items():
-            entity_codes.append([code, detail['SY'][0]])
-        response['entity_codes'] = entity_codes
-        response['extracted_code'] = extracted_code
-        response['original_highlighted'] = original_highlighted
-        if len(sorted_top_concept) == 0:
-            response['message'] = "No match found"
+    sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
+    sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
+    if original_highlighted in ['', None]:
+        selected_concept = None
+    else:
+        selected_concept = original_highlighted
+    selected_highlighted = None
+    for concept in sorted_top_concept:
+        if concept['code'] in ['None', ""]:
+            continue
+        if selected_concept is None:
+            selected_concept = concept['synonym']
+        concept['highlighted'] = ' '.join(get_highlight(concept['synonym']))
+        if selected_highlighted is None:
+            selected_highlighted = concept['highlighted']
+        concept.pop('children')
+        concept.pop('parents')
+        concept['synonym'] = extract_synonym(med_terminology_code_verbose[entity_type][concept['code']]['SY'])
+    response['results'] = sorted_top_concept
+    response_context_lines = context.replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+    index = 0
+    for processed_context in processed_context_lines:
+        processed_context_tokens = set(processed_context.split())
+        selected_concept_tokens = set(selected_concept.lower().split())
+        if selected_concept_tokens.intersection(processed_context_tokens) == selected_concept_tokens:
+            response_context_lines[index] = "<mark class='c0177'>{0}</mark>".format(response_context_lines[index])
+        index += 1
+    response['context'] = '<br>'.join(response_context_lines)
+    entity_codes = []
+    for code, detail in med_terminology_code_verbose[entity_type].items():
+        entity_codes.append([code, detail.get('SY', detail.get('STY'))[0]])
+    response['entity_codes'] = entity_codes
+    response['extracted_code'] = extracted_code
+    response['original_highlighted'] = original_highlighted
+    if len(sorted_top_concept) == 0:
+        response['message'] = "No match found"
+        response['match_with_extracted'] = False
+    else:
+        if extracted_code and extracted_code == sorted_top_concept[0]['code']:
+            response['match_with_extracted'] = True
+        elif extracted_code:
             response['match_with_extracted'] = False
-        else:
-            if extracted_code and extracted_code == sorted_top_concept[0]['code']:
-                response['match_with_extracted'] = True
-            elif extracted_code:
-                response['match_with_extracted'] = False
-            response['message'] = "OK"
-        jsonify_response = jsonify(response)
-        dataset[context]['inferred'] = sorted_top_concept
+        response['message'] = "OK"
+    jsonify_response = jsonify(response)
+    dataset[context]['inferred'] = sorted_top_concept
+    dataset_file_path = os.path.join(DATASET_DIR,
+                                     selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+    write_json(dataset, dataset_file_path)
+    if not inprogress:
+        dataset_status[selected_dataset]['processing_dataset'] += 1
+        dataset_status[selected_dataset]['not_started'] -= 1
+    dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+    dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
+    write_json(dataset_status, dataset_status_file_path)
+
+    return make_response(jsonify_response, response.get("status-code", 400))
+
+
+@api.route(INFER_NEXT, methods=['POST'])
+def api_infer_next_code():
+    if request.method == 'POST':
+        return infer_next_code()
+
+
+@api.route(ACCEPT_AND_PROCESS_NEXT, methods=['POST'])
+def api_accept_and_infer_next_code():
+    """Accept infer results of current dataset"""
+    if request.method == 'POST':
+        from dataset.process_review_data import dataset, selected_dataset, dataset_status
+        context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
+        dataset[context]['accepted'] = True
         dataset_file_path = os.path.join(DATASET_DIR,
                                          selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
         write_json(dataset, dataset_file_path)
-        if not inprogress:
-            dataset_status[selected_dataset]['processing_dataset'] += 1
-            dataset_status[selected_dataset]['not_started'] -= 1
+        dataset_status[selected_dataset]['processing_dataset'] -= 1
+        dataset_status[selected_dataset]['accepted_dataset'] += 1
         dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
         dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
         write_json(dataset_status, dataset_status_file_path)
 
-        return make_response(jsonify_response, response.get("status-code", 400))
+        return infer_next_code()
 
 
 @api.route(SHARE_FOLDER_UPLOAD_URL, methods=['POST', 'GET'])

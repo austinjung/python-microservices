@@ -7,8 +7,7 @@
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/dataset/process_review_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/dataset/process_review_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/templates/process_status.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/process_status.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +164,7 @@
       <workItem from="1572110575238" duration="23000" />
       <workItem from="1572110632314" duration="167709000" />
       <workItem from="1572917963819" duration="13058000" />
-      <workItem from="1572965328618" duration="9493000" />
+      <workItem from="1572965328618" duration="14804000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -461,7 +460,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572965262714</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Fix bugs and optimize code">
+      <created>1572986661459</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1572986661459</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -513,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change port and use terminology dict" />
     <MESSAGE value="Change to multiple select entity type and add terminology info to suggested codes" />
     <MESSAGE value="Add suggested code details" />
     <MESSAGE value="Fix finding suggested code by sorted_key" />
@@ -538,35 +543,10 @@
     <MESSAGE value="Change index.html layout" />
     <MESSAGE value=" Show original highlighted and extracted code" />
     <MESSAGE value="Show matched and mismatched alert message" />
-    <option name="LAST_COMMIT_MESSAGE" value="Show matched and mismatched alert message" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/microservices/app.py</url>
-          <line>512</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/microservices/app.py</url>
-          <line>523</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/microservices/app.py</url>
-          <line>522</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/microservices/app.py</url>
-          <line>538</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Fix bugs and optimize code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bugs and optimize code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572986468638" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572993057740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>
