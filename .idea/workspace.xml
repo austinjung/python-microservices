@@ -164,7 +164,7 @@
       <workItem from="1572110575238" duration="23000" />
       <workItem from="1572110632314" duration="167709000" />
       <workItem from="1572917963819" duration="13058000" />
-      <workItem from="1572965328618" duration="14804000" />
+      <workItem from="1572965328618" duration="17497000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -467,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1572986661459</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Add accept and process next">
+      <created>1572993093782</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1572993093783</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -519,7 +526,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change to multiple select entity type and add terminology info to suggested codes" />
     <MESSAGE value="Add suggested code details" />
     <MESSAGE value="Fix finding suggested code by sorted_key" />
     <MESSAGE value="Add first version of finding highlighted and code" />
@@ -544,9 +550,21 @@
     <MESSAGE value=" Show original highlighted and extracted code" />
     <MESSAGE value="Show matched and mismatched alert message" />
     <MESSAGE value="Fix bugs and optimize code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bugs and optimize code" />
+    <MESSAGE value="Add accept and process next" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add accept and process next" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/microservices/app.py</url>
+          <line>648</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572993057740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1572995854822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

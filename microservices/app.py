@@ -39,6 +39,7 @@ SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
 INFER_NEXT = '/infer_next'
 ACCEPT_AND_PROCESS_NEXT = '/accept_and_process_next'
+ACCEPT_EXTRACTOR_AND_PROCESS_NEXT = '/accept_extractor_and_process_next'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
 GET_MED_TERMINOLOGY_CODE_URL = '/terminology_code'
 DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl')
@@ -586,7 +587,7 @@ def infer_next_code():
         selected_concept = original_highlighted
     selected_highlighted = None
     for concept in sorted_top_concept:
-        if concept['code'] in ['None', ""]:
+        if concept['code'] in ['None', ""] or concept['code'] not in med_terminology_code_verbose[entity_type]:
             continue
         if selected_concept is None:
             selected_concept = concept['synonym']
@@ -602,7 +603,7 @@ def infer_next_code():
     for processed_context in processed_context_lines:
         processed_context_tokens = set(processed_context.split())
         selected_concept_tokens = set(selected_concept.lower().split())
-        if selected_concept_tokens.intersection(processed_context_tokens) == selected_concept_tokens:
+        if selected_concept_tokens.intersection(processed_context_tokens):
             response_context_lines[index] = "<mark class='c0177'>{0}</mark>".format(response_context_lines[index])
         index += 1
     response['context'] = '<br>'.join(response_context_lines)
@@ -654,6 +655,29 @@ def api_accept_and_infer_next_code():
         write_json(dataset, dataset_file_path)
         dataset_status[selected_dataset]['processing_dataset'] -= 1
         dataset_status[selected_dataset]['accepted_dataset'] += 1
+        dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+        dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
+        write_json(dataset_status, dataset_status_file_path)
+
+        return infer_next_code()
+
+
+@api.route(ACCEPT_EXTRACTOR_AND_PROCESS_NEXT, methods=['POST'])
+def api_accept_extractor_and_infer_next_code():
+    """Accept infer results of current dataset"""
+    if request.method == 'POST':
+        from dataset.process_review_data import dataset, selected_dataset, dataset_status
+        context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
+        dataset[context]['rejected'] = {
+            'selected': 'original',
+            'entityType': entity_type,
+            'code': extracted_code,
+        }
+        dataset_file_path = os.path.join(DATASET_DIR,
+                                         selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+        write_json(dataset, dataset_file_path)
+        dataset_status[selected_dataset]['processing_dataset'] -= 1
+        dataset_status[selected_dataset]['rejected_dataset'] += 1
         dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
         dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
         write_json(dataset_status, dataset_status_file_path)

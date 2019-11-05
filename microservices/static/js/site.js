@@ -86,6 +86,7 @@ $(function () {
                     }
                     if (data.match_with_extracted) {
                         add_code_match_alert(data.extracted_code);
+                        $("#accept-extracted-code").prop('disabled', true);
                     } else if (data.match_with_extracted === false){
                         add_code_mismatch_alert(data.extracted_code, data.results[0].code);
                     }
@@ -139,6 +140,13 @@ $(function () {
         $("input[name='keyword']").val("");
         set_disable_all_button(true);
         ajax_infer_next("accept_and_process_next");
+    });
+
+    $("#accept-extracted-code").click(function () {
+        $("#med-code-detail").val("");
+        $("input[name='keyword']").val("");
+        set_disable_all_button(true);
+        ajax_infer_next("accept_extractor_and_process_next");
     });
 
     $("input[name='keyword']").on("input", mark);
