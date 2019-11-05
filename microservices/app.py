@@ -203,7 +203,9 @@ api.shared_folder_manager = UploadFolderManager(SHARE_FOLDER)
 def main_url():
     from dataset.process_review_data import selected_dataset
     current_doc_url = '/view/{0}'.format(selected_dataset)
-    return render_template('index.html', current_doc_url=current_doc_url, current_doc_name=selected_dataset)
+    jumbotron = 'Ciitizen AI Med-Terminology Intern'
+    return render_template('index.html', current_doc_url=current_doc_url, current_doc_name=selected_dataset,
+                           jumbotron=jumbotron)
 
 
 @api.route(PROCESS_STATUS_URL)
@@ -226,8 +228,9 @@ def show_status():
                 'not_started': status['not_started'] * 100 / status['total_dataset'],
                 "updated": status['updated']
             })
+    jumbotron = 'Process status'
     return render_template('process_status.html', files=files, current_doc_url=current_doc_url,
-                           current_doc_name=selected_dataset)
+                           current_doc_name=selected_dataset, jumbotron=jumbotron)
 
 
 @api.route(SHARE_FOLDER_DOWNLOAD_BASE_URL + '<string:filename>')
@@ -334,7 +337,14 @@ def api_get_terminology_code_detail():
 
 def get_weighted_concept_score(kv):
     occurance = len(kv[1])
-    return kv[1][0]['concept_score'] * (1 + occurance * 0.01)
+    max_extra_score = 0.0
+    if kv[1][0]['code'] in med_terminology_code_verbose[kv[1][0]['entity_type']]:
+        code_detail = med_terminology_code_verbose[kv[1][0]['entity_type']][kv[1][0]['code']]
+        for synonym in code_detail.get('SY', []):
+            if len(synonym.strip().lower().replace(kv[1][0]['synonym'], '').split()) == 0:
+                max_extra_score = 0.2
+                break
+    return kv[1][0]['concept_score'] * (1 + occurance * 0.01 + max_extra_score)
 
 
 def sort_by_code_weight_with_same_parent(results):
@@ -404,6 +414,24 @@ def generate_payload_by_line(processed_context_lines, entity_type=""):
             "highlighted": processed_line
         }
         payloads.append(payload)
+    return payloads
+
+
+def generate_payload_by_highlighted(highlighted, processed_context_lines, entity_type=""):
+    payloads = []
+    processed_highlighted_tokens = preprocess_text_for_med_embedding(highlighted)
+    processed_highlighted = ' '.join(processed_highlighted_tokens)
+    for line in processed_context_lines:
+        processed_line_tokens = preprocess_text_for_med_embedding(line)
+        processed_line = ' '.join(processed_line_tokens)
+        if set(processed_highlighted_tokens).intersection(set(processed_line_tokens)):
+            payload = {
+                "concept_text": processed_highlighted,
+                "context_text": processed_line,
+                "entity_type": entity_type,
+                "highlighted": processed_highlighted
+            }
+            payloads.append(payload)
     return payloads
 
 
@@ -524,8 +552,13 @@ def api_infer_next_code():
             }
             return make_response(jsonify(response), response.get("status-code", 400))
         from dataset.process_review_data import dataset, selected_dataset, dataset_status
+        # if original_highlighted in ['', None]:
         processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
         payloads = generate_payload_by_line(processed_context_lines, entity_type=entity_type)
+        # else:
+        #     processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+        #     payloads = generate_payload_by_highlighted(original_highlighted, processed_context_lines,
+        #                                                entity_type=entity_type)
         response = {}
         for payload in payloads:
             r = get_t2_find_code(payload)
@@ -539,9 +572,14 @@ def api_infer_next_code():
 
         sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
         sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
-        selected_concept = None
+        if original_highlighted in ['', None]:
+            selected_concept = None
+        else:
+            selected_concept = original_highlighted
         selected_highlighted = None
         for concept in sorted_top_concept:
+            if concept['code'] in ['None', ""]:
+                continue
             if selected_concept is None:
                 selected_concept = concept['synonym']
             concept['highlighted'] = ' '.join(get_highlight(concept['synonym']))
@@ -568,11 +606,17 @@ def api_infer_next_code():
         response['original_highlighted'] = original_highlighted
         if len(sorted_top_concept) == 0:
             response['message'] = "No match found"
+            response['match_with_extracted'] = False
         else:
+            if extracted_code == sorted_top_concept[0]['code']:
+                response['match_with_extracted'] = True
+            else:
+                response['match_with_extracted'] = False
             response['message'] = "OK"
         jsonify_response = jsonify(response)
         dataset[context]['inferred'] = sorted_top_concept
-        dataset_file_path = os.path.join(DATASET_DIR, selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+        dataset_file_path = os.path.join(DATASET_DIR,
+                                         selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
         write_json(dataset, dataset_file_path)
         dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
         dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
@@ -593,7 +637,9 @@ def upload_file_from_form():
             return make_response(jsonify({'message': '{0}'.format(e)}), 400)
     from dataset.process_review_data import selected_dataset
     current_doc_url = '/view/{0}'.format(selected_dataset)
-    return render_template('file_upload.html', current_doc_url=current_doc_url, current_doc_name=selected_dataset)
+    jumbotron = 'Upload data to get med-terminology codes'
+    return render_template('file_upload.html', current_doc_url=current_doc_url, current_doc_name=selected_dataset,
+                           jumbotron=jumbotron)
 
 
 @api.route(SHARE_FOLDER_VIEW_URL + '<string:filename>', methods=['POST', 'GET'])

@@ -5,14 +5,10 @@
     </li>
 {% endblock %}
 {% block content %}
-    <div class="jumbotron">
-        <h2 class="text-center">Ciitizen AI Med-Terminology Intern</h2>
-    </div>
-
     <div class="row">
         <div class="panel panel-default col-lg-12 pb-3">
             <div class="panel-body text-center c0161">
-                <div id="context_text" class="text-left">
+                <div id="context_text" class="text-left p-3">
                     {% include 'ciitizen-catch-phrase.html' %}
                 </div>
             </div>
@@ -29,7 +25,7 @@
     </div>
 
     <div class="row">
-        <div class="mt-5 col text-left">
+        <div class="mt-5 ml-3 col text-left">
             <input type="text" name="extracted-code" class="form-control input-sm" disabled
                    placeholder="No selected code by document processing pipeline">
         </div>

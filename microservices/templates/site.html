@@ -15,9 +15,6 @@
     {% block extra_script %}{% endblock %}
 </head>
 <body>
-<div class="message" id="message-block">
-    {% block predefined_alert %}{% endblock %}
-</div>
 
 <nav class="navbar navbar-expand-sm bg-light">
 
@@ -44,6 +41,13 @@
     </div>
 </nav>
 
+<div class="jumbotron">
+    <h2 class="text-center">{{ jumbotron}}</h2>
+</div>
+
+<div class="message" id="message-block">
+    {% block predefined_alert %}{% endblock %}
+</div>
 
 <div id="content">{% block content %}{% endblock %}</div>
 

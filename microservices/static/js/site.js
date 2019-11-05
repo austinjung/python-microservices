@@ -78,11 +78,15 @@ $(function () {
                     }
                     med_code_dropdown.selectpicker('refresh');
                     med_code_dropdown.selectpicker('val', data.results[0].code);
-                    med_code_dropdown.prop('disabled', true);
                     $("#context_text").html(data.context);
                     $("input[name='extracted-code']").val(data.extracted_code);
                     $("input[name='keyword']").val(data.original_highlighted);
                     set_disable_all_button(false);
+                    if (data.match_with_extracted) {
+                        add_code_match_alert(data.extracted_code);
+                    } else {
+                        add_code_mismatch_alert(data.extracted_code, data.results[0].code);
+                    }
                 } else {
                     add_success_alert(data.message);
                 }
@@ -170,6 +174,50 @@ $(function () {
         $(alert_div).append(button);
         $(alert_div).append("<strong>Success!</strong> " + message);
         message_block.append(alert_div);
+        button.onclick = function () {
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
+        };
+    };
+
+    var add_code_match_alert = function (code) {
+        var message_block = $('#message-block');
+        var alert_div = document.createElement('div');
+        $(alert_div).addClass("alert success");
+        var button = document.createElement('span');
+        $(button).addClass("closebtn");
+        $(button).html("&times;");
+        $(alert_div).append(button);
+        $(alert_div).append("<strong>Code matched!</strong> " + code);
+        message_block.append(alert_div);
+        setTimeout(function () {
+            alert_div.style.display = "none";
+        }, 3600);
+        button.onclick = function () {
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function () {
+                div.style.display = "none";
+            }, 600);
+        };
+    };
+
+    var add_code_mismatch_alert = function (code1, code2) {
+        var message_block = $('#message-block');
+        var alert_div = document.createElement('div');
+        $(alert_div).addClass("alert");
+        var button = document.createElement('span');
+        $(button).addClass("closebtn");
+        $(button).html("&times;");
+        $(alert_div).append(button);
+        $(alert_div).append("<strong>Code mismatch!</strong> " + code1 + ", " + code2);
+        message_block.append(alert_div);
+        setTimeout(function () {
+            alert_div.style.display = "none";
+        }, 3600);
         button.onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
