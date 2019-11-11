@@ -41,7 +41,8 @@ $(function () {
         $('button').prop('disabled', disable);
     };
 
-    var ajax_infer_next = function (endpoint) {
+    var ajax_infer_next = function (endpoint, data) {
+        data = (typeof data !== 'undefined') ?  data : {};
         $.ajax({
             dataType: "json",
             contentType: "application/json; charset=utf-8",
@@ -147,6 +148,23 @@ $(function () {
         $("input[name='keyword']").val("");
         set_disable_all_button(true);
         ajax_infer_next("accept_extractor_and_process_next");
+    });
+
+    $("#reject-all").click(function () {
+        var new_entity_type = $("#entity-type-dropdown").val();
+        var new_code = $("#med-code-dropdown").val();
+        if (inferred_code === new_code || inferred_entity_type === new_entity_type) {
+            add_alert("Inferred code or entity type was not changed.");
+            return;
+        }
+        $("#med-code-detail").val("");
+        $("input[name='keyword']").val("");
+        set_disable_all_button(true);
+        data = {
+            new_code: new_code,
+            new_entity_type: new_entity_type
+        };
+        ajax_infer_next("reject_and_learn", data);
     });
 
     $("input[name='keyword']").on("input", mark);

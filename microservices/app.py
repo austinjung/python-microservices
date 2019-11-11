@@ -40,6 +40,7 @@ MED_TERMINOLOGY_FIND_CODE = '/find_codes'
 INFER_NEXT = '/infer_next'
 ACCEPT_AND_PROCESS_NEXT = '/accept_and_process_next'
 ACCEPT_EXTRACTOR_AND_PROCESS_NEXT = '/accept_extractor_and_process_next'
+REJECT_AND_LEARN = '/reject_and_learn'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
 GET_MED_TERMINOLOGY_CODE_URL = '/terminology_code'
 DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl')
@@ -349,18 +350,6 @@ def get_weighted_concept_score(kv):
     return kv[1][0]['concept_score'] * (1 + occurance * 0.01) + max_extra_score
 
 
-def sort_by_code_weight_with_same_parent(results):
-    code_weight_dict = defaultdict(list)
-    for result in results:
-        if result['code'] != 'None':
-            code_weight_dict[result['code']].append(result)
-    sorted_by_code_weight = sorted(code_weight_dict.items(), key=get_weighted_concept_score, reverse=True)
-    sorted_results = []
-    for code, results_with_same_code in sorted_by_code_weight:
-        sorted_results.append(results_with_same_code[0])
-    return sorted_results
-
-
 def get_t2_find_code(payload, max_results=5):
     payload["max_results"] = max_results
 
@@ -498,7 +487,7 @@ def api_find_code():
                 pass
 
         sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
-        sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
+        sorted_top_concept = sorted_results[:10]
         for concept in sorted_top_concept:
             concept['highlighted'] = ''.join(get_highlight(concept['synonym']))
         response['results'] = sorted_top_concept
@@ -541,6 +530,8 @@ def get_next_dataset_context():
             highlighted = data['original'].get('highlighted', '')
             inprogress = data.get('inferred', None) is not None
             break
+    if context_text is None:
+        i = 0
     return context_text, entity_type, extracted_code, highlighted, inprogress
 
 
@@ -580,7 +571,7 @@ def infer_next_code():
             pass
 
     sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
-    sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results[:10])
+    sorted_top_concept = sorted_results[:10]
     if original_highlighted in ['', None]:
         selected_concept = None
     else:
@@ -672,6 +663,31 @@ def api_accept_extractor_and_infer_next_code():
             'selected': 'original',
             'entityType': entity_type,
             'code': extracted_code,
+        }
+        dataset_file_path = os.path.join(DATASET_DIR,
+                                         selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+        write_json(dataset, dataset_file_path)
+        dataset_status[selected_dataset]['processing_dataset'] -= 1
+        dataset_status[selected_dataset]['rejected_dataset'] += 1
+        dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+        dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
+        write_json(dataset_status, dataset_status_file_path)
+
+        return infer_next_code()
+
+
+@api.route(REJECT_AND_LEARN, methods=['POST'])
+def api_reject_and_learn_code():
+    """Accept infer results of current dataset"""
+    if request.method == 'POST':
+        new_code = request.json['new_code']
+        new_entity_type = request.json['new_entity_type']
+        from dataset.process_review_data import dataset, selected_dataset, dataset_status
+        context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
+        dataset[context]['rejected'] = {
+            'selected': 'new_learn',
+            'entityType': new_entity_type,
+            'code': new_code,
         }
         dataset_file_path = os.path.join(DATASET_DIR,
                                          selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
