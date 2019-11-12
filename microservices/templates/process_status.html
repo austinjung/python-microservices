@@ -1,19 +1,32 @@
 {% extends "site.html" %}
+{% block extra_script %}
+    <script src="../../static/js/process_status.js"></script>
+{% endblock %}
 {% block content %}
+
+<div class="mb-3 col">
+    <button id="select-dataset" type="button" class="btn btn-success center-block">
+        Select and process
+    </button>
+    <button id="view-dataset" type="button" class="btn btn-info center-block">
+        View
+    </button>
+    <button id="delete-dataset" type="button" class="btn btn-warning center-block">
+        Delete
+    </button>
+</div>
 
 <div class="panel panel-default">
     <table class="table table-striped">
         <thead>
         <tr>
             <th>
-                <input type="checkbox" class="select-all-input">
+                <input type="checkbox" id="select-all-input">
             </th>
             <th>Filename</th>
             <th>Progress</th>
-            <th>Precision</th>
             <th>Concept</th>
             <th>Accepted</th>
-            <th>Partial</th>
             <th>Rejected</th>
             <th>Inprogress</th>
             <th>Not started</th>
@@ -27,16 +40,28 @@
                 </td>
                 <td>{{ file.filename }}</td>
                 <td>{{ "%.2f"|format(file.progress) }}%</td>
-                <td>{{ "%.2f"|format(file.precision) }}%</td>
                 <td>{{ file.total_dataset }}</td>
                 <td>{{ "%.2f"|format(file.accepted_dataset) }}%</td>
-                <td>{{ "%.2f"|format(file.partially_accepted_dataset) }}%</td>
                 <td>{{ "%.2f"|format(file.rejected_dataset) }}%</td>
                 <td>{{ "%.2f"|format(file.processing_dataset) }}%</td>
                 <td>{{ "%.2f"|format(file.not_started) }}%</td>
             </tr>
         {% endfor %}
         </tbody>
+        <tfoot>
+            <tr>
+                <td>
+                </td>
+                <td>Sum</td>
+                <td>{{ "%.2f"|format(sum.progress) }}%</td>
+                <td>{{ sum.total_dataset }}</td>
+                <td>{{ "%.2f"|format(sum.accepted_dataset) }}%</td>
+                <td>{{ "%.2f"|format(sum.rejected_dataset) }}%</td>
+                <td>{{ "%.2f"|format(sum.processing_dataset) }}%</td>
+                <td>{{ "%.2f"|format(sum.not_started) }}%</td>
+            </tr>
+
+        </tfoot>
     </table>
 </div>
 {% endblock %}

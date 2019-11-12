@@ -39,7 +39,6 @@ def build_current_working_dataset(app, json_filename, json_file_full_path, datas
     total_partially_accepted_dataset_count_in_file = 0
     total_rejected_dataset_count_in_file = 0
     total_not_started_dataset_count = 0
-    precision = 0.0
     for review_obj in review_json_objs:
         if review_obj['entityType'] not in app.terminology_entity_types:
             continue
@@ -62,7 +61,6 @@ def build_current_working_dataset(app, json_filename, json_file_full_path, datas
                     'sectionType': review_obj['sectionType'],
                     'entityType': review_obj['entityType'],
                     'code': review_obj.get('code', None),
-                    'precision': 0.0,
                     'original': {
                         'highlighted': review_obj['highlighted']['text'],
                         'selected': review_obj['selected']['text'],
@@ -71,12 +69,12 @@ def build_current_working_dataset(app, json_filename, json_file_full_path, datas
                 total_not_started_dataset_count += 1
             except KeyError:
                 total_dataset_count_in_file -= 1
+        elif source_key in local_dataset:
+            total_dataset_count_in_file -= 1
         elif 'accepted' in local_dataset[source_key]:
             total_accepted_dataset_count_in_file += 1
-            precision += local_dataset[source_key]['precision']
         elif 'partially_accepted' in local_dataset[source_key]:
             total_partially_accepted_dataset_count_in_file += 1
-            precision += local_dataset[source_key]['precision']
         elif 'rejected' in local_dataset[source_key]:
             total_rejected_dataset_count_in_file += 1
         elif 'inferred' in local_dataset[source_key]:
@@ -90,7 +88,6 @@ def build_current_working_dataset(app, json_filename, json_file_full_path, datas
         'rejected_dataset': total_rejected_dataset_count_in_file,
         'processing_dataset': total_processing_dataset_count_in_file,
         'not_started': total_not_started_dataset_count,
-        'precision': precision,
         'updated': datetime.now().strftime(DATETIME_FORMAT)
     }
     write_json(local_dataset, dataset_file_full_path)

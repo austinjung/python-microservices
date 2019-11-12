@@ -38,6 +38,7 @@ PROCESS_STATUS_URL = '/status'
 SHARE_FOLDER_UPLOAD_URL = '/upload'
 MED_TERMINOLOGY_FIND_CODE = '/find_codes'
 INFER_NEXT = '/infer_next'
+SET_DATASET_AND_INFER_NEXT = '/set_dataset_and_infer_next'
 ACCEPT_AND_PROCESS_NEXT = '/accept_and_process_next'
 ACCEPT_EXTRACTOR_AND_PROCESS_NEXT = '/accept_extractor_and_process_next'
 REJECT_AND_LEARN = '/reject_and_learn'
@@ -223,12 +224,17 @@ def show_status():
     files = []
     global api
     current_doc_url = '/view/{0}'.format(api.selected_dataset)
+    total_dataset = 0
+    total_accepted_dataset = 0
+    total_partially_accepted_dataset = 0
+    total_rejected_dataset = 0
+    total_processing_dataset = 0
+    total_not_started = 0
     for filename, status in api.dataset_status.items():
         if '.json' in filename:
             files.append({
                 'filename': filename,
                 'progress': (status['total_dataset'] - status['not_started']) * 100 / status['total_dataset'],
-                'precision': status['precision'],
                 'total_dataset': status['total_dataset'],
                 'accepted_dataset': status['accepted_dataset'] * 100 / status['total_dataset'],
                 'partially_accepted_dataset': status['partially_accepted_dataset'] * 100 / status['total_dataset'],
@@ -237,8 +243,34 @@ def show_status():
                 'not_started': status['not_started'] * 100 / status['total_dataset'],
                 "updated": status['updated']
             })
+            total_dataset += status['total_dataset']
+            total_accepted_dataset += status['accepted_dataset']
+            total_partially_accepted_dataset += status['partially_accepted_dataset']
+            total_rejected_dataset += status['rejected_dataset']
+            total_processing_dataset += status['processing_dataset']
+            total_not_started += status['not_started']
     jumbotron = 'Process status'
-    return render_template('process_status.html', files=files, current_doc_url=current_doc_url,
+    if total_dataset > 0:
+        sum = {
+            'progress': (total_dataset - total_not_started) * 100 / total_dataset,
+            'total_dataset': total_dataset,
+            'accepted_dataset': total_accepted_dataset * 100 / total_dataset,
+            'partially_accepted_dataset': total_partially_accepted_dataset * 100 / total_dataset,
+            'rejected_dataset': total_rejected_dataset * 100 / total_dataset,
+            'processing_dataset': total_processing_dataset * 100 / total_dataset,
+            'not_started': total_not_started * 100 / total_dataset,
+        }
+    else:
+        sum = {
+            'progress': 0.0,
+            'total_dataset': 0,
+            'accepted_dataset': 0.0,
+            'partially_accepted_dataset': 0.0,
+            'rejected_dataset': 0.0,
+            'processing_dataset': 0.0,
+            'not_started': 0.0,
+        }
+    return render_template('process_status.html', files=files, current_doc_url=current_doc_url, sum=sum,
                            current_doc_name=api.selected_dataset, jumbotron=jumbotron)
 
 
@@ -529,8 +561,8 @@ def get_next_dataset():
     global api
     local_selected_dataset = api.selected_dataset
     select_next = api.selected_dataset is None or \
-                  ( api.dataset_status[api.selected_dataset]['not_started'] +
-                    api.dataset_status[api.selected_dataset]['processing_dataset'] <= 0)
+                  (api.dataset_status[api.selected_dataset]['not_started'] +
+                   api.dataset_status[api.selected_dataset]['processing_dataset'] <= 0)
     for ds in api.dataset_status.keys():
         if select_next is False:
             break
@@ -701,6 +733,19 @@ def api_infer_next_code():
         return infer_next_code()
 
 
+@api.route(SET_DATASET_AND_INFER_NEXT, methods=['POST'])
+def api_set_dataset_and_infer_next_code():
+    global api
+    if request.method == 'POST':
+        api.selected_dataset = request.json['selected_dataset']
+        response = {
+            "message": "{0} is selected.".format(api.selected_dataset),
+            "method": "POST",
+            "status-code": HTTPStatus.OK
+        }
+        return make_response(jsonify(response), response.get("status-code", 400))
+
+
 @api.route(ACCEPT_AND_PROCESS_NEXT, methods=['POST'])
 def api_accept_and_infer_next_code():
     """Accept infer results of current dataset"""
@@ -800,7 +845,7 @@ def view_file(filename):
                                current_doc_url=current_doc_url, current_doc_name=api.selected_dataset)
 
 
-@api.route(SHARE_FOLDER_DELETE_URL + '<string:filename>', methods=['POST', 'GET'])
+@api.route(SHARE_FOLDER_DELETE_URL + '<string:filename>', methods=['POST'])
 def delete_file(filename):
     """delete file"""
     global api

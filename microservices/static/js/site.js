@@ -94,12 +94,7 @@ $(function () {
                         add_code_mismatch_alert(data.extracted_code, data.results[0].code);
                     }
                 } else {
-                    set_disable_all_button(false);
                     add_success_alert(data.message);
-                    if (data.extracted_code !== null) {
-                        $("#accept-extracted-code").prop('disabled', false);
-                    }
-                    $("#accept-code").prop('disabled', true);
                 }
             },
             error: function (error) {
