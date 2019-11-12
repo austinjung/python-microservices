@@ -21,7 +21,7 @@ from nltk import word_tokenize
 nltk.download('punkt')
 
 from dataset.process_review_data import (
-    generate_review_dataset, add_dataset, DATASET_STATUS_FILE, DATASET_DIR, DATETIME_FORMAT
+    generate_review_dataset, add_dataset, config_app, DATASET_STATUS_FILE, DATASET_DIR, DATETIME_FORMAT
 )
 
 ROOT_URL = '/'
@@ -65,8 +65,6 @@ med_embeddings = set(read_json(CIITIZEN_MED_DICTIONARY_PATH)).union(set(read_jso
 
 med_terminology_code_verbose = read_json(MED_TERMINOLOGY_CODE_PATH)
 med_terminology_code_tree = read_json(MED_TERMINOLOGY_CODE_TREE_PATH)
-
-generate_review_dataset()
 
 stop_words = {
     "/", "-", ",", "(", ")", "[", "]", "upper", "left", "right", "down", "lower", "region",
@@ -141,9 +139,10 @@ class UploadFolderException(Exception):
 
 
 class UploadFolderManager(object):
-    def __init__(self, upload_folder=SHARE_FOLDER, allowed_extensions=None):
+    def __init__(self, app, upload_folder=SHARE_FOLDER, allowed_extensions=None):
         if allowed_extensions is None:
             allowed_extensions = DEFAULT_ALLOWED_EXTENSIONS
+        self.app = app
         self.upload_folder = upload_folder
         self.allowed_extensions = allowed_extensions
 
@@ -179,7 +178,7 @@ class UploadFolderManager(object):
         self.validate_filename(new_filename)
         with open(os.path.join(self.upload_folder, new_filename), 'wb') as fp:
             fp.write(file_data)
-        add_dataset(new_filename)
+        add_dataset(self.app, new_filename)
         return '{filename} uploaded'.format(filename=new_filename)
 
     def save_uploaded_file_from_form(self, file):
@@ -190,7 +189,7 @@ class UploadFolderManager(object):
         filename = secure_filename(file.filename)
         self.validate_filename(filename)
         file.save(os.path.join(self.upload_folder, filename))
-        add_dataset(filename)
+        add_dataset(self.app, filename)
         return '{filename} uploaded'.format(filename=filename)
 
     def get_upload_folder(self):
@@ -201,15 +200,20 @@ class UploadFolderManager(object):
 
 
 api = Flask(__name__)
-api.shared_folder_manager = UploadFolderManager(SHARE_FOLDER)
+api.shared_folder_manager = UploadFolderManager(api, SHARE_FOLDER)
+config_app(api)
+generate_review_dataset(api)
 
 
 @api.route(ROOT_URL)
 def main_url():
-    from dataset.process_review_data import selected_dataset
-    current_doc_url = '/view/{0}'.format(selected_dataset)
+    global api
+    if api.selected_dataset:
+        current_doc_url = '/view/{0}'.format(api.selected_dataset)
+    else:
+        current_doc_url = '#'
     jumbotron = 'Ciitizen AI Med-Terminology Intern'
-    return render_template('index.html', current_doc_url=current_doc_url, current_doc_name=selected_dataset,
+    return render_template('index.html', current_doc_url=current_doc_url, current_doc_name=api.selected_dataset,
                            jumbotron=jumbotron)
 
 
@@ -217,9 +221,9 @@ def main_url():
 def show_status():
     """Endpoint to show process status."""
     files = []
-    from dataset.process_review_data import dataset_status, selected_dataset
-    current_doc_url = '/view/{0}'.format(selected_dataset)
-    for filename, status in dataset_status.items():
+    global api
+    current_doc_url = '/view/{0}'.format(api.selected_dataset)
+    for filename, status in api.dataset_status.items():
         if '.json' in filename:
             files.append({
                 'filename': filename,
@@ -235,7 +239,7 @@ def show_status():
             })
     jumbotron = 'Process status'
     return render_template('process_status.html', files=files, current_doc_url=current_doc_url,
-                           current_doc_name=selected_dataset, jumbotron=jumbotron)
+                           current_doc_name=api.selected_dataset, jumbotron=jumbotron)
 
 
 @api.route(SHARE_FOLDER_DOWNLOAD_BASE_URL + '<string:filename>')
@@ -521,32 +525,41 @@ def api_find_code():
         return make_response(jsonify(response), response.get("status-code", 400))
 
 
-def get_next_dataset(dataset, dataset_status, selected_dataset, last_read_dataset):
-    if dataset_status[selected_dataset]['not_started'] + dataset_status[selected_dataset]['processing_dataset'] <= 0:
-        for name, data in dataset_status.items():
-            if data['not_started'] + data['processing_dataset'] > 0:
-                selected_dataset = name
-                break
-    if selected_dataset != last_read_dataset:
-        import dataset.process_review_data as process_review_data
-        dataset = read_json(os.path.join(DATASET_DIR, selected_dataset.replace('.jsonl', '.data').replace('.json', '.data')))
-        process_review_data.dataset = dataset
-        process_review_data.last_read_dataset = selected_dataset
-    return dataset
+def get_next_dataset():
+    global api
+    local_selected_dataset = api.selected_dataset
+    select_next = api.selected_dataset is None or \
+                  ( api.dataset_status[api.selected_dataset]['not_started'] +
+                    api.dataset_status[api.selected_dataset]['processing_dataset'] <= 0)
+    for ds in api.dataset_status.keys():
+        if select_next is False:
+            break
+        if ds == 'updated' or local_selected_dataset == ds:
+            continue
+        api.selected_dataset = ds
+        select_next = api.selected_dataset is None or \
+                      (api.dataset_status[api.selected_dataset]['not_started'] +
+                       api.dataset_status[api.selected_dataset]['processing_dataset'] <= 0)
+
+    if api.selected_dataset != api.last_read_dataset:
+        api.dataset = read_json(os.path.join(
+            DATASET_DIR, api.selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+        )
+        api.last_read_dataset = api.selected_dataset
+    return not select_next
 
 
 def get_next_dataset_context():
-    from dataset.process_review_data import dataset, dataset_status, selected_dataset, last_read_dataset
-    dataset = get_next_dataset(dataset, dataset_status, selected_dataset, last_read_dataset)
+    global api
     context_text = None
     entity_type = None
     extracted_code = None
     highlighted = None
     inprogress = None
-    if dataset is None:
-        return context_text, entity_type
+    if get_next_dataset() is False:
+        return context_text, entity_type, extracted_code, highlighted, inprogress
     processed = {'accepted', 'partially_accepted', 'rejected'}
-    for source, data in dataset.items():
+    for source, data in api.dataset.items():
         if not processed.intersection(set(data.keys())):
             context_text = source
             entity_type = data['entityType']
@@ -554,14 +567,21 @@ def get_next_dataset_context():
             highlighted = data['original'].get('highlighted', '')
             inprogress = data.get('inferred', None) is not None
             break
-    if context_text is None:
-        i = 0
     return context_text, entity_type, extracted_code, highlighted, inprogress
 
 
 def get_weighted_concept_score(kv):
     occurance = len(kv[1])
-    return kv[1][0]['concept_score'] * (1 + occurance * 0.05)
+    if 'preferred_terminology' in kv[1][0]:
+        preferred_tokens = set(kv[1][0]['preferred_terminology'][0].lower().split())
+    else:
+        preferred_tokens = set()
+    synonym_tokens = set(kv[1][0]['synonym'].lower().split())
+    if len(preferred_tokens.intersection(synonym_tokens)):
+        extra_score = 0.2
+    else:
+        extra_score = 0.0
+    return kv[1][0]['concept_score'] * (1 + occurance * 0.05) + extra_score
 
 
 def sort_by_code_weight_with_same_parent(results):
@@ -579,7 +599,7 @@ def sort_by_code_weight_with_same_parent(results):
     sorted_results = []
     for code, results_with_same_code in sorted_by_code_weight:
         top_result = sorted(results_with_same_code, key=lambda x: x['concept_score'], reverse=True)[0]
-        if top_result['confidence'] >= 0.80 and top_result['concept_score'] >= 0.80:
+        if top_result['concept_score'] >= 0.80:
             sorted_results.append(top_result)
         if len(sorted_results) > 4:
             break
@@ -588,6 +608,7 @@ def sort_by_code_weight_with_same_parent(results):
 
 def infer_next_code():
     """find code from unprocessed dataset"""
+    global api
     find_code_results = []
     context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
     if context is None:
@@ -598,10 +619,10 @@ def infer_next_code():
             "status-code": 200
         }
         return make_response(jsonify(response), response.get("status-code", 400))
-    from dataset.process_review_data import dataset, selected_dataset, dataset_status
     # if original_highlighted in ['', None]:
     processed_context_lines = (
-        context.lower().replace('\\n', '\n').replace('\n\n', '\n').replace(';', '\n').replace(':', '\n').split('\n')
+        context.lower().replace('\\n', '\n').replace('\n\n', '\n')
+        .replace(';', '\n').replace(':', '\n').replace('.', ' . ').split('\n')
     )
     payloads = generate_payload_by_line(processed_context_lines, entity_type=entity_type)
     # else:
@@ -621,13 +642,15 @@ def infer_next_code():
 
     sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
     sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results)
-    if original_highlighted in ['', None]:
-        selected_concept = sorted_top_concept[0].get('synonym', sorted_top_concept[0].get('preferred_terminology'))
-    else:
-        selected_concept = original_highlighted
+    # if original_highlighted in ['', None]:
+    # selected_concept = sorted_top_concept[0].get('synonym', sorted_top_concept[0].get('preferred_terminology'))
+    selected_concept = sorted_top_concept[0].get('preferred_terminology', [sorted_top_concept[0].get('synonym')])[0]
+    # else:
+    #     selected_concept = original_highlighted
     response['results'] = sorted_top_concept
     response_context_lines = (
-        context.replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+        context.replace('\\n', '\n').replace('\n\n', '\n')
+        .replace(';', '\n').replace(':', '\n').replace('.', ' . ').split('\n')
     )
     index = 0
     selected_concept_tokens = set(selected_concept.lower().replace(';', '').replace(':', '').split())
@@ -647,6 +670,7 @@ def infer_next_code():
     response['entity_codes'] = entity_codes
     response['extracted_code'] = extracted_code
     response['original_highlighted'] = original_highlighted
+    response['current_process'] = api.selected_dataset
     if len(sorted_top_concept) == 0:
         response['message'] = "No match found"
         response['match_with_extracted'] = False
@@ -657,16 +681,16 @@ def infer_next_code():
             response['match_with_extracted'] = False
         response['message'] = "OK"
     jsonify_response = jsonify(response)
-    dataset[context]['inferred'] = sorted_top_concept
+    api.dataset[context]['inferred'] = sorted_top_concept
     dataset_file_path = os.path.join(DATASET_DIR,
-                                     selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
-    write_json(dataset, dataset_file_path)
+                                     api.selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+    write_json(api.dataset, dataset_file_path)
     if not inprogress:
-        dataset_status[selected_dataset]['processing_dataset'] += 1
-        dataset_status[selected_dataset]['not_started'] -= 1
-    dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+        api.dataset_status[api.selected_dataset]['processing_dataset'] += 1
+        api.dataset_status[api.selected_dataset]['not_started'] -= 1
+    api.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
     dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
-    write_json(dataset_status, dataset_status_file_path)
+    write_json(api.dataset_status, dataset_status_file_path)
 
     return make_response(jsonify_response, response.get("status-code", 400))
 
@@ -680,18 +704,18 @@ def api_infer_next_code():
 @api.route(ACCEPT_AND_PROCESS_NEXT, methods=['POST'])
 def api_accept_and_infer_next_code():
     """Accept infer results of current dataset"""
+    global api
     if request.method == 'POST':
-        from dataset.process_review_data import dataset, selected_dataset, dataset_status
         context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
-        dataset[context]['accepted'] = True
+        api.dataset[context]['accepted'] = True
         dataset_file_path = os.path.join(DATASET_DIR,
-                                         selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
-        write_json(dataset, dataset_file_path)
-        dataset_status[selected_dataset]['processing_dataset'] -= 1
-        dataset_status[selected_dataset]['accepted_dataset'] += 1
-        dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+                                         api.selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+        write_json(api.dataset, dataset_file_path)
+        api.dataset_status[api.selected_dataset]['processing_dataset'] -= 1
+        api.dataset_status[api.selected_dataset]['accepted_dataset'] += 1
+        api.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
         dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
-        write_json(dataset_status, dataset_status_file_path)
+        write_json(api.dataset_status, dataset_status_file_path)
 
         return infer_next_code()
 
@@ -699,22 +723,22 @@ def api_accept_and_infer_next_code():
 @api.route(ACCEPT_EXTRACTOR_AND_PROCESS_NEXT, methods=['POST'])
 def api_accept_extractor_and_infer_next_code():
     """Accept infer results of current dataset"""
+    global api
     if request.method == 'POST':
-        from dataset.process_review_data import dataset, selected_dataset, dataset_status
         context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
-        dataset[context]['rejected'] = {
+        api.dataset[context]['rejected'] = {
             'selected': 'original',
             'entityType': entity_type,
             'code': extracted_code,
         }
         dataset_file_path = os.path.join(DATASET_DIR,
-                                         selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
-        write_json(dataset, dataset_file_path)
-        dataset_status[selected_dataset]['processing_dataset'] -= 1
-        dataset_status[selected_dataset]['rejected_dataset'] += 1
-        dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+                                         api.selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+        write_json(api.dataset, dataset_file_path)
+        api.dataset_status[api.selected_dataset]['processing_dataset'] -= 1
+        api.dataset_status[api.selected_dataset]['rejected_dataset'] += 1
+        api.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
         dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
-        write_json(dataset_status, dataset_status_file_path)
+        write_json(api.dataset_status, dataset_status_file_path)
 
         return infer_next_code()
 
@@ -722,24 +746,24 @@ def api_accept_extractor_and_infer_next_code():
 @api.route(REJECT_AND_LEARN, methods=['POST'])
 def api_reject_and_learn_code():
     """Accept infer results of current dataset"""
+    global api
     if request.method == 'POST':
         new_code = request.json['new_code']
         new_entity_type = request.json['new_entity_type']
-        from dataset.process_review_data import dataset, selected_dataset, dataset_status
         context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
-        dataset[context]['rejected'] = {
+        api.dataset[context]['rejected'] = {
             'selected': 'new_learn',
             'entityType': new_entity_type,
             'code': new_code,
         }
         dataset_file_path = os.path.join(DATASET_DIR,
-                                         selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
-        write_json(dataset, dataset_file_path)
-        dataset_status[selected_dataset]['processing_dataset'] -= 1
-        dataset_status[selected_dataset]['rejected_dataset'] += 1
-        dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+                                         api.selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+        write_json(api.dataset, dataset_file_path)
+        api.dataset_status[api.selected_dataset]['processing_dataset'] -= 1
+        api.dataset_status[api.selected_dataset]['rejected_dataset'] += 1
+        api.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
         dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
-        write_json(dataset_status, dataset_status_file_path)
+        write_json(api.dataset_status, dataset_status_file_path)
 
         return infer_next_code()
 
@@ -747,6 +771,7 @@ def api_reject_and_learn_code():
 @api.route(SHARE_FOLDER_UPLOAD_URL, methods=['POST', 'GET'])
 def upload_file_from_form():
     """Upload a file from form."""
+    global api
     if request.method == 'POST':
         try:
             files = request.files['files']
@@ -754,42 +779,42 @@ def upload_file_from_form():
             return make_response(jsonify({'message': '{0} uploaded'.format(files.filename)}), 200)
         except UploadFolderException as e:
             return make_response(jsonify({'message': '{0}'.format(e)}), 400)
-    from dataset.process_review_data import selected_dataset
-    current_doc_url = '/view/{0}'.format(selected_dataset)
+    current_doc_url = '/view/{0}'.format(api.selected_dataset)
     jumbotron = 'Upload data to get med-terminology codes'
-    return render_template('file_upload.html', current_doc_url=current_doc_url, current_doc_name=selected_dataset,
+    return render_template('file_upload.html', current_doc_url=current_doc_url, current_doc_name=api.selected_dataset,
                            jumbotron=jumbotron)
 
 
 @api.route(SHARE_FOLDER_VIEW_URL + '<string:filename>', methods=['POST', 'GET'])
 def view_file(filename):
     """view a file"""
-    from dataset.process_review_data import selected_dataset
-    current_doc_url = '/view/{0}'.format(selected_dataset)
+    global api
+    current_doc_url = '/view/{0}'.format(api.selected_dataset)
     if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
         file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)
         file_content = json.dumps(read_json(file_path), indent=8)
         return render_template('json_viewer.html', filename=filename, error=False, file_content=file_content,
-                               current_doc_url=current_doc_url, current_doc_name=selected_dataset)
+                               current_doc_url=current_doc_url, current_doc_name=api.selected_dataset)
     else:
         return render_template('json_viewer.html', filename=filename, error=True, file_content='',
-                               current_doc_url=current_doc_url, current_doc_name=selected_dataset)
+                               current_doc_url=current_doc_url, current_doc_name=api.selected_dataset)
 
 
 @api.route(SHARE_FOLDER_DELETE_URL + '<string:filename>', methods=['POST', 'GET'])
 def delete_file(filename):
     """delete file"""
+    global api
     if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
         try:
-            from dataset.process_review_data import dataset_status, selected_dataset
             file_path = os.path.join(BASE_DIR, SHARE_FOLDER, filename)
             dataset_folder = os.path.join(BASE_DIR, DATASET_FOLDER)
             dataset_path = os.path.join(dataset_folder, filename).replace('.jsonl', '.data').replace('.json', '.data')
             remove_file(file_path)
             remove_file(dataset_path)
-            dataset_status.pop(filename)
+            api.dataset_status.pop(filename)
             dataset_status_file_path = os.path.join(dataset_folder, DATASET_STATUS_FILE)
-            write_json(dataset_status, dataset_status_file_path)
+            write_json(api.dataset_status, dataset_status_file_path)
+            api.selected_dataset = None
             return make_response(jsonify({'message': '{0} deleted'.format(filename)}), 200)
         except Exception as e:
             return make_response(jsonify({'message': '{0}'.format(e)}), 400)

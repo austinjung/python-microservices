@@ -5,10 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/microservices/models/med_terminology_code_tree.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/dataset/process_review_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/dataset/process_review_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/models/terminology_entity_types.json" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/models/terminology_entity_types.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/templates/site.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/site.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +175,7 @@
       <workItem from="1572965328618" duration="25136000" />
       <workItem from="1573110418464" duration="4203000" />
       <workItem from="1573275847125" duration="3130000" />
-      <workItem from="1573496424590" duration="12570000" />
+      <workItem from="1573496424590" duration="30797000" />
     </task>
     <task id="LOCAL-00001" summary="Add simple dockerized microservices">
       <created>1549167663788</created>
@@ -497,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573510600286</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Modify according to PT and GC">
+      <created>1573520453412</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1573520453412</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -549,7 +558,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add first version of finding highlighted and code" />
     <MESSAGE value="Assume select one highlighted line which has most important concept for the right code." />
     <MESSAGE value="Fix line split logic - later we need to split line by nlp" />
     <MESSAGE value="Add selected code details" />
@@ -574,9 +582,17 @@
     <MESSAGE value="Add accept and process next" />
     <MESSAGE value="Add accept_extractor_and_infer_next_code" />
     <MESSAGE value="Add reject" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add reject" />
+    <MESSAGE value="Modify according to PT and GC" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modify according to PT and GC" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="api" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573520282079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573583090300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

@@ -78,6 +78,8 @@ $(function () {
                     med_code_dropdown.selectpicker('refresh');
                     med_code_dropdown.selectpicker('val', data.results[0].code);
                     inferred_code = data.results[0].code;
+                    $("#current_processing").text("Current processing: " + data.current_process);
+                    $("#current_processing").attr("href", "/view/" + data.current_process);
                     $("#context_text").html(data.context);
                     $("input[name='extracted-code']").val(data.extracted_code);
                     $("input[name='keyword']").val(data.original_highlighted);
@@ -135,7 +137,7 @@ $(function () {
     $("#accept-code").click(function () {
         if (inferred_code !== $("#med-code-dropdown").val() || inferred_entity_type !== $("#entity-type-dropdown").val()) {
             add_alert("Inferred code or entity type was changed.");
-            return
+            return;
         }
         $("#med-code-detail").val("");
         $("input[name='keyword']").val("");

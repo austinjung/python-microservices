@@ -12,41 +12,27 @@ SHARE_FOLDER = os.path.join(BASE_DIR, '../shared-files')
 DATASET_DIR = BASE_DIR
 DATASET_STATUS_FILE = "dataset_status.json"
 LOGS_DIR = os.path.join(BASE_DIR, "../logs")
+TERMINOLOGY_ENTITY_TYPE_PATH = os.path.join(BASE_DIR, '../models', 'terminology_entity_types.json')
 
 DATETIME_FORMAT = '%Y-%m-%dT%H:%M:%S'
 INITIAL_MODIFIED = datetime(year=2000, month=1, day=1, )
 
-# Loggers
-check_create_dir(LOGS_DIR)
-REVIEWER_INTERN_SERVICE = 'reviewer-intern-service'
-ml_logger = CustomLogger(
-    name=REVIEWER_INTERN_SERVICE,
-    log_file=os.path.join(LOGS_DIR, '{}.log'.format(REVIEWER_INTERN_SERVICE)),
-).get_logger()
 
-dataset_status = OrderedDict({'updated': INITIAL_MODIFIED.strftime(DATETIME_FORMAT)})
-dataset = OrderedDict()
-selected_dataset = None
-last_read_dataset = None
-terminology_entity_types = read_json(os.path.join(BASE_DIR, '../models', 'terminology_entity_types.json'))
-
-
-def read_reviewed_json(file_full_path):
+def read_reviewed_json(app, file_full_path):
     json_obj = {}
     with open(file_full_path, encoding='utf-8', errors='replace') as f:
         data = f.read()
         try:
             json_obj = json.loads(data)
         except Exception as e:
-            ml_logger.warning('{0} has no reviewed json'.format(file_full_path))
-            ml_logger.warning(e)
+            app.ml_logger.warning('{0} has no reviewed json'.format(file_full_path))
+            app.ml_logger.warning(e)
     return json_obj
 
 
-def build_current_working_dataset(json_filename, json_file_full_path, dataset_file_full_path):
-    global dataset_status, selected_dataset
+def build_current_working_dataset(app, json_filename, json_file_full_path, dataset_file_full_path):
     local_dataset = OrderedDict()
-    review_json_objs = read_reviewed_json(json_file_full_path)
+    review_json_objs = read_reviewed_json(app, json_file_full_path)
     total_dataset_count_in_file = 0
     total_processing_dataset_count_in_file = 0
     total_accepted_dataset_count_in_file = 0
@@ -55,21 +41,24 @@ def build_current_working_dataset(json_filename, json_file_full_path, dataset_fi
     total_not_started_dataset_count = 0
     precision = 0.0
     for review_obj in review_json_objs:
-        if review_obj['entityType'] not in terminology_entity_types:
+        if review_obj['entityType'] not in app.terminology_entity_types:
             continue
-        source_key = review_obj['source']['text']  # source text will be key
-        if source_key == '':
-            source_key = review_obj['selected']['text']
+        source_key = review_obj['selected']['text']  # selected text will be key
+        source_key_origin = 'selected'
         if source_key == '':
             source_key = review_obj['highlighted']['text']
+            source_key_origin = 'highlighted'
         if source_key == '':
-            continue
+            source_key = review_obj['source']['text']
+            source_key_origin = 'source'
+        if source_key == '':
+            continue  # if there is no selected, highlighted or source
         total_dataset_count_in_file += 1
         if source_key not in local_dataset:
             try:
                 local_dataset[source_key] = {
-                    'd': review_obj['source']['provenance']['d'],
-                    'p': review_obj['source']['provenance']['p'],
+                    'd': review_obj[source_key_origin]['provenance']['d'],
+                    'p': review_obj[source_key_origin]['provenance']['p'],
                     'sectionType': review_obj['sectionType'],
                     'entityType': review_obj['entityType'],
                     'code': review_obj.get('code', None),
@@ -94,7 +83,7 @@ def build_current_working_dataset(json_filename, json_file_full_path, dataset_fi
             total_processing_dataset_count_in_file += 1
         else:
             total_not_started_dataset_count += 1
-    dataset_status[json_filename] = {
+    app.dataset_status[json_filename] = {
         'total_dataset': total_dataset_count_in_file,
         'accepted_dataset': total_accepted_dataset_count_in_file,
         'partially_accepted_dataset': total_partially_accepted_dataset_count_in_file,
@@ -105,66 +94,79 @@ def build_current_working_dataset(json_filename, json_file_full_path, dataset_fi
         'updated': datetime.now().strftime(DATETIME_FORMAT)
     }
     write_json(local_dataset, dataset_file_full_path)
-    return local_dataset
+    app.dataset = local_dataset
 
 
-def change_current_working_dataset(json_filename, dataset_filename):
-    global dataset, selected_dataset, last_read_dataset
+def change_current_working_dataset(app, json_filename, dataset_filename):
     json_file_path = os.path.join(SHARE_FOLDER, json_filename)
     json_last_modified_time = os.path.getmtime(json_file_path)
     dataset_file_path = os.path.join(DATASET_DIR, dataset_filename)
     dataset_last_modified_time = os.path.getmtime(dataset_file_path)
     if dataset_last_modified_time > json_last_modified_time:
-        dataset = read_reviewed_json(dataset_file_path)
-        if dataset_status[json_filename]['processing_dataset'] + dataset_status[json_filename]['not_started'] > 0:
-            selected_dataset = json_filename
+        app.dataset = read_reviewed_json(app, dataset_file_path)
+        if app.dataset_status[json_filename]['processing_dataset'] + app.dataset_status[json_filename]['not_started'] > 0:
+            app.selected_dataset = json_filename
     else:
-        dataset = build_current_working_dataset(json_filename, json_file_path, dataset_file_path)
-    last_read_dataset = json_filename
+        build_current_working_dataset(app, json_filename, json_file_path, dataset_file_path)
+    app.last_read_dataset = json_filename
 
 
-def generate_review_dataset(dataset_dir=DATASET_DIR):
-    global dataset, dataset_status, selected_dataset, last_read_dataset
+def config_app(app):
+    # Loggers
+    check_create_dir(LOGS_DIR)
+    REVIEWER_INTERN_SERVICE = 'reviewer-intern-service'
+    app.ml_logger = CustomLogger(
+        name=REVIEWER_INTERN_SERVICE,
+        log_file=os.path.join(LOGS_DIR, '{}.log'.format(REVIEWER_INTERN_SERVICE)),
+    ).get_logger()
+
+    app.dataset_status = OrderedDict({'updated': INITIAL_MODIFIED.strftime(DATETIME_FORMAT)})
+    app.dataset = OrderedDict()
+    app.selected_dataset = None
+    app.last_read_dataset = None
+    app.terminology_entity_types = read_json(TERMINOLOGY_ENTITY_TYPE_PATH)
+
+
+def generate_review_dataset(app, dataset_dir=DATASET_DIR):
     dataset_status_file_path = os.path.join(dataset_dir, DATASET_STATUS_FILE)
     if os.path.exists(dataset_status_file_path):
-        dataset_status = read_reviewed_json(dataset_status_file_path)
+        app.dataset_status = read_reviewed_json(app, dataset_status_file_path)
     else:
-        write_json(dataset_status, dataset_status_file_path)
+        write_json(app.dataset_status, dataset_status_file_path)
     for file in os.listdir(SHARE_FOLDER):
         if file != DATASET_STATUS_FILE and (file.endswith('.json') or file.endswith('.jsonl')):
             full_file_path = os.path.join(SHARE_FOLDER, file)
             dataset_path = os.path.join(DATASET_DIR, file)
             dataset_path = '{0}.data'.format(''.join(dataset_path.split('.')[:-1]))
             if os.path.exists(dataset_path):
-                dataset = read_reviewed_json(dataset_path)
+                app.dataset = read_reviewed_json(app, dataset_path)
             else:
-                dataset = build_current_working_dataset(file, full_file_path, dataset_path)
-            last_read_dataset = file
-            if selected_dataset is None and (
-                    dataset_status[file]['processing_dataset'] + dataset_status[file]['not_started'] > 0):
-                selected_dataset = file
-    dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
-    write_json(dataset_status, dataset_status_file_path)
+                build_current_working_dataset(app, file, full_file_path, dataset_path)
+            app.last_read_dataset = file
+            if app.selected_dataset is None and (
+                    app.dataset_status[file]['processing_dataset'] + app.dataset_status[file]['not_started'] > 0):
+                app.selected_dataset = file
+    app.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+    write_json(app.dataset_status, dataset_status_file_path)
 
 
-def add_dataset(file, dataset_dir=DATASET_DIR):
-    global dataset, dataset_status, selected_dataset, last_read_dataset
+def add_dataset(app, file, dataset_dir=DATASET_DIR):
     dataset_status_file_path = os.path.join(dataset_dir, DATASET_STATUS_FILE)
     if os.path.exists(dataset_status_file_path):
-        dataset_status = read_reviewed_json(dataset_status_file_path)
+        app.dataset_status = read_reviewed_json(app, dataset_status_file_path)
     else:
-        write_json(dataset_status, dataset_status_file_path)
+        write_json(app.dataset_status, dataset_status_file_path)
     if file != DATASET_STATUS_FILE and (file.endswith('.json') or file.endswith('.jsonl')):
         full_file_path = os.path.join(SHARE_FOLDER, file)
         dataset_path = os.path.join(DATASET_DIR, file)
         dataset_path = '{0}.data'.format(''.join(dataset_path.split('.')[:-1]))
         if os.path.exists(dataset_path):
-            dataset = read_reviewed_json(dataset_path)
+            app.dataset = read_reviewed_json(app, dataset_path)
         else:
-            write_json(dataset, dataset_path)
-        current_selected_dataset = selected_dataset
-        dataset = build_current_working_dataset(file, full_file_path, dataset_path)
-        selected_dataset = current_selected_dataset
-        last_read_dataset = file
-    dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
-    write_json(dataset_status, dataset_status_file_path)
+            write_json(app.dataset, dataset_path)
+        current_selected_dataset = app.selected_dataset
+        build_current_working_dataset(app, file, full_file_path, dataset_path)
+        app.selected_dataset = current_selected_dataset
+        app.last_read_dataset = file
+    app.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+    write_json(app.dataset_status, dataset_status_file_path)
