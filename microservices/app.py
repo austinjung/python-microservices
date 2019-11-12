@@ -59,10 +59,12 @@ CIITIZEN_MED_DICTIONARY_PATH = os.path.join(BASE_DIR, 'models', 'ciitizen_medica
 MERCK_MED_DICTIONARY_PATH = os.path.join(BASE_DIR, 'models', 'merck_medical_dictionary.json')
 
 MED_TERMINOLOGY_CODE_PATH = os.path.join(BASE_DIR, 'models', 'med_terminology_code_verbose.json')
+MED_TERMINOLOGY_CODE_TREE_PATH = os.path.join(BASE_DIR, 'models', 'med_terminology_code_tree.json')
 
 med_embeddings = set(read_json(CIITIZEN_MED_DICTIONARY_PATH)).union(set(read_json(MERCK_MED_DICTIONARY_PATH)))
 
 med_terminology_code_verbose = read_json(MED_TERMINOLOGY_CODE_PATH)
+med_terminology_code_tree = read_json(MED_TERMINOLOGY_CODE_TREE_PATH)
 
 generate_review_dataset()
 
@@ -308,6 +310,17 @@ def api_get_terminology_code_detail():
         entity_type = request.json['entity_type']
         synonyms = []
         relations = []
+        if code not in med_terminology_code_verbose[entity_type]:
+            response = {
+                "synonyms": "Not found",
+                "relations": "Not found",
+                "message": HTTPStatus.NOT_FOUND.phrase,
+                "status-code": HTTPStatus.NOT_FOUND,
+                "method": request.method,
+                "timestamp": datetime.now().isoformat(),
+                "url": request.url,
+            }
+            return make_response(jsonify(response), response["status-code"])
         code_detail = med_terminology_code_verbose[entity_type][code]
         attr_dict = {
             'STY': "Top concept",
@@ -336,18 +349,6 @@ def api_get_terminology_code_detail():
         }
 
         return make_response(jsonify(response), response["status-code"])
-
-
-def get_weighted_concept_score(kv):
-    occurance = len(kv[1])
-    max_extra_score = 0.0
-    if kv[1][0]['code'] in med_terminology_code_verbose[kv[1][0]['entity_type']]:
-        code_detail = med_terminology_code_verbose[kv[1][0]['entity_type']][kv[1][0]['code']]
-        for synonym in code_detail.get('SY', []):
-            if len(synonym.strip().lower().replace(kv[1][0]['synonym'], '').split()) == 0:
-                max_extra_score = 0.2
-                break
-    return kv[1][0]['concept_score'] * (1 + occurance * 0.01) + max_extra_score
 
 
 def get_t2_find_code(payload, max_results=5):
@@ -466,6 +467,29 @@ def get_highlight(concept_line_text):
     return highlighted_tokens
 
 
+def get_highlight_from_concept(concept_line_text, concept):
+    highlighted_tokens = []
+    start_idx = 0
+    end_idx = 0
+    index = 0
+    highlighted = False
+    for token in concept_line_text.split():
+        if token not in concept:
+            if highlighted:
+                highlighted, start_idx, end_idx = append_highlighted(
+                    highlighted, start_idx, end_idx, concept_line_text, highlighted_tokens
+                )
+        else:
+            if not highlighted:
+                highlighted, start_idx, end_idx = append_highlighted(
+                    highlighted, start_idx, end_idx, concept_line_text, highlighted_tokens
+                )
+        index += len(token) + 1
+        end_idx = index
+    append_highlighted(highlighted, start_idx, end_idx, concept_line_text, highlighted_tokens)
+    return ' '.join(highlighted_tokens)
+
+
 @api.route(MED_TERMINOLOGY_FIND_CODE, methods=['POST'])
 def api_find_code():
     """find code from med-embedding terminology service"""
@@ -487,7 +511,7 @@ def api_find_code():
                 pass
 
         sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
-        sorted_top_concept = sorted_results[:10]
+        sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results)
         for concept in sorted_top_concept:
             concept['highlighted'] = ''.join(get_highlight(concept['synonym']))
         response['results'] = sorted_top_concept
@@ -535,8 +559,31 @@ def get_next_dataset_context():
     return context_text, entity_type, extracted_code, highlighted, inprogress
 
 
-def extract_synonym(synonyms):
-    return synonyms[0]
+def get_weighted_concept_score(kv):
+    occurance = len(kv[1])
+    return kv[1][0]['concept_score'] * (1 + occurance * 0.05)
+
+
+def sort_by_code_weight_with_same_parent(results):
+    code_weight_dict = defaultdict(list)
+    for result in results:
+        if result['code'] in med_terminology_code_tree:
+            general_code, general_terminology = med_terminology_code_tree[result['code']].get('GC', [None, None])
+        else:
+            general_code = None
+        if general_code:
+            code_weight_dict[general_code].append(result)
+        else:
+            code_weight_dict[result['code']].append(result)
+    sorted_by_code_weight = sorted(code_weight_dict.items(), key=get_weighted_concept_score, reverse=True)
+    sorted_results = []
+    for code, results_with_same_code in sorted_by_code_weight:
+        top_result = sorted(results_with_same_code, key=lambda x: x['concept_score'], reverse=True)[0]
+        if top_result['confidence'] >= 0.80 and top_result['concept_score'] >= 0.80:
+            sorted_results.append(top_result)
+        if len(sorted_results) > 4:
+            break
+    return sorted_results
 
 
 def infer_next_code():
@@ -553,7 +600,9 @@ def infer_next_code():
         return make_response(jsonify(response), response.get("status-code", 400))
     from dataset.process_review_data import dataset, selected_dataset, dataset_status
     # if original_highlighted in ['', None]:
-    processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+    processed_context_lines = (
+        context.lower().replace('\\n', '\n').replace('\n\n', '\n').replace(';', '\n').replace(':', '\n').split('\n')
+    )
     payloads = generate_payload_by_line(processed_context_lines, entity_type=entity_type)
     # else:
     #     processed_context_lines = context.lower().replace('\\n', '\n').replace('\n\n', '\n').split('\n')
@@ -571,36 +620,30 @@ def infer_next_code():
             pass
 
     sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
-    sorted_top_concept = sorted_results[:10]
+    sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results)
     if original_highlighted in ['', None]:
-        selected_concept = None
+        selected_concept = sorted_top_concept[0].get('synonym', sorted_top_concept[0].get('preferred_terminology'))
     else:
         selected_concept = original_highlighted
-    selected_highlighted = None
-    for concept in sorted_top_concept:
-        if concept['code'] in ['None', ""] or concept['code'] not in med_terminology_code_verbose[entity_type]:
-            continue
-        if selected_concept is None:
-            selected_concept = concept['synonym']
-        concept['highlighted'] = ' '.join(get_highlight(concept['synonym']))
-        if selected_highlighted is None:
-            selected_highlighted = concept['highlighted']
-        concept.pop('children')
-        concept.pop('parents')
-        concept['synonym'] = extract_synonym(med_terminology_code_verbose[entity_type][concept['code']]['SY'])
     response['results'] = sorted_top_concept
-    response_context_lines = context.replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+    response_context_lines = (
+        context.replace('\\n', '\n').replace('\n\n', '\n').split('\n')
+    )
     index = 0
+    selected_concept_tokens = set(selected_concept.lower().replace(';', '').replace(':', '').split())
     for processed_context in processed_context_lines:
         processed_context_tokens = set(processed_context.split())
-        selected_concept_tokens = set(selected_concept.lower().split())
-        if selected_concept_tokens.intersection(processed_context_tokens):
-            response_context_lines[index] = "<mark class='c0177'>{0}</mark>".format(response_context_lines[index])
+        if selected_concept_tokens.intersection(processed_context_tokens) == selected_concept_tokens:
+            response_context_lines[index] = get_highlight_from_concept(response_context_lines[index], selected_concept)
         index += 1
     response['context'] = '<br>'.join(response_context_lines)
     entity_codes = []
     for code, detail in med_terminology_code_verbose[entity_type].items():
-        entity_codes.append([code, detail.get('SY', detail.get('STY'))[0]])
+        if code in med_terminology_code_tree:
+            terminology = med_terminology_code_tree[code].get('PT', detail.get('SY', detail.get('STY'))[0])
+        else:
+            terminology = detail.get('SY', detail.get('STY'))[0]
+        entity_codes.append([code, terminology])
     response['entity_codes'] = entity_codes
     response['extracted_code'] = extracted_code
     response['original_highlighted'] = original_highlighted

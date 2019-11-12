@@ -62,7 +62,7 @@ $(function () {
                     entity_dropdown.prop('disabled', true);
                     for (var i = 0; i < data.results.length; i++) {
                         var option = document.createElement('option');
-                        option.text = data.results[i].code + ": " + data.results[i].synonym + " (confidence: " + data.results[i].confidence + ")";
+                        option.text = data.results[i].code + ": " + data.results[i].preferred_terminology + " (concept_score: " + data.results[i].concept_score + ")";
                         option.value = data.results[i].code;
                         suggested_codes.push(data.results[i].code);
                         med_code_dropdown.append(option);
