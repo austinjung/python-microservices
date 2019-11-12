@@ -3,6 +3,9 @@
     <li class="nav-item">
         <a class="nav-link infer-next" href="#">Process</a>
     </li>
+    {% if auto_process %}
+    <div id="auto-process" style="display: none;">
+    {% endif %}
 {% endblock %}
 {% block content %}
     <div class="row">

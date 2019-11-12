@@ -213,9 +213,10 @@ def main_url():
         current_doc_url = '/view/{0}'.format(api.selected_dataset)
     else:
         current_doc_url = '#'
+    auto_process = request.args.get('auto-process')
     jumbotron = 'Ciitizen AI Med-Terminology Intern'
     return render_template('index.html', current_doc_url=current_doc_url, current_doc_name=api.selected_dataset,
-                           jumbotron=jumbotron)
+                           auto_process=auto_process, jumbotron=jumbotron)
 
 
 @api.route(PROCESS_STATUS_URL)

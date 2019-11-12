@@ -274,4 +274,8 @@ $(function () {
         };
     };
 
+    if ($("#auto-process").length > 0) {
+        ajax_infer_next("infer_next");
+    }
+
 });

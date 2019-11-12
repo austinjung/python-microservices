@@ -84,7 +84,7 @@ $(function () {
             success: function (data, status) {
                 add_success_alert(data.message);
                 setTimeout(function () {
-                    location.href = '/';
+                    location.href = '/?auto-process=true';
                 }, 600);
             },
             error: function (error) {
