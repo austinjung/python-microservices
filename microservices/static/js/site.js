@@ -113,6 +113,7 @@ $(function () {
                     $("input[name='pipeline-extracted-code']").val(data.extracted_code);
                     $("input[name='pipeline-entity-type']").val(data.results[0].entity_type);
                     $("input[name='pipeline-keyword']").val(data.original_highlighted);
+                    $("input[name='t2-keyword']").val(data.results[0].synonym);
                     preset_enable_all_button();
                     if (data.extracted_code === null) {
                         preset_disable_button("accept-pipeline-code");

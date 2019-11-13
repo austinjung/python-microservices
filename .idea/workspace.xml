@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/static/js/file_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/file_manager.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/static/js/process_status.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/process_status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/static/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/index.html" afterDir="false" />
     </list>
@@ -175,14 +174,7 @@
       <workItem from="1572965328618" duration="25136000" />
       <workItem from="1573110418464" duration="4203000" />
       <workItem from="1573275847125" duration="3130000" />
-      <workItem from="1573496424590" duration="61390000" />
-    </task>
-    <task id="LOCAL-00007" summary="Add get code logic and populate to suggested dropdown list">
-      <created>1571891099540</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1571891099540</updated>
+      <workItem from="1573496424590" duration="63346000" />
     </task>
     <task id="LOCAL-00008" summary="Change port and use terminology dict">
       <created>1571893095839</created>
@@ -520,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573621858033</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Change danger to warning and toggle reject both and learn">
+      <created>1573626542615</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1573626542615</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -572,7 +571,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add dataset and status" />
     <MESSAGE value="Add change and build dataset" />
     <MESSAGE value="Add status view, add and delete with sync-up dataset_status" />
     <MESSAGE value="Refactor template to using block" />
@@ -597,7 +595,8 @@
     <MESSAGE value="Fix select checkbox at view status UI" />
     <MESSAGE value="First commit to have new flame" />
     <MESSAGE value="Add get non-exxisting code and hide/un-hide buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add get non-exxisting code and hide/un-hide buttons" />
+    <MESSAGE value="Change danger to warning and toggle reject both and learn" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change danger to warning and toggle reject both and learn" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -607,6 +606,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573626361415" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573628134283" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>
