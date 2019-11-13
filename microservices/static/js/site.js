@@ -42,6 +42,9 @@ $(function () {
     };
 
     var ajax_infer_next = function (endpoint, data) {
+        if ($(".closebtn").length > 0) {
+            $(".closebtn").click();
+        }
         data = (typeof data !== 'undefined') ?  data : {};
         $.ajax({
             dataType: "json",
@@ -240,9 +243,9 @@ $(function () {
         $(alert_div).append(button);
         $(alert_div).append("<strong>Code matched!</strong> " + code);
         message_block.append(alert_div);
-        setTimeout(function () {
-            alert_div.style.display = "none";
-        }, 3600);
+        // setTimeout(function () {
+        //     alert_div.style.display = "none";
+        // }, 3600);
         button.onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
@@ -262,9 +265,9 @@ $(function () {
         $(alert_div).append(button);
         $(alert_div).append("<strong>Code mismatch!</strong> " + code1 + ", " + code2);
         message_block.append(alert_div);
-        setTimeout(function () {
-            alert_div.style.display = "none";
-        }, 3600);
+        // setTimeout(function () {
+        //     alert_div.style.display = "none";
+        // }, 3600);
         button.onclick = function () {
             var div = this.parentElement;
             div.style.opacity = "0";
@@ -278,4 +281,13 @@ $(function () {
         ajax_infer_next("infer_next");
     }
 
+    $(".panel-left").resizable({
+        handleSelector: ".splitter",
+        resizeHeight: false
+    });
+
+    $(".panel-top").resizable({
+        handleSelector: ".splitter-horizontal",
+        resizeWidth: false
+    });
 });
