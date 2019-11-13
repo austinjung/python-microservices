@@ -168,10 +168,6 @@ class UploadFolderManager(object):
             raise UploadFolderException(
                 'no subdirectories directories allowed'
             )
-        if filename in self.get_file_names_in_folder():
-            raise UploadFolderException(
-                '{filename} exists'.format(filename=filename)
-            )
         return ext
 
     def save_uploaded_file_from_api(self, filename, file_data):
@@ -227,7 +223,7 @@ def show_status():
     current_doc_url = '/view/{0}'.format(api.selected_dataset)
     total_dataset = 0
     total_accepted_dataset = 0
-    total_partially_accepted_dataset = 0
+    total_skipped_dataset = 0
     total_rejected_dataset = 0
     total_processing_dataset = 0
     total_not_started = 0
@@ -238,7 +234,7 @@ def show_status():
                 'progress': (status['total_dataset'] - status['not_started']) * 100 / status['total_dataset'],
                 'total_dataset': status['total_dataset'],
                 'accepted_dataset': status['accepted_dataset'] * 100 / status['total_dataset'],
-                'partially_accepted_dataset': status['partially_accepted_dataset'] * 100 / status['total_dataset'],
+                'skipped_dataset': status['skipped_dataset'] * 100 / status['total_dataset'],
                 'rejected_dataset': status['rejected_dataset'] * 100 / status['total_dataset'],
                 'processing_dataset': status['processing_dataset'] * 100 / status['total_dataset'],
                 'not_started': status['not_started'] * 100 / status['total_dataset'],
@@ -246,7 +242,7 @@ def show_status():
             })
             total_dataset += status['total_dataset']
             total_accepted_dataset += status['accepted_dataset']
-            total_partially_accepted_dataset += status['partially_accepted_dataset']
+            total_skipped_dataset += status['skipped_dataset']
             total_rejected_dataset += status['rejected_dataset']
             total_processing_dataset += status['processing_dataset']
             total_not_started += status['not_started']
@@ -256,7 +252,7 @@ def show_status():
             'progress': (total_dataset - total_not_started) * 100 / total_dataset,
             'total_dataset': total_dataset,
             'accepted_dataset': total_accepted_dataset * 100 / total_dataset,
-            'partially_accepted_dataset': total_partially_accepted_dataset * 100 / total_dataset,
+            'skipped_dataset': total_skipped_dataset * 100 / total_dataset,
             'rejected_dataset': total_rejected_dataset * 100 / total_dataset,
             'processing_dataset': total_processing_dataset * 100 / total_dataset,
             'not_started': total_not_started * 100 / total_dataset,
@@ -266,7 +262,7 @@ def show_status():
             'progress': 0.0,
             'total_dataset': 0,
             'accepted_dataset': 0.0,
-            'partially_accepted_dataset': 0.0,
+            'skipped_dataset': 0.0,
             'rejected_dataset': 0.0,
             'processing_dataset': 0.0,
             'not_started': 0.0,
@@ -591,7 +587,7 @@ def get_next_dataset_context():
     inprogress = None
     if get_next_dataset() is False:
         return context_text, entity_type, extracted_code, highlighted, inprogress
-    processed = {'accepted', 'partially_accepted', 'rejected'}
+    processed = {'accepted', 'skipped', 'rejected'}
     for source, data in api.dataset.items():
         if not processed.intersection(set(data.keys())):
             context_text = source

@@ -36,7 +36,7 @@ def build_current_working_dataset(app, json_filename, json_file_full_path, datas
     total_dataset_count_in_file = 0
     total_processing_dataset_count_in_file = 0
     total_accepted_dataset_count_in_file = 0
-    total_partially_accepted_dataset_count_in_file = 0
+    total_skipped_dataset_count_in_file = 0
     total_rejected_dataset_count_in_file = 0
     total_not_started_dataset_count = 0
     for review_obj in review_json_objs:
@@ -73,8 +73,8 @@ def build_current_working_dataset(app, json_filename, json_file_full_path, datas
             total_dataset_count_in_file -= 1
         elif 'accepted' in local_dataset[source_key]:
             total_accepted_dataset_count_in_file += 1
-        elif 'partially_accepted' in local_dataset[source_key]:
-            total_partially_accepted_dataset_count_in_file += 1
+        elif 'skipped' in local_dataset[source_key]:
+            total_skipped_dataset_count_in_file += 1
         elif 'rejected' in local_dataset[source_key]:
             total_rejected_dataset_count_in_file += 1
         elif 'inferred' in local_dataset[source_key]:
@@ -84,7 +84,7 @@ def build_current_working_dataset(app, json_filename, json_file_full_path, datas
     app.dataset_status[json_filename] = {
         'total_dataset': total_dataset_count_in_file,
         'accepted_dataset': total_accepted_dataset_count_in_file,
-        'partially_accepted_dataset': total_partially_accepted_dataset_count_in_file,
+        'skipped_dataset': total_skipped_dataset_count_in_file,
         'rejected_dataset': total_rejected_dataset_count_in_file,
         'processing_dataset': total_processing_dataset_count_in_file,
         'not_started': total_not_started_dataset_count,

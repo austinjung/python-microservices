@@ -28,6 +28,7 @@
             <th>Concept</th>
             <th>Accepted</th>
             <th>Rejected</th>
+            <th>Skipped</th>
             <th>Inprogress</th>
             <th>Not started</th>
         </tr>
@@ -43,6 +44,7 @@
                 <td>{{ file.total_dataset }}</td>
                 <td>{{ "%.2f"|format(file.accepted_dataset) }}%</td>
                 <td>{{ "%.2f"|format(file.rejected_dataset) }}%</td>
+                <td>{{ "%.2f"|format(file.skipped_dataset) }}%</td>
                 <td>{{ "%.2f"|format(file.processing_dataset) }}%</td>
                 <td>{{ "%.2f"|format(file.not_started) }}%</td>
             </tr>
@@ -57,6 +59,7 @@
                 <td>{{ sum.total_dataset }}</td>
                 <td>{{ "%.2f"|format(sum.accepted_dataset) }}%</td>
                 <td>{{ "%.2f"|format(sum.rejected_dataset) }}%</td>
+                <td>{{ "%.2f"|format(sum.skipped_dataset) }}%</td>
                 <td>{{ "%.2f"|format(sum.processing_dataset) }}%</td>
                 <td>{{ "%.2f"|format(sum.not_started) }}%</td>
             </tr>
