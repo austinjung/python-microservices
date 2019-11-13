@@ -39,7 +39,7 @@ $(function () {
 
     var set_disable_all_buttons = function (disable) {
         var buttons = $('.action-button');
-        buttons.prop('disabled', disable);
+        buttons.addClass('d-none');
     };
     var preset_enable_buttons = [];
     var preset_enable_all_button = function () {
@@ -53,12 +53,12 @@ $(function () {
     var enable_preset_buttons = function () {
         $.each( preset_enable_buttons, function( idx, btn_id ){
             var btn = $('#' + btn_id);
-            btn.prop('disabled', false);
+            btn.removeClass('d-none');
         });
     };
     var enable_button = function (btn_id) {
         var btn = $('#' + btn_id);
-        btn.prop('disabled', false);
+        btn.removeClass('d-none');
     };
 
     var ajax_infer_next = function (endpoint, data) {

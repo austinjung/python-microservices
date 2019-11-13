@@ -90,27 +90,39 @@
                     </select>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="mt-3 col-lg-8 text-left">
+                    <input type="text" name="new-code" class="form-control input-sm d-none"
+                           placeholder="Add non-existing code">
+                </div>
+                <div class="mt-3 col-lg-4 text-left">
+                    <button id="get-new-code" type="button" class="btn btn-success center-block d-none">
+                        Get new code
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="row">
          <div class="mt-3 col text-center">
-            <button id="accept-code" type="button" class="btn btn-success center-block action-button" disabled>
+            <button id="accept-code" type="button" class="btn btn-success center-block action-button d-none">
                 Accept
             </button>
-            <button id="accept-pipeline-code" type="button" class="btn btn-success center-block action-button" disabled>
+            <button id="accept-pipeline-code" type="button" class="btn btn-success center-block action-button d-none">
                 Accept Pipeline
             </button>
-            <button id="accept-t2-code" type="button" class="btn btn-success center-block action-button" disabled>
+            <button id="accept-t2-code" type="button" class="btn btn-success center-block action-button d-none">
                 Accept T2
             </button>
-            <button id="reject-all" type="button" class="btn btn-warning center-block action-button" disabled>
+            <button id="reject-all" type="button" class="btn btn-warning center-block action-button d-none">
                 Reject both and Correct
             </button>
-            <button id="reprocess" type="button" class="btn btn-info center-block infer-next action-button" disabled>
+            <button id="reprocess" type="button" class="btn btn-info center-block infer-next action-button d-none">
                 Reprocess
             </button>
-            <button id="skip-code" type="button" class="btn btn-light center-block skip-next action-button" disabled>
+            <button id="skip-code" type="button" class="btn btn-light center-block skip-next action-button d-none">
                 Skip
             </button>
         </div>

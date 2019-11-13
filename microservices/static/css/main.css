@@ -156,10 +156,11 @@ textarea {
   /* only manually resize */
   padding: 10px;
   width: 100%;
-  min-height: 200px;
+  min-height: 250px;
   min-width: 200px;
   white-space: nowrap;
   background: #fafafa;
+  overflow: auto;
 }
 
 .splitter {
@@ -175,9 +176,10 @@ textarea {
   /* resizable */
   padding: 10px;
   width: 100%;
-  min-height: 200px;
+  min-height: 250px;
   min-width: 200px;
   background: #e1e1e1;
+  overflow: auto;
 }
 
 
