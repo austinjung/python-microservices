@@ -162,35 +162,47 @@ $(function () {
     });
 
     $("#accept-code").click(function () {
-        if (inferred_code !== $("#med-code-dropdown").val() || inferred_entity_type !== $("#entity-type-dropdown").val()) {
+        if (inferred_code !== $("#med-code-dropdown").val() || inferred_entity_type !== $("#t2-entity-type-dropdown").val()) {
             add_alert("Inferred code or entity type was changed.");
             return;
         }
-        $("input[name='keyword']").val("");
-        set_disable_all_buttons(true);
         ajax_infer_next("accept_and_process_next");
     });
 
     $("#accept-extracted-code").click(function () {
         $("input[name='keyword']").val("");
-        set_disable_all_buttons(true);
         ajax_infer_next("accept_extractor_and_process_next");
     });
 
-    $("#reject-all").click(function () {
-        var new_entity_type = $("#entity-type-dropdown").val();
-        var new_code = $("#med-code-dropdown").val();
-        if (inferred_code === new_code || inferred_entity_type === new_entity_type) {
+    var learn = function ($this) {
+        var new_entity_type = $("#t2-entity-type-dropdown").val();
+        var new_code = $("input[name='new-code']").val();
+        if (new_code === "" || new_code === null) {
+            new_code = $("#med-code-dropdown").val();
+        }
+        if (inferred_code === new_code && inferred_entity_type === new_entity_type) {
             add_alert("Inferred code or entity type was not changed.");
             return;
         }
-        $("input[name='keyword']").val("");
-        set_disable_all_buttons(true);
         data = {
             new_code: new_code,
             new_entity_type: new_entity_type
         };
+        $this.toggleClass('learn');
+        $this.text('Reject both');
         ajax_infer_next("reject_and_learn", data);
+    };
+
+    $("#reject-all").click(function () {
+        var $this = $(this);
+        if($this.hasClass('learn')) {
+            learn($this);
+        } else {
+            $this.text('Learn');
+            $this.toggleClass('learn');
+            $("input[name='new-code']").removeClass('d-none');
+            $("#get-new-code").removeClass('d-none');
+        }
     });
 
     $("input[name='keyword']").on("input", mark);
@@ -224,12 +236,12 @@ $(function () {
     var add_alert = function (message) {
         var message_block = $('#message-block');
         var alert_div = document.createElement('div');
-        $(alert_div).addClass("alert");
+        $(alert_div).addClass("alert warning");
         var button = document.createElement('span');
         $(button).addClass("closebtn");
         $(button).html("&times;");
         $(alert_div).append(button);
-        $(alert_div).append("<strong>Danger!</strong> " + message);
+        $(alert_div).append("<strong>Warning!</strong> " + message);
         message_block.append(alert_div);
         button.onclick = function () {
             var div = this.parentElement;

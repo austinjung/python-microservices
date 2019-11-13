@@ -23,12 +23,12 @@ $(function () {
     var add_alert = function (message) {
         var message_block = $('#message-block');
         var alert_div = document.createElement('div');
-        $(alert_div).addClass("alert");
+        $(alert_div).addClass("alert warning");
         var button = document.createElement('span');
         $(button).addClass("closebtn");
         $(button).html("&times;");
         $(alert_div).append(button);
-        $(alert_div).append("<strong>Danger!</strong> " + message);
+        $(alert_div).append("<strong>Warning!</strong> " + message);
         message_block.append(alert_div);
         button.onclick = function () {
             var div = this.parentElement;
