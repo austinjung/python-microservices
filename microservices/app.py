@@ -42,6 +42,7 @@ SET_DATASET_AND_INFER_NEXT = '/set_dataset_and_infer_next'
 ACCEPT_AND_PROCESS_NEXT = '/accept_and_process_next'
 ACCEPT_EXTRACTOR_AND_PROCESS_NEXT = '/accept_extractor_and_process_next'
 REJECT_AND_LEARN = '/reject_and_learn'
+SKIP = '/skip'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
 GET_MED_TERMINOLOGY_CODE_URL = '/terminology_code'
 DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl')
@@ -671,12 +672,13 @@ def infer_next_code():
 
     sorted_results = sorted(find_code_results, key=lambda x: (x['confidence']), reverse=True)
     sorted_top_concept = sort_by_code_weight_with_same_parent(sorted_results)
-    # if original_highlighted in ['', None]:
-    # selected_concept = sorted_top_concept[0].get('synonym', sorted_top_concept[0].get('preferred_terminology'))
-    selected_concept = sorted_top_concept[0].get('preferred_terminology', [sorted_top_concept[0].get('synonym')])[0]
-    # else:
-    #     selected_concept = original_highlighted
     response['results'] = sorted_top_concept
+    """
+    if original_highlighted in ['', None]:
+        selected_concept = sorted_top_concept[0].get('synonym', sorted_top_concept[0].get('preferred_terminology'))
+        # selected_concept = sorted_top_concept[0].get('preferred_terminology', [sorted_top_concept[0].get('synonym')])[0]
+    else:
+        selected_concept = original_highlighted
     response_context_lines = (
         context.replace('\\n', '\n').replace('\n\n', '\n')
         .replace(';', '\n').replace(':', '\n').replace('.', ' . ').split('\n')
@@ -689,6 +691,8 @@ def infer_next_code():
             response_context_lines[index] = get_highlight_from_concept(response_context_lines[index], selected_concept)
         index += 1
     response['context'] = '<br>'.join(response_context_lines)
+    """
+    response['context'] = context
     entity_codes = []
     for code, detail in med_terminology_code_verbose[entity_type].items():
         if code in med_terminology_code_tree:
@@ -792,10 +796,12 @@ def api_reject_and_learn_code():
     if request.method == 'POST':
         new_code = request.json['new_code']
         new_entity_type = request.json['new_entity_type']
+        highlighted = request.json['highlighted']
         context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
         api.dataset[context]['rejected'] = {
             'selected': 'new_learn',
             'entityType': new_entity_type,
+            'highlighted': highlighted,
             'code': new_code,
         }
         dataset_file_path = os.path.join(DATASET_DIR,
@@ -803,6 +809,25 @@ def api_reject_and_learn_code():
         write_json(api.dataset, dataset_file_path)
         api.dataset_status[api.selected_dataset]['processing_dataset'] -= 1
         api.dataset_status[api.selected_dataset]['rejected_dataset'] += 1
+        api.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+        dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
+        write_json(api.dataset_status, dataset_status_file_path)
+
+        return infer_next_code()
+
+
+@api.route(SKIP, methods=['POST'])
+def api_skip():
+    """Accept infer results of current dataset"""
+    global api
+    if request.method == 'POST':
+        context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
+        api.dataset[context]['skipped'] = True
+        dataset_file_path = os.path.join(DATASET_DIR,
+                                         api.selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
+        write_json(api.dataset, dataset_file_path)
+        api.dataset_status[api.selected_dataset]['processing_dataset'] -= 1
+        api.dataset_status[api.selected_dataset]['skipped_dataset'] += 1
         api.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
         dataset_status_file_path = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
         write_json(api.dataset_status, dataset_status_file_path)

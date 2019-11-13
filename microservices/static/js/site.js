@@ -40,6 +40,8 @@ $(function () {
     var set_disable_all_buttons = function (disable) {
         var buttons = $('.action-button');
         buttons.addClass('d-none');
+        $("input[name='new-code']").addClass('d-none');
+        $("#get-new-code").addClass('d-none');
     };
     var preset_enable_buttons = [];
     var preset_enable_all_button = function () {
@@ -77,7 +79,7 @@ $(function () {
             contentType: "application/json; charset=utf-8",
             type: "POST",
             url: host_domain_url + endpoint,
-            data: JSON.stringify({}),
+            data: JSON.stringify(data),
             success: function (data, status) {
                 if (data.message === 'OK') {
                     var med_code_dropdown = $('#med-code-dropdown');
@@ -123,9 +125,17 @@ $(function () {
                         add_code_match_alert(data.extracted_code);
                         preset_disable_button("accept-pipeline-code");
                         preset_disable_button("accept-t2-code");
-                    } else if (data.match_with_extracted === false){
+                    }
+                    if (data.match_with_extracted === false){
                         add_code_mismatch_alert(data.extracted_code, data.results[0].code);
                         preset_disable_button("accept-code");
+                    }
+                    if (data.extracted_code === "") {
+                        preset_disable_button("accept-code");
+                        preset_disable_button("accept-pipeline-code");
+                    }
+                    if (data.results.length === 0) {
+                        preset_disable_button("accept-t2-code");
                     }
                     enable_preset_buttons();
                 } else {
@@ -170,7 +180,15 @@ $(function () {
         ajax_infer_next("accept_and_process_next");
     });
 
-    $("#accept-extracted-code").click(function () {
+    $("#accept-t2-code").click(function () {
+        ajax_infer_next("accept_and_process_next");
+    });
+
+    $("#skip-code").click(function () {
+        ajax_infer_next("skip");
+    });
+
+    $("#accept-pipeline-code").click(function () {
         $("input[name='keyword']").val("");
         ajax_infer_next("accept_extractor_and_process_next");
     });
@@ -178,6 +196,7 @@ $(function () {
     var learn = function ($this) {
         var new_entity_type = $("#t2-entity-type-dropdown").val();
         var new_code = $("input[name='new-code']").val();
+        var pipeline_code = $("input[name='pipeline-extracted-code']").val();
         if (new_code === "" || new_code === null) {
             new_code = $("#med-code-dropdown").val();
         }
@@ -185,9 +204,14 @@ $(function () {
             add_alert("Inferred code or entity type was not changed.");
             return;
         }
-        data = {
+        if (pipeline_code === new_code && inferred_entity_type === new_entity_type) {
+            add_alert("Changed code is the same as pipeline code.");
+        }
+        var highlighted = $("input[name='t2-keyword']").val();
+        var data = {
             new_code: new_code,
-            new_entity_type: new_entity_type
+            new_entity_type: new_entity_type,
+            highlighted: highlighted
         };
         $this.toggleClass('learn');
         $this.text('Reject both');
@@ -228,7 +252,6 @@ $(function () {
                 }
             },
             error: function (error) {
-                set_disable_all_buttons(false);
                 add_alert(error.responseJSON.message);
             }
         });
@@ -297,7 +320,7 @@ $(function () {
     var add_code_mismatch_alert = function (code1, code2) {
         var message_block = $('#message-block');
         var alert_div = document.createElement('div');
-        $(alert_div).addClass("alert");
+        $(alert_div).addClass("alert warning");
         var button = document.createElement('span');
         $(button).addClass("closebtn");
         $(button).html("&times;");
