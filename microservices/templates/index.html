@@ -39,26 +39,8 @@
                            placeholder="No extracted code by pipeline">
                 </div>
                 <div class="mt-3 col">
-                    <select id="pipeline-entity-type-dropdown" name="entity-type" class="selectpicker" disabled
-                            title="Choose entity type title" data-live-search="true">
-                        <option value="adverseReaction">Adverse Reaction</option>
-                        <option value="chemotherapy">Chemotherapy</option>
-                        <option value="clinicalStage">Clinical Stage</option>
-                        <option value="diagnosis">Diagnosis</option>
-                        <option value="diagnosticProcedure">Diagnostic Procedure</option>
-                        <option value="diseaseStatus">Disease Status</option>
-                        <option value="geneObservations">Gene Observations</option>
-                        <option value="grade">Grade</option>
-                        <option value="histologicalSubtype">Histological Subtype</option>
-                        <option value="labResult">Lab Result</option>
-                        <option value="medication">Medication</option>
-                        <option value="metastasis">Metastasis</option>
-                        <option value="molecularSubtype">Molecular Subtype</option>
-                        <option value="primaryTumorLocation">Primary Tumor Location</option>
-                        <option value="radiation">Radiation</option>
-                        <option value="surgery">Surgery</option>
-                        <option value="therapeuticProcedure">Therapeutic Procedure</option>
-                    </select>
+                    <input type="text" name="pipeline-entity-type" class="form-control input-sm" disabled
+                           placeholder="No extracted entity type by pipeline">
                 </div>
             </div>
 
@@ -113,22 +95,22 @@
 
     <div class="row">
          <div class="mt-3 col text-center">
-            <button id="accept-code" type="button" class="btn btn-success center-block" disabled>
+            <button id="accept-code" type="button" class="btn btn-success center-block action-button" disabled>
                 Accept
             </button>
-            <button id="accept-pipeline-code" type="button" class="btn btn-success center-block" disabled>
+            <button id="accept-pipeline-code" type="button" class="btn btn-success center-block action-button" disabled>
                 Accept Pipeline
             </button>
-            <button id="accept-t2-code" type="button" class="btn btn-success center-block" disabled>
+            <button id="accept-t2-code" type="button" class="btn btn-success center-block action-button" disabled>
                 Accept T2
             </button>
-            <button id="reject-all" type="button" class="btn btn-warning center-block" disabled>
+            <button id="reject-all" type="button" class="btn btn-warning center-block action-button" disabled>
                 Reject both and Correct
             </button>
-            <button id="reprocess" type="button" class="btn btn-info center-block infer-next" disabled>
+            <button id="reprocess" type="button" class="btn btn-info center-block infer-next action-button" disabled>
                 Reprocess
             </button>
-            <button id="skip-code" type="button" class="btn btn-light center-block skip-next" disabled>
+            <button id="skip-code" type="button" class="btn btn-light center-block skip-next action-button" disabled>
                 Skip
             </button>
         </div>

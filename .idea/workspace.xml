@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/microservices/static/js/process_status.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/process_status.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -171,14 +173,7 @@
       <workItem from="1572965328618" duration="25136000" />
       <workItem from="1573110418464" duration="4203000" />
       <workItem from="1573275847125" duration="3130000" />
-      <workItem from="1573496424590" duration="49128000" />
-    </task>
-    <task id="LOCAL-00004" summary="Add med-embedding service examples">
-      <created>1571879919332</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1571879919333</updated>
+      <workItem from="1573496424590" duration="56404000" />
     </task>
     <task id="LOCAL-00005" summary="Add entity type dropdown list">
       <created>1571887090226</created>
@@ -516,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573605004937</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Fix select checkbox at view status UI">
+      <created>1573605279246</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1573605279246</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -568,7 +570,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add json viewer" />
     <MESSAGE value="Reformat html and json" />
     <MESSAGE value="Add list template" />
     <MESSAGE value="Add dataset and status" />
@@ -593,7 +594,8 @@
     <MESSAGE value="Add select and process" />
     <MESSAGE value="Change layout to use two horizontal panels" />
     <MESSAGE value="Modify to skip dataset and show status UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modify to skip dataset and show status UI" />
+    <MESSAGE value="Fix select checkbox at view status UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix select checkbox at view status UI" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -603,6 +605,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573605210649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573613349361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>
