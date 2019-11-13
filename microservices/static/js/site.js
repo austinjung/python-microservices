@@ -21,6 +21,8 @@ $(function () {
     var inferred_code;
     var inferred_entity_type;
 
+    var $med_code_dropdown = $('#med-code-dropdown');
+
     var sortObject = function (obj) {
         if (typeof obj !== 'object') {
             return obj;
@@ -63,6 +65,12 @@ $(function () {
         btn.removeClass('d-none');
     };
 
+    var trimString = function (string, length) {
+      return string.length > length ?
+             string.substring(0, length) + '...' :
+             string;
+    };
+
     var ajax_infer_next = function (endpoint, data) {
         var closebtn = $(".closebtn");
         if (closebtn.length > 0) {
@@ -82,40 +90,48 @@ $(function () {
             data: JSON.stringify(data),
             success: function (data, status) {
                 if (data.message === 'OK') {
-                    var med_code_dropdown = $('#med-code-dropdown');
                     var t2_entity_dropdown = $('#t2-entity-type-dropdown');
 
-                    med_code_dropdown.empty();
+                    $med_code_dropdown.empty();
 
                     var suggested_codes = [];
-                    t2_entity_dropdown.selectpicker('val', data.results[0].entity_type);
-                    inferred_entity_type = data.results[0].entity_type;
-                    for (var i = 0; i < data.results.length; i++) {
-                        var option = document.createElement('option');
-                        option.text = data.results[i].code + ": " + data.results[i].preferred_terminology + " (concept_score: " + data.results[i].concept_score + ")";
-                        option.value = data.results[i].code;
-                        suggested_codes.push(data.results[i].code);
-                        med_code_dropdown.append(option);
+                    t2_entity_dropdown.selectpicker('val', data.entity_type);
+                    if (data.results.length > 0) {
+                        inferred_entity_type = data.results[0].entity_type;
+                        inferred_code = data.results[0].code;
+                        for (var i = 0; i < data.results.length; i++) {
+                            var option = document.createElement('option');
+                            option.text = data.results[i].code + ": " + data.results[i].preferred_terminology + " (concept_score: " + data.results[i].concept_score.toFixed(4) + ")";
+                            option.value = data.results[i].code;
+                            suggested_codes.push(data.results[i].code);
+                            $med_code_dropdown.append(option);
+                        }
+                    } else {
+                        inferred_entity_type = null;
+                        inferred_code = null;
                     }
                     for (var i_extra = 0; i_extra < data.entity_codes.length; i_extra++) {
                         if (suggested_codes.indexOf(data.entity_codes[i_extra][0]) < 0) {
                             var option_extra = document.createElement('option');
-                            option_extra.text = data.entity_codes[i_extra][0] + ": " + data.entity_codes[i_extra][1];
+                            option_extra.text = data.entity_codes[i_extra][0] + ": " + trimString(data.entity_codes[i_extra][1], 10);
                             option_extra.value = data.entity_codes[i_extra][0];
-                            med_code_dropdown.append(option_extra);
+                            $med_code_dropdown.append(option_extra);
                         }
                     }
-                    med_code_dropdown.selectpicker('refresh');
-                    med_code_dropdown.selectpicker('val', data.results[0].code);
-                    inferred_code = data.results[0].code;
+                    $med_code_dropdown.selectpicker('refresh');
+                    if (data.results.length > 0) {
+                        $med_code_dropdown.selectpicker('val', data.results[0].code);
+                    }
                     var current_processing = $("#current_processing");
                     current_processing.text("Current processing: " + data.current_process);
                     current_processing.attr("href", "/view/" + data.current_process);
                     $("#context_text").html(data.context);
                     $("input[name='pipeline-extracted-code']").val(data.extracted_code);
-                    $("input[name='pipeline-entity-type']").val(data.results[0].entity_type);
+                    $("input[name='pipeline-entity-type']").val(data.entity_type);
                     $("input[name='pipeline-keyword']").val(data.original_highlighted);
-                    $("input[name='t2-keyword']").val(data.results[0].synonym);
+                    if (data.results.length > 0) {
+                        $("input[name='t2-keyword']").val(data.results[0].synonym);
+                    }
                     preset_enable_all_button();
                     if (data.extracted_code === null) {
                         preset_disable_button("accept-pipeline-code");
@@ -126,7 +142,7 @@ $(function () {
                         preset_disable_button("accept-pipeline-code");
                         preset_disable_button("accept-t2-code");
                     }
-                    if (data.match_with_extracted === false){
+                    if (data.match_with_extracted === false && data.results.length > 0) {
                         add_code_mismatch_alert(data.extracted_code, data.results[0].code);
                         preset_disable_button("accept-code");
                     }
@@ -135,11 +151,16 @@ $(function () {
                         preset_disable_button("accept-pipeline-code");
                     }
                     if (data.results.length === 0) {
+                        add_alert("No code matched");
+                        preset_disable_button("accept-code");
                         preset_disable_button("accept-t2-code");
                     }
                     enable_preset_buttons();
                 } else {
-                    add_success_alert(data.message);
+                    add_alert(data.message);
+                    enable_button('reject-all');
+                    enable_button('reprocess');
+                    enable_button('skip-code');
                 }
             },
             error: function (error) {
@@ -173,7 +194,7 @@ $(function () {
     });
 
     $("#accept-code").click(function () {
-        if (inferred_code !== $("#med-code-dropdown").val() || inferred_entity_type !== $("#t2-entity-type-dropdown").val()) {
+        if (inferred_code !== $med_code_dropdown.val() || inferred_entity_type !== $("#t2-entity-type-dropdown").val()) {
             add_alert("Inferred code or entity type was changed.");
             return;
         }
@@ -198,7 +219,7 @@ $(function () {
         var new_code = $("input[name='new-code']").val();
         var pipeline_code = $("input[name='pipeline-extracted-code']").val();
         if (new_code === "" || new_code === null) {
-            new_code = $("#med-code-dropdown").val();
+            new_code = $med_code_dropdown.val();
         }
         if (inferred_code === new_code && inferred_entity_type === new_entity_type) {
             add_alert("Inferred code or entity type was not changed.");
@@ -232,7 +253,7 @@ $(function () {
 
     $("input[name='keyword']").on("input", mark);
 
-    $('#med-code-dropdown').on("changed.bs.select", function(e, clickedIndex, newValue, oldValue) {
+    $med_code_dropdown.on("changed.bs.select", function(e, clickedIndex, newValue, oldValue) {
         var data = {
             entity_type: $('#t2-entity-type-dropdown option:selected').val(),
             code: this.value
@@ -352,4 +373,11 @@ $(function () {
         handleSelector: ".splitter-horizontal",
         resizeWidth: false
     });
+
+    $med_code_dropdown.on('shown.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+        var $drop_down = $('.dropdown-menu.show');
+        $drop_down.css('min-width', '600px');
+        $drop_down.css('left', '350px');
+    });
+
 });

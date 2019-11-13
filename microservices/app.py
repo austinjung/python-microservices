@@ -701,11 +701,12 @@ def infer_next_code():
             terminology = detail.get('SY', detail.get('STY'))[0]
         entity_codes.append([code, terminology])
     response['entity_codes'] = entity_codes
+    response['entity_type'] = entity_type
     response['extracted_code'] = extracted_code
     response['original_highlighted'] = original_highlighted
     response['current_process'] = api.selected_dataset
     if len(sorted_top_concept) == 0:
-        response['message'] = "No match found"
+        response['message'] = "OK"
         response['match_with_extracted'] = False
     else:
         if extracted_code and extracted_code == sorted_top_concept[0]['code']:
