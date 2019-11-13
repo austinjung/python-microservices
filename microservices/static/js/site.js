@@ -156,6 +156,7 @@ $(function () {
                         preset_disable_button("accept-t2-code");
                     }
                     enable_preset_buttons();
+                    $('html, body').scrollTop($(document).height());
                 } else {
                     add_alert(data.message);
                     enable_button('reject-all');
