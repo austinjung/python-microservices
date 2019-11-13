@@ -7,7 +7,11 @@ $(function () {
             $('input:checkbox').not(this).prop('checked', $(this).prop('checked'));
         } else {
             $('input:checkbox').not(this).prop('checked', false);
-            $(this).prop('checked', true);
+            if ($(this).prop('checked')) {
+                $(this).prop('checked', true);
+            } else {
+                $(this).prop('checked', false);
+            }
         }
     });
 
