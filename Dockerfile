@@ -10,7 +10,7 @@ ADD requirements.txt /app
 ADD pip.conf /app
 
 # Expose the port uWSGI will listen on
-EXPOSE 5000
+EXPOSE 3000
 
 # Define environment variable
 ENV FLASK_ENV=development

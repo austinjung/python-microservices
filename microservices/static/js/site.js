@@ -183,7 +183,7 @@ $(function () {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: "POST",
-            url: "http://localhost:5000/get_terminologies",
+            url: "http://localhost:3000/get_terminologies",
             data: JSON.stringify({
                 context: context
             }),

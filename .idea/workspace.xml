@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pip.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/static/js/file_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/file_manager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +114,7 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="T2 Intern App" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+    <configuration name="T2 Intern App" type="docker-deploy" factoryName="docker-image" server-name="Docker">
       <deployment type="docker-image">
         <settings>
           <option name="command" value="" />
@@ -152,16 +152,11 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.T2 Intern App" />
       <item itemvalue="Flask server.python-microservices" />
       <item itemvalue="Python.app" />
       <item itemvalue="Python tests.pytest" />
-      <item itemvalue="Docker.T2 Intern App" />
     </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Docker.T2 Intern App" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="allServicesViewState">
@@ -223,14 +218,7 @@
       <workItem from="1572965328618" duration="25136000" />
       <workItem from="1573110418464" duration="4203000" />
       <workItem from="1573275847125" duration="3130000" />
-      <workItem from="1573496424590" duration="79319000" />
-    </task>
-    <task id="LOCAL-00012" summary="Fix finding suggested code by sorted_key">
-      <created>1572037831450</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1572037831451</updated>
+      <workItem from="1573496424590" duration="80536000" />
     </task>
     <task id="LOCAL-00013" summary="Add first version of finding highlighted and code">
       <created>1572304874404</created>
@@ -568,7 +556,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573679667181</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="Fix dockerfile">
+      <created>1573683228943</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1573683228943</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -620,7 +615,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modify bootstrap select" />
     <MESSAGE value="Refactor index.html" />
     <MESSAGE value="Finalize index.html" />
     <MESSAGE value="Coding for process logic and UI" />
@@ -645,7 +639,8 @@
     <MESSAGE value="Add skip" />
     <MESSAGE value="Fix UI including dropdown-select" />
     <MESSAGE value="Finalize T2 Intern app" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalize T2 Intern app" />
+    <MESSAGE value="Fix dockerfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix dockerfile" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

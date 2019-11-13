@@ -70,7 +70,7 @@ $(function () {
         formData.append("files", file);
         $.ajax({
             type: "POST",
-            url: "http://localhost:5000/upload",
+            url: "http://localhost:3000/upload",
             xhr: function () {
                 var myXhr = $.ajaxSettings.xhr();
                 if (myXhr.upload) {
