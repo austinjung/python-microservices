@@ -4,6 +4,8 @@ $(function () {
     var dropZone = document.getElementById('drop-zone');
     var uploadForm = document.getElementById('js-upload-form');
 
+    var host_domain_url = window.location.protocol + "//" + window.location.host + "/";
+
     var progressHandling = function (event) {
         var percent = 0;
         var position = event.loaded || event.position;
@@ -70,7 +72,7 @@ $(function () {
         formData.append("files", file);
         $.ajax({
             type: "POST",
-            url: "http://localhost:3000/upload",
+            url: host_domain_url + "upload",
             xhr: function () {
                 var myXhr = $.ajaxSettings.xhr();
                 if (myXhr.upload) {

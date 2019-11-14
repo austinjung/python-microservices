@@ -60,12 +60,9 @@
             </div>
 
             <div class="row">
-                <div class="panel panel-default col-lg-8 mt-3">
-                    <div class="panel-body">
-                        <select id="med-code-dropdown" name="selected-med-code" class="col-lg-12 selectpicker"
-                                title="No extracted code by T2" data-live-search="true">
-                        </select>
-                    </div>
+                <div class="mt-3 col text-left">
+                    <input type="text" name="t2-extracted-code-input" class="form-control input-sm" disabled
+                           placeholder="No extracted code by T2">
                 </div>
                 <div class="mt-3 col-lg-4">
                     <select id="t2-entity-type-dropdown" name="entity-type" class="selectpicker"
@@ -128,6 +125,15 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="panel panel-default col-lg-12 mt-3">
+            <div class="panel-body" id="med-code-dropdown-div">
+                <select id="med-code-dropdown" name="selected-med-code" class="col-lg-12 selectpicker"
+                        title="No extracted code by T2" data-live-search="true">
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="row">
        <div class="col-lg-6">
             <div class="text-center">

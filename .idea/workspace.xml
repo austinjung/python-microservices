@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/static/js/file_manager.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/file_manager.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +42,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true&#10;/Users/austinjung/study/python-microservices/instance/flask_test.cfg" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservices/static/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -76,7 +77,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Docker.T2 Intern App">
+  <component name="RunManager" selected="Python.app">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python">
       <module name="python-microservices" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,9 +125,9 @@
           <option name="portBindings">
             <list>
               <DockerPortBindingImpl>
-                <option name="containerPort" value="5000" />
+                <option name="containerPort" value="3000" />
                 <option name="hostIp" value="0.0.0.0" />
-                <option name="hostPort" value="5000" />
+                <option name="hostPort" value="3000" />
               </DockerPortBindingImpl>
             </list>
           </option>
@@ -218,14 +219,7 @@
       <workItem from="1572965328618" duration="25136000" />
       <workItem from="1573110418464" duration="4203000" />
       <workItem from="1573275847125" duration="3130000" />
-      <workItem from="1573496424590" duration="80536000" />
-    </task>
-    <task id="LOCAL-00013" summary="Add first version of finding highlighted and code">
-      <created>1572304874404</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1572304874404</updated>
+      <workItem from="1573496424590" duration="90315000" />
     </task>
     <task id="LOCAL-00014" summary="Assume select one highlighted line which has most important concept for the right code.">
       <created>1572311249449</created>
@@ -563,7 +557,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573683228943</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="Change port to 3000">
+      <created>1573687237138</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1573687237138</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -615,7 +616,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor index.html" />
     <MESSAGE value="Finalize index.html" />
     <MESSAGE value="Coding for process logic and UI" />
     <MESSAGE value="Change index.html layout" />
@@ -640,7 +640,8 @@
     <MESSAGE value="Fix UI including dropdown-select" />
     <MESSAGE value="Finalize T2 Intern app" />
     <MESSAGE value="Fix dockerfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix dockerfile" />
+    <MESSAGE value="Change port to 3000" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change port to 3000" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -650,6 +651,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573679442061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573701484279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

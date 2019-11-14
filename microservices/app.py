@@ -694,12 +694,13 @@ def infer_next_code():
     """
     response['context'] = context
     entity_codes = []
-    for code, detail in med_terminology_code_verbose[entity_type].items():
-        if code in med_terminology_code_tree:
-            terminology = med_terminology_code_tree[code].get('PT', detail.get('SY', detail.get('STY'))[0])
-        else:
-            terminology = detail.get('SY', detail.get('STY'))[0]
-        entity_codes.append([code, terminology])
+    if entity_type in med_terminology_code_verbose:
+        for code, detail in med_terminology_code_verbose[entity_type].items():
+            if code in med_terminology_code_tree:
+                terminology = med_terminology_code_tree[code].get('PT', detail.get('SY', detail.get('STY'))[0])
+            else:
+                terminology = detail.get('SY', detail.get('STY'))[0]
+            entity_codes.append([code, terminology])
     response['entity_codes'] = entity_codes
     response['entity_type'] = entity_type
     response['extracted_code'] = extracted_code

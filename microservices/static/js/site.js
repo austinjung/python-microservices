@@ -113,7 +113,7 @@ $(function () {
                     for (var i_extra = 0; i_extra < data.entity_codes.length; i_extra++) {
                         if (suggested_codes.indexOf(data.entity_codes[i_extra][0]) < 0) {
                             var option_extra = document.createElement('option');
-                            option_extra.text = data.entity_codes[i_extra][0] + ": " + trimString(data.entity_codes[i_extra][1], 10);
+                            option_extra.text = data.entity_codes[i_extra][0] + ": " + trimString(data.entity_codes[i_extra][1], 15);
                             option_extra.value = data.entity_codes[i_extra][0];
                             $med_code_dropdown.append(option_extra);
                         }
@@ -156,7 +156,6 @@ $(function () {
                         preset_disable_button("accept-t2-code");
                     }
                     enable_preset_buttons();
-                    $('html, body').scrollTop($(document).height());
                 } else {
                     add_alert(data.message);
                     enable_button('reject-all');
@@ -183,7 +182,7 @@ $(function () {
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             type: "POST",
-            url: "http://localhost:3000/get_terminologies",
+            url: host_domain_url + "get_terminologies",
             data: JSON.stringify({
                 context: context
             }),
@@ -259,6 +258,7 @@ $(function () {
             entity_type: $('#t2-entity-type-dropdown option:selected').val(),
             code: this.value
         };
+        $("input[name='t2-extracted-code-input']").val($med_code_dropdown.val());
         $.ajax({
             dataType: "json",
             contentType: "application/json; charset=utf-8",
