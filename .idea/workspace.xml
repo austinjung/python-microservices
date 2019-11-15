@@ -5,10 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/microservices/tkn.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/models/med_embeddings_dict.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/models/med_processed_terminologies.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/models/med_terminology_code_tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/models/med_terminology_code_tree.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/models/med_terminology_code_verbose.json" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/models/med_terminology_code_verbose.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,7 +47,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true&#10;/Users/austinjung/study/python-microservices/instance/flask_test.cfg" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservices/static/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservices/models" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -52,11 +58,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/microservices/models" />
+      <recent name="$PROJECT_DIR$/microservices" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/microservices/templates" />
       <recent name="$PROJECT_DIR$/microservices/dataset" />
-      <recent name="$PROJECT_DIR$/docker" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/microservices/static/js" />
@@ -214,11 +220,6 @@
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceNode@64b3c93a" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5c98327b" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@64b3c93a" type="9fbbdea:ServiceModel$ServiceNode" />
               <item name="com.intellij.execution.services.ServiceModel$ServiceNode@594c2965" type="9fbbdea:ServiceModel$ServiceNode" />
             </path>
           </expand>
@@ -245,14 +246,7 @@
       <workItem from="1572965328618" duration="25136000" />
       <workItem from="1573110418464" duration="4203000" />
       <workItem from="1573275847125" duration="3130000" />
-      <workItem from="1573496424590" duration="99120000" />
-    </task>
-    <task id="LOCAL-00015" summary="Fix line split logic - later we need to split line by nlp">
-      <created>1572355360612</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1572355360612</updated>
+      <workItem from="1573496424590" duration="108568000" />
     </task>
     <task id="LOCAL-00016" summary="Add selected code details">
       <created>1572399906285</created>
@@ -590,7 +584,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573701728525</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="Change UI because of dropdown-select bug">
+      <created>1573785233026</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1573785233035</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -677,6 +678,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573784368678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573847418020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

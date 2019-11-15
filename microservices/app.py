@@ -345,17 +345,21 @@ def api_get_terminology_code_detail():
         synonyms = []
         relations = []
         if code not in med_terminology_code_verbose[entity_type]:
-            response = {
-                "synonyms": "Not found",
-                "relations": "Not found",
-                "message": HTTPStatus.NOT_FOUND.phrase,
-                "status-code": HTTPStatus.NOT_FOUND,
-                "method": request.method,
-                "timestamp": datetime.now().isoformat(),
-                "url": request.url,
-            }
-            return make_response(jsonify(response), response["status-code"])
-        code_detail = med_terminology_code_verbose[entity_type][code]
+            if code not in med_terminology_code_tree:
+                response = {
+                    "synonyms": "Not found",
+                    "relations": "Not found",
+                    "message": HTTPStatus.NOT_FOUND.phrase,
+                    "status-code": HTTPStatus.NOT_FOUND,
+                    "method": request.method,
+                    "timestamp": datetime.now().isoformat(),
+                    "url": request.url,
+                }
+                return make_response(jsonify(response), response["status-code"])
+            else:
+                code_detail = med_terminology_code_tree[code]
+        else:
+            code_detail = med_terminology_code_verbose[entity_type][code]
         attr_dict = {
             'STY': "Top concept",
             'CHD': "Parent",
@@ -607,7 +611,7 @@ def get_weighted_concept_score(kv):
     else:
         preferred_tokens = set()
     synonym_tokens = set(kv[1][0]['synonym'].lower().split())
-    if len(preferred_tokens.intersection(synonym_tokens)):
+    if len(preferred_tokens.intersection(synonym_tokens)) > 1:
         extra_score = 0.2
     else:
         extra_score = 0.0
@@ -617,6 +621,8 @@ def get_weighted_concept_score(kv):
 def sort_by_code_weight_with_same_parent(results):
     code_weight_dict = defaultdict(list)
     for result in results:
+        if 'preferred_terminology' not in result:  # depreciated code
+            continue
         if result['code'] in med_terminology_code_tree:
             general_code, general_terminology = med_terminology_code_tree[result['code']].get('GC', [None, None])
         else:
@@ -628,7 +634,7 @@ def sort_by_code_weight_with_same_parent(results):
     sorted_by_code_weight = sorted(code_weight_dict.items(), key=get_weighted_concept_score, reverse=True)
     sorted_results = []
     for code, results_with_same_code in sorted_by_code_weight:
-        top_result = sorted(results_with_same_code, key=lambda x: x['concept_score'], reverse=True)[0]
+        top_result = sorted(results_with_same_code, key=lambda x: x['confidence'], reverse=True)[0]
         if top_result['concept_score'] >= 0.80:
             sorted_results.append(top_result)
         if len(sorted_results) > 4:

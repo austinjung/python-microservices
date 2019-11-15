@@ -45,10 +45,11 @@ $(function () {
         $("input[name='new-code']").addClass('d-none');
         $("input[name='new-code-terminology']").addClass('d-none');
         $("#get-new-code").addClass('d-none');
-        $("#end-of-document-button").addClass('d-none');
+        $(".end-of-document-button").addClass('d-none');
     };
     var preset_enable_buttons = [];
     var preset_enable_all_button = function () {
+        preset_enable_buttons = [];
         $('.action-button').each(function(idx, btn){
             preset_enable_buttons.push($(btn).attr('id'));
         });
@@ -160,7 +161,7 @@ $(function () {
                     enable_preset_buttons();
                 } else {
                     add_alert(data.message);
-                    $("#end-of-document-button").removeClass('d-none');
+                    $(".end-of-document-button").removeClass('d-none');
                 }
             },
             error: function (error) {
@@ -226,7 +227,7 @@ $(function () {
         }
         if (inferred_code === new_code && inferred_entity_type === new_entity_type) {
             add_alert("Inferred code or entity type was not changed.");
-            $("#end-of-document-button").addClass('d-none');
+            $(".end-of-document-button").addClass('d-none');
             return;
         }
         if (pipeline_code === new_code && inferred_entity_type === new_entity_type) {
