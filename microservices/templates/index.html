@@ -89,9 +89,13 @@
             </div>
 
             <div class="row">
-                <div class="mt-3 col-lg-8 text-left">
+                <div class="mt-3 col-lg-4 text-left">
                     <input type="text" name="new-code" class="form-control input-sm d-none"
-                           placeholder="Select non-existing code">
+                           placeholder="Select non-existing code or terminology">
+                </div>
+                <div class="mt-3 col-lg-4 text-left">
+                    <input type="text" name="new-code-terminology" class="form-control input-sm d-none"
+                           placeholder="Input terminology type">
                 </div>
                 <div class="mt-3 col-lg-4 text-left">
                     <button id="get-new-code" type="button" class="btn btn-success center-block d-none">
@@ -122,6 +126,8 @@
             <button id="skip-code" type="button" class="btn btn-light center-block skip-next action-button d-none">
                 Skip
             </button>
+            <a class="btn btn-primary end-of-document-button" href="/upload">Upload files</a>
+            <a class="btn btn-primary end-of-document-button" href="/dataset/export">Export results</a>
         </div>
     </div>
 

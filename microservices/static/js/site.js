@@ -43,7 +43,9 @@ $(function () {
         var buttons = $('.action-button');
         buttons.addClass('d-none');
         $("input[name='new-code']").addClass('d-none');
+        $("input[name='new-code-terminology']").addClass('d-none');
         $("#get-new-code").addClass('d-none');
+        $("#end-of-document-button").addClass('d-none');
     };
     var preset_enable_buttons = [];
     var preset_enable_all_button = function () {
@@ -158,9 +160,7 @@ $(function () {
                     enable_preset_buttons();
                 } else {
                     add_alert(data.message);
-                    enable_button('reject-all');
-                    enable_button('reprocess');
-                    enable_button('skip-code');
+                    $("#end-of-document-button").removeClass('d-none');
                 }
             },
             error: function (error) {
@@ -215,14 +215,18 @@ $(function () {
     });
 
     var learn = function ($this) {
-        var new_entity_type = $("#t2-entity-type-dropdown").val();
+        var new_entity_type = $("input[name='new-code-terminology']").val();
         var new_code = $("input[name='new-code']").val();
         var pipeline_code = $("input[name='pipeline-extracted-code']").val();
         if (new_code === "" || new_code === null) {
             new_code = $med_code_dropdown.val();
         }
+        if (new_entity_type === "" || new_entity_type === null) {
+            $("#t2-entity-type-dropdown").val();
+        }
         if (inferred_code === new_code && inferred_entity_type === new_entity_type) {
             add_alert("Inferred code or entity type was not changed.");
+            $("#end-of-document-button").addClass('d-none');
             return;
         }
         if (pipeline_code === new_code && inferred_entity_type === new_entity_type) {
@@ -247,6 +251,7 @@ $(function () {
             $this.text('Learn');
             $this.toggleClass('learn');
             $("input[name='new-code']").removeClass('d-none');
+            $("input[name='new-code-terminology']").removeClass('d-none');
             $("#get-new-code").removeClass('d-none');
         }
     });
