@@ -250,17 +250,30 @@ def show_status():
     total_not_started = 0
     for filename, status in api.dataset_status.items():
         if '.json' in filename:
-            files.append({
-                'filename': filename,
-                'progress': (status['total_dataset'] - status['not_started']) * 100 / status['total_dataset'],
-                'total_dataset': status['total_dataset'],
-                'accepted_dataset': status['accepted_dataset'] * 100 / status['total_dataset'],
-                'skipped_dataset': status['skipped_dataset'] * 100 / status['total_dataset'],
-                'rejected_dataset': status['rejected_dataset'] * 100 / status['total_dataset'],
-                'processing_dataset': status['processing_dataset'] * 100 / status['total_dataset'],
-                'not_started': status['not_started'] * 100 / status['total_dataset'],
-                "updated": status['updated']
-            })
+            if status['total_dataset'] > 0:
+                files.append({
+                    'filename': filename,
+                    'progress': (status['total_dataset'] - status['not_started']) * 100 / status['total_dataset'],
+                    'total_dataset': status['total_dataset'],
+                    'accepted_dataset': status['accepted_dataset'] * 100 / status['total_dataset'],
+                    'skipped_dataset': status['skipped_dataset'] * 100 / status['total_dataset'],
+                    'rejected_dataset': status['rejected_dataset'] * 100 / status['total_dataset'],
+                    'processing_dataset': status['processing_dataset'] * 100 / status['total_dataset'],
+                    'not_started': status['not_started'] * 100 / status['total_dataset'],
+                    "updated": status['updated']
+                })
+            else:
+                files.append({
+                    'filename': filename,
+                    'progress': 0.0,
+                    'total_dataset': 0,
+                    'accepted_dataset': 0.0,
+                    'skipped_dataset': 0.0,
+                    'rejected_dataset': 0.0,
+                    'processing_dataset': 0.0,
+                    'not_started': 0.0,
+                    "updated": status['updated']
+                })
             total_dataset += status['total_dataset']
             total_accepted_dataset += status['accepted_dataset']
             total_skipped_dataset += status['skipped_dataset']
