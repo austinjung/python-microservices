@@ -8,7 +8,9 @@ WORKDIR /app
 ADD ./microservices /app
 ADD requirements.txt /app
 ADD pip.conf /app
-ADD tkn.yaml /etc/app/cfg
+ADD tkn.yaml /app
+RUN mkdir -p /etc/app/cfg
+COPY tkn.yaml /etc/app/cfg
 
 # Expose the port uWSGI will listen on
 EXPOSE 3000

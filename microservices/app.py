@@ -203,6 +203,25 @@ config_app(api)
 generate_review_dataset(api)
 
 
+def clean_orphan_dataset():
+    global api
+    orphan_dataset = []
+    for ds in api.dataset_status.keys():
+        if ds == 'updated':
+            continue
+        dataset_path = os.path.join(DATASET_DIR, ds.replace('.jsonl', '.data').replace('.json', '.data'))
+        if not os.path.exists(dataset_path):
+            orphan_dataset.append(ds)
+    if len(orphan_dataset) > 0:
+        for ds in orphan_dataset:
+            api.dataset_status.pop(ds)
+        dataset_status_file = os.path.join(DATASET_DIR, DATASET_STATUS_FILE)
+        write_json(api.dataset_status, dataset_status_file)
+
+
+clean_orphan_dataset()
+
+
 @api.route(ROOT_URL)
 def main_url():
     global api
@@ -219,6 +238,7 @@ def main_url():
 @api.route(PROCESS_STATUS_URL)
 def show_status():
     """Endpoint to show process status."""
+    get_next_dataset_context()
     files = []
     global api
     current_doc_url = '/view/{0}'.format(api.selected_dataset)
@@ -561,6 +581,8 @@ def api_find_code():
 
 def get_next_dataset():
     global api
+    if api.selected_dataset not in api.dataset_status:
+        api.selected_dataset = None
     local_selected_dataset = api.selected_dataset
     select_next = api.selected_dataset is None or \
                   (api.dataset_status[api.selected_dataset]['not_started'] +
@@ -575,7 +597,7 @@ def get_next_dataset():
                       (api.dataset_status[api.selected_dataset]['not_started'] +
                        api.dataset_status[api.selected_dataset]['processing_dataset'] <= 0)
 
-    if api.selected_dataset != api.last_read_dataset:
+    if api.selected_dataset and api.selected_dataset != api.last_read_dataset:
         api.dataset = read_json(os.path.join(
             DATASET_DIR, api.selected_dataset.replace('.jsonl', '.data').replace('.json', '.data'))
         )
@@ -590,6 +612,7 @@ def get_next_dataset_context():
     extracted_code = None
     highlighted = None
     inprogress = None
+    clean_orphan_dataset()
     if get_next_dataset() is False:
         return context_text, entity_type, extracted_code, highlighted, inprogress
     processed = {'accepted', 'skipped', 'rejected'}

@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/microservices/tkn.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/models/med_embeddings_dict.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/models/med_processed_terminologies.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/models/med_terminology_code_tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/models/med_terminology_code_tree.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/models/med_terminology_code_verbose.json" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/models/med_terminology_code_verbose.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/tkn.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/tkn.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -65,6 +60,7 @@
       <recent name="$PROJECT_DIR$/microservices/dataset" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/microservices/static/js" />
       <recent name="$PROJECT_DIR$/microservices/dataset" />
       <recent name="$PROJECT_DIR$/microservices" />
@@ -246,14 +242,7 @@
       <workItem from="1572965328618" duration="25136000" />
       <workItem from="1573110418464" duration="4203000" />
       <workItem from="1573275847125" duration="3130000" />
-      <workItem from="1573496424590" duration="108568000" />
-    </task>
-    <task id="LOCAL-00016" summary="Add selected code details">
-      <created>1572399906285</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1572399906285</updated>
+      <workItem from="1573496424590" duration="117590000" />
     </task>
     <task id="LOCAL-00017" summary="Temp shelves for file upload">
       <created>1572460034142</created>
@@ -591,7 +580,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573785233035</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="Add search terminology">
+      <created>1573847607740</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1573847607740</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -643,7 +639,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Coding for process logic and UI" />
     <MESSAGE value="Change index.html layout" />
     <MESSAGE value=" Show original highlighted and extracted code" />
     <MESSAGE value="Show matched and mismatched alert message" />
@@ -668,9 +663,19 @@
     <MESSAGE value="Fix dockerfile" />
     <MESSAGE value="Change port to 3000" />
     <MESSAGE value="Change UI because of dropdown-select bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change UI because of dropdown-select bug" />
+    <MESSAGE value="Add search terminology" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add search terminology" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
         <watch expression="api" language="Python" />
@@ -678,6 +683,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573847418020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573883835466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

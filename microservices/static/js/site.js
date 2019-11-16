@@ -55,7 +55,10 @@ $(function () {
         });
     };
     var preset_disable_button = function (btn_id) {
-        preset_enable_buttons.splice(preset_enable_buttons.indexOf(btn_id), 1);
+        var index = preset_enable_buttons.indexOf(btn_id);
+        if (index >= 0) {
+            preset_enable_buttons.splice(preset_enable_buttons.indexOf(btn_id), 1);
+        }
     };
     var enable_preset_buttons = function () {
         $.each( preset_enable_buttons, function( idx, btn_id ){
@@ -83,6 +86,8 @@ $(function () {
         $("input[name='pipeline-entity-type']").val("");
         $("input[name='pipeline-keyword']").val("");
         $("input[name='t2-keyword']").val("");
+        $("input[name='new-code']").val("");
+        $("input[name='new-code-terminology']").val("");
         set_disable_all_buttons(true);
         data = (typeof data !== 'undefined') ?  data : {};
         $.ajax({
