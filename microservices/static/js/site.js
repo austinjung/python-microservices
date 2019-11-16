@@ -85,6 +85,7 @@ $(function () {
         $("input[name='pipeline-extracted-code']").val("");
         $("input[name='pipeline-entity-type']").val("");
         $("input[name='pipeline-keyword']").val("");
+        $("input[name='t2-extracted-code-input']").val("");
         $("input[name='t2-keyword']").val("");
         $("input[name='new-code']").val("");
         $("input[name='new-code-terminology']").val("");
