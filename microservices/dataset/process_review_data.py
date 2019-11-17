@@ -149,6 +149,41 @@ def generate_review_dataset(app, dataset_dir=DATASET_DIR):
     write_json(app.dataset_status, dataset_status_file_path)
 
 
+def build_dataset_status_from_dataset(app, dataset_filename, dataset_file_full_path):
+    dataset_json_objs = read_reviewed_json(app, dataset_file_full_path)
+    total_dataset_count_in_file = 0
+    total_processing_dataset_count_in_file = 0
+    total_accepted_dataset_count_in_file = 0
+    total_skipped_dataset_count_in_file = 0
+    total_rejected_dataset_count_in_file = 0
+    for source, dataset_obj in dataset_json_objs.items():
+        total_dataset_count_in_file += 1
+        for processed_key in dataset_obj.keys():
+            if processed_key in ['d', 'p', 'sectionType', 'entityType', 'code', 'original']:
+                continue
+            if processed_key == 'accepted':
+                total_accepted_dataset_count_in_file += 1
+            elif processed_key == 'skipped':
+                total_skipped_dataset_count_in_file += 1
+            elif processed_key == 'rejected':
+                total_rejected_dataset_count_in_file += 1
+            elif processed_key == 'inferred':
+                total_processing_dataset_count_in_file += 1
+    json_filename = dataset_filename.replace('.data', '.json')
+    app.dataset_status[json_filename] = {
+        'total_dataset': total_dataset_count_in_file,
+        'accepted_dataset': total_accepted_dataset_count_in_file,
+        'skipped_dataset': total_skipped_dataset_count_in_file,
+        'rejected_dataset': total_rejected_dataset_count_in_file,
+        'processing_dataset': total_processing_dataset_count_in_file,
+        'not_started': (
+            total_dataset_count_in_file - total_accepted_dataset_count_in_file - total_skipped_dataset_count_in_file
+            - total_rejected_dataset_count_in_file - total_processing_dataset_count_in_file
+        ),
+        'updated': datetime.now().strftime(DATETIME_FORMAT)
+    }
+
+
 def add_dataset(app, file, dataset_dir=DATASET_DIR):
     dataset_status_file_path = os.path.join(dataset_dir, DATASET_STATUS_FILE)
     if os.path.exists(dataset_status_file_path):
@@ -167,5 +202,15 @@ def add_dataset(app, file, dataset_dir=DATASET_DIR):
         build_current_working_dataset(app, file, full_file_path, dataset_path)
         app.selected_dataset = current_selected_dataset
         app.last_read_dataset = file
-    app.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
-    write_json(app.dataset_status, dataset_status_file_path)
+        app.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+        write_json(app.dataset_status, dataset_status_file_path)
+    elif file == 'terminology_dataset.zip':
+        current_selected_dataset = app.selected_dataset
+        for data_set_file in os.listdir(DATASET_DIR):
+            if data_set_file.endswith('.data'):
+                dataset_path = os.path.join(DATASET_DIR, data_set_file)
+                build_dataset_status_from_dataset(app, data_set_file, dataset_path)
+                app.dataset_status['updated'] = datetime.now().strftime(DATETIME_FORMAT)
+                write_json(app.dataset_status, dataset_status_file_path)
+                app.last_read_dataset = data_set_file
+        app.selected_dataset = current_selected_dataset

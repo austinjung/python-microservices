@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/microservices/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/dataset/process_review_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/dataset/process_review_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/static/js/site.js" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/static/js/site.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/microservices/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -242,14 +241,7 @@
       <workItem from="1572965328618" duration="25136000" />
       <workItem from="1573110418464" duration="4203000" />
       <workItem from="1573275847125" duration="3130000" />
-      <workItem from="1573496424590" duration="124067000" />
-    </task>
-    <task id="LOCAL-00020" summary="Reformat html and json">
-      <created>1572484633883</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1572484633883</updated>
+      <workItem from="1573496424590" duration="129231000" />
     </task>
     <task id="LOCAL-00021" summary="Add list template">
       <created>1572486353188</created>
@@ -587,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573885472014</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Enhance t2 selected code and add new entity type in dropdown and change dropdown code not to update t2 selected code">
+      <created>1573970284914</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1573970284915</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -639,7 +638,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fix bugs and optimize code" />
     <MESSAGE value="Add accept and process next" />
     <MESSAGE value="Add accept_extractor_and_infer_next_code" />
     <MESSAGE value="Add reject" />
@@ -664,7 +662,8 @@
     <MESSAGE value="Add clean orphan dataset and fix remove enable preset button" />
     <MESSAGE value="Fix import zero dataset file" />
     <MESSAGE value="Fix to clean T2 extracted input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix to clean T2 extracted input" />
+    <MESSAGE value="Enhance t2 selected code and add new entity type in dropdown and change dropdown code not to update t2 selected code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhance t2 selected code and add new entity type in dropdown and change dropdown code not to update t2 selected code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -683,6 +682,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573970137083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1573975243996" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

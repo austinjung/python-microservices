@@ -185,6 +185,7 @@ class UploadFolderManager(object):
                 fp.write(file_data)
             with ZipFile(zip_file_path, 'r') as zip_ref:
                 zip_ref.extractall()
+            new_filename = filename
         else:
             with open(os.path.join(self.upload_folder, new_filename), 'wb') as fp:
                 fp.write(file_data)
@@ -857,12 +858,12 @@ def api_reject_and_learn_code():
     global api
     if request.method == 'POST':
         new_code = request.json['new_code']
-        new_entity_type = request.json['new_entity_type']
+        new_code_terminology = request.json['new_code_terminology']
         highlighted = request.json['highlighted']
         context, entity_type, extracted_code, original_highlighted, inprogress = get_next_dataset_context()
         api.dataset[context]['rejected'] = {
             'selected': 'new_learn',
-            'entityType': new_entity_type,
+            'new_code_terminology': new_code_terminology,
             'highlighted': highlighted,
             'code': new_code,
         }

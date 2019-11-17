@@ -108,6 +108,7 @@ $(function () {
                     if (data.results.length > 0) {
                         inferred_entity_type = data.results[0].entity_type;
                         inferred_code = data.results[0].code;
+                        $("input[name='t2-extracted-code-input']").val(inferred_code);
                         for (var i = 0; i < data.results.length; i++) {
                             var option = document.createElement('option');
                             option.text = data.results[i].code + ": " + data.results[i].preferred_terminology + " (concept_score: " + data.results[i].concept_score.toFixed(4) + ")";
@@ -170,6 +171,7 @@ $(function () {
                     }
                     if (extracted_code_not_exist) {
                         add_alert("Pipeline extracted code not exist in Ciitizen terminology code");
+                        preset_disable_button("accept-pipeline-code");
                     }
                     enable_preset_buttons();
                 } else {
@@ -229,27 +231,24 @@ $(function () {
     });
 
     var learn = function ($this) {
-        var new_entity_type = $("input[name='new-code-terminology']").val();
+        var new_code_terminology = $("input[name='new-code-terminology']").val();
         var new_code = $("input[name='new-code']").val();
         var pipeline_code = $("input[name='pipeline-extracted-code']").val();
         if (new_code === "" || new_code === null) {
             new_code = $med_code_dropdown.val();
         }
-        if (new_entity_type === "" || new_entity_type === null) {
-            $("#t2-entity-type-dropdown").val();
-        }
-        if (inferred_code === new_code && inferred_entity_type === new_entity_type) {
-            add_alert("Inferred code or entity type was not changed.");
-            $(".end-of-document-button").addClass('d-none');
-            return;
-        }
-        if (pipeline_code === new_code && inferred_entity_type === new_entity_type) {
-            add_alert("Changed code is the same as pipeline code.");
-        }
+        // if (inferred_code === new_code) {
+        //     add_alert("Inferred code or entity type was not changed.");
+        //     $(".end-of-document-button").addClass('d-none');
+        //     return;
+        // }
+        // if (pipeline_code === new_code) {
+        //     add_alert("Changed code is the same as pipeline code.");
+        // }
         var highlighted = $("input[name='t2-keyword']").val();
         var data = {
             new_code: new_code,
-            new_entity_type: new_entity_type,
+            new_code_terminology: new_code_terminology,
             highlighted: highlighted
         };
         $this.toggleClass('learn');
