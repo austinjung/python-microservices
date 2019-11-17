@@ -801,12 +801,19 @@ def api_infer_next_code():
 def api_set_dataset_and_infer_next_code():
     global api
     if request.method == 'POST':
-        api.selected_dataset = request.json['selected_dataset']
-        response = {
-            "message": "{0} is selected.".format(api.selected_dataset),
-            "method": "POST",
-            "status-code": HTTPStatus.OK
-        }
+        if 'selected_dataset' not in request.json:
+            response = {
+                "message": "No file is selected.",
+                "method": "POST",
+                "status-code": HTTPStatus.BAD_REQUEST
+            }
+        else:
+            api.selected_dataset = request.json['selected_dataset']
+            response = {
+                "message": "{0} is selected.".format(api.selected_dataset),
+                "method": "POST",
+                "status-code": HTTPStatus.OK
+            }
         return make_response(jsonify(response), response.get("status-code", 400))
 
 
@@ -948,6 +955,15 @@ def delete_file(filename):
             return make_response(jsonify({'message': '{0} deleted'.format(filename)}), 200)
         except Exception as e:
             return make_response(jsonify({'message': '{0}'.format(e)}), 400)
+    else:
+        dataset_folder = os.path.join(BASE_DIR, DATASET_FOLDER)
+        dataset_path = os.path.join(dataset_folder, filename).replace('.jsonl', '.data').replace('.json', '.data')
+        remove_file(dataset_path)
+        api.dataset_status.pop(filename)
+        dataset_status_file_path = os.path.join(dataset_folder, DATASET_STATUS_FILE)
+        write_json(api.dataset_status, dataset_status_file_path)
+        api.selected_dataset = None
+        return make_response(jsonify({'message': '{0} deleted'.format(filename)}), 200)
 
 
 if __name__ == '__main__':

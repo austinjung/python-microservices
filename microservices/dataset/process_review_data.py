@@ -158,6 +158,9 @@ def build_dataset_status_from_dataset(app, dataset_filename, dataset_file_full_p
     total_rejected_dataset_count_in_file = 0
     for source, dataset_obj in dataset_json_objs.items():
         total_dataset_count_in_file += 1
+        keys = set(dataset_obj.keys())
+        if 'inferred' in keys and len(keys.intersection({'accepted', 'skipped', 'rejected'})) == 0:
+            total_processing_dataset_count_in_file += 1
         for processed_key in dataset_obj.keys():
             if processed_key in ['d', 'p', 'sectionType', 'entityType', 'code', 'original']:
                 continue
@@ -167,8 +170,6 @@ def build_dataset_status_from_dataset(app, dataset_filename, dataset_file_full_p
                 total_skipped_dataset_count_in_file += 1
             elif processed_key == 'rejected':
                 total_rejected_dataset_count_in_file += 1
-            elif processed_key == 'inferred':
-                total_processing_dataset_count_in_file += 1
     json_filename = dataset_filename.replace('.data', '.json')
     app.dataset_status[json_filename] = {
         'total_dataset': total_dataset_count_in_file,

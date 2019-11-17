@@ -15,8 +15,22 @@ $(function () {
         }
     });
 
+    var get_selected_ids = function() {
+        var selected_ids = [];
+        $( "input:checked" ).each(function(idx, obj){
+            if ($(obj).attr('id') !== 'select-all-input') {
+                selected_ids.push($(obj).attr('id'));
+            }
+        });
+        return selected_ids;
+    };
+
     $("#view-dataset").click(function () {
-        var id = $( "input:checked" ).first().attr('id');
+        var id = get_selected_ids()[0];
+        if (id === undefined) {
+            add_alert('Please select file fisrt.');
+            return;
+        }
         $(location).attr('href', '/view/' + id);
     });
 
@@ -55,29 +69,38 @@ $(function () {
     };
 
     $("#delete-dataset").click(function () {
-        var id = $( "input:checked" ).first().attr('id');
-        var endpoint = '/delete/' + id;
-        $.ajax({
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            type: "POST",
-            url: endpoint,
-            data: JSON.stringify({}),
-            success: function (data, status) {
-                add_success_alert(data.message);
-                setTimeout(function () {
-                    location.reload();
-                }, 600);
-            },
-            error: function (error) {
-                add_alert(error.responseJSON.message);
-            }
+        var ids = get_selected_ids();
+        if (ids.length === 0) {
+            add_alert('Please select file fisrt.');
+            return;
+        }
+        $.each(ids, function( idx, file_id ) {
+            var endpoint = '/delete/' + file_id;
+            $.ajax({
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                url: endpoint,
+                data: JSON.stringify({}),
+                success: function (data, status) {
+                    add_success_alert(data.message);
+                    setTimeout(function () {
+                        location.reload();
+                    }, 600);
+                },
+                error: function (error) {
+                    add_alert(error.responseJSON.message);
+                }
+            });
         });
-
     });
 
     $("#select-dataset").click(function () {
-        var id = $( "input:checked" ).first().attr('id');
+        var id = get_selected_ids()[0];
+        if (id === undefined) {
+            add_alert('Please select file fisrt.');
+            return;
+        }
         var endpoint = '/set_dataset_and_infer_next';
         $.ajax({
             dataType: "json",
