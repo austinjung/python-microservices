@@ -45,7 +45,7 @@ REJECT_AND_LEARN = '/reject_and_learn'
 SKIP = '/skip'
 GET_MED_TERMINOLOGIES = '/get_terminologies'
 GET_MED_TERMINOLOGY_CODE_URL = '/terminology_code'
-DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl')
+DEFAULT_ALLOWED_EXTENSIONS = ('json', 'jsonl', 'zip')
 
 if not os.path.exists(SHARE_FOLDER):
     os.makedirs(SHARE_FOLDER)
@@ -176,6 +176,18 @@ class UploadFolderManager(object):
         self.validate_filename(new_filename)
         with open(os.path.join(self.upload_folder, new_filename), 'wb') as fp:
             fp.write(file_data)
+        if filename == EXPORT_ZIP_FILE_NAME:
+            with ZipFile(filename, 'r') as zip_ref:
+                zip_ref.extractall(DATASET_FOLDER)
+        if filename == EXPORT_ZIP_FILE_NAME:
+            zip_file_path = os.path.join(DATASET_FOLDER, new_filename)
+            with open(zip_file_path, 'wb') as fp:
+                fp.write(file_data)
+            with ZipFile(zip_file_path, 'r') as zip_ref:
+                zip_ref.extractall()
+        else:
+            with open(os.path.join(self.upload_folder, new_filename), 'wb') as fp:
+                fp.write(file_data)
         add_dataset(self.app, new_filename)
         return '{filename} uploaded'.format(filename=new_filename)
 
@@ -186,7 +198,13 @@ class UploadFolderManager(object):
             )
         filename = secure_filename(file.filename)
         self.validate_filename(filename)
-        file.save(os.path.join(self.upload_folder, filename))
+        if filename == EXPORT_ZIP_FILE_NAME:
+            zip_file_path = os.path.join(DATASET_FOLDER, filename)
+            file.save(zip_file_path)
+            with ZipFile(zip_file_path, 'r') as zip_ref:
+                zip_ref.extractall()
+        else:
+            file.save(os.path.join(self.upload_folder, filename))
         add_dataset(self.app, filename)
         return '{filename} uploaded'.format(filename=filename)
 

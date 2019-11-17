@@ -140,6 +140,8 @@ def generate_review_dataset(app, dataset_dir=DATASET_DIR):
             else:
                 build_current_working_dataset(app, file, full_file_path, dataset_path)
             app.last_read_dataset = file
+            if file not in app.dataset_status:
+                build_current_working_dataset(app, file, full_file_path, dataset_path)
             if app.selected_dataset is None and (
                     app.dataset_status[file]['processing_dataset'] + app.dataset_status[file]['not_started'] > 0):
                 app.selected_dataset = file

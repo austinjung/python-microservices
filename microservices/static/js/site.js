@@ -119,7 +119,11 @@ $(function () {
                         inferred_entity_type = null;
                         inferred_code = null;
                     }
+                    var extracted_code_not_exist = true;
                     for (var i_extra = 0; i_extra < data.entity_codes.length; i_extra++) {
+                        if (data.entity_codes[i_extra][0] === inferred_code) {
+                            extracted_code_not_exist = false;
+                        }
                         if (suggested_codes.indexOf(data.entity_codes[i_extra][0]) < 0) {
                             var option_extra = document.createElement('option');
                             option_extra.text = data.entity_codes[i_extra][0] + ": " + trimString(data.entity_codes[i_extra][1], 15);
@@ -163,6 +167,9 @@ $(function () {
                         add_alert("No code matched");
                         preset_disable_button("accept-code");
                         preset_disable_button("accept-t2-code");
+                    }
+                    if (extracted_code_not_exist) {
+                        add_alert("Pipeline extracted code not exist in Ciitizen terminology code");
                     }
                     enable_preset_buttons();
                 } else {
@@ -270,7 +277,7 @@ $(function () {
             entity_type: $('#t2-entity-type-dropdown option:selected').val(),
             code: this.value
         };
-        $("input[name='t2-extracted-code-input']").val($med_code_dropdown.val());
+        // $("input[name='t2-extracted-code-input']").val($med_code_dropdown.val());
         $.ajax({
             dataType: "json",
             contentType: "application/json; charset=utf-8",
