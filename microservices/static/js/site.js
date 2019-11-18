@@ -48,6 +48,7 @@ $(function () {
         $(".end-of-document-button").addClass('d-none');
         $("#get-pipeline-code-detail").attr("disabled", true);
         $("#get-t2-code-detail").attr("disabled", true);
+        $("#copy-code-to-learn").addClass('d-none');
     };
     var preset_enable_buttons = ['get-pipeline-code-detail', 'get-t2-code-detail'];
     var preset_enable_all_button = function () {
@@ -135,7 +136,7 @@ $(function () {
                         }
                         if (suggested_codes.indexOf(data.entity_codes[i_extra][0]) < 0) {
                             var option_extra = document.createElement('option');
-                            option_extra.text = data.entity_codes[i_extra][0] + ": " + trimString(data.entity_codes[i_extra][1], 15);
+                            option_extra.text = data.entity_codes[i_extra][0] + ": " + trimString(data.entity_codes[i_extra][1], 50);
                             option_extra.value = data.entity_codes[i_extra][0];
                             $med_code_dropdown.append(option_extra);
                         }
@@ -243,6 +244,10 @@ $(function () {
         ajax_infer_next("accept_extractor_and_process_next");
     });
 
+    $("#copy-code-to-learn").click(function () {
+        $("input[name='new-code']").val($med_code_dropdown.val());
+    });
+
     $("#get-pipeline-code-detail").click(function () {
         $med_code_dropdown.selectpicker('val', $("input[name='pipeline-extracted-code']").val());
     });
@@ -287,6 +292,7 @@ $(function () {
             $("input[name='new-code']").removeClass('d-none');
             $("input[name='new-code-terminology']").removeClass('d-none');
             $("#get-new-code").removeClass('d-none');
+            $("#copy-code-to-learn").removeClass('d-none');
         }
     });
 
