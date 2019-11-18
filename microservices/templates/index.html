@@ -38,9 +38,14 @@
                     <input type="text" name="pipeline-extracted-code" class="form-control input-sm" disabled
                            placeholder="No extracted code by pipeline">
                 </div>
-                <div class="mt-3 col">
+                <div class="mt-3 col text-center">
+                    <button id="get-pipeline-code-detail" type="button" class="btn btn-success center-block" disabled>
+                        See code detail
+                    </button>
+                </div>
+                <div class="mt-3 col" text-right>
                     <input type="text" name="pipeline-entity-type" class="form-control input-sm" disabled
-                           placeholder="No extracted entity type by pipeline">
+                           placeholder="No extracted entity type">
                 </div>
             </div>
 
@@ -63,6 +68,11 @@
                 <div class="mt-3 col text-left">
                     <input type="text" name="t2-extracted-code-input" class="form-control input-sm" disabled
                            placeholder="No extracted code by T2">
+                </div>
+                <div class="mt-3 col text-center">
+                    <button id="get-t2-code-detail" type="button" class="btn btn-success center-block" disabled>
+                        See code detail
+                    </button>
                 </div>
                 <div class="mt-3 col-lg-4">
                     <select id="t2-entity-type-dropdown" name="entity-type" class="selectpicker"

@@ -46,10 +46,12 @@ $(function () {
         $("input[name='new-code-terminology']").addClass('d-none');
         $("#get-new-code").addClass('d-none');
         $(".end-of-document-button").addClass('d-none');
+        $("#get-pipeline-code-detail").attr("disabled", true);
+        $("#get-t2-code-detail").attr("disabled", true);
     };
-    var preset_enable_buttons = [];
+    var preset_enable_buttons = ['get-pipeline-code-detail', 'get-t2-code-detail'];
     var preset_enable_all_button = function () {
-        preset_enable_buttons = [];
+        preset_enable_buttons = ['get-pipeline-code-detail', 'get-t2-code-detail'];
         $('.action-button').each(function(idx, btn){
             preset_enable_buttons.push($(btn).attr('id'));
         });
@@ -63,7 +65,13 @@ $(function () {
     var enable_preset_buttons = function () {
         $.each( preset_enable_buttons, function( idx, btn_id ){
             var btn = $('#' + btn_id);
-            btn.removeClass('d-none');
+            if (btn_id === 'get-pipeline-code-detail') {
+                $("#get-pipeline-code-detail").attr("disabled", false);
+            } else if (btn_id === 'get-t2-code-detail') {
+                $("#get-t2-code-detail").attr("disabled", false);
+            } else {
+                btn.removeClass('d-none');
+            }
         });
     };
     var enable_button = function (btn_id) {
@@ -149,12 +157,15 @@ $(function () {
                     preset_enable_all_button();
                     if (data.extracted_code === null) {
                         preset_disable_button("accept-pipeline-code");
+                        preset_disable_button("get-pipeline-code-detail");
                         preset_disable_button("accept-code");
                     }
                     if (data.match_with_extracted) {
                         add_code_match_alert(data.extracted_code);
                         preset_disable_button("accept-pipeline-code");
+                        preset_disable_button("get-pipeline-code-detail");
                         preset_disable_button("accept-t2-code");
+                        preset_disable_button("get-t2-code-detail");
                     }
                     if (data.match_with_extracted === false && data.results.length > 0) {
                         add_code_mismatch_alert(data.extracted_code, data.results[0].code);
@@ -163,6 +174,7 @@ $(function () {
                     if (data.extracted_code === "") {
                         preset_disable_button("accept-code");
                         preset_disable_button("accept-pipeline-code");
+                        preset_disable_button("get-pipeline-code-detail");
                     }
                     if (data.results.length === 0) {
                         add_alert("No code matched");
@@ -172,6 +184,7 @@ $(function () {
                     if (extracted_code_not_exist) {
                         add_alert("Pipeline extracted code not exist in Ciitizen terminology code");
                         preset_disable_button("accept-pipeline-code");
+                        preset_disable_button("get-pipeline-code-detail");
                     }
                     enable_preset_buttons();
                 } else {
@@ -228,6 +241,14 @@ $(function () {
     $("#accept-pipeline-code").click(function () {
         $("input[name='keyword']").val("");
         ajax_infer_next("accept_extractor_and_process_next");
+    });
+
+    $("#get-pipeline-code-detail").click(function () {
+        $med_code_dropdown.selectpicker('val', $("input[name='pipeline-extracted-code']").val());
+    });
+
+    $("#get-t2-code-detail").click(function () {
+        $med_code_dropdown.selectpicker('val', $("input[name='t2-extracted-code-input']").val());
     });
 
     var learn = function ($this) {
