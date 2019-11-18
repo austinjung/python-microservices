@@ -927,8 +927,8 @@ def view_file(filename):
     """view a file"""
     global api
     current_doc_url = '/view/{0}'.format(api.selected_dataset)
-    if '.json' in filename and filename in api.shared_folder_manager.get_file_names_in_folder():
-        file_path = os.path.join(BASE_DIR, DATASET_FOLDER, filename.replace('.jsonl', '.data').replace('.json', '.data'))
+    file_path = os.path.join(BASE_DIR, DATASET_FOLDER, filename.replace('.jsonl', '.data').replace('.json', '.data'))
+    if '.json' in filename and os.path.exists(file_path):
         file_content = json.dumps(read_json(file_path), indent=8)
         return render_template('json_viewer.html', filename=filename, error=False, file_content=file_content,
                                current_doc_url=current_doc_url, current_doc_name=api.selected_dataset)

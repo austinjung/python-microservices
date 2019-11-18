@@ -5,13 +5,6 @@ $(function () {
         var id = $(this).attr('id');
         if (id === 'select-all-input') {
             $('input:checkbox').not(this).prop('checked', $(this).prop('checked'));
-        } else {
-            $('input:checkbox').not(this).prop('checked', false);
-            if ($(this).prop('checked')) {
-                $(this).prop('checked', true);
-            } else {
-                $(this).prop('checked', false);
-            }
         }
     });
 
