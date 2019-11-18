@@ -4,3 +4,6 @@ pytest==4.2.0
 mock==2.0.0
 pytest-mock==1.10.0
 requests
+pyciiml==1.0.13
+nltk
+PyJWT==1.7.1

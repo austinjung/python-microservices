@@ -4,6 +4,8 @@ $(function () {
     var dropZone = document.getElementById('drop-zone');
     var uploadForm = document.getElementById('js-upload-form');
 
+    var host_domain_url = window.location.protocol + "//" + window.location.host + "/";
+
     var progressHandling = function (event) {
         var percent = 0;
         var position = event.loaded || event.position;
@@ -26,12 +28,12 @@ $(function () {
     var add_alert = function (message) {
         var message_block = $('#message-block');
         var alert_div = document.createElement('div');
-        $(alert_div).addClass("alert");
+        $(alert_div).addClass("alert warning");
         var button = document.createElement('span');
         $(button).addClass("closebtn");
         $(button).html("&times;");
         $(alert_div).append(button);
-        $(alert_div).append("<strong>Danger!</strong> " + message);
+        $(alert_div).append("<strong>Warning!</strong> " + message);
         message_block.append(alert_div);
         button.onclick = function () {
             var div = this.parentElement;
@@ -70,7 +72,7 @@ $(function () {
         formData.append("files", file);
         $.ajax({
             type: "POST",
-            url: "http://localhost:5000/upload",
+            url: host_domain_url + "upload",
             xhr: function () {
                 var myXhr = $.ajaxSettings.xhr();
                 if (myXhr.upload) {

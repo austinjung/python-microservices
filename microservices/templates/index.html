@@ -1,95 +1,198 @@
 {% extends "site.html" %}
+{% block extra_script %}
+    <script src="../../static/js/jquery-resizable.js"></script>
+{% endblock %}
 {% block extra_menu %}
     <li class="nav-item">
         <a class="nav-link infer-next" href="#">Process</a>
     </li>
+    {% if auto_process %}
+    <div id="auto-process" style="display: none;">
+    {% endif %}
 {% endblock %}
 {% block content %}
+
     <div class="row">
         <div class="panel panel-default col-lg-12 pb-3">
             <div class="panel-body text-center c0161">
-                <div id="context_text" class="text-left p-3">
+                <div id="context_text" class="text-center p-3 col-lg-12">
                     {% include 'ciitizen-catch-phrase.html' %}
                 </div>
             </div>
         </div>
     </div>
-    </div>
 
-    <div class="search row">
-        <div class="col-lg-12 text-center p-3">
-            <span class="text-center">Selected words:</span>
-            <input type="text" name="keyword" class="form-control input-sm"
-                   placeholder="Select and copy keywords from context and click 'Reprocess' button">
-        </div>
-    </div>
+    <div class="panel-container">
+        <div class="panel-left col-lg-6">
+            Pipeline Extracted Panel
+            <div class="search row">
+                <div class="col-lg-12 text-center">
+                    <span class="text-center">Selected words:</span>
+                    <input type="text" name="pipeline-keyword" class="form-control input-sm" disabled
+                           placeholder="Pipeline selected keywords from context">
+                </div>
+            </div>
 
-    <div class="row">
-        <div class="mt-5 ml-3 col text-left">
-            <input type="text" name="extracted-code" class="form-control input-sm" disabled
-                   placeholder="No selected code by document processing pipeline">
-        </div>
-        <div class="mt-5 col">
-            <select id="entity-type-dropdown" name="entity-type" class="selectpicker"
-                    title="Choose entity type title" data-live-search="true">
-                <option value="adverseReaction">Adverse Reaction</option>
-                <option value="chemotherapy">Chemotherapy</option>
-                <option value="clinicalStage">Clinical Stage</option>
-                <option value="diagnosis">Diagnosis</option>
-                <option value="diagnosticProcedure">Diagnostic Procedure</option>
-                <option value="diseaseStatus">Disease Status</option>
-                <option value="geneObservations">Gene Observations</option>
-                <option value="grade">Grade</option>
-                <option value="histologicalSubtype">Histological Subtype</option>
-                <option value="labResult">Lab Result</option>
-                <option value="medication">Medication</option>
-                <option value="metastasis">Metastasis</option>
-                <option value="molecularSubtype">Molecular Subtype</option>
-                <option value="primaryTumorLocation">Primary Tumor Location</option>
-                <option value="radiation">Radiation</option>
-                <option value="surgery">Surgery</option>
-                <option value="therapeuticProcedure">Therapeutic Procedure</option>
-            </select>
-        </div>
-        <div class="mt-5 col">
-            <button id="accept-code" type="button" class="btn btn-success center-block" disabled>
-                Accept
-            </button>
-            <button id="reject-code" type="button" class="btn btn-warning center-block" disabled>
-                Reject
-            </button>
-            <button id="reprocess" type="button" class="btn btn-info center-block" disabled>
-                Reprocess
-            </button>
-            <button id="skip-code" type="button" class="btn btn-light center-block skip-next" disabled>
-                Skip
-            </button>
-        </div>
-    </div>
+            <div class="row">
+                <div class="mt-3 col text-left">
+                    <input type="text" name="pipeline-extracted-code" class="form-control input-sm" disabled
+                           placeholder="No extracted code by pipeline">
+                </div>
+                <div class="mt-3 col text-center">
+                    <button id="get-pipeline-code-detail" type="button" class="btn btn-success center-block" disabled>
+                        See code detail
+                    </button>
+                </div>
+                <div class="mt-3 col" text-right>
+                    <input type="text" name="pipeline-entity-type" class="form-control input-sm" disabled
+                           placeholder="No extracted entity type">
+                </div>
+            </div>
 
-    <div class="row">
-        <div class="panel panel-default col-lg-12 mt-5">
-            <div class="panel-body">
-                <select id="med-code-dropdown" name="selected-med-code" class="col-lg-12 selectpicker"
-                        title="Choose Ciitizen Medical Code" data-live-search="true">
-                </select>
+        </div>
+
+        <div class="splitter">
+        </div>
+
+        <div class="panel-right col-lg-6">
+            Med-embedded Extraction Panel
+            <div class="search row">
+                <div class="col-lg-12 text-center">
+                    <span class="text-center">Selected words:</span>
+                    <input type="text" name="t2-keyword" class="form-control input-sm"
+                           placeholder="T2 selected keywords from context">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mt-3 col text-left">
+                    <input type="text" name="t2-extracted-code-input" class="form-control input-sm" disabled
+                           placeholder="No extracted code by T2">
+                </div>
+                <div class="mt-3 col text-center">
+                    <button id="get-t2-code-detail" type="button" class="btn btn-success center-block" disabled>
+                        See code detail
+                    </button>
+                </div>
+                <div class="mt-3 col-lg-4">
+                    <select id="t2-entity-type-dropdown" name="entity-type" class="selectpicker"
+                            title="Choose entity type title" data-live-search="true">
+                        <option value="adverseReaction">Adverse Reaction</option>
+                        <option value="biomarker">Biomarker</option>
+                        <option value="chemotherapy">Chemotherapy</option>
+                        <option value="clinicalStage">Clinical Stage</option>
+                        <option value="diagnosis">Diagnosis</option>
+                        <option value="diagnosticProcedure">Diagnostic Procedure</option>
+                        <option value="diseaseStatus">Disease Status</option>
+                        <option value="geneObservations">Gene Observations</option>
+                        <option value="grade">Grade</option>
+                        <option value="histologicalSubtype">Histological Subtype</option>
+                        <option value="labResult">Lab Result</option>
+                        <option value="medication">Medication</option>
+                        <option value="metastasis">Metastasis</option>
+                        <option value="molecularSubtype">Molecular Subtype</option>
+                        <option value="performanceStatus">Performance Status</option>
+                        <option value="primaryTumorLocation">Primary Tumor Location</option>
+                        <option value="radiation">Radiation</option>
+                        <option value="surgery">Surgery</option>
+                        <option value="therapeuticProcedure">Therapeutic Procedure</option>
+                        <option value="tumorLocation">Tumor Location</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="mt-3 col-lg-4 text-left">
+                    <input type="text" name="new-code" class="form-control input-sm d-none"
+                           placeholder="Select non-existing code or terminology">
+                </div>
+                <div class="mt-3 col-lg-4 text-left">
+                    <input type="text" name="new-code-terminology" class="form-control input-sm d-none"
+                           placeholder="Input terminology type">
+                </div>
+                <div class="mt-3 col-lg-4 text-left">
+                    <button id="get-new-code" type="button" class="btn btn-success center-block d-none" data-toggle="modal" data-target="#modalTerminologyService">
+                        Search terminology
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-lg-6">
+         <div class="mt-3 col text-center">
+            <button id="accept-code" type="button" class="btn btn-success center-block action-button d-none">
+                Accept
+            </button>
+            <button id="accept-pipeline-code" type="button" class="btn btn-success center-block action-button d-none">
+                Accept Pipeline
+            </button>
+            <button id="accept-t2-code" type="button" class="btn btn-success center-block action-button d-none">
+                Accept T2
+            </button>
+            <button id="reject-all" type="button" class="btn btn-warning center-block action-button d-none">
+                Reject both
+            </button>
+            <button id="reprocess" type="button" class="btn btn-info center-block infer-next action-button d-none">
+                Reprocess
+            </button>
+            <button id="skip-code" type="button" class="btn btn-light center-block skip-next action-button d-none">
+                Skip
+            </button>
+            <a class="btn btn-primary end-of-document-button" href="/upload">Upload files</a>
+            <a class="btn btn-primary end-of-document-button" href="/dataset/export">Export results</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-default col-lg-10 mt-3">
+            <div class="panel-body" id="med-code-dropdown-div">
+                <select id="med-code-dropdown" name="selected-med-code" class="col-lg-12 selectpicker"
+                        title="No extracted code by T2" data-live-search="true">
+                </select>
+            </div>
+        </div>
+        <div class="panel panel-default col-lg-2 mt-3">
+            <button id="copy-code-to-learn" type="button" class="btn btn-success center-block d-none">
+                Copy code to learn
+            </button>
+        </div>
+    </div>
+    <div class="row">
+       <div class="col-lg-6">
             <div class="text-center">
                 Synonyms
-                <textarea id="med-code-synonyms" rows="10" readonly></textarea>
+                <textarea id="med-code-synonyms" rows="13" readonly></textarea>
             </div>
         </div>
 
         <div class="col-lg-6">
             <div class="text-center">
                 Relations
-                <textarea id="med-code-relations" rows="10" readonly></textarea>
+                <textarea id="med-code-relations" rows="13" readonly></textarea>
             </div>
         </div>
     </div>
+
+    <!--Modal: Name-->
+    <div class="modal fade" id="modalTerminologyService" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Body-->
+                <div class="modal-body mb-0 p-0">
+                    <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+                        <iframe class="embed-responsive-item" src="https://api.ciitizen.com/terminology-ui/index.html#/login#top" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-outline-primary btn-md" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+      </div>
+    </div>
+    <!--Modal: Name-->
 {% endblock %}
