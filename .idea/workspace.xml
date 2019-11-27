@@ -269,20 +269,6 @@
       <workItem from="1574120220390" duration="27000" />
       <workItem from="1574729823369" duration="12730000" />
     </task>
-    <task id="LOCAL-00030" summary="Modify bootstrap select">
-      <created>1572629108056</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1572629108056</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Refactor index.html">
-      <created>1572637863728</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1572637863728</updated>
-    </task>
     <task id="LOCAL-00032" summary="Finalize index.html">
       <created>1572639876269</created>
       <option name="number" value="00032" />
@@ -612,7 +598,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574882238906</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Make having one TokenDictionary across WordTrie">
+      <created>1574883114207</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1574883114207</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Change class name to AustinSimpleParser">
+      <created>1574883472413</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1574883472413</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -664,8 +664,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modify to skip dataset and show status UI" />
-    <MESSAGE value="Fix select checkbox at view status UI" />
     <MESSAGE value="First commit to have new flame" />
     <MESSAGE value="Add get non-exxisting code and hide/un-hide buttons" />
     <MESSAGE value="Change danger to warning and toggle reject both and learn" />
@@ -689,7 +687,9 @@
     <MESSAGE value="temp shelves for tries" />
     <MESSAGE value="Add IrregVariant, TokenDictionary, and WordTrie" />
     <MESSAGE value="Shelves for having same token_dic through WordTrie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Shelves for having same token_dic through WordTrie" />
+    <MESSAGE value="Make having one TokenDictionary across WordTrie" />
+    <MESSAGE value="Change class name to AustinSimpleParser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change class name to AustinSimpleParser" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -704,7 +704,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1574882816024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
+    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1574892619332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
     <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1574119068417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>
