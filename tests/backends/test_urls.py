@@ -2,7 +2,7 @@
 This file contains the functional tests for urls.
 """
 from mock import patch
-from StringIO import StringIO
+from io import StringIO
 import json
 from microservices.app import (
     ROOT_URL,
