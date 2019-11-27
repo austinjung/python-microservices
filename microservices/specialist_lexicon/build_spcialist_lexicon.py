@@ -38,7 +38,10 @@ class TokenDictionary(dict):
         return self[token]
 
 
-class WordTrie:
+class AustinSimpleParser:
+    """
+    Austin's simple parser which provide build simple named entities with tags and parse
+    """
     def __init__(self, parent=None):
         self.parent = parent
         self.children_tries = {}
@@ -50,7 +53,7 @@ class WordTrie:
     def add_next_token(self, next_token):
         next_token_dic = self.token_dict.get_or_add_token_dic(next_token)
         if next_token_dic not in self.children_tries:
-            self.children_tries[next_token_dic] = WordTrie(parent=self)
+            self.children_tries[next_token_dic] = AustinSimpleParser(parent=self)
         return self.children_tries[next_token_dic]
 
     def add_next_tokens(self, tokens):
@@ -106,7 +109,7 @@ if __name__ == '__main__':
     assert(token_dict['cancer'] == 1)
     assert(token_dict['treatment'] == 2)
     assert(token_dict['right'] == 3)
-    specialist_lexicon = WordTrie()
+    specialist_lexicon = AustinSimpleParser()
     specialist_lexicon.build_trie('cancer')
     specialist_lexicon.build_trie('breast cancer')
     specialist_lexicon.build_trie('right breast cancer')
