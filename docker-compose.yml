@@ -7,7 +7,7 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: docker/Dockerfile-local
+      dockerfile: Dockerfile
     container_name: python-microservices-web
     image: local-python-microservices
     volumes:
