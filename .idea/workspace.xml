@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/units/test_spcialist_lexicon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/backends/test_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/backends/test_urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/units/test_upload_folder_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/units/test_upload_folder_manager.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +42,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true&#10;/Users/austinjung/study/python-microservices/instance/flask_test.cfg" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservices/specialist_lexicon" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/units" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -50,11 +53,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tests/units" />
       <recent name="$PROJECT_DIR$/microservices/specialist_lexicon" />
       <recent name="$PROJECT_DIR$/microservices/models" />
       <recent name="$PROJECT_DIR$/microservices" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/microservices/templates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/microservices/specialist_lexicon" />
@@ -76,7 +79,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.build_spcialist_lexicon">
+  <component name="RunManager" selected="Python tests.pytest">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python">
       <module name="python-microservices" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -178,16 +181,52 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="pytest" type="tests" factoryName="py.test">
+    <configuration name="pytest in tests" type="tests" factoryName="py.test" nameIsGenerated="true">
       <module name="python-microservices" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="$USER_HOME$/PycharmProjects/venvs/microservices-venv/bin/python" />
+      <option name="SDK_HOME" value="$USER_HOME$/.pyenv/versions/ciitizen-document-classification-service/bin/python" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest" type="tests" factoryName="py.test">
+      <module name="python-microservices" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <EXTENSION ID="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </EXTENSION>
       <option name="_new_keywords" value="&quot;&quot;" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/tests&quot;" />
@@ -201,6 +240,7 @@
       <item itemvalue="Python.build_spcialist_lexicon" />
       <item itemvalue="Python.app" />
       <item itemvalue="Python tests.pytest" />
+      <item itemvalue="Python tests.pytest in tests" />
     </list>
     <recent_temporary>
       <list>
@@ -268,13 +308,6 @@
       <workItem from="1574115317966" duration="2853000" />
       <workItem from="1574120220390" duration="27000" />
       <workItem from="1574729823369" duration="12730000" />
-    </task>
-    <task id="LOCAL-00035" summary="Coding for process logic and UI">
-      <created>1572677088918</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1572677088918</updated>
     </task>
     <task id="LOCAL-00036" summary="Coding for process logic and UI">
       <created>1572681258477</created>
@@ -612,40 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1574892956355</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Add tags update tests">
+      <created>1574894142675</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1574894142675</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
-  </component>
-  <component name="TestHistory">
-    <history-entry file="pytest - 2019.02.02 at 23h 22m 13s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest - 2019.02.02 at 23h 22m 47s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest - 2019.02.02 at 23h 24m 34s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest - 2019.02.02 at 23h 26m 05s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest - 2019.02.02 at 23h 31m 59s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest - 2019.02.02 at 23h 32m 01s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest - 2019.02.02 at 23h 32m 49s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest - 2019.02.02 at 23h 35m 28s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest - 2019.02.02 at 23h 39m 27s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
-    <history-entry file="pytest - 2019.02.02 at 23h 39m 55s.xml">
-      <configuration name="pytest" configurationId="tests" />
-    </history-entry>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -664,7 +672,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Display synonym of T2 result" />
     <MESSAGE value="Add skip" />
     <MESSAGE value="Fix UI including dropdown-select" />
     <MESSAGE value="Finalize T2 Intern app" />
@@ -689,7 +696,8 @@
     <MESSAGE value="Add tags to parsing results" />
     <MESSAGE value="Reformat source accoring to PEP8" />
     <MESSAGE value="Fix extending parse to use top parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix extending parse to use top parser" />
+    <MESSAGE value="Add tags update tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add tags update tests" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -705,6 +713,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1574894066218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
+    <SUITE FILE_PATH="coverage/python_microservices$pytest.coverage" NAME="pytest Coverage Results" MODIFIED="1574897435012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1574119068417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
+    <SUITE FILE_PATH="coverage/python_microservices$pytest_in_tests.coverage" NAME="pytest in tests Coverage Results" MODIFIED="1574897223246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

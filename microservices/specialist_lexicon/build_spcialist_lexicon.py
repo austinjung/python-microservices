@@ -49,8 +49,10 @@ class AustinSimpleParser:
         self.tags = {}
         if parent is None:
             self.token_dict = TokenDictionary()
+            self.irregular_variant = IrregVariant()
         else:
             self.token_dict = self._get_top().token_dict
+            self.irregular_variant = self._get_top().irregular_variant
 
     def _add_next_token(self, next_token):
         next_token_dic = self.token_dict.get_or_add_token_dic(next_token)
@@ -109,75 +111,4 @@ class AustinSimpleParser:
 
 
 if __name__ == '__main__':
-    irreg_variants = IrregVariant()
-    irreg_variants['saw'] = 'see'
-    irreg_variants['seen'] = 'see'
-    irreg_variants['see'] = 'see'
-    assert (irreg_variants['saw'] == 'see')
-    assert (irreg_variants['seen'] == 'see')
-    assert (irreg_variants['see'] == 'see')
-    token_dict = TokenDictionary()
-    token_dict.add_tokens(['breast', 'cancer', 'treatment'])
-    token_dict['right'] = True
-    assert (token_dict['breast'] == 0)
-    assert (token_dict['cancer'] == 1)
-    assert (token_dict['treatment'] == 2)
-    assert (token_dict['right'] == 3)
-    specialist_lexicon = AustinSimpleParser()
-    # build dictionary with tags
-    specialist_lexicon.build_trie('cancer', tags={'snomed_tag': 'disorder'})
-    specialist_lexicon.build_trie('breast cancer', tags={'snomed_tag': 'disorder'})
-    specialist_lexicon.build_trie('right breast cancer', tags={'snomed_tag': 'disorder'})
-    specialist_lexicon.build_trie('breast cancer treatment', tags={'snomed_tag': 'treatment'})
-    # Parse sentence
-    parsed1 = specialist_lexicon.parse_words('cancer')
-    assert (parsed1 == [('cancer', {'snomed_tag': 'disorder'})])
-    parsed2 = specialist_lexicon.parse_words('breast cancer')
-    assert (parsed2 == [('breast cancer', {'snomed_tag': 'disorder'})])
-    parsed3 = specialist_lexicon.parse_words('a breast cancer')
-    assert (parsed3 == [('a', {}), ('breast cancer', {'snomed_tag': 'disorder'})])
-    parsed4 = specialist_lexicon.parse_words('have a breast cancer')
-    assert (parsed4 == [('have', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'})])
-    parsed5 = specialist_lexicon.parse_words('I have a breast cancer')
-    assert (parsed5 == [('i', {}), ('have', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'})])
-    parsed6 = specialist_lexicon.parse_words('I have a breast cancer treatment')
-    assert (parsed6 == [('i', {}), ('have', {}), ('a', {}), ('breast cancer treatment', {'snomed_tag': 'treatment'})])
-    parsed7 = specialist_lexicon.parse_words('I have a breast cancer treatments')
-    assert (parsed7 == [('i', {}), ('have', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'}),
-                        ('treatments', {})])
-    parsed8 = specialist_lexicon.parse_words('I had a breast cancer treatments and cancer test')
-    assert (parsed8 == [('i', {}), ('had', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'}),
-                        ('treatments', {}), ('and', {}), ('cancer', {'snomed_tag': 'disorder'}), ('test', {})])
-    assert (specialist_lexicon.token_dict == list(specialist_lexicon.children_tries.values())[0].token_dict)
-    # Tags update
-    specialist_lexicon.build_trie('cancer', tags={'entity_type': 'disease', 'pipeline': 'cancer'})
-    specialist_lexicon.build_trie('breast cancer', tags={'entity_type': 'disease', 'pipeline': 'cancer'})
-    specialist_lexicon.build_trie('right breast cancer', tags={'entity_type': 'disease', 'pipeline': 'cancer'})
-    specialist_lexicon.build_trie('breast cancer treatment', tags={'snomed_tag': None, 'entity_type': 'chemotherapy'})
-    # Parse sentence again
-    parsed1 = specialist_lexicon.parse_words('cancer')
-    assert (parsed1 == [('cancer', {'snomed_tag': 'disorder', 'entity_type': 'disease', 'pipeline': 'cancer'})])
-    parsed2 = specialist_lexicon.parse_words('breast cancer')
-    assert (parsed2 == [('breast cancer', {'snomed_tag': 'disorder', 'entity_type': 'disease', 'pipeline': 'cancer'})])
-    parsed3 = specialist_lexicon.parse_words('a breast cancer')
-    assert (parsed3 == [('a', {}),
-                        ('breast cancer', {'snomed_tag': 'disorder', 'entity_type': 'disease', 'pipeline': 'cancer'})])
-    parsed4 = specialist_lexicon.parse_words('have a breast cancer')
-    assert (parsed4 == [('have', {}), ('a', {}),
-                        ('breast cancer', {'snomed_tag': 'disorder', 'entity_type': 'disease', 'pipeline': 'cancer'})])
-    parsed5 = specialist_lexicon.parse_words('I have a breast cancer')
-    assert (parsed5 == [('i', {}), ('have', {}), ('a', {}),
-                        ('breast cancer', {'snomed_tag': 'disorder', 'entity_type': 'disease', 'pipeline': 'cancer'})])
-    parsed6 = specialist_lexicon.parse_words('I have a breast cancer treatment')
-    assert (parsed6 == [('i', {}), ('have', {}), ('a', {}),
-                        ('breast cancer treatment', {'entity_type': 'chemotherapy'})])
-    parsed7 = specialist_lexicon.parse_words('I have a breast cancer treatments')
-    assert (parsed7 == [('i', {}), ('have', {}), ('a', {}),
-                        ('breast cancer', {'snomed_tag': 'disorder', 'entity_type': 'disease', 'pipeline': 'cancer'}),
-                        ('treatments', {})])
-    parsed8 = specialist_lexicon.parse_words('I had a breast cancer treatments and cancer test')
-    assert (parsed8 == [('i', {}), ('had', {}), ('a', {}),
-                        ('breast cancer', {'snomed_tag': 'disorder', 'entity_type': 'disease', 'pipeline': 'cancer'}),
-                        ('treatments', {}), ('and', {}),
-                        ('cancer', {'snomed_tag': 'disorder', 'entity_type': 'disease', 'pipeline': 'cancer'}),
-                        ('test', {})])
+    pass
