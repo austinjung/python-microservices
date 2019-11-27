@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/LEXICON" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/backends/test_urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/backends/test_urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -271,20 +268,6 @@
       <workItem from="1574115317966" duration="2853000" />
       <workItem from="1574120220390" duration="27000" />
       <workItem from="1574729823369" duration="12730000" />
-    </task>
-    <task id="LOCAL-00028" summary="Modify index.html">
-      <created>1572627129096</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1572627129096</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Modify bootstrap select">
-      <created>1572629011178</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1572629011178</updated>
     </task>
     <task id="LOCAL-00030" summary="Modify bootstrap select">
       <created>1572629108056</created>
@@ -615,7 +598,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574837851673</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Add IrregVariant, TokenDictionary, and WordTrie">
+      <created>1574878968456</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1574878968456</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Shelves for having same token_dic through WordTrie">
+      <created>1574882238906</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1574882238906</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -667,8 +664,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add select and process" />
-    <MESSAGE value="Change layout to use two horizontal panels" />
     <MESSAGE value="Modify to skip dataset and show status UI" />
     <MESSAGE value="Fix select checkbox at view status UI" />
     <MESSAGE value="First commit to have new flame" />
@@ -692,7 +687,9 @@
     <MESSAGE value="Make select multiple including select all" />
     <MESSAGE value="Add get code detail of t2 and extractor extracted code" />
     <MESSAGE value="temp shelves for tries" />
-    <option name="LAST_COMMIT_MESSAGE" value="temp shelves for tries" />
+    <MESSAGE value="Add IrregVariant, TokenDictionary, and WordTrie" />
+    <MESSAGE value="Shelves for having same token_dic through WordTrie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Shelves for having same token_dic through WordTrie" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -705,14 +702,9 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="PythonConfigurationType">
-        <watch expression="api" language="Python" />
-      </configuration>
-    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1574878761711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
+    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1574882816024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
     <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1574119068417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>

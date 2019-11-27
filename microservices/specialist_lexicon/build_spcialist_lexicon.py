@@ -32,16 +32,26 @@ class TokenDictionary(dict):
         for token in tokens:
             self.__setitem__(token)
 
+    def get_or_add_token_dic(self, token):
+        if token not in self:
+            self.__setitem__(token)
+        return self[token]
+
 
 class WordTrie:
     def __init__(self, parent=None):
         self.parent = parent
         self.children_tries = {}
+        if parent is None:
+            self.token_dict = TokenDictionary()
+        else:
+            self.token_dict = self.get_top().token_dict
 
     def add_next_token(self, next_token):
-        if next_token not in self.children_tries:
-            self.children_tries[next_token] = WordTrie(parent=self)
-        return self.children_tries[next_token]
+        next_token_dic = self.token_dict.get_or_add_token_dic(next_token)
+        if next_token_dic not in self.children_tries:
+            self.children_tries[next_token_dic] = WordTrie(parent=self)
+        return self.children_tries[next_token_dic]
 
     def add_next_tokens(self, tokens):
         if len(tokens) > 0:
@@ -59,8 +69,9 @@ class WordTrie:
     def get_tries(self, tokens, start_idx, idx):
         if idx >= len(tokens):
             return [' '.join(tokens[start_idx:])]
-        if tokens[idx] in self.children_tries:
-            return self.children_tries[tokens[idx]].get_tries(tokens, start_idx, idx + 1)
+        token_dict = self.token_dict.get(tokens[idx], None)
+        if token_dict in self.children_tries:
+            return self.children_tries[token_dict].get_tries(tokens, start_idx, idx + 1)
         new_tokens = [' '.join(tokens[start_idx: idx])]
         new_tokens.extend(self.parse_tokens(tokens, idx))
         return new_tokens
@@ -68,8 +79,9 @@ class WordTrie:
     def parse_tokens(self, tokens, idx):
         if idx >= len(tokens):
             return []
-        if tokens[idx] in self.children_tries:
-            return self.children_tries[tokens[idx]].get_tries(tokens, idx, idx + 1)
+        token_dict = self.token_dict.get(tokens[idx], None)
+        if token_dict in self.children_tries:
+            return self.children_tries[token_dict].get_tries(tokens, idx, idx + 1)
         new_tokens = [tokens[idx]]
         new_tokens.extend(self.parse_tokens(tokens, idx + 1))
         return new_tokens
@@ -113,3 +125,4 @@ if __name__ == '__main__':
     assert(parsed6 == ['i', 'have', 'a', 'breast cancer treatment'])
     parsed7 = specialist_lexicon.parse_words('I have a breast cancer treatments')
     assert(parsed7 == ['i', 'have', 'a', 'breast cancer', 'treatments'])
+    assert(specialist_lexicon.token_dict == list(specialist_lexicon.children_tries.values())[0].token_dict)
