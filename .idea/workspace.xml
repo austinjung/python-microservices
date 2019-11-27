@@ -269,27 +269,6 @@
       <workItem from="1574120220390" duration="27000" />
       <workItem from="1574729823369" duration="12730000" />
     </task>
-    <task id="LOCAL-00032" summary="Finalize index.html">
-      <created>1572639876269</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1572639876269</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Finalize index.html">
-      <created>1572639887010</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1572639887010</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Finalize index.html">
-      <created>1572640890063</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1572640890063</updated>
-    </task>
     <task id="LOCAL-00035" summary="Coding for process logic and UI">
       <created>1572677088918</created>
       <option name="number" value="00035" />
@@ -612,7 +591,28 @@
       <option name="project" value="LOCAL" />
       <updated>1574883472413</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Add tags to parsing results">
+      <created>1574892659759</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1574892659759</updated>
+    </task>
+    <task id="LOCAL-00082" summary="Reformat source accoring to PEP8">
+      <created>1574892786765</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1574892786765</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Fix extending parse to use top parser">
+      <created>1574892956355</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1574892956355</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -664,9 +664,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First commit to have new flame" />
-    <MESSAGE value="Add get non-exxisting code and hide/un-hide buttons" />
-    <MESSAGE value="Change danger to warning and toggle reject both and learn" />
     <MESSAGE value="Display synonym of T2 result" />
     <MESSAGE value="Add skip" />
     <MESSAGE value="Fix UI including dropdown-select" />
@@ -689,7 +686,10 @@
     <MESSAGE value="Shelves for having same token_dic through WordTrie" />
     <MESSAGE value="Make having one TokenDictionary across WordTrie" />
     <MESSAGE value="Change class name to AustinSimpleParser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change class name to AustinSimpleParser" />
+    <MESSAGE value="Add tags to parsing results" />
+    <MESSAGE value="Reformat source accoring to PEP8" />
+    <MESSAGE value="Fix extending parse to use top parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix extending parse to use top parser" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -704,7 +704,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1574892619332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
+    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1574894066218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
     <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1574119068417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
   </component>
 </project>
