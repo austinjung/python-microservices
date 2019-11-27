@@ -86,7 +86,7 @@ class AustinSimpleParser:
         if token_dic_id in self.children_tries:
             return self.children_tries[token_dic_id]._get_tries(tokens, start_idx, idx + 1)
         new_tokens = [(' '.join(tokens[start_idx: idx]), self.tags)]
-        new_tokens.extend(self._parse_tokens(tokens, idx))
+        new_tokens.extend(self._get_top()._parse_tokens(tokens, idx))
         return new_tokens
 
     def build_trie(self, words, tags=None):
