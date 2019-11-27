@@ -42,6 +42,7 @@ class AustinSimpleParser:
     """
     Austin's simple parser which provide build simple named entities with tags and parse
     """
+
     def __init__(self, parent=None):
         self.parent = parent
         self.children_tries = {}
@@ -112,35 +113,37 @@ if __name__ == '__main__':
     irreg_variants['saw'] = 'see'
     irreg_variants['seen'] = 'see'
     irreg_variants['see'] = 'see'
-    assert(irreg_variants['saw'] == 'see')
-    assert(irreg_variants['seen'] == 'see')
-    assert(irreg_variants['see'] == 'see')
+    assert (irreg_variants['saw'] == 'see')
+    assert (irreg_variants['seen'] == 'see')
+    assert (irreg_variants['see'] == 'see')
     token_dict = TokenDictionary()
     token_dict.add_tokens(['breast', 'cancer', 'treatment'])
     token_dict['right'] = True
-    assert(token_dict['breast'] == 0)
-    assert(token_dict['cancer'] == 1)
-    assert(token_dict['treatment'] == 2)
-    assert(token_dict['right'] == 3)
+    assert (token_dict['breast'] == 0)
+    assert (token_dict['cancer'] == 1)
+    assert (token_dict['treatment'] == 2)
+    assert (token_dict['right'] == 3)
     specialist_lexicon = AustinSimpleParser()
     specialist_lexicon.build_trie('cancer', tags={'snomed_tag': 'disorder'})
     specialist_lexicon.build_trie('breast cancer', tags={'snomed_tag': 'disorder'})
     specialist_lexicon.build_trie('right breast cancer', tags={'snomed_tag': 'disorder'})
     specialist_lexicon.build_trie('breast cancer treatment', tags={'snomed_tag': 'treatment'})
     parsed1 = specialist_lexicon.parse_words('cancer')
-    assert(parsed1 == [('cancer', {'snomed_tag': 'disorder'})])
+    assert (parsed1 == [('cancer', {'snomed_tag': 'disorder'})])
     parsed2 = specialist_lexicon.parse_words('breast cancer')
-    assert(parsed2 == [('breast cancer', {'snomed_tag': 'disorder'})])
+    assert (parsed2 == [('breast cancer', {'snomed_tag': 'disorder'})])
     parsed3 = specialist_lexicon.parse_words('a breast cancer')
-    assert(parsed3 == [('a', {}), ('breast cancer', {'snomed_tag': 'disorder'})])
+    assert (parsed3 == [('a', {}), ('breast cancer', {'snomed_tag': 'disorder'})])
     parsed4 = specialist_lexicon.parse_words('have a breast cancer')
-    assert(parsed4 == [('have', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'})])
+    assert (parsed4 == [('have', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'})])
     parsed5 = specialist_lexicon.parse_words('I have a breast cancer')
-    assert(parsed5 == [('i', {}), ('have', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'})])
+    assert (parsed5 == [('i', {}), ('have', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'})])
     parsed6 = specialist_lexicon.parse_words('I have a breast cancer treatment')
-    assert(parsed6 == [('i', {}), ('have', {}), ('a', {}), ('breast cancer treatment', {'snomed_tag': 'treatment'})])
+    assert (parsed6 == [('i', {}), ('have', {}), ('a', {}), ('breast cancer treatment', {'snomed_tag': 'treatment'})])
     parsed7 = specialist_lexicon.parse_words('I have a breast cancer treatments')
-    assert(parsed7 == [('i', {}), ('have', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'}), ('treatments', {})])
+    assert (parsed7 == [('i', {}), ('have', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'}),
+                        ('treatments', {})])
     parsed8 = specialist_lexicon.parse_words('I had a breast cancer treatments and cancer test')
-    assert(parsed8 == [('i', {}), ('had', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'}), ('treatments', {}), ('and', {}), ('cancer', {'snomed_tag': 'disorder'}), ('test', {})])
-    assert(specialist_lexicon.token_dict == list(specialist_lexicon.children_tries.values())[0].token_dict)
+    assert (parsed8 == [('i', {}), ('had', {}), ('a', {}), ('breast cancer', {'snomed_tag': 'disorder'}),
+                        ('treatments', {}), ('and', {}), ('cancer', {'snomed_tag': 'disorder'}), ('test', {})])
+    assert (specialist_lexicon.token_dict == list(specialist_lexicon.children_tries.values())[0].token_dict)
