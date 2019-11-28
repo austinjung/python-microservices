@@ -3,7 +3,7 @@ from memory_profiler import profile
 
 from microservices.specialist_lexicon.build_spcialist_lexicon import AustinSimpleParser, IrregVariant, TokenDictionary
 
-global_specialist_lexicon_parser = None
+global_specialist_lexicon_parser = "global_specialist_lexicon_parser.pickl"
 
 
 def test_irreg_variants():
@@ -55,13 +55,15 @@ def test_austin_simple_parser():
                         ('treatments', {}), ('and', {}), ('cancer', {'snomed_tag': 'disorder'}), ('test', {})])
     assert (specialist_lexicon.token_dict == list(specialist_lexicon.children_tries.values())[0].token_dict)
     global global_specialist_lexicon_parser
-    global_specialist_lexicon_parser = jsonpickle.encode(specialist_lexicon, keys=True)
+    with open(global_specialist_lexicon_parser, mode='w', encoding='utf-8', errors='replace') as pickle:
+        pickle.write(jsonpickle.encode(specialist_lexicon, keys=True))
 
 
 @profile
 def test_austin_simple_parser_update_tags():
     global global_specialist_lexicon_parser
-    specialist_lexicon = jsonpickle.decode(global_specialist_lexicon_parser, keys=True)
+    with open(global_specialist_lexicon_parser, mode='r', encoding='utf-8', errors='replace') as pickle:
+        specialist_lexicon = jsonpickle.decode(pickle.read(), keys=True)
     # Tags update
     specialist_lexicon.build_trie('cancer', tags={'entity_type': 'disease', 'pipeline': 'cancer'})
     specialist_lexicon.build_trie('breast cancer', tags={'entity_type': 'disease', 'pipeline': 'cancer'})
