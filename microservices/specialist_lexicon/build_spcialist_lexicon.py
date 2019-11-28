@@ -24,6 +24,9 @@ class TokenDictionary(dict):
         """ Add self[token] and set value to index. """
         if token in self:
             return
+        if isinstance(value, int) and token == self.dic_list[value]:
+            super().__setitem__(token, value)
+            return
         super().__setitem__(token, self.next_index)
         self.dic_list.append(token)
         self.next_index += 1
@@ -108,6 +111,10 @@ class AustinSimpleParser:
     def parse_words(self, words):
         tokens = [token.lower() for token in words.split()]
         return self._parse_tokens(tokens, 0)
+
+
+def build_specialist_lexicon_parser():
+    pass
 
 
 if __name__ == '__main__':

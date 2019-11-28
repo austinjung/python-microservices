@@ -3,7 +3,8 @@ uWSGI==2.0.17.1
 pytest==4.2.0
 mock==2.0.0
 pytest-mock==1.10.0
-requests
+requests==2.22.0
 pyciiml==1.0.13
-nltk
+nltk==3.4.5
 PyJWT==1.7.1
+jsonpickle==1.2

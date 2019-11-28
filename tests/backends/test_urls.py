@@ -77,4 +77,4 @@ def test_post_upload_file_form_returns_succeed_with_redirect_to_list(
         data={'file': (StringIO('my file contents'), 'test.txt')}
     )
     assert response.status_code == 302
-    assert SHARE_FOLDER_LIST_URL in response.headers[2][1]
+    assert SHARE_FOLDER_URL in response.headers[2][1]
