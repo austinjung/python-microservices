@@ -3,7 +3,7 @@ from memory_profiler import profile
 
 from microservices.specialist_lexicon.build_spcialist_lexicon import AustinSimpleParser, IrregVariant, TokenDictionary
 
-global_specialist_lexicon_parser = "global_specialist_lexicon_parser.pickl"
+global_specialist_lexicon_parser = "global_specialist_lexicon_parser.pickle"
 
 
 def test_irreg_variants():
