@@ -1,5 +1,7 @@
 from collections import defaultdict
 
+from memory_profiler import profile
+
 
 class IrregVariant(defaultdict):
     def __missing__(self, key):
@@ -68,6 +70,11 @@ class AustinSimpleParser:
             if value is None:
                 if key in self.tags:
                     self.tags.pop(key)
+            elif key in ['cat', 'position']:
+                if self.tags.get(key):
+                    self.tags[key].append(value)
+                else:
+                    self.tags[key] = [value]
             else:
                 self.tags[key] = value
 
@@ -113,9 +120,69 @@ class AustinSimpleParser:
         return self._parse_tokens(tokens, 0)
 
 
+def initialize_lexicon():
+    return {
+        'base': None,
+        'cat': None,  # aux, modal, pron, compl, det --> skip, noun(+), adj, adv, verb, prep
+        'position': [],
+        'irreg_variants': [],
+        'variants': [],
+        'spelling_variant': [],
+        'trademark': None
+    }
+
+
+global_specialist_lexicon_parser = AustinSimpleParser()
+
+
+# @profile()
+def process_line_of_special_lexicon(line, lexicon):
+    if line.startswith('{base='):
+        lexicon['base'] = line.replace('{base=', '').replace('\n', '')
+    elif line.startswith('\tcat='):
+        lexicon['cat'] = line.replace('\tcat=', '').replace('\n', '')
+    elif line.startswith('\tposition='):
+        lexicon['position'].append(line.replace('\tposition=', '').replace('\n', ''))
+    elif line.startswith('\tvariants=irreg|'):
+        lexicon['irreg_variants'].extend(line.replace('\tvariants=irreg|', '').replace('|\n', '').split('|')[1:])
+    elif line.startswith('\tvariants='):
+        lexicon['variants'].append(line.replace('\tvariants=', '').replace('\n', ''))
+    elif line.startswith('spelling_variant='):
+        lexicon['spelling_variant'].append(line.replace('spelling_variant=', '').replace('\n', ''))
+    elif line.startswith('\ttrademark='):
+        lexicon['trademark'] = line.replace('\ttrademark=', '').replace('\n', '')
+    elif line.startswith('}'):
+        # if cat in ['adj', 'adv', 'verb', 'pre'] or (cat == 'noun' and len(base.split()) > 1):
+        global global_specialist_lexicon_parser
+        base = lexicon.pop('base')
+        irreg_variants = lexicon.pop('irreg_variants')
+        spelling_variant = lexicon.pop('spelling_variant')
+        trademark = lexicon.pop('trademark')
+
+        global_specialist_lexicon_parser.build_trie(base, tags=lexicon)
+        if len(irreg_variants):
+            for variant in irreg_variants:
+                global_specialist_lexicon_parser.build_trie(variant, tags=lexicon)
+        if len(spelling_variant):
+            for variant in spelling_variant:
+                global_specialist_lexicon_parser.build_trie(variant, tags=lexicon)
+        if trademark:
+            global_specialist_lexicon_parser.build_trie(trademark, tags=lexicon)
+        return initialize_lexicon(), 1
+    return lexicon, 0
+
+
+# @profile()
 def build_specialist_lexicon_parser():
-    pass
+    with open('LEXICON', mode='r', encoding='utf-8', errors='replace') as lexicon_file:
+        lexicon_number = 0
+        lexicon = initialize_lexicon()
+        for line in lexicon_file:
+            lexicon, added_lexicon = process_line_of_special_lexicon(line, lexicon)
+            lexicon_number += added_lexicon
+
+    print(lexicon_number)
 
 
 if __name__ == '__main__':
-    pass
+    build_specialist_lexicon_parser()
