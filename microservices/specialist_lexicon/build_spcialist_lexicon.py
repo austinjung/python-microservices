@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+import jsonpickle
 from memory_profiler import profile
 
 
@@ -25,6 +26,8 @@ class TokenDictionary(dict):
     def __setitem__(self, token, value=None):
         """ Add self[token] and set value to index. """
         if token in self:
+            return
+        if getattr(self, 'dic_list', None) is None or getattr(self, 'next_index', None) is None:
             return
         if isinstance(value, int) and token == self.dic_list[value]:
             super().__setitem__(token, value)
@@ -71,7 +74,7 @@ class AustinSimpleParser:
                 if key in self.tags:
                     self.tags.pop(key)
             elif key in ['cat', 'position']:
-                if self.tags.get(key):
+                if self.tags.get(key) and value not in self.tags[key]:
                     self.tags[key].append(value)
                 else:
                     self.tags[key] = [value]
@@ -133,6 +136,7 @@ def initialize_lexicon():
 
 
 global_specialist_lexicon_parser = AustinSimpleParser()
+global_specialist_lexicon_parser_pickle = "global_specialist_lexicon_parser.pickle"
 
 
 # @profile()
@@ -168,21 +172,33 @@ def process_line_of_special_lexicon(line, lexicon):
                 global_specialist_lexicon_parser.build_trie(variant, tags=lexicon)
         if trademark:
             global_specialist_lexicon_parser.build_trie(trademark, tags=lexicon)
-        return initialize_lexicon(), 1
-    return lexicon, 0
+        return initialize_lexicon()
+    return lexicon
 
 
 # @profile()
 def build_specialist_lexicon_parser():
     with open('LEXICON', mode='r', encoding='utf-8', errors='replace') as lexicon_file:
-        lexicon_number = 0
         lexicon = initialize_lexicon()
         for line in lexicon_file:
-            lexicon, added_lexicon = process_line_of_special_lexicon(line, lexicon)
-            lexicon_number += added_lexicon
+            lexicon = process_line_of_special_lexicon(line, lexicon)
 
-    print(lexicon_number)
+    global global_specialist_lexicon_parser, global_specialist_lexicon_parser_pickle
+    with open(global_specialist_lexicon_parser_pickle, mode='w', encoding='utf-8', errors='replace') as pickle:
+        pickle.write(jsonpickle.encode(global_specialist_lexicon_parser, keys=True))
+
+
+# @profile
+def read_specialist_lexicon_parser():
+    global global_specialist_lexicon_parser, global_specialist_lexicon_parser_pickle
+    global_specialist_lexicon_parser = AustinSimpleParser()
+    with open(global_specialist_lexicon_parser_pickle, mode='r', encoding='utf-8', errors='replace') as pickle:
+        global_specialist_lexicon_parser = jsonpickle.decode(pickle.read(), keys=True)
+    return global_specialist_lexicon_parser
 
 
 if __name__ == '__main__':
-    build_specialist_lexicon_parser()
+    # build_specialist_lexicon_parser()
+    specialist_lexicon_parser = read_specialist_lexicon_parser()
+    parsed8 = specialist_lexicon_parser.parse_words('I had a breast cancer treatments and cancer test')
+    print(parsed8)
