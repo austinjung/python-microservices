@@ -1,7 +1,11 @@
+import datetime
 from collections import defaultdict
 
 import jsonpickle
 from memory_profiler import profile
+import tracemalloc
+
+tracemalloc.start()
 
 
 class IrregVariant(defaultdict):
@@ -188,6 +192,10 @@ def build_specialist_lexicon_parser():
         pickle.write(jsonpickle.encode(global_specialist_lexicon_parser, keys=True))
 
 
+def build_med_terminology(terminology_file, entity_name):
+    pass
+
+
 # @profile
 def read_specialist_lexicon_parser():
     global global_specialist_lexicon_parser, global_specialist_lexicon_parser_pickle
@@ -197,8 +205,20 @@ def read_specialist_lexicon_parser():
     return global_specialist_lexicon_parser
 
 
-if __name__ == '__main__':
-    # build_specialist_lexicon_parser()
+# @profile
+def parse_test():
+    print(datetime.datetime.now())
     specialist_lexicon_parser = read_specialist_lexicon_parser()
+    print(datetime.datetime.now())
     parsed8 = specialist_lexicon_parser.parse_words('I had a breast cancer treatments and cancer test')
     print(parsed8)
+
+
+if __name__ == '__main__':
+    # print(datetime.datetime.now())
+    # build_specialist_lexicon_parser()
+    # print(datetime.datetime.now())
+    # print('----------------------')
+    parse_test()
+    print('----------------------')
+    print("Current: %d, Peak %d" % tracemalloc.get_traced_memory())
