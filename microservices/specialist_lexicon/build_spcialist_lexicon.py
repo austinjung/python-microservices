@@ -1,17 +1,23 @@
 import datetime
+import pprint
+import re
+import string
 # from memory_profiler import profile
 import tracemalloc
 from collections import defaultdict
-import re
-import string
 
 import jsonpickle
 from pyciiml.utils.file_utils import get_basename, write_json
 
 tracemalloc.start()
 added_terminology = set()
-split_characters = '/|and|or'
-remove_words = ['(', ')', 'same as']
+
+suppress_words_patterns = [
+    r'</sub>', r'<sub>', r'</sup>', r'<sup>',
+    r'\(', r'\)', r'{', r'}', r'[', r']',
+    r'<', r'>', r'\^', r'same as '
+]
+suppress_words = r'|'.join(map(r'(?:{})'.format, suppress_words_patterns))
 
 
 class IrregVariant(defaultdict):
@@ -83,7 +89,7 @@ class AustinSimpleParser:
             if value is None:
                 if key in self.tags:
                     self.tags.pop(key)
-            elif key in ['cat', 'position']:
+            elif key in ['cat', 'position', 't2']:
                 if self.tags.get(key) and value not in self.tags[key]:
                     self.tags[key].append(value)
                 else:
@@ -258,6 +264,35 @@ def build_specialist_lexicon_parser():
     # save_specialist_lexicon_parser()
 
 
+def normalize_and_expand_to_build_terminology(line):
+    """
+    After building terminology with this method, we need to skip punct and conj to build med-embedding
+    """
+    lower_line = line.lower()
+    suppressed_line = re.sub(suppress_words, '', lower_line).strip()
+    lines = [suppressed_line]
+    if ', ' in suppressed_line:
+        lines = [suppressed_line.replace(', ', ' , ')]  # make ', ' as separate token
+        for conj in [' and ', ' or ', ' and/or ']:
+            if conj in suppressed_line:
+                lines.append(suppressed_line.replace(', ', conj))
+                lines.append(suppressed_line.replace(', ', ' ').replace(conj, ' '))
+                break
+        if len(lines) == 1:  # Has no conj
+            lines.append(suppressed_line.replace(', ', ' '))  # append without ', '
+
+    if 'on examination' in suppressed_line:
+        suppressed_line = suppressed_line.replace('on examination', '')
+        if suppressed_line.strip() != '' and ' - ' not in suppressed_line:
+            lines.append(suppressed_line.strip())
+
+    if ' - ' in suppressed_line:
+        split_lines = suppressed_line.split(' - ')
+        lines.append(' '.join(split_lines[1:]).strip())
+
+    return lines
+
+
 def normalize_line_of_terminology(line):
     line = line.replace("\t\t", "\t")
     try:
@@ -278,13 +313,15 @@ def build_med_terminology(terminology_file_path, entity_name=None):
         for line in fp:
             code, attr, desc, generic_code, generic_terminology, terminology_of_entry_type = \
                 normalize_line_of_terminology(line)
-            if attr in ['STY', 'SY', 'PT', 'CHD', 'PAR']:
+            if attr in ['SY', 'PT']:
                 tags = {
-                    't2_code': code,
-                    't2_entity_type': entity_name
+                    'cat': 'noun',
+                    't2': {
+                        'code': code,
+                        'entity': entity_name
+                    }
                 }
-                terminologies = [terminology.strip() for terminology in re.split(split_characters, desc)
-                                 if terminology.strip() != '']
+                terminologies = normalize_and_expand_to_build_terminology(desc)
                 for terminology in terminologies:
                     if terminology not in added_terminology:
                         global_specialist_lexicon_parser.build_trie(terminology, tags)
@@ -317,11 +354,13 @@ def parse_test():
     specialist_lexicon_parser = global_specialist_lexicon_parser
     print(datetime.datetime.now())
     parsed8 = specialist_lexicon_parser.parse_words('I had a breast cancer treatments and cancer test')
-    print(parsed8)
+    pprint.pprint(parsed8)
     parsed8 = specialist_lexicon_parser.parse_words('I had Chronic idiopathic hemolytic anemia.')
-    print(parsed8)
+    pprint.pprint(parsed8)
     parsed8 = specialist_lexicon_parser.parse_words('I had Chronic idiopathic hemolytic anemia C.A.P.')
-    print(parsed8)
+    pprint.pprint(parsed8)
+    parsed8 = specialist_lexicon_parser.parse_words('I had a Neoplasm of uncertain behavior of left upper lobe of lung')
+    pprint.pprint(parsed8)
 
 
 if __name__ == '__main__':

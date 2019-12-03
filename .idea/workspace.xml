@@ -247,14 +247,7 @@
       <workItem from="1575313054105" duration="4064000" />
       <workItem from="1575317184823" duration="11058000" />
       <workItem from="1575332911183" duration="363000" />
-      <workItem from="1575333288346" duration="16828000" />
-    </task>
-    <task id="LOCAL-00047" summary="Modify according to PT and GC">
-      <created>1573520453412</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1573520453412</updated>
+      <workItem from="1575333288346" duration="32668000" />
     </task>
     <task id="LOCAL-00048" summary="Fix all processed and have no more">
       <created>1573583253579</created>
@@ -592,7 +585,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575349325618</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="Fix parser treat punctuation properly">
+      <created>1575354846131</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1575354846131</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +612,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Enhance t2 selected code and add new entity type in dropdown and change dropdown code not to update t2 selected code" />
     <MESSAGE value="Add import zip file" />
     <MESSAGE value="Fix errors and finalize V1.0" />
     <MESSAGE value="Change file view from json to data" />
@@ -637,7 +636,8 @@
     <MESSAGE value="Add t2 terminology and build logic" />
     <MESSAGE value="Add parsing punctuation" />
     <MESSAGE value="Temp shelves for get_variants" />
-    <option name="LAST_COMMIT_MESSAGE" value="Temp shelves for get_variants" />
+    <MESSAGE value="Fix parser treat punctuation properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix parser treat punctuation properly" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -645,61 +645,65 @@
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state x="733" y="-792" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575333082817" />
-    <state x="904" y="273" width="684" height="573" key="#xdebugger.evaluate" timestamp="1575354290965">
-      <screen x="0" y="23" width="1680" height="965" />
+    <state x="814" y="-779" width="684" height="573" key="#xdebugger.evaluate" timestamp="1575415436806">
+      <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state x="904" y="273" width="684" height="573" key="#xdebugger.evaluate/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354290965" />
-    <state x="1118" y="-783" width="669" height="573" key="#xdebugger.evaluate/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342164424" />
-    <state x="498" y="144" key="CommitChangelistDialog2" timestamp="1575349325674">
+    <state x="814" y="-779" width="669" height="573" key="#xdebugger.evaluate/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415436806" />
+    <state x="498" y="144" key="CommitChangelistDialog2" timestamp="1575354845897">
       <screen x="0" y="23" width="1680" height="965" />
     </state>
-    <state x="498" y="144" key="CommitChangelistDialog2/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575349325674" />
+    <state x="498" y="144" key="CommitChangelistDialog2/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354845897" />
     <state x="654" y="-924" key="CommitChangelistDialog2/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342410185" />
-    <state x="88" y="114" width="1505" height="783" key="DiffContextDialog" timestamp="1575349307853">
-      <screen x="0" y="23" width="1680" height="965" />
+    <state x="185" y="-957" width="1720" height="857" key="DiffContextDialog" timestamp="1575415655887">
+      <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state x="88" y="114" width="1505" height="783" key="DiffContextDialog/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575349307853" />
-    <state x="185" y="-957" width="1720" height="857" key="DiffContextDialog/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575341625804" />
-    <state width="1638" height="381" key="GridCell.Tab.0.bottom" timestamp="1575354805685">
+    <state x="185" y="-957" width="1720" height="857" key="DiffContextDialog/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415655887" />
+    <state width="1878" height="407" key="GridCell.Tab.0.bottom" timestamp="1575415623098">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="381" key="GridCell.Tab.0.bottom/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493312" />
+    <state width="1878" height="407" key="GridCell.Tab.0.bottom/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415623098" />
+    <state width="1878" height="407" key="GridCell.Tab.0.center" timestamp="1575415623097">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="381" key="GridCell.Tab.0.center/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493310" />
+    <state width="1878" height="407" key="GridCell.Tab.0.center/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415623097" />
+    <state width="1878" height="407" key="GridCell.Tab.0.left" timestamp="1575415623096">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="381" key="GridCell.Tab.0.left/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493309" />
+    <state width="1878" height="407" key="GridCell.Tab.0.left/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415623096" />
+    <state width="1878" height="407" key="GridCell.Tab.0.right" timestamp="1575415623097">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="381" key="GridCell.Tab.0.right/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493310" />
+    <state width="1878" height="407" key="GridCell.Tab.0.right/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415623097" />
+    <state width="1878" height="407" key="GridCell.Tab.1.bottom" timestamp="1575415623099">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="381" key="GridCell.Tab.1.bottom/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493314" />
+    <state width="1878" height="407" key="GridCell.Tab.1.bottom/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415623099" />
+    <state width="1878" height="407" key="GridCell.Tab.1.center" timestamp="1575415623098">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="381" key="GridCell.Tab.1.center/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493313" />
+    <state width="1878" height="407" key="GridCell.Tab.1.center/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415623098" />
+    <state width="1878" height="407" key="GridCell.Tab.1.left" timestamp="1575415623098">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="381" key="GridCell.Tab.1.left/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493312" />
+    <state width="1878" height="407" key="GridCell.Tab.1.left/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415623098" />
+    <state width="1878" height="407" key="GridCell.Tab.1.right" timestamp="1575415623099">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1638" height="381" key="GridCell.Tab.1.right/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493313" />
+    <state width="1878" height="407" key="GridCell.Tab.1.right/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575415623099" />
+    <state x="440" y="247" key="Vcs.Push.Dialog.v2" timestamp="1575354853267">
       <screen x="0" y="23" width="1680" height="965" />
     </state>
-    <state width="1638" height="381" key="GridCell.Tab.0.bottom/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354805685" />
-    <state width="1878" height="415" key="GridCell.Tab.0.bottom/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342903757" />
-    <state width="1638" height="381" key="GridCell.Tab.0.center" timestamp="1575354805684">
-      <screen x="0" y="23" width="1680" height="965" />
-    </state>
-    <state width="1638" height="381" key="GridCell.Tab.0.center/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354805684" />
-    <state width="1878" height="415" key="GridCell.Tab.0.center/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342903756" />
-    <state width="1638" height="381" key="GridCell.Tab.0.left" timestamp="1575354805683">
-      <screen x="0" y="23" width="1680" height="965" />
-    </state>
-    <state width="1638" height="381" key="GridCell.Tab.0.left/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354805683" />
-    <state width="1878" height="415" key="GridCell.Tab.0.left/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342903755" />
-    <state width="1638" height="381" key="GridCell.Tab.0.right" timestamp="1575354805685">
-      <screen x="0" y="23" width="1680" height="965" />
-    </state>
-    <state width="1638" height="381" key="GridCell.Tab.0.right/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354805685" />
-    <state width="1878" height="415" key="GridCell.Tab.0.right/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342903757" />
-    <state width="1638" height="381" key="GridCell.Tab.1.bottom" timestamp="1575354805687">
-      <screen x="0" y="23" width="1680" height="965" />
-    </state>
-    <state width="1638" height="381" key="GridCell.Tab.1.bottom/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354805687" />
-    <state width="1878" height="425" key="GridCell.Tab.1.bottom/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342371930" />
-    <state width="1638" height="381" key="GridCell.Tab.1.center" timestamp="1575354805686">
-      <screen x="0" y="23" width="1680" height="965" />
-    </state>
-    <state width="1638" height="381" key="GridCell.Tab.1.center/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354805686" />
-    <state width="1878" height="425" key="GridCell.Tab.1.center/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342371929" />
-    <state width="1638" height="381" key="GridCell.Tab.1.left" timestamp="1575354805686">
-      <screen x="0" y="23" width="1680" height="965" />
-    </state>
-    <state width="1638" height="381" key="GridCell.Tab.1.left/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354805686" />
-    <state width="1878" height="425" key="GridCell.Tab.1.left/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342371929" />
-    <state width="1638" height="381" key="GridCell.Tab.1.right" timestamp="1575354805686">
-      <screen x="0" y="23" width="1680" height="965" />
-    </state>
-    <state width="1638" height="381" key="GridCell.Tab.1.right/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354805686" />
-    <state width="1878" height="425" key="GridCell.Tab.1.right/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575342371930" />
+    <state x="440" y="247" key="Vcs.Push.Dialog.v2/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354853267" />
     <state x="650" y="-710" key="com.intellij.ide.util.TipDialog" timestamp="1575333290775">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
@@ -715,18 +719,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py</url>
-          <line>319</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py</url>
-          <line>321</line>
-          <option name="timeStamp" value="35" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py</url>
-          <line>323</line>
-          <option name="timeStamp" value="36" />
+          <line>364</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -739,7 +733,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1575354462315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
+    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1575415145618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
     <SUITE FILE_PATH="coverage/python_microservices$pytest.coverage" NAME="pytest Coverage Results" MODIFIED="1575055444000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1574119068417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
     <SUITE FILE_PATH="coverage/python_microservices$pytest_in_tests.coverage" NAME="pytest in tests Coverage Results" MODIFIED="1575092172752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
