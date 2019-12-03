@@ -1,0 +1,17 @@
+761869008	STY	Finding		SNOMEDCT_US
+761869008	PT	K-score		SNOMEDCT_US
+761869008	SY	Karnofsky Performance Status score		SNOMEDCT_US
+761869008	SY	KPS (Karnofsky Performance Status) score		SNOMEDCT_US
+761869008	CHD	Function	SNOMEDCT_US
+423740007	STY	Intellectual Product		SNOMEDCT_US
+423740007	PT	ECOG score		SNOMEDCT_US
+423740007	SY	ECOG performance status		SNOMEDCT_US
+423740007	SY	Eastern Cooperative Oncology Group performance status		SNOMEDCT_US
+423740007	CHD	General physical performance status	SNOMEDCT_US
+423740007	RO	is interpreted by ECOG performance status - grade 3	SNOMEDCT_US
+423740007	RO	is interpreted by ECOG performance status - grade 1	SNOMEDCT_US
+423740007	RO	is interpreted by ECOG performance status - grade 4	SNOMEDCT_US
+423740007	RO	is interpreted by ECOG performance status - grade 5	SNOMEDCT_US
+423740007	RO	is interpreted by ECOG performance status - grade 0	SNOMEDCT_US
+423740007	RO	is interpreted by ECOG performance status finding	SNOMEDCT_US
+423740007	RO	is interpreted by ECOG performance status - grade 2	SNOMEDCT_US

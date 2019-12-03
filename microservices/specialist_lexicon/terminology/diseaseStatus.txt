@@ -1,0 +1,22 @@
+58899004	STY	Laboratory or Test Result		SNOMEDCT_US
+58899004	PT	No Evidence of Tumor		SNOMEDCT_US
+58899004	SY	No evidence of neoplasm		SNOMEDCT_US
+58899004	SY	No evidence of tumour		SNOMEDCT_US
+58899004	CHD	Histopathology finding	SNOMEDCT_US
+58899004	RO	interprets Histopathology test	SNOMEDCT_US
+58158008	STY	Qualitative Concept		SNOMEDCT_US
+58158008	PT	Stable Disease		SNOMEDCT_US
+58158008	SY	Stable		SNOMEDCT_US
+58158008	SY	Stable status		SNOMEDCT_US
+58158008	CHD	General adjectival modifier	SNOMEDCT_US
+58158008	CHD	Change patterns	SNOMEDCT_US
+385633008	STY	Qualitative Concept		SNOMEDCT_US
+385633008	PT	Response (Improving)		SNOMEDCT_US
+385633008	SY	Improving		SNOMEDCT_US
+385633008	CHD	Change patterns	SNOMEDCT_US
+230993007	STY	Qualitative Concept		SNOMEDCT_US
+230993007	PT	Progression (Worsening)		SNOMEDCT_US
+230993007	SY	Worsening		SNOMEDCT_US
+230993007	CHD	Descriptor	SNOMEDCT_US
+230993007	CHD	Change patterns	SNOMEDCT_US
+230993007	RO	possibly equivalent to Worse	SNOMEDCT_US

@@ -1,11 +1,16 @@
 import datetime
+# from memory_profiler import profile
+import tracemalloc
 from collections import defaultdict
+import re
 
 import jsonpickle
-from memory_profiler import profile
-import tracemalloc
+from pyciiml.utils.file_utils import get_basename, write_json
 
 tracemalloc.start()
+added_terminology = set()
+split_characters = '/|and|or'
+remove_words = ['(', ')', 'same as']
 
 
 class IrregVariant(defaultdict):
@@ -180,20 +185,60 @@ def process_line_of_special_lexicon(line, lexicon):
     return lexicon
 
 
+def save_specialist_lexicon_parser():
+    global global_specialist_lexicon_parser, global_specialist_lexicon_parser_pickle
+    with open(global_specialist_lexicon_parser_pickle, mode='w', encoding='utf-8', errors='replace') as pickle:
+        pickle.write(jsonpickle.encode(global_specialist_lexicon_parser, keys=True))
+
+
 # @profile()
 def build_specialist_lexicon_parser():
     with open('LEXICON', mode='r', encoding='utf-8', errors='replace') as lexicon_file:
         lexicon = initialize_lexicon()
         for line in lexicon_file:
             lexicon = process_line_of_special_lexicon(line, lexicon)
-
-    global global_specialist_lexicon_parser, global_specialist_lexicon_parser_pickle
-    with open(global_specialist_lexicon_parser_pickle, mode='w', encoding='utf-8', errors='replace') as pickle:
-        pickle.write(jsonpickle.encode(global_specialist_lexicon_parser, keys=True))
+    # save_specialist_lexicon_parser()
 
 
-def build_med_terminology(terminology_file, entity_name):
-    pass
+def normalize_line_of_terminology(line):
+    line = line.replace("\t\t", "\t")
+    try:
+        code, attr, desc, terminology_of_entry_type = line.split("\t")
+        generic_code = None
+        generic_terminology = None
+    except ValueError:
+        code, attr, desc, generic_code, generic_terminology, terminology_of_entry_type = line.split("\t")
+    terminology_of_entry_type = terminology_of_entry_type.replace('\n', '')
+    return code, attr, desc, generic_code, generic_terminology, terminology_of_entry_type
+
+
+def build_med_terminology(terminology_file_path, entity_name=None):
+    global added_terminology, split_characters, global_specialist_lexicon_parser
+    if entity_name is None:
+        entity_name = get_basename(terminology_file_path).replace('.txt', '')
+    with open(terminology_file_path, 'r', encoding='utf-8', errors='replace') as fp:
+        for line in fp:
+            code, attr, desc, generic_code, generic_terminology, terminology_of_entry_type = \
+                normalize_line_of_terminology(line)
+            if attr in ['STY', 'SY', 'PT', 'CHD', 'PAR']:
+                tags = {
+                    't2_code': code,
+                    't2_entity_type': entity_name
+                }
+                terminologies = [terminology.strip() for terminology in re.split(split_characters, desc)
+                                 if terminology.strip() != '']
+                for terminology in terminologies:
+                    if terminology not in added_terminology:
+                        global_specialist_lexicon_parser.build_trie(terminology, tags)
+                        added_terminology.add(terminology)
+                if generic_code and generic_terminology:
+                    terminology = generic_terminology.strip()
+                    if terminology not in added_terminology:
+                        tags['t2_code'] = generic_code
+                        global_specialist_lexicon_parser.build_trie(terminology, tags)
+                        added_terminology.add(terminology)
+    # save_specialist_lexicon_parser()
+    write_json(list(added_terminology), '{0}_added.json'.format(entity_name))
 
 
 # @profile
@@ -208,17 +253,24 @@ def read_specialist_lexicon_parser():
 # @profile
 def parse_test():
     print(datetime.datetime.now())
-    specialist_lexicon_parser = read_specialist_lexicon_parser()
+    # specialist_lexicon_parser = read_specialist_lexicon_parser()
+    global global_specialist_lexicon_parser
+    # global_specialist_lexicon_parser = read_specialist_lexicon_parser()
+    specialist_lexicon_parser = global_specialist_lexicon_parser
     print(datetime.datetime.now())
     parsed8 = specialist_lexicon_parser.parse_words('I had a breast cancer treatments and cancer test')
+    print(parsed8)
+    parsed8 = specialist_lexicon_parser.parse_words('I had Chronic idiopathic hemolytic anemia')
     print(parsed8)
 
 
 if __name__ == '__main__':
-    # print(datetime.datetime.now())
-    # build_specialist_lexicon_parser()
-    # print(datetime.datetime.now())
-    # print('----------------------')
+    print(datetime.datetime.now())
+    build_specialist_lexicon_parser()
+    print(datetime.datetime.now())
+    print('----------------------')
+    build_med_terminology('terminology/adverseReaction.txt')
+    print('----------------------')
     parse_test()
     print('----------------------')
     print("Current: %d, Peak %d" % tracemalloc.get_traced_memory())

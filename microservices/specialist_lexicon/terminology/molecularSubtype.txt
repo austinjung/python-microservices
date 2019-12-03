@@ -1,0 +1,132 @@
+10441000224112	PT	BRAF+ (Melanoma)		SNOMEDCT_US
+10441000224112	SY	BRAF mutation-positive in melanoma (finding)		SNOMEDCT_US
+10441000224112	CHD	Tumor molecular subtype in melanoma	SNOMEDCT_US
+10181000224111	PT	PDL1+ (NSCLC)		SNOMEDCT_US
+10181000224111	SY	PDL1 >50% and EGFR- and ALK-		SNOMEDCT_US
+10181000224111	SY	PDL1 mutation-positive in non-small cell lung cancer (finding)		SNOMEDCT_US
+10181000224111	SY	PDL1 >50% and EGFR negative and ALK negative in non-small cell lung cancer		SNOMEDCT_US
+10181000224111	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10461000224113	PT	KRAS WT (Colorectal Cancer)		SNOMEDCT_US
+10461000224113	SY	KRAS wild type in colorectal cancer (finding)		SNOMEDCT_US
+10461000224113	CHD	Tumor molecular subtype in colorectal cancer	SNOMEDCT_US
+10171000224114	PT	BRAF+ (NSCLC)		SNOMEDCT_US
+10171000224114	SY	BRAF mutation-positive in non-small cell lung cancer (finding)		SNOMEDCT_US
+10171000224114	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10481000224119	PT	BRAF WT (Colorectal Cancer)		SNOMEDCT_US
+10481000224119	SY	BRAF wild type in colorectal cancer (finding)		SNOMEDCT_US
+10481000224119	CHD	Tumor molecular subtype in colorectal cancer	SNOMEDCT_US
+10381000224114	PT	ALK- (NSCLC)		SNOMEDCT_US
+10381000224114	SY	ALK mutation-negative in non-small cell lung cancer (finding)		SNOMEDCT_US
+10381000224114	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10421000224115	PT	BRCA+ (Ovarian Cancer)		SNOMEDCT_US
+10421000224115	SY	BRCA mutation-positive in ovarian cancer (finding)		SNOMEDCT_US
+10421000224115	CHD	Tumor molecular subtype in ovarian cancer	SNOMEDCT_US
+10521000224119	PT	PDL1+ (Gastric Cancer)		SNOMEDCT_US
+10521000224119	SY	PDL1 mutation-positive in gastric cancer (finding)		SNOMEDCT_US
+10521000224119	CHD	Tumor molecular subtype in gastric cancer	SNOMEDCT_US
+10371000224112	PT	EGFR- (NSCLC)		SNOMEDCT_US
+10371000224112	SY	EGFR mutation-negative in non-small cell lung cancer (finding)		SNOMEDCT_US
+10371000224112	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10641000224110	PT	HR+/Her2+ (Breast Cancer)		SNOMEDCT_US
+10641000224110	SY	Triple positive in breast cancer (finding)		SNOMEDCT_US
+10641000224110	SY	HER2+ and ER+ and/or PR+ in breast cancer		SNOMEDCT_US
+10641000224110	SY	HER2 positive and ER positive and/or PR positive in breast cancer		SNOMEDCT_US
+10641000224110	SY	Triple Positive (Breast Cancer)		SNOMEDCT_US
+10641000224110	SY	HER2+/HR+ in breast cancer		SNOMEDCT_US
+10641000224110	CHD	Tumor molecular subtype in breast cancer	SNOMEDCT_US
+10601000224112	PT	KIT+ (GIST)		SNOMEDCT_US
+10601000224112	SY	KIT+ (exon 9 or exon 11) (GIST)		SNOMEDCT_US
+10601000224112	SY	KIT mutation-positive (exon 9 or exon 11) in gastrointestinal stromal tumors (finding)		SNOMEDCT_US
+10601000224112	CHD	Tumor molecular subtype in gastrointestinal stromal tumors	SNOMEDCT_US
+10351000224118	PT	NTRK (Solid Tumor)		SNOMEDCT_US
+10351000224118	SY	Neurotrophic tyrosine kinase fusion in solid tumor (finding)		SNOMEDCT_US
+10351000224118	CHD	Tumor molecular subtype in solid tumor cancer	SNOMEDCT_US
+10491000224117	PT	BRAF+ (Colorectal Cancer)		SNOMEDCT_US
+10491000224117	SY	BRAF mutation-positive in colorectal cancer (finding)		SNOMEDCT_US
+10491000224117	CHD	Tumor molecular subtype in colorectal cancer	SNOMEDCT_US
+10101000224116	PT	HER2+/HR- (Breast Cancer)		SNOMEDCT_US
+10101000224116	SY	HER2+/HR- in breast cancer (finding)		SNOMEDCT_US
+10101000224116	SY	HER2 positive/HR negative in breast cancer		SNOMEDCT_US
+10101000224116	SY	HER2 positive and ER negative and PR negative in breast cancer		SNOMEDCT_US
+10101000224116	SY	HER2+ and ER- and PR- in breast cancer		SNOMEDCT_US
+10101000224116	CHD	Tumor molecular subtype in breast cancer	SNOMEDCT_US
+10241000224113	PT	gBRCA- (Pancreatic Cancer)		SNOMEDCT_US
+10241000224113	SY	BRCA mutation-negative in pancreatic cancer (finding)		SNOMEDCT_US
+10241000224113	CHD	Germline molecular subtype in pancreatic cancer	SNOMEDCT_US
+10581000224118	PT	IDH1+ (Leukemia)		SNOMEDCT_US
+10581000224118	SY	IDH1 mutation-positive in leukemia (finding)		SNOMEDCT_US
+10581000224118	CHD	Tumor molecular subtype in leukemia	SNOMEDCT_US
+10471000224116	PT	NRAS WT (Colorectal Cancer)		SNOMEDCT_US
+10471000224116	SY	NRAS wild type in colorectal cancer (finding)		SNOMEDCT_US
+10471000224116	CHD	Tumor molecular subtype in colorectal cancer	SNOMEDCT_US
+10191000224113	PT	PDL1- (NSCLC)		SNOMEDCT_US
+10191000224113	SY	PDL1 <50% and EGFR- and ALK- and ROS1- and BRAF-		SNOMEDCT_US
+10191000224113	SY	PDL1 mutation-negative in non-small cell lung cancer (finding)		SNOMEDCT_US
+10191000224113	SY	PDL1 <50% and EGFR negative and ALK negative and ROS1 negative and BRAF negative in non-small cell lung cancer		SNOMEDCT_US
+10191000224113	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10531000224117	PT	MSI-H/dMMR (Gastric Cancer)		SNOMEDCT_US
+10531000224117	SY	Microsatellite instability high/deficient mismatch repair in gastric cancer (finding)		SNOMEDCT_US
+10531000224117	CHD	Tumor molecular subtype in gastric cancer	SNOMEDCT_US
+10621000224118	PT	MSI-H (Colorectal Cancer)		SNOMEDCT_US
+10621000224118	SY	Microsatellite instability-high in colorectal cancer (finding)		SNOMEDCT_US
+10621000224118	CHD	Tumor molecular subtype in colorectal cancer	SNOMEDCT_US
+10681000224117	PT	MSI-H/dMMR (Cholangiocarcinoma)		SNOMEDCT_US
+10681000224117	SY	Microsatellite instability high/deficient mismatch repair in cholangiocarcinoma (finding)		SNOMEDCT_US
+10681000224117	CHD	Tumor molecular subtype in cholangiocarcinoma	SNOMEDCT_US
+10201000224110	PT	gBRCA+ (Breast Cancer)		SNOMEDCT_US
+10201000224110	SY	Germline BRCA mutation-positive in breast cancer (finding)		SNOMEDCT_US
+10201000224110	CHD	Germline molecular subtype in breast cancer	SNOMEDCT_US
+10361000224115	PT	MSI-H/dMMR (Solid Tumor)		SNOMEDCT_US
+10361000224115	SY	Microsatellite instability high/deficient mismatch repair in solid tumor (finding)		SNOMEDCT_US
+10361000224115	CHD	Tumor molecular subtype in solid tumor cancer	SNOMEDCT_US
+10551000224114	PT	PDL1+ (Bladder Cancer)		SNOMEDCT_US
+10551000224114	SY	PDL1 mutation-positive in bladder cancer (finding)		SNOMEDCT_US
+10551000224114	CHD	Tumor molecular subtype in bladder cancer	SNOMEDCT_US
+10401000224114	PT	BRAF- (NSCLC)		SNOMEDCT_US
+10401000224114	SY	BRAF mutation-negative in non-small cell lung cancer (finding)		SNOMEDCT_US
+10401000224114	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10121000224110	PT	Triple Negative (Breast Cancer)		SNOMEDCT_US
+10121000224110	SY	Triple negative in breast cancer (finding)		SNOMEDCT_US
+10121000224110	SY	HER2- and ER- and PR- in breast cancer		SNOMEDCT_US
+10121000224110	SY	HER2 negative and ER negative and PR negative in breast cancer in breast cancer		SNOMEDCT_US
+10121000224110	CHD	Tumor molecular subtype in breast cancer	SNOMEDCT_US
+10611000224114	PT	PDGFRA+ (GIST)		SNOMEDCT_US
+10611000224114	SY	PDGFRA mutation-positive in gastrointestinal stromal tumors (finding)		SNOMEDCT_US
+10611000224114	CHD	Tumor molecular subtype in gastrointestinal stromal tumors	SNOMEDCT_US
+10111000224119	PT	HR+/HER2- (Breast Cancer)		SNOMEDCT_US
+10111000224119	SY	HR+/HER2- in breast cancer (finding)		SNOMEDCT_US
+10111000224119	SY	HR positive/HER2 negative in breast cancer		SNOMEDCT_US
+10111000224119	SY	HER2 negative and ER positive and/or PR positive in breast cancer		SNOMEDCT_US
+10111000224119	SY	HER2- and ER+ and/or PR+ in breast cancer		SNOMEDCT_US
+10111000224119	CHD	Tumor molecular subtype in breast cancer	SNOMEDCT_US
+10231000224119	PT	gBRCA+ (Pancreatic Cancer)		SNOMEDCT_US
+10231000224119	SY	BRCA mutation-positive in pancreatic cancer (finding)		SNOMEDCT_US
+10231000224119	CHD	Germline molecular subtype in pancreatic cancer	SNOMEDCT_US
+10511000224110	PT	HER2+ (Gastric Cancer)		SNOMEDCT_US
+10511000224110	SY	HER2 mutation-positive in gastric cancer (finding)		SNOMEDCT_US
+10511000224110	CHD	Tumor molecular subtype in gastric cancer	SNOMEDCT_US
+10161000224117	PT	ROS1+ (NSCLC)		SNOMEDCT_US
+10161000224117	SY	ROS1 mutation-positive in non-small cell lung cancer (finding)		SNOMEDCT_US
+10161000224117	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10141000224118	PT	EGFR+ (NSCLC)		SNOMEDCT_US
+10141000224118	SY	Sensitizing EGFR mutation+ in non-small cell lung cancer		SNOMEDCT_US
+10141000224118	SY	EGFR mutation-positive in non-small cell lung cancer (finding)		SNOMEDCT_US
+10141000224118	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10651000224113	PT	MSI-H (Solid Tumor)		SNOMEDCT_US
+10651000224113	SY	Microsatellite instability-high in solid tumor (finding)		SNOMEDCT_US
+10651000224113	CHD	Tumor molecular subtype in solid tumor cancer	SNOMEDCT_US
+10571000224115	PT	FLT3+ (Leukemia)		SNOMEDCT_US
+10571000224115	SY	FLT3 mutation-positive in leukemia (finding)		SNOMEDCT_US
+10571000224115	CHD	Tumor molecular subtype in leukemia	SNOMEDCT_US
+10631000224116	PT	gBRCA+ (Ovarian Cancer)		SNOMEDCT_US
+10631000224116	SY	Germline BRCA mutation-positive in ovarian cancer (finding)		SNOMEDCT_US
+10631000224116	CHD	Germline molecular subtype in ovarian cancer	SNOMEDCT_US
+10391000224111	PT	ROS1- (NSCLC)		SNOMEDCT_US
+10391000224111	SY	ROS1 mutation-negative in non-small cell lung cancer (finding)		SNOMEDCT_US
+10391000224111	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10151000224115	PT	ALK+ (NSCLC)		SNOMEDCT_US
+10151000224115	SY	ALK mutation-positive in non-small cell lung cancer (finding)		SNOMEDCT_US
+10151000224115	CHD	Tumor molecular subtype in non-small cell lung cancer	SNOMEDCT_US
+10211000224112	PT	gBRCA- (Breast Cancer)		SNOMEDCT_US
+10211000224112	SY	Germline BRCA mutation-negative in breast cancer (finding)		SNOMEDCT_US
+10211000224112	CHD	Germline molecular subtype in breast cancer	SNOMEDCT_US

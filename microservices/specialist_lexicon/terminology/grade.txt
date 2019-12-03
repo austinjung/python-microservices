@@ -1,0 +1,31 @@
+10891000224119	PT	G1-2: Well to moderately differentiated		SNOMEDCT_US
+10891000224119	SY	Grade 1-2 (qualifier value)		SNOMEDCT_US
+10891000224119	SY	Grade 1-2		SNOMEDCT_US
+10891000224119	CHD	Histological grades	SNOMEDCT_US
+10901000224118	PT	G3-4: Moderately to poorly differentiated		SNOMEDCT_US
+10901000224118	SY	Grade 3-4		SNOMEDCT_US
+10901000224118	SY	Grade 3-4 (qualifier value)		SNOMEDCT_US
+10901000224118	CHD	Histological grades	SNOMEDCT_US
+263933003	STY	Qualitative Concept		SNOMEDCT_US
+263933003	PT	G1: Well differentiated		SNOMEDCT_US
+263933003	SY	Well differentiated		SNOMEDCT_US
+263933003	SY	Differentiated		SNOMEDCT_US
+263933003	CHD	Histological grades	SNOMEDCT_US
+263933003	RO	possibly equivalent to Well differentiated	SNOMEDCT_US
+263843001	STY	Qualitative Concept		SNOMEDCT_US
+263843001	PT	G3: Poorly differentiated		SNOMEDCT_US
+263843001	SY	Poorly differentiated		SNOMEDCT_US
+263843001	CHD	Histological grades	SNOMEDCT_US
+263843001	RO	possibly equivalent to Poorly differentiated	SNOMEDCT_US
+384812005	STY	Qualitative Concept		SNOMEDCT_US
+384812005	PT	G2: Moderately differentiated		SNOMEDCT_US
+384812005	SY	Moderately differentiated		SNOMEDCT_US
+384812005	CHD	Histological grades	SNOMEDCT_US
+384812005	RO	possibly equivalent to Moderately differentiated	SNOMEDCT_US
+384812005	RO	possibly equivalent to Grade 2	SNOMEDCT_US
+263918006	STY	Qualitative Concept		SNOMEDCT_US
+263918006	PT	G4: Undifferentiated		SNOMEDCT_US
+263918006	SY	Undifferentiated		SNOMEDCT_US
+263918006	SY	Anaplastic		SNOMEDCT_US
+263918006	CHD	Histological grades	SNOMEDCT_US
+263918006	RO	possibly equivalent to Undifferentiated	SNOMEDCT_US

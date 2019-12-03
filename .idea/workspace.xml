@@ -5,10 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/adverseReaction.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/biomarker.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/chemotherapy.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/clinicalStage.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/diagnosis.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/diagnosticProcedure.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/diseaseStatus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/geneObservations.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/grade.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/histologicalSubtype.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/labResult.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/medication.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/metastasis.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/molecularSubtype.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/performanceStatus.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/primaryTumorLocation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/radiation.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/surgery.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/therapeuticProcedure.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/terminology/tumorLocation.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,11 +55,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ScQHMDP2G4tKKklnoCQJ3Crtu7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true&#10;/Users/austinjung/study/python-microservices/instance/flask_test.cfg" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservices/specialist_lexicon" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservices/specialist_lexicon/terminology" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -49,13 +74,6 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/microservices/specialist_lexicon" />
-      <recent name="$PROJECT_DIR$/tests/units" />
-      <recent name="$PROJECT_DIR$/microservices/models" />
-      <recent name="$PROJECT_DIR$/microservices" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/microservices/specialist_lexicon" />
       <recent name="$PROJECT_DIR$" />
@@ -63,18 +81,13 @@
       <recent name="$PROJECT_DIR$/microservices/dataset" />
       <recent name="$PROJECT_DIR$/microservices" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/microservices/specialist_lexicon/terminology" />
+      <recent name="$PROJECT_DIR$/microservices/specialist_lexicon" />
+      <recent name="$PROJECT_DIR$/tests/units" />
+      <recent name="$PROJECT_DIR$/microservices/models" />
+      <recent name="$PROJECT_DIR$/microservices" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.build_spcialist_lexicon">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python">
@@ -219,40 +232,15 @@
     </recent_temporary>
   </component>
   <component name="ServiceViewManager">
-    <option name="allServicesViewState">
-      <serviceView>
-        <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@64b3c93a" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@64b3c93a" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@409a12ad" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@64b3c93a" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@409a12ad" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@5b3c7a83" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@64b3c93a" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@409a12ad" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@4ba30433" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@64b3c93a" type="9fbbdea:ServiceModel$ServiceNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@594c2965" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
-          <select />
-        </treeState>
-      </serviceView>
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
     </option>
   </component>
   <component name="SvnConfiguration">
@@ -261,7 +249,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="" />
-      <changelist id="c3506660-6c85-4071-b495-24348b01807d" name="temp shelves for tries" comment="" />
       <created>1549167391000</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -278,20 +265,10 @@
       <workItem from="1574115317966" duration="2853000" />
       <workItem from="1574120220390" duration="27000" />
       <workItem from="1574729823369" duration="12730000" />
-    </task>
-    <task id="LOCAL-00042" summary="Show matched and mismatched alert message">
-      <created>1572965262714</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1572965262714</updated>
-    </task>
-    <task id="LOCAL-00043" summary="Fix bugs and optimize code">
-      <created>1572986661459</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1572986661459</updated>
+      <workItem from="1575313054105" duration="4064000" />
+      <workItem from="1575317184823" duration="11058000" />
+      <workItem from="1575332911183" duration="363000" />
+      <workItem from="1575333288346" duration="3372000" />
     </task>
     <task id="LOCAL-00044" summary="Add accept and process next">
       <created>1572993093782</created>
@@ -622,7 +599,21 @@
       <option name="project" value="LOCAL" />
       <updated>1575069704628</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Let specialist lexicon parser jsonpicklable">
+      <created>1575141970751</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1575141970752</updated>
+    </task>
+    <task id="LOCAL-00092" summary="Test memory usage for jsonpickle result">
+      <created>1575326686007</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1575326686008</updated>
+    </task>
+    <option name="localTasksCounter" value="93" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -642,8 +633,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change UI because of dropdown-select bug" />
-    <MESSAGE value="Add search terminology" />
     <MESSAGE value="Add clean orphan dataset and fix remove enable preset button" />
     <MESSAGE value="Fix import zero dataset file" />
     <MESSAGE value="Fix to clean T2 extracted input" />
@@ -667,8 +656,37 @@
     <MESSAGE value="Add jsonpickle to pickle/unpickle parser" />
     <MESSAGE value="Change using jsonpickle file to pickle/unpickle parser" />
     <MESSAGE value="Build specialist lexicon parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Build specialist lexicon parser" />
+    <MESSAGE value="Let specialist lexicon parser jsonpicklable" />
+    <MESSAGE value="Test memory usage for jsonpickle result" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test memory usage for jsonpickle result" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="733" y="-792" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1575333082817">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="733" y="-792" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575333082817" />
+    <state width="1878" height="415" key="GridCell.Tab.0.bottom" timestamp="1575336610809">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="415" key="GridCell.Tab.0.bottom/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575336610809" />
+    <state width="1878" height="415" key="GridCell.Tab.0.center" timestamp="1575336610808">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="415" key="GridCell.Tab.0.center/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575336610808" />
+    <state width="1878" height="415" key="GridCell.Tab.0.left" timestamp="1575336610807">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="415" key="GridCell.Tab.0.left/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575336610807" />
+    <state width="1878" height="415" key="GridCell.Tab.0.right" timestamp="1575336610808">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="415" key="GridCell.Tab.0.right/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575336610808" />
+    <state x="650" y="-710" key="com.intellij.ide.util.TipDialog" timestamp="1575333290775">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="494" y="340" key="com.intellij.ide.util.TipDialog/85.-1057.1920.1057/0.23.1680.965@0.23.1680.965" timestamp="1575332910300" />
+    <state x="650" y="-710" key="com.intellij.ide.util.TipDialog/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575333290775" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -682,7 +700,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1575140042626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
+    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1575336573744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
     <SUITE FILE_PATH="coverage/python_microservices$pytest.coverage" NAME="pytest Coverage Results" MODIFIED="1575055444000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1574119068417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
     <SUITE FILE_PATH="coverage/python_microservices$pytest_in_tests.coverage" NAME="pytest in tests Coverage Results" MODIFIED="1575092172752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

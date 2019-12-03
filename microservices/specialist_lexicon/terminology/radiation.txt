@@ -1,0 +1,3106 @@
+169365004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169365004	PT	Radiotherapy: temporary brain implant		SNOMEDCT_US
+169365004	CHD	Operation on brain	SNOMEDCT_US
+169365004	CHD	Radiotherapy: temporary head/neck implant	SNOMEDCT_US
+169365004	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+169365004	RO	has method Brachytherapy	SNOMEDCT_US
+169365004	RO	has indirect procedure site Brain	SNOMEDCT_US
+169365004	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169365004	RO	has intent Therapeutic	SNOMEDCT_US
+169365004	RO	uses device Radioactive implant	SNOMEDCT_US
+169365004	SY	same as Radiotherapy: temporary brain implant	SNOMEDCT_US
+84778007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+84778007	PT	Radiation therapy simulator aided field setting		SNOMEDCT_US
+84778007	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+84778007	RO	has intent Therapeutic	SNOMEDCT_US
+84778007	RO	uses energy Radiation	SNOMEDCT_US
+395075008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+395075008	PT	Iridium wire therapy		SNOMEDCT_US
+395075008	CHD	Radiation	SNOMEDCT_US
+395075008	RO	has intent Therapeutic	SNOMEDCT_US
+395075008	SY	same as Iridium wire therapy	SNOMEDCT_US
+69497001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+69497001	PT	Brachytherapy isodose calculation, intermediate		SNOMEDCT_US
+69497001	CHD	Special dosimetry	SNOMEDCT_US
+69497001	CHD	Calculation of brachytherapy	SNOMEDCT_US
+69497001	RO	has intent Therapeutic	SNOMEDCT_US
+69497001	RO	uses energy Radiation	SNOMEDCT_US
+229556008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+229556008	PT	Pulsed electromagnetic energy therapy		SNOMEDCT_US
+229556008	CHD	Electromagnetic energy therapy	SNOMEDCT_US
+229556008	PAR	Pulsed electromagnetic energy to upper limb	SNOMEDCT_US
+229556008	PAR	Pulsed electromagnetic energy to face	SNOMEDCT_US
+229556008	PAR	Pulsed electromagnetic energy to neck	SNOMEDCT_US
+229556008	PAR	Pulsed electromagnetic energy to trunk	SNOMEDCT_US
+229556008	PAR	Pulsed electromagnetic energy to lower limb	SNOMEDCT_US
+229556008	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+229556008	RO	has intent Therapeutic	SNOMEDCT_US
+304418001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304418001	PT	Pulsed electromagnetic energy to back		SNOMEDCT_US
+304418001	CHD	Pulsed electromagnetic energy to trunk	SNOMEDCT_US
+304418001	CHD	Procedure on back	SNOMEDCT_US
+304418001	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304418001	RO	has intent Therapeutic	SNOMEDCT_US
+304418001	RO	has direct procedure site Back structure, excluding neck	SNOMEDCT_US
+447704003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+447704003	PT	Single dose stereotactic radiosurgery using linear accelerator system		SNOMEDCT_US
+447704003	CHD	Stereotactic radiosurgery	SNOMEDCT_US
+447704003	RO	uses energy Ionizing radiation	SNOMEDCT_US
+447704003	RO	has intent Therapeutic	SNOMEDCT_US
+447704003	RO	has method Surgical action	SNOMEDCT_US
+64134004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+64134004	PT	Stereotactic focused gamma radiosurgery of cerebrum		SNOMEDCT_US
+64134004	CHD	Operation on brain	SNOMEDCT_US
+64134004	CHD	Gamma ray therapy	SNOMEDCT_US
+64134004	CHD	Stereotactic radiosurgery of brain tissue	SNOMEDCT_US
+64134004	RO	uses energy Gamma radiation	SNOMEDCT_US
+64134004	RO	has direct procedure site Cerebral structure	SNOMEDCT_US
+64134004	RO	has intent Therapeutic	SNOMEDCT_US
+64134004	RO	has method Surgical action	SNOMEDCT_US
+433224001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+433224001	PT	Radionuclide rhenium 186 hydroxyethylidene diphosphonate therapy		SNOMEDCT_US
+433224001	CHD	Radionuclide therapy	SNOMEDCT_US
+433224001	RO	uses substance Rhenium (186-Re) hydroxyethylidene diphosphonate	SNOMEDCT_US
+433224001	RO	has intent Therapeutic	SNOMEDCT_US
+433224001	RO	has method Radioactive destruction	SNOMEDCT_US
+228667007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228667007	PT	Stereotactic cobalt teletherapy		SNOMEDCT_US
+228667007	SY	Teletherapy with gamma knife		SNOMEDCT_US
+228667007	CHD	Gamma ray therapy	SNOMEDCT_US
+228667007	CHD	Stereotactic radiotherapy	SNOMEDCT_US
+228667007	RO	uses energy Gamma radiation	SNOMEDCT_US
+228667007	RO	has intent Therapeutic	SNOMEDCT_US
+680007	STY	Health Care Activity		SNOMEDCT_US
+680007	PT	Radiation physics consultation		SNOMEDCT_US
+680007	SY	Consultation for radiotherapy		SNOMEDCT_US
+680007	CHD	Consultation	SNOMEDCT_US
+680007	CHD	General radiation therapy consultation and report	SNOMEDCT_US
+680007	RO	has intent Therapeutic	SNOMEDCT_US
+680007	RO	has associated procedure Continuing medical physics consultation, including assessment of treatment parameters, quality assurance of dose delivery, and review of patient treatment documentation in support of the radiation oncologist, reported per week of therapy	SNOMEDCT_US
+680007	RO	uses energy Radiation	SNOMEDCT_US
+448137007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448137007	PT	Brachytherapy using radioiodine		SNOMEDCT_US
+448137007	CHD	Brachytherapy	SNOMEDCT_US
+448137007	PAR	Iodine 125 brachytherapy	SNOMEDCT_US
+448137007	PAR	Iodine seed radiotherapy	SNOMEDCT_US
+448137007	PAR	Brachytherapy using iodine (131-I) ethiodized oil	SNOMEDCT_US
+448137007	RO	uses substance Iodine radioisotope	SNOMEDCT_US
+448137007	RO	has intent Therapeutic	SNOMEDCT_US
+228676000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228676000	PT	Hiletron neutron teletherapy		SNOMEDCT_US
+228676000	CHD	Deuterium on tritium neutron teletherapy	SNOMEDCT_US
+228676000	RO	has intent Therapeutic	SNOMEDCT_US
+228676000	RO	uses energy Neutron radiation	SNOMEDCT_US
+228662001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228662001	PT	Betatron X-ray therapy		SNOMEDCT_US
+228662001	CHD	Megavoltage radiation therapy	SNOMEDCT_US
+228662001	PAR	Betatron photon therapy	SNOMEDCT_US
+228662001	RO	uses energy Ionizing radiation	SNOMEDCT_US
+228662001	RO	has intent Therapeutic	SNOMEDCT_US
+169293003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169293003	PT	Superficial X-ray therapy 10-60 kV		SNOMEDCT_US
+169293003	CHD	Superficial radiation therapy	SNOMEDCT_US
+169293003	RO	uses energy X-ray	SNOMEDCT_US
+169293003	RO	has intent Therapeutic	SNOMEDCT_US
+169293003	SY	same as Superficial X-ray therapy 10-60 kV	SNOMEDCT_US
+426332009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+426332009	PT	External beam radiotherapy to lesion of retina		SNOMEDCT_US
+426332009	CHD	Destruction of lesion of retina by radiation therapy	SNOMEDCT_US
+426332009	RO	uses energy Ionizing radiation	SNOMEDCT_US
+426332009	RO	has direct procedure site Retinal structure	SNOMEDCT_US
+426332009	RO	has direct morphology Lesion	SNOMEDCT_US
+426332009	RO	has intent Therapeutic	SNOMEDCT_US
+426332009	RO	uses energy Radiation	SNOMEDCT_US
+426332009	RO	has method Destruction	SNOMEDCT_US
+426332009	RO	has method Therapy	SNOMEDCT_US
+426332009	RO	has direct procedure site Anatomical or acquired body	SNOMEDCT_US
+52338008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+52338008	PT	Treatment planning for brachytherapy		SNOMEDCT_US
+52338008	CHD	Radiotherapy planning	SNOMEDCT_US
+52338008	PAR	Making of surface mold for brachytherapy	SNOMEDCT_US
+52338008	PAR	Calculation of brachytherapy	SNOMEDCT_US
+52338008	RO	has intent Therapeutic	SNOMEDCT_US
+52338008	RO	uses energy Radiation	SNOMEDCT_US
+52338008	RO	focus of MRI of thorax for brachytherapy planning	SNOMEDCT_US
+52338008	RO	focus of MRI of pelvis for brachytherapy planning	SNOMEDCT_US
+52338008	RO	focus of MRI of prostate for brachytherapy planning	SNOMEDCT_US
+52338008	RO	focus of CT of prostate for brachytherapy planning	SNOMEDCT_US
+52338008	RO	focus of CT of thorax for brachytherapy planning	SNOMEDCT_US
+52338008	RO	focus of CT of pelvis for brachytherapy planning	SNOMEDCT_US
+52338008	SY	same as Treatment planning for brachytherapy	SNOMEDCT_US
+313092005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+313092005	PT	Electromagnetic energy therapy		SNOMEDCT_US
+313092005	CHD	Electrotherapy	SNOMEDCT_US
+313092005	CHD	Radiation	SNOMEDCT_US
+313092005	PAR	Infrared radiation therapy	SNOMEDCT_US
+313092005	PAR	Pulsed electromagnetic energy therapy	SNOMEDCT_US
+313092005	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+313092005	RO	has intent Therapeutic	SNOMEDCT_US
+171809001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+171809001	PT	Radiotherapy to lesion of peripheral nerve		SNOMEDCT_US
+171809001	CHD	Destruction of lesion of peripheral nerve	SNOMEDCT_US
+171809001	CHD	Therapeutic procedure on soft tissue	SNOMEDCT_US
+171809001	CHD	Radiation	SNOMEDCT_US
+171809001	RO	has direct procedure site Peripheral nerve	SNOMEDCT_US
+171809001	RO	has direct morphology Lesion	SNOMEDCT_US
+171809001	RO	has intent Therapeutic	SNOMEDCT_US
+171809001	RO	has method Destruction	SNOMEDCT_US
+63506005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+63506005	PT	Destruction of lesion of choroid by radiation therapy		SNOMEDCT_US
+63506005	SY	Radiotherapy to lesion of choroid		SNOMEDCT_US
+63506005	CHD	Destruction of lesion of choroid	SNOMEDCT_US
+63506005	CHD	Radiation	SNOMEDCT_US
+63506005	PAR	Destruction of chorioretinal lesion by radiation therapy	SNOMEDCT_US
+63506005	PAR	Destruction of lesion of choroid by implantation of radiation source	SNOMEDCT_US
+63506005	RO	has direct procedure site Choroidal structure	SNOMEDCT_US
+63506005	RO	has direct morphology Lesion	SNOMEDCT_US
+63506005	RO	has intent Therapeutic	SNOMEDCT_US
+63506005	RO	has method Destruction	SNOMEDCT_US
+304409003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304409003	PT	Pulsed electromagnetic energy to upper limb		SNOMEDCT_US
+304409003	CHD	Pulsed electromagnetic energy therapy	SNOMEDCT_US
+304409003	CHD	Procedure on upper extremity	SNOMEDCT_US
+304409003	PAR	Pulsed electromagnetic energy to shoulder	SNOMEDCT_US
+304409003	PAR	Pulsed electromagnetic energy to elbow	SNOMEDCT_US
+304409003	PAR	Pulsed electromagnetic energy to wrist	SNOMEDCT_US
+304409003	PAR	Pulsed electromagnetic energy to hand	SNOMEDCT_US
+304409003	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304409003	RO	has intent Therapeutic	SNOMEDCT_US
+304409003	RO	has direct procedure site Upper limb	SNOMEDCT_US
+169301006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169301006	PT	High-energy beam therapy		SNOMEDCT_US
+169301006	CHD	X-ray beam therapy	SNOMEDCT_US
+169301006	PAR	Combined photon therapy	SNOMEDCT_US
+169301006	RB	inverse was a High-energy beam therapy NOS	SNOMEDCT_US
+169301006	RO	uses energy X-ray	SNOMEDCT_US
+169301006	RO	has intent Therapeutic	SNOMEDCT_US
+169301006	SY	same as High-energy beam therapy	SNOMEDCT_US
+228720004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228720004	PT	Making of shielding block for radiotherapy		SNOMEDCT_US
+228720004	CHD	Preparation of radiation therapy aid	SNOMEDCT_US
+228720004	CHD	Procedure categorized by device involved	SNOMEDCT_US
+228720004	PAR	Field block design and fabrication	SNOMEDCT_US
+228720004	PAR	Making of bite block for radiotherapy	SNOMEDCT_US
+228720004	PAR	Bolus design and fabrication	SNOMEDCT_US
+228720004	RO	has intent Therapeutic	SNOMEDCT_US
+228720004	RO	has direct device Device	SNOMEDCT_US
+228720004	RO	uses energy Radiation	SNOMEDCT_US
+228728006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228728006	PT	Calculation of radiotherapy dose-volume histogram		SNOMEDCT_US
+228728006	CHD	Calculation of teletherapy	SNOMEDCT_US
+228728006	RO	has intent Therapeutic	SNOMEDCT_US
+228728006	RO	uses energy Radiation	SNOMEDCT_US
+169336005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169336005	PT	External beam with chemotherapy		SNOMEDCT_US
+169336005	CHD	Combined radiotherapy	SNOMEDCT_US
+169336005	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169336005	RO	has intent Therapeutic	SNOMEDCT_US
+169336005	SY	same as External beam with chemotherapy	SNOMEDCT_US
+448987004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448987004	PT	Intraluminal brachytherapy of biliary tract		SNOMEDCT_US
+448987004	CHD	Intraluminal brachytherapy	SNOMEDCT_US
+448987004	RO	has method Brachytherapy	SNOMEDCT_US
+448987004	RO	uses substance Radioactive isotope	SNOMEDCT_US
+448987004	RO	has intent Therapeutic	SNOMEDCT_US
+448987004	RO	has indirect procedure site Lumen of body system	SNOMEDCT_US
+700356003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+700356003	PT	Radium 226 brachytherapy		SNOMEDCT_US
+700356003	SY	Radium 226 internal radiotherapy		SNOMEDCT_US
+700356003	CHD	Brachytherapy	SNOMEDCT_US
+700356003	CHD	Radium therapy	SNOMEDCT_US
+700356003	PAR	Intracavitary radium application	SNOMEDCT_US
+700356003	RO	has intent Therapeutic	SNOMEDCT_US
+700356003	RO	uses substance Radium-226	SNOMEDCT_US
+447912004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+447912004	PT	Fractionated dose stereotactic radiosurgery using linear accelerator system		SNOMEDCT_US
+447912004	CHD	Stereotactic radiosurgery	SNOMEDCT_US
+447912004	RO	uses energy Ionizing radiation	SNOMEDCT_US
+447912004	RO	has intent Therapeutic	SNOMEDCT_US
+447912004	RO	has method Surgical action	SNOMEDCT_US
+169310003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169310003	PT	Betatron electron therapy		SNOMEDCT_US
+169310003	CHD	Fast-electron therapy	SNOMEDCT_US
+169310003	RO	uses energy Electron beam	SNOMEDCT_US
+169310003	RO	has intent Therapeutic	SNOMEDCT_US
+169310003	SY	same as Betatron electron therapy	SNOMEDCT_US
+228727001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228727001	PT	Calculation of radiotherapy dose corrections		SNOMEDCT_US
+228727001	CHD	Calculation of teletherapy	SNOMEDCT_US
+228727001	RO	has intent Therapeutic	SNOMEDCT_US
+228727001	RO	uses energy Radiation	SNOMEDCT_US
+168520004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168520004	PT	Radiotherapy for immunosuppression		SNOMEDCT_US
+168520004	CHD	Purpose of radiotherapy	SNOMEDCT_US
+168520004	RO	has intent Therapeutic	SNOMEDCT_US
+168520004	SY	same as Radiotherapy for immunosuppression	SNOMEDCT_US
+169299004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169299004	PT	Combined X-ray therapy		SNOMEDCT_US
+169299004	CHD	X-ray beam therapy	SNOMEDCT_US
+169299004	RO	uses energy X-ray	SNOMEDCT_US
+169299004	RO	has intent Therapeutic	SNOMEDCT_US
+169299004	SY	same as Combined X-ray therapy	SNOMEDCT_US
+169343004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169343004	PT	Bone marrow suppression - irradiation		SNOMEDCT_US
+169343004	SY	Bone marrow suppression		SNOMEDCT_US
+169343004	CHD	Internal metabolic radiotherapy	SNOMEDCT_US
+169343004	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169343004	RO	has intent Therapeutic	SNOMEDCT_US
+169343004	RO	has method Radioactive destruction	SNOMEDCT_US
+169343004	SY	same as Bone marrow suppression	SNOMEDCT_US
+183971003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+183971003	PT	Radiotherapy treatment groups		SNOMEDCT_US
+183971003	CHD	Radiation	SNOMEDCT_US
+183971003	RO	has intent Therapeutic	SNOMEDCT_US
+183971003	SY	same as Radiotherapy treatment groups	SNOMEDCT_US
+169317000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169317000	PT	Neutron capture therapy		SNOMEDCT_US
+169317000	CHD	Teleradiotherapy neutrons	SNOMEDCT_US
+169317000	RO	has intent Therapeutic	SNOMEDCT_US
+169317000	RO	uses energy Neutron radiation	SNOMEDCT_US
+169317000	SY	same as Neutron capture therapy	SNOMEDCT_US
+428412000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+428412000	PT	Radiotherapy to head		SNOMEDCT_US
+428412000	CHD	Procedure on head	SNOMEDCT_US
+428412000	CHD	Radiotherapy by body site	SNOMEDCT_US
+428412000	PAR	Radiotherapy to lacrimal gland	SNOMEDCT_US
+428412000	PAR	Radiotherapy to ciliary body	SNOMEDCT_US
+428412000	PAR	Whole brain radiation therapy	SNOMEDCT_US
+428412000	RO	has direct procedure site Head	SNOMEDCT_US
+428412000	RO	has intent Therapeutic	SNOMEDCT_US
+428412000	RO	uses energy Radiation	SNOMEDCT_US
+428412000	RO	has method Therapy	SNOMEDCT_US
+399180008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+399180008	PT	Interstitial radioactive colloid therapy		SNOMEDCT_US
+399180008	SY	Interstitial radionuclide therapy		SNOMEDCT_US
+399180008	CHD	Radionuclide therapy	SNOMEDCT_US
+399180008	RO	uses substance Radioactive isotope	SNOMEDCT_US
+399180008	RO	possibly equivalent to Interstitial radionuclide therapy	SNOMEDCT_US
+399180008	RO	has intent Therapeutic	SNOMEDCT_US
+399180008	RO	has associated procedure Ultrasonic guidance for interstitial radioelement application	SNOMEDCT_US
+399180008	RO	has method Radioactive destruction	SNOMEDCT_US
+49963009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+49963009	PT	Radiation therapy isodose plan, moving strip field		SNOMEDCT_US
+49963009	CHD	Special dosimetry	SNOMEDCT_US
+49963009	RO	has intent Therapeutic	SNOMEDCT_US
+49963009	RO	uses energy Radiation	SNOMEDCT_US
+448288001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448288001	PT	Targeted radionuclide therapy		SNOMEDCT_US
+448288001	CHD	Radionuclide therapy	SNOMEDCT_US
+448288001	RO	uses substance Radioactive isotope	SNOMEDCT_US
+448288001	RO	has intent Therapeutic	SNOMEDCT_US
+448288001	RO	has method Radioactive destruction	SNOMEDCT_US
+441799006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+441799006	PT	Intensity modulated radiation therapy		SNOMEDCT_US
+441799006	CHD	Destructive procedure	SNOMEDCT_US
+441799006	CHD	Radiation	SNOMEDCT_US
+441799006	RO	has intent Therapeutic	SNOMEDCT_US
+441799006	RO	has method Destruction	SNOMEDCT_US
+53721003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+53721003	PT	Bolus design and fabrication		SNOMEDCT_US
+53721003	SY	Making of bolus block for radiotherapy		SNOMEDCT_US
+53721003	CHD	Making of shielding block for radiotherapy	SNOMEDCT_US
+53721003	RO	has intent Therapeutic	SNOMEDCT_US
+53721003	RO	has direct device Device	SNOMEDCT_US
+53721003	RO	uses energy Radiation	SNOMEDCT_US
+228693000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228693000	PT	Ruthenium 106 brachytherapy		SNOMEDCT_US
+228693000	CHD	Brachytherapy	SNOMEDCT_US
+228693000	RO	has intent Therapeutic	SNOMEDCT_US
+228693000	RO	uses substance Ruthenium-106	SNOMEDCT_US
+228664000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228664000	PT	Van der Graaff X-ray therapy		SNOMEDCT_US
+228664000	CHD	Megavoltage radiation therapy	SNOMEDCT_US
+228664000	PAR	Van der Graaff photon therapy	SNOMEDCT_US
+228664000	RO	uses energy Ionizing radiation	SNOMEDCT_US
+228664000	RO	has intent Therapeutic	SNOMEDCT_US
+228687008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228687008	PT	Selectron brachytherapy		SNOMEDCT_US
+228687008	CHD	Iridium 192 brachytherapy	SNOMEDCT_US
+228687008	RO	has method Brachytherapy	SNOMEDCT_US
+228687008	RO	has intent Therapeutic	SNOMEDCT_US
+228687008	RO	uses substance Iridium-192	SNOMEDCT_US
+46733005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+46733005	PT	Provision of molds or casts for immobilization		SNOMEDCT_US
+46733005	SY	Provision of moulds or casts for immobilisation		SNOMEDCT_US
+46733005	CHD	Preparation of radiation therapy aid	SNOMEDCT_US
+46733005	CHD	Procedure categorized by device involved	SNOMEDCT_US
+46733005	RO	has intent Therapeutic	SNOMEDCT_US
+46733005	RO	has direct device Device	SNOMEDCT_US
+46733005	RO	uses energy Radiation	SNOMEDCT_US
+228682002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228682002	PT	Cobalt 60 brachytherapy manual loading		SNOMEDCT_US
+228682002	CHD	Cobalt-60 therapy	SNOMEDCT_US
+228682002	RO	has intent Therapeutic	SNOMEDCT_US
+228682002	RO	uses substance Cobalt-60	SNOMEDCT_US
+228682002	RO	has method Radioactive destruction	SNOMEDCT_US
+169298007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169298007	PT	Intracavitary X-ray therapy		SNOMEDCT_US
+169298007	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+169298007	RO	uses energy X-ray	SNOMEDCT_US
+169298007	RO	has intent Therapeutic	SNOMEDCT_US
+169298007	SY	same as Intracavitary X-ray therapy	SNOMEDCT_US
+228689006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228689006	PT	Gold 198 brachytherapy		SNOMEDCT_US
+228689006	CHD	Brachytherapy	SNOMEDCT_US
+228689006	CHD	Gold 198 therapy	SNOMEDCT_US
+228689006	RO	has intent Therapeutic	SNOMEDCT_US
+228689006	RO	uses substance Gold-198	SNOMEDCT_US
+228684001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228684001	PT	Iridium 192 brachytherapy		SNOMEDCT_US
+228684001	CHD	Brachytherapy	SNOMEDCT_US
+228684001	PAR	Gammamed brachytherapy	SNOMEDCT_US
+228684001	PAR	Microselectron brachytherapy	SNOMEDCT_US
+228684001	PAR	Selectron brachytherapy	SNOMEDCT_US
+228684001	RO	has intent Therapeutic	SNOMEDCT_US
+228684001	RO	uses substance Iridium-192	SNOMEDCT_US
+169312006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169312006	PT	Combined fast-electron therapy		SNOMEDCT_US
+169312006	CHD	Fast-electron therapy	SNOMEDCT_US
+169312006	RO	uses energy Electron beam	SNOMEDCT_US
+169312006	RO	has intent Therapeutic	SNOMEDCT_US
+169312006	SY	same as Combined fast-electron therapy	SNOMEDCT_US
+446504008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+446504008	PT	Stereotactic destruction of lesion using gamma radiation		SNOMEDCT_US
+446504008	SY	Gamma-knife excision		SNOMEDCT_US
+446504008	SY	Gamma-knife surgery		SNOMEDCT_US
+446504008	CHD	Gamma ray therapy	SNOMEDCT_US
+446504008	CHD	Destruction of lesion	SNOMEDCT_US
+446504008	CHD	Procedure categorized by device involved	SNOMEDCT_US
+446504008	CHD	Stereotactic radiotherapy	SNOMEDCT_US
+446504008	RO	uses energy Gamma radiation	SNOMEDCT_US
+446504008	RO	has direct morphology Lesion	SNOMEDCT_US
+446504008	RO	has intent Therapeutic	SNOMEDCT_US
+446504008	RO	uses device Stereotactic device	SNOMEDCT_US
+446504008	RO	has method Destruction	SNOMEDCT_US
+169368002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169368002	PT	Radiotherapy: temporary thorax implant		SNOMEDCT_US
+169368002	CHD	Temporary implant radiotherapy	SNOMEDCT_US
+169368002	CHD	Surgical procedure on thorax	SNOMEDCT_US
+169368002	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169368002	RO	has method Brachytherapy	SNOMEDCT_US
+169368002	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169368002	RO	has intent Therapeutic	SNOMEDCT_US
+169368002	RO	uses device Radioactive implant	SNOMEDCT_US
+169368002	RO	has indirect procedure site Chest	SNOMEDCT_US
+169368002	SY	same as Radiotherapy: temporary thorax implant	SNOMEDCT_US
+169349000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169349000	PT	Internal radiotherapy - unsealed source		SNOMEDCT_US
+169349000	SY	Internal radiotherapy		SNOMEDCT_US
+169349000	CHD	Radionuclide therapy	SNOMEDCT_US
+169349000	PAR	Radiotherapy: infuse head/neck	SNOMEDCT_US
+169349000	PAR	Radiotherapy: infuse urinary bladder	SNOMEDCT_US
+169349000	PAR	Radiotherapy: infuse organ cavity	SNOMEDCT_US
+169349000	PAR	Radiotherapy: infiltrate tissue	SNOMEDCT_US
+169349000	RB	inverse was a Internal unsealed radiotherapy NOS	SNOMEDCT_US
+169349000	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169349000	RO	has intent Therapeutic	SNOMEDCT_US
+169349000	RO	has method Radioactive destruction	SNOMEDCT_US
+169349000	SY	same as Internal radiotherapy	SNOMEDCT_US
+228715004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228715004	PT	Making of bite block for radiotherapy		SNOMEDCT_US
+228715004	CHD	Making of shielding block for radiotherapy	SNOMEDCT_US
+228715004	RO	has intent Therapeutic	SNOMEDCT_US
+228715004	RO	has direct device Device	SNOMEDCT_US
+228715004	RO	uses energy Radiation	SNOMEDCT_US
+228666003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228666003	PT	Teletherapy with dual headed cobalt unit		SNOMEDCT_US
+228666003	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+228666003	RO	uses energy Ionizing radiation	SNOMEDCT_US
+228666003	RO	has intent Therapeutic	SNOMEDCT_US
+304421004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304421004	PT	Pulsed electromagnetic energy to hip		SNOMEDCT_US
+304421004	CHD	Pulsed electromagnetic energy to lower limb	SNOMEDCT_US
+304421004	CHD	Procedure on hip	SNOMEDCT_US
+304421004	RO	has direct procedure site Hip region	SNOMEDCT_US
+304421004	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304421004	RO	has intent Therapeutic	SNOMEDCT_US
+228677009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228677009	PT	Cesium 137 brachytherapy		SNOMEDCT_US
+228677009	SY	Caesium 137 brachytherapy		SNOMEDCT_US
+228677009	CHD	Brachytherapy	SNOMEDCT_US
+228677009	PAR	Cesium 137 brachytherapy remote afterloading	SNOMEDCT_US
+228677009	RO	has intent Therapeutic	SNOMEDCT_US
+228677009	RO	uses substance Cesium-137	SNOMEDCT_US
+384692006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+384692006	PT	Intracavitary brachytherapy		SNOMEDCT_US
+384692006	SY	Contact radiation therapy procedure		SNOMEDCT_US
+384692006	SY	Plesiotherapy radiation		SNOMEDCT_US
+384692006	SY	Sealed source brachytherapy		SNOMEDCT_US
+384692006	SY	ICT - Intracavitary treatment		SNOMEDCT_US
+384692006	CHD	Brachytherapy	SNOMEDCT_US
+384692006	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+384692006	PAR	Radiotherapy: seeds into cavity	SNOMEDCT_US
+384692006	PAR	Intracavitary radium application	SNOMEDCT_US
+384692006	PAR	Intraluminal brachytherapy	SNOMEDCT_US
+384692006	PAR	Intracoronary brachytherapy using fluoroscopic guidance	SNOMEDCT_US
+384692006	PAR	Intracavitary brachytherapy of nasopharynx	SNOMEDCT_US
+384692006	PAR	Intracavitary brachytherapy of female genital tract	SNOMEDCT_US
+384692006	RB	inverse was a Preload cavity radiotherapy NOS	SNOMEDCT_US
+384692006	RB	inverse was a Afterload cavity radiotherapy NOS	SNOMEDCT_US
+384692006	RO	possibly equivalent to Brachytherapy procedure	SNOMEDCT_US
+384692006	RO	possibly equivalent to Intracavitary brachytherapy	SNOMEDCT_US
+384692006	RO	uses substance Radioactive isotope	SNOMEDCT_US
+384692006	RO	has indirect procedure site Anatomical space	SNOMEDCT_US
+384692006	RO	has intent Therapeutic	SNOMEDCT_US
+384692006	RO	possibly equivalent to Preload cavity radiotherapy	SNOMEDCT_US
+384692006	RO	focus of Transcatheter insertion of radiation delivery device for intravascular coronary brachytherapy	SNOMEDCT_US
+384692006	RO	possibly equivalent to Radionuclide lutetium 177 somatostatin analog therapy	SNOMEDCT_US
+384692006	RO	associated procedure of History of brachytherapy	SNOMEDCT_US
+169362001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169362001	PT	Radiotherapy: seeds into cavity		SNOMEDCT_US
+169362001	CHD	Intracavitary brachytherapy	SNOMEDCT_US
+169362001	CHD	Internal radiotherapy	SNOMEDCT_US
+169362001	RO	has method Brachytherapy	SNOMEDCT_US
+169362001	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169362001	RO	has indirect procedure site Anatomical space	SNOMEDCT_US
+169362001	RO	has intent Therapeutic	SNOMEDCT_US
+169362001	RO	uses device Radioactive seed, device	SNOMEDCT_US
+169362001	SY	same as Radiotherapy: seeds into cavity	SNOMEDCT_US
+448294009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448294009	PT	External radiation therapy using superficial radiation		SNOMEDCT_US
+448294009	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+448294009	RO	uses energy Ionizing radiation	SNOMEDCT_US
+448294009	RO	has intent Therapeutic	SNOMEDCT_US
+228696008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228696008	PT	Yttrium 90 brachytherapy		SNOMEDCT_US
+228696008	CHD	Brachytherapy	SNOMEDCT_US
+228696008	CHD	Yttrium 90 therapy	SNOMEDCT_US
+228696008	RO	has intent Therapeutic	SNOMEDCT_US
+228696008	RO	uses substance Yttrium-90	SNOMEDCT_US
+228696008	RO	possibly equivalent to Selective internal radiation using yttrium	SNOMEDCT_US
+395074007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+395074007	PT	Selectron therapy		SNOMEDCT_US
+395074007	CHD	Radiation	SNOMEDCT_US
+395074007	RO	has intent Therapeutic	SNOMEDCT_US
+395074007	SY	same as Selectron therapy	SNOMEDCT_US
+385798007	STY	Health Care Activity		SNOMEDCT_US
+385798007	PT	Radiation therapy care		SNOMEDCT_US
+385798007	SY	Radiation therapy management		SNOMEDCT_US
+385798007	CHD	Care of patient states	SNOMEDCT_US
+385798007	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+385798007	RO	has intent Therapeutic	SNOMEDCT_US
+385798007	RO	uses energy Radiation	SNOMEDCT_US
+385798007	RO	focus of Radiation therapy care assessment	SNOMEDCT_US
+385798007	RO	focus of Radiation therapy care education	SNOMEDCT_US
+385798007	RO	focus of Radiation therapy care management	SNOMEDCT_US
+300976007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+300976007	PT	Radiotherapy to lesion of canthus		SNOMEDCT_US
+300976007	CHD	Destruction of lesion of canthus	SNOMEDCT_US
+300976007	CHD	Radiation	SNOMEDCT_US
+300976007	PAR	Radiotherapy to lesion of medial canthus	SNOMEDCT_US
+300976007	PAR	Radiotherapy to lesion of lateral canthus	SNOMEDCT_US
+300976007	RO	has direct morphology Lesion	SNOMEDCT_US
+300976007	RO	has direct procedure site Canthus	SNOMEDCT_US
+300976007	RO	has intent Therapeutic	SNOMEDCT_US
+300976007	RO	has method Destruction	SNOMEDCT_US
+169353003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169353003	PT	Radiotherapy: infuse peritoneal cavity		SNOMEDCT_US
+169353003	CHD	Radiotherapy: infuse organ cavity	SNOMEDCT_US
+169353003	CHD	Abdominal cavity operation	SNOMEDCT_US
+169353003	CHD	Procedure on peritoneal sac	SNOMEDCT_US
+169353003	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169353003	RO	has intent Therapeutic	SNOMEDCT_US
+169353003	RO	has method Radioactive destruction	SNOMEDCT_US
+169353003	RO	has method Infusion	SNOMEDCT_US
+169353003	RO	has indirect procedure site Peritoneal cavity	SNOMEDCT_US
+169353003	SY	same as Radiotherapy: infuse peritoneal cavity	SNOMEDCT_US
+765813009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+765813009	PT	Intracavitary brachytherapy of mouth		SNOMEDCT_US
+765813009	CHD	Mouth destructive procedure	SNOMEDCT_US
+765813009	CHD	Radiation	SNOMEDCT_US
+765813009	RO	has method Brachytherapy	SNOMEDCT_US
+765813009	RO	has direct procedure site Oral cavity	SNOMEDCT_US
+765813009	RO	has intent Therapeutic	SNOMEDCT_US
+765813009	RO	has indirect procedure site Internal part of mouth	SNOMEDCT_US
+228730008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228730008	PT	Calculation of radionuclide therapy		SNOMEDCT_US
+228730008	CHD	Radiotherapy calculation	SNOMEDCT_US
+228730008	RO	has intent Therapeutic	SNOMEDCT_US
+228730008	RO	uses energy Radiation	SNOMEDCT_US
+458371000124101	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+458371000124101	PT	Post-mastectomy radiotherapy		SNOMEDCT_US
+458371000124101	CHD	Postoperative course of radiotherapy	SNOMEDCT_US
+458371000124101	RO	has intent Therapeutic	SNOMEDCT_US
+169359004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169359004	PT	Internal radiotherapy - permanent seeds		SNOMEDCT_US
+169359004	SY	Internal radiotherapy		SNOMEDCT_US
+169359004	CHD	Brachytherapy	SNOMEDCT_US
+169359004	CHD	Procedure categorized by device involved	SNOMEDCT_US
+169359004	PAR	Radiotherapy: seeds into cavity	SNOMEDCT_US
+169359004	RB	inverse was a Radiotherapy: permanent seeds NOS	SNOMEDCT_US
+169359004	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169359004	RO	has intent Therapeutic	SNOMEDCT_US
+169359004	RO	uses device Radioactive seed, device	SNOMEDCT_US
+169359004	SY	same as Internal radiotherapy	SNOMEDCT_US
+304420003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304420003	PT	Pulsed electromagnetic energy to abdomen		SNOMEDCT_US
+304420003	CHD	Pulsed electromagnetic energy to trunk	SNOMEDCT_US
+304420003	CHD	Procedure on abdomen	SNOMEDCT_US
+304420003	RO	has direct procedure site Abdominal structure	SNOMEDCT_US
+304420003	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304420003	RO	has intent Therapeutic	SNOMEDCT_US
+228699001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228699001	PT	Phosphorus 32 therapy		SNOMEDCT_US
+228699001	SY	P32 therapy		SNOMEDCT_US
+228699001	CHD	Radionuclide therapy	SNOMEDCT_US
+228699001	PAR	Phosphorus 32 brachytherapy	SNOMEDCT_US
+228699001	RO	has intent Therapeutic	SNOMEDCT_US
+228699001	RO	has method Radioactive destruction	SNOMEDCT_US
+228699001	RO	uses substance Phosphorus-32	SNOMEDCT_US
+113120007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+113120007	PT	Interstitial brachytherapy		SNOMEDCT_US
+113120007	CHD	Brachytherapy	SNOMEDCT_US
+113120007	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+113120007	CHD	Surgical procedure on soft tissue	SNOMEDCT_US
+113120007	PAR	Interstitial radium application	SNOMEDCT_US
+113120007	PAR	Radiotherapy: temporary tongue implant	SNOMEDCT_US
+113120007	PAR	Intracoronary brachytherapy using fluoroscopic guidance	SNOMEDCT_US
+113120007	PAR	Percutaneous brachytherapy of hepatic artery using fluoroscopic guidance	SNOMEDCT_US
+113120007	PAR	Interstitial brachytherapy using gold grain	SNOMEDCT_US
+113120007	PAR	Interstitial brachytherapy using iridium wire	SNOMEDCT_US
+113120007	PAR	Interstitial brachytherapy using cesium needle	SNOMEDCT_US
+113120007	RO	uses substance Radioactive isotope	SNOMEDCT_US
+113120007	RO	has indirect procedure site Soft tissues	SNOMEDCT_US
+113120007	RO	has intent Therapeutic	SNOMEDCT_US
+169309008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169309008	PT	Linear accelerator electrons		SNOMEDCT_US
+169309008	CHD	Fast-electron therapy	SNOMEDCT_US
+169309008	RO	uses energy Electron beam	SNOMEDCT_US
+169309008	RO	has intent Therapeutic	SNOMEDCT_US
+169309008	SY	same as Linear accelerator electrons	SNOMEDCT_US
+428831001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+428831001	PT	Radiotherapy to perineum		SNOMEDCT_US
+428831001	CHD	Therapeutic procedure on soft tissue	SNOMEDCT_US
+428831001	CHD	Procedure on organ	SNOMEDCT_US
+428831001	CHD	Procedure on peripheral nerve	SNOMEDCT_US
+428831001	CHD	Radiotherapy by body site	SNOMEDCT_US
+428831001	RO	has direct procedure site Perineurium	SNOMEDCT_US
+428831001	RO	has intent Therapeutic	SNOMEDCT_US
+428831001	RO	uses energy Radiation	SNOMEDCT_US
+428831001	RO	has method Therapy	SNOMEDCT_US
+726549007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+726549007	PT	Radioimmunoguided surgery		SNOMEDCT_US
+726549007	SY	RIGS		SNOMEDCT_US
+726549007	CHD	Radiation	SNOMEDCT_US
+726549007	RO	has intent Therapeutic	SNOMEDCT_US
+428416002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+428416002	PT	Radiotherapy to neck		SNOMEDCT_US
+428416002	CHD	Procedure on neck	SNOMEDCT_US
+428416002	CHD	Radiotherapy by body site	SNOMEDCT_US
+428416002	RO	has direct procedure site Neck	SNOMEDCT_US
+428416002	RO	has intent Therapeutic	SNOMEDCT_US
+428416002	RO	uses energy Radiation	SNOMEDCT_US
+428416002	RO	has method Therapy	SNOMEDCT_US
+169371005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169371005	PT	Radiotherapy: temporary limb implant		SNOMEDCT_US
+169371005	CHD	Temporary implant radiotherapy	SNOMEDCT_US
+169371005	CHD	Limb operation	SNOMEDCT_US
+169371005	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169371005	RO	has method Brachytherapy	SNOMEDCT_US
+169371005	RO	has indirect procedure site Limb	SNOMEDCT_US
+169371005	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169371005	RO	has intent Therapeutic	SNOMEDCT_US
+169371005	RO	uses device Radioactive implant	SNOMEDCT_US
+169371005	SY	same as Radiotherapy: temporary limb implant	SNOMEDCT_US
+434131000124108	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+434131000124108	PT	Three dimensional conformal radiotherapy		SNOMEDCT_US
+434131000124108	CHD	Conformal radiotherapy	SNOMEDCT_US
+434131000124108	RO	has intent Therapeutic	SNOMEDCT_US
+434131000124108	RO	uses energy Radiation	SNOMEDCT_US
+434131000124108	RO	has method Destruction	SNOMEDCT_US
+169351001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169351001	PT	Radiotherapy: infuse head/neck		SNOMEDCT_US
+169351001	CHD	Internal radiotherapy	SNOMEDCT_US
+169351001	CHD	Infusion	SNOMEDCT_US
+169351001	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169351001	CHD	Procedure on head AND/OR neck	SNOMEDCT_US
+169351001	PAR	Radiotherapy: infuse skull/brain	SNOMEDCT_US
+169351001	PAR	Radiotherapy: endolymphatic infusion	SNOMEDCT_US
+169351001	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169351001	RO	has intent Therapeutic	SNOMEDCT_US
+169351001	RO	has method Radioactive destruction	SNOMEDCT_US
+169351001	RO	has indirect procedure site Head and/or neck	SNOMEDCT_US
+169351001	SY	same as Radiotherapy: infuse head/neck	SNOMEDCT_US
+711299007	STY	Health Care Activity		SNOMEDCT_US
+711299007	PT	Radiotherapy to thorax		SNOMEDCT_US
+711299007	CHD	Procedure on thorax	SNOMEDCT_US
+711299007	CHD	Radiotherapy by body site	SNOMEDCT_US
+711299007	PAR	Radiotherapy to breast	SNOMEDCT_US
+711299007	PAR	Radiotherapy to chest wall	SNOMEDCT_US
+711299007	RO	has intent Therapeutic	SNOMEDCT_US
+711299007	RO	has direct procedure site Chest	SNOMEDCT_US
+711299007	RO	uses energy Radiation	SNOMEDCT_US
+711299007	RO	has method Therapy	SNOMEDCT_US
+711299007	RO	associated procedure of History of radiation therapy to chest	SNOMEDCT_US
+169347003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169347003	PT	Combined internal radiotherapy		SNOMEDCT_US
+169347003	CHD	Internal metabolic radiotherapy	SNOMEDCT_US
+169347003	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169347003	RO	has intent Therapeutic	SNOMEDCT_US
+169347003	RO	has method Radioactive destruction	SNOMEDCT_US
+169347003	SY	same as Combined internal radiotherapy	SNOMEDCT_US
+169422001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169422001	PT	Inflammatory infrared therapy		SNOMEDCT_US
+169422001	CHD	Infrared radiation therapy	SNOMEDCT_US
+169422001	RO	uses energy Infrared radiation	SNOMEDCT_US
+169422001	RO	has intent Therapeutic	SNOMEDCT_US
+169422001	RO	has method Therapy	SNOMEDCT_US
+169422001	SY	same as Inflammatory infrared therapy	SNOMEDCT_US
+1127003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+1127003	PT	Interstitial radium application		SNOMEDCT_US
+1127003	CHD	Radium therapy	SNOMEDCT_US
+1127003	CHD	Interstitial brachytherapy	SNOMEDCT_US
+1127003	RO	has method Brachytherapy	SNOMEDCT_US
+1127003	RO	uses substance Radium radioisotope	SNOMEDCT_US
+1127003	RO	has indirect procedure site Soft tissues	SNOMEDCT_US
+1127003	RO	has intent Therapeutic	SNOMEDCT_US
+47668009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+47668009	PT	Intracavitary radium application		SNOMEDCT_US
+47668009	CHD	Intracavitary brachytherapy	SNOMEDCT_US
+47668009	CHD	Radium 226 brachytherapy	SNOMEDCT_US
+47668009	RO	has method Brachytherapy	SNOMEDCT_US
+47668009	RO	has indirect procedure site Anatomical space	SNOMEDCT_US
+47668009	RO	has intent Therapeutic	SNOMEDCT_US
+47668009	RO	uses substance Radium-226	SNOMEDCT_US
+228686004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228686004	PT	Microselectron brachytherapy		SNOMEDCT_US
+228686004	CHD	Iridium 192 brachytherapy	SNOMEDCT_US
+228686004	RO	has method Brachytherapy	SNOMEDCT_US
+228686004	RO	has intent Therapeutic	SNOMEDCT_US
+228686004	RO	uses substance Iridium-192	SNOMEDCT_US
+10492003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+10492003	PT	Radionuclide therapy for glandular suppression		SNOMEDCT_US
+10492003	CHD	Radionuclide therapy	SNOMEDCT_US
+10492003	CHD	Purpose of radiotherapy	SNOMEDCT_US
+10492003	RO	uses substance Radioactive isotope	SNOMEDCT_US
+10492003	RO	has intent Therapeutic	SNOMEDCT_US
+10492003	RO	has method Radioactive destruction	SNOMEDCT_US
+169303009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169303009	PT	Betatron photon therapy		SNOMEDCT_US
+169303009	CHD	Betatron X-ray therapy	SNOMEDCT_US
+169303009	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169303009	RO	has intent Therapeutic	SNOMEDCT_US
+169303009	SY	same as Betatron photon therapy	SNOMEDCT_US
+428923005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+428923005	PT	Radiotherapy to breast		SNOMEDCT_US
+428923005	CHD	Breast procedure	SNOMEDCT_US
+428923005	CHD	Radiotherapy to thorax	SNOMEDCT_US
+428923005	RO	has direct procedure site Breast	SNOMEDCT_US
+428923005	RO	has intent Therapeutic	SNOMEDCT_US
+428923005	RO	uses energy Radiation	SNOMEDCT_US
+428923005	RO	has method Therapy	SNOMEDCT_US
+428923005	RO	associated procedure of History of radiation therapy to breast area	SNOMEDCT_US
+445232009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+445232009	PT	Boost radiation therapy		SNOMEDCT_US
+445232009	CHD	Radiation	SNOMEDCT_US
+445232009	RO	has intent Therapeutic	SNOMEDCT_US
+45643008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+45643008	PT	Teleradiotherapy using electrons		SNOMEDCT_US
+45643008	SY	Betatron electron teletherapy		SNOMEDCT_US
+45643008	SY	Electron teletherapy		SNOMEDCT_US
+45643008	SY	Teleradiotherapy beta particles		SNOMEDCT_US
+45643008	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+45643008	PAR	Fast-electron therapy	SNOMEDCT_US
+45643008	PAR	Microtron electron teletherapy	SNOMEDCT_US
+45643008	PAR	Strontium 90 electron teletherapy	SNOMEDCT_US
+45643008	PAR	Total skin electron beam therapy	SNOMEDCT_US
+45643008	RO	uses energy Electron beam	SNOMEDCT_US
+45643008	RO	has intent Therapeutic	SNOMEDCT_US
+45643008	SY	same as Electron teletherapy	SNOMEDCT_US
+10691000224115	PT	Mantle field radiation		SNOMEDCT_US
+10691000224115	SY	Mantle field radiation therapy		SNOMEDCT_US
+10691000224115	SY	Extended field radiation therapy		SNOMEDCT_US
+10691000224115	SY	Mantle field radiation (procedure)		SNOMEDCT_US
+10691000224115	CHD	Radiation	SNOMEDCT_US
+168519005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168519005	PT	Purpose of radiotherapy		SNOMEDCT_US
+168519005	CHD	Radiation	SNOMEDCT_US
+168519005	PAR	Radiotherapy for lymphatic irradiation	SNOMEDCT_US
+168519005	PAR	Radionuclide therapy for glandular suppression	SNOMEDCT_US
+168519005	PAR	Radionuclide therapy for hyperthyroidism	SNOMEDCT_US
+168519005	PAR	Radiotherapy for immunosuppression	SNOMEDCT_US
+168519005	PAR	Radiotherapy for hemopoietic irradiation	SNOMEDCT_US
+168519005	PAR	Radiotherapy for analgesia	SNOMEDCT_US
+168519005	PAR	Radiotherapy for inflammation	SNOMEDCT_US
+168519005	PAR	Palliative course of radiotherapy	SNOMEDCT_US
+168519005	RB	inverse was a Radiotherapy purpose - NOS	SNOMEDCT_US
+168519005	RO	has intent Therapeutic	SNOMEDCT_US
+168519005	SY	same as Purpose of radiotherapy	SNOMEDCT_US
+438629002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+438629002	PT	High dose rate electronic brachytherapy		SNOMEDCT_US
+438629002	CHD	Destructive procedure	SNOMEDCT_US
+438629002	CHD	Radiation	SNOMEDCT_US
+438629002	RO	has method Brachytherapy	SNOMEDCT_US
+438629002	RO	uses energy X-ray	SNOMEDCT_US
+438629002	RO	has intent Therapeutic	SNOMEDCT_US
+169295005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169295005	PT	Deep X-ray therapy 150-400 kV		SNOMEDCT_US
+169295005	SY	DXT - Deep X-ray therapy		SNOMEDCT_US
+169295005	SY	Deep X-ray therapy		SNOMEDCT_US
+169295005	SY	DXT - Teletherapy		SNOMEDCT_US
+169295005	CHD	Deep radiation therapy, 200-300 KVP	SNOMEDCT_US
+169295005	RO	uses energy X-ray	SNOMEDCT_US
+169295005	RO	has intent Therapeutic	SNOMEDCT_US
+169295005	RO	possibly equivalent to Teletherapy	SNOMEDCT_US
+169295005	SY	same as Deep X-ray therapy 150-400 kV	SNOMEDCT_US
+169344005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169344005	PT	Polycythemia irradiation		SNOMEDCT_US
+169344005	SY	Polycythaemia irradiation		SNOMEDCT_US
+169344005	CHD	Internal metabolic radiotherapy	SNOMEDCT_US
+169344005	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169344005	RO	has intent Therapeutic	SNOMEDCT_US
+169344005	RO	has method Radioactive destruction	SNOMEDCT_US
+169344005	SY	same as Polycythaemia irradiation	SNOMEDCT_US
+304417006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304417006	PT	Pulsed electromagnetic energy to hand		SNOMEDCT_US
+304417006	CHD	Pulsed electromagnetic energy to upper limb	SNOMEDCT_US
+304417006	CHD	Hand therapy	SNOMEDCT_US
+304417006	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304417006	RO	has intent Therapeutic	SNOMEDCT_US
+304417006	RO	has direct procedure site Hand	SNOMEDCT_US
+429057009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+429057009	PT	Plaque radiotherapy of lesion of retina		SNOMEDCT_US
+429057009	CHD	Operation on retina	SNOMEDCT_US
+429057009	CHD	Destruction of lesion	SNOMEDCT_US
+429057009	CHD	Radiation plaque therapy	SNOMEDCT_US
+429057009	RO	has method Brachytherapy	SNOMEDCT_US
+429057009	RO	uses substance Radioactive isotope	SNOMEDCT_US
+429057009	RO	has indirect procedure site Retinal structure	SNOMEDCT_US
+429057009	RO	has direct morphology Lesion	SNOMEDCT_US
+429057009	RO	has intent Therapeutic	SNOMEDCT_US
+429057009	RO	uses device Radioactive implant	SNOMEDCT_US
+169342009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169342009	PT	Thyroid tumor/metastasis irradiation		SNOMEDCT_US
+169342009	SY	Thyroid tumour/metastasis irradiation		SNOMEDCT_US
+169342009	CHD	Destructive procedure on thyroid gland	SNOMEDCT_US
+169342009	CHD	Internal metabolic radiotherapy	SNOMEDCT_US
+169342009	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169342009	RO	has direct procedure site Thyroid	SNOMEDCT_US
+169342009	RO	has intent Therapeutic	SNOMEDCT_US
+169342009	RO	has method Radioactive destruction	SNOMEDCT_US
+169342009	RO	uses energy Radiation	SNOMEDCT_US
+169342009	RO	has method Destruction	SNOMEDCT_US
+169342009	SY	same as Thyroid tumor/metastasis irradiation	SNOMEDCT_US
+169314007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169314007	PT	Proton therapy		SNOMEDCT_US
+169314007	CHD	Teleradiotherapy protons	SNOMEDCT_US
+169314007	RO	has intent Therapeutic	SNOMEDCT_US
+169314007	RO	uses energy Proton beam	SNOMEDCT_US
+169314007	SY	same as Proton therapy	SNOMEDCT_US
+56636003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+56636003	PT	Isodose computation for teletherapy		SNOMEDCT_US
+56636003	CHD	Special dosimetry	SNOMEDCT_US
+56636003	RO	has intent Therapeutic	SNOMEDCT_US
+56636003	RO	uses energy Radiation	SNOMEDCT_US
+26802008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+26802008	PT	Radiation therapy isodose plan, arc field		SNOMEDCT_US
+26802008	CHD	Special dosimetry	SNOMEDCT_US
+26802008	RO	has intent Therapeutic	SNOMEDCT_US
+26802008	RO	uses energy Radiation	SNOMEDCT_US
+113115007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+113115007	PT	Radiation therapy isodose plan, wedge fields		SNOMEDCT_US
+113115007	CHD	Special dosimetry	SNOMEDCT_US
+113115007	RO	has intent Therapeutic	SNOMEDCT_US
+113115007	RO	uses energy Radiation	SNOMEDCT_US
+65952009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+65952009	PT	Gamma ray therapy		SNOMEDCT_US
+65952009	SY	Gamma ray teletherapy		SNOMEDCT_US
+65952009	CHD	Radiation	SNOMEDCT_US
+65952009	PAR	Stereotactic focused gamma radiosurgery of cerebrum	SNOMEDCT_US
+65952009	PAR	Gamma ray and intermediate distance curietherapy	SNOMEDCT_US
+65952009	PAR	Stereotactic cobalt teletherapy	SNOMEDCT_US
+65952009	PAR	Teleradiotherapy with radioactive cesium	SNOMEDCT_US
+65952009	PAR	Stereotactic destruction of lesion using gamma radiation	SNOMEDCT_US
+65952009	RO	uses energy Gamma radiation	SNOMEDCT_US
+65952009	RO	has intent Therapeutic	SNOMEDCT_US
+169367007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169367007	PT	Radiotherapy: temporary tongue implant		SNOMEDCT_US
+169367007	CHD	Operation on tongue	SNOMEDCT_US
+169367007	CHD	Radiotherapy: temporary head/neck implant	SNOMEDCT_US
+169367007	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+169367007	CHD	Interstitial brachytherapy	SNOMEDCT_US
+169367007	RO	has method Brachytherapy	SNOMEDCT_US
+169367007	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169367007	RO	has indirect procedure site Tongue	SNOMEDCT_US
+169367007	RO	has intent Therapeutic	SNOMEDCT_US
+169367007	RO	uses device Radioactive implant	SNOMEDCT_US
+169367007	SY	same as Radiotherapy: temporary tongue implant	SNOMEDCT_US
+50917001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+50917001	PT	Preparation of radioactive source		SNOMEDCT_US
+50917001	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+50917001	RO	has intent Therapeutic	SNOMEDCT_US
+50917001	RO	uses energy Radiation	SNOMEDCT_US
+65263004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+65263004	PT	General radiation therapy consultation and report		SNOMEDCT_US
+65263004	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+65263004	PAR	Consultation in teletherapy	SNOMEDCT_US
+65263004	PAR	Consultation in computer dosimetry and isodose chart, teletherapy	SNOMEDCT_US
+65263004	PAR	Radiation physics consultation	SNOMEDCT_US
+65263004	PAR	Radiation physics consultation with therapeutic radiologist	SNOMEDCT_US
+65263004	RO	has intent Therapeutic	SNOMEDCT_US
+65263004	RO	uses energy Radiation	SNOMEDCT_US
+169302004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169302004	PT	Linear accelerator photon therapy		SNOMEDCT_US
+169302004	CHD	Teleradiotherapy by linear accelerator	SNOMEDCT_US
+169302004	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169302004	RO	uses energy Non-ionizing radiation	SNOMEDCT_US
+169302004	RO	has intent Therapeutic	SNOMEDCT_US
+169302004	SY	same as Linear accelerator photon therapy	SNOMEDCT_US
+712746000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+712746000	PT	Total body electron beam therapy		SNOMEDCT_US
+712746000	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+712746000	CHD	Radiotherapy by body site	SNOMEDCT_US
+712746000	RO	uses energy Electron beam	SNOMEDCT_US
+712746000	RO	has direct procedure site Entire body as a whole	SNOMEDCT_US
+712746000	RO	has intent Therapeutic	SNOMEDCT_US
+712746000	RO	has method Therapy	SNOMEDCT_US
+169394006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169394006	PT	Afterload radiotherapy of oropharyngeal cavity		SNOMEDCT_US
+169394006	SY	Afterload radiotherapy - OP cavity		SNOMEDCT_US
+169394006	CHD	Brachytherapy	SNOMEDCT_US
+169394006	CHD	Operation on oropharynx	SNOMEDCT_US
+169394006	CHD	Pharynx destructive procedure	SNOMEDCT_US
+169394006	CHD	Airway procedure	SNOMEDCT_US
+169394006	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+169394006	CHD	Nuclear medicine study by site	SNOMEDCT_US
+169394006	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169394006	RO	has intent Therapeutic	SNOMEDCT_US
+169394006	RO	has indirect procedure site Wall of oropharynx	SNOMEDCT_US
+169394006	RO	has direct procedure site Oropharyngeal cavity	SNOMEDCT_US
+169354009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169354009	PT	Radiotherapy: endolymphatic infusion		SNOMEDCT_US
+169354009	CHD	Operation on cochlea	SNOMEDCT_US
+169354009	CHD	Radiotherapy: infuse head/neck	SNOMEDCT_US
+169354009	CHD	Operation on nervous system	SNOMEDCT_US
+169354009	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+169354009	CHD	Procedure on central nervous system	SNOMEDCT_US
+169354009	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169354009	RO	has intent Therapeutic	SNOMEDCT_US
+169354009	RO	has method Radioactive destruction	SNOMEDCT_US
+169354009	RO	has method Infusion	SNOMEDCT_US
+169354009	RO	has indirect procedure site Cochlear duct	SNOMEDCT_US
+169354009	SY	same as Radiotherapy: endolymphatic infusion	SNOMEDCT_US
+304410008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304410008	PT	Pulsed electromagnetic energy to face		SNOMEDCT_US
+304410008	CHD	Pulsed electromagnetic energy therapy	SNOMEDCT_US
+304410008	CHD	Procedure on face	SNOMEDCT_US
+304410008	RO	has direct procedure site Face	SNOMEDCT_US
+304410008	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304410008	RO	has intent Therapeutic	SNOMEDCT_US
+714029009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+714029009	PT	Preoperative high dose brachytherapy		SNOMEDCT_US
+714029009	CHD	Preoperative course of radiotherapy	SNOMEDCT_US
+714029009	CHD	High dose brachytherapy	SNOMEDCT_US
+714029009	RO	has method Brachytherapy	SNOMEDCT_US
+714029009	RO	uses substance Radioactive isotope	SNOMEDCT_US
+714029009	RO	has intent Therapeutic	SNOMEDCT_US
+231737005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+231737005	PT	Radiotherapy to ciliary body		SNOMEDCT_US
+231737005	CHD	Procedure on ciliary body	SNOMEDCT_US
+231737005	CHD	Radiotherapy to head	SNOMEDCT_US
+231737005	RO	has direct procedure site Ciliary body	SNOMEDCT_US
+231737005	RO	has intent Therapeutic	SNOMEDCT_US
+231737005	RO	uses energy Radiation	SNOMEDCT_US
+231737005	RO	has method Therapy	SNOMEDCT_US
+394935005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+394935005	PT	Combined post-operative chemotherapy and radiotherapy		SNOMEDCT_US
+394935005	CHD	Combined chemotherapy and radiation therapy	SNOMEDCT_US
+394935005	RO	has direct substance Drug or medicament	SNOMEDCT_US
+394935005	RO	has intent Therapeutic	SNOMEDCT_US
+394935005	RO	uses energy Radiation	SNOMEDCT_US
+394935005	RO	has method Administration	SNOMEDCT_US
+394935005	SY	same as Combined post-operative chemotherapy and radiotherapy	SNOMEDCT_US
+228722007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228722007	PT	Radiotherapy calculation		SNOMEDCT_US
+228722007	CHD	Radiation therapy treatment planning service	SNOMEDCT_US
+228722007	PAR	Radiation therapy, central axis depth dose computation	SNOMEDCT_US
+228722007	PAR	Calculation of teletherapy	SNOMEDCT_US
+228722007	PAR	Calculation of brachytherapy	SNOMEDCT_US
+228722007	PAR	Calculation of radionuclide therapy	SNOMEDCT_US
+228722007	RO	has intent Therapeutic	SNOMEDCT_US
+228722007	RO	uses energy Radiation	SNOMEDCT_US
+700357007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+700357007	PT	Radium 223 brachytherapy		SNOMEDCT_US
+700357007	SY	Radium 223 internal radiotherapy		SNOMEDCT_US
+700357007	CHD	Brachytherapy	SNOMEDCT_US
+700357007	CHD	Radium therapy	SNOMEDCT_US
+700357007	RO	has intent Therapeutic	SNOMEDCT_US
+700357007	RO	uses substance Radium-223	SNOMEDCT_US
+448608009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448608009	PT	Intracavitary brachytherapy of female genital tract		SNOMEDCT_US
+448608009	SY	Gynecologic intracavitary brachytherapy		SNOMEDCT_US
+448608009	SY	Gynaecologic intracavitary brachytherapy		SNOMEDCT_US
+448608009	CHD	Intracavitary brachytherapy	SNOMEDCT_US
+448608009	CHD	Operation on female genital organs	SNOMEDCT_US
+448608009	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+448608009	RO	has method Brachytherapy	SNOMEDCT_US
+448608009	RO	uses substance Radioactive isotope	SNOMEDCT_US
+448608009	RO	has indirect procedure site Female genital spaces	SNOMEDCT_US
+448608009	RO	has intent Therapeutic	SNOMEDCT_US
+448608009	RO	possibly equivalent to Preload radiotherapy	SNOMEDCT_US
+441783000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+441783000	PT	Conformal radiotherapy		SNOMEDCT_US
+441783000	CHD	Destructive procedure	SNOMEDCT_US
+441783000	CHD	Radiation	SNOMEDCT_US
+441783000	PAR	Three dimensional conformal radiotherapy	SNOMEDCT_US
+441783000	RO	has intent Therapeutic	SNOMEDCT_US
+441783000	RO	has method Destruction	SNOMEDCT_US
+38183002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+38183002	PT	Preparation of radiation therapy aid		SNOMEDCT_US
+38183002	SY	Radiotherapy mould room procedure		SNOMEDCT_US
+38183002	SY	Radiotherapy mold room procedure		SNOMEDCT_US
+38183002	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+38183002	PAR	Provision of molds or casts for immobilization	SNOMEDCT_US
+38183002	PAR	Provision of external compensating shield	SNOMEDCT_US
+38183002	PAR	Making of beam direction shell for radiotherapy	SNOMEDCT_US
+38183002	PAR	Making of compensator for radiotherapy	SNOMEDCT_US
+38183002	PAR	Making of docking unit for radiotherapy	SNOMEDCT_US
+38183002	PAR	Making of template for radiotherapy	SNOMEDCT_US
+38183002	PAR	Making of shielding block for radiotherapy	SNOMEDCT_US
+38183002	PAR	Making of surface mold for brachytherapy	SNOMEDCT_US
+38183002	RO	has intent Therapeutic	SNOMEDCT_US
+38183002	RO	uses energy Radiation	SNOMEDCT_US
+16560241000119104	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+16560241000119104	PT	Oral radionuclide therapy		SNOMEDCT_US
+16560241000119104	SY	Oral radioisotope therapy		SNOMEDCT_US
+16560241000119104	CHD	Radionuclide therapy	SNOMEDCT_US
+16560241000119104	CHD	Administration of substance via oral route	SNOMEDCT_US
+16560241000119104	CHD	Administration of radiopharmaceutical	SNOMEDCT_US
+16560241000119104	RO	has direct substance Radioactive isotope	SNOMEDCT_US
+16560241000119104	RO	has intent Therapeutic	SNOMEDCT_US
+16560241000119104	RO	has method Radioactive destruction	SNOMEDCT_US
+16560241000119104	RO	has method Administration	SNOMEDCT_US
+16560241000119104	RO	has route of administration Oral route	SNOMEDCT_US
+420529003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+420529003	PT	Radiation plaque therapy		SNOMEDCT_US
+420529003	SY	Radioactive plaque treatment		SNOMEDCT_US
+420529003	SY	Radiotherapy using radioactive plaque on eye		SNOMEDCT_US
+420529003	CHD	Brachytherapy	SNOMEDCT_US
+420529003	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+420529003	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+420529003	CHD	Procedure categorized by device involved	SNOMEDCT_US
+420529003	CHD	Surgical procedure on eye region	SNOMEDCT_US
+420529003	PAR	Plaque radiotherapy of lesion of retina	SNOMEDCT_US
+420529003	RO	uses substance Radioactive isotope	SNOMEDCT_US
+420529003	RO	has intent Therapeutic	SNOMEDCT_US
+420529003	RO	uses device Radioactive implant	SNOMEDCT_US
+420529003	RO	has indirect procedure site Eye region	SNOMEDCT_US
+169307005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169307005	PT	Fast-electron therapy		SNOMEDCT_US
+169307005	CHD	Teleradiotherapy using electrons	SNOMEDCT_US
+169307005	PAR	Betatron electron therapy	SNOMEDCT_US
+169307005	PAR	Combined fast-electron therapy	SNOMEDCT_US
+169307005	PAR	Linear accelerator electrons	SNOMEDCT_US
+169307005	RB	inverse was a Fast-electron therapy NOS	SNOMEDCT_US
+169307005	RO	uses energy Electron beam	SNOMEDCT_US
+169307005	RO	has intent Therapeutic	SNOMEDCT_US
+169307005	SY	same as Fast-electron therapy	SNOMEDCT_US
+32626001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+32626001	PT	Provision of external compensating shield		SNOMEDCT_US
+32626001	CHD	Preparation of radiation therapy aid	SNOMEDCT_US
+32626001	CHD	Procedure categorized by device involved	SNOMEDCT_US
+32626001	RO	has intent Therapeutic	SNOMEDCT_US
+32626001	RO	has direct device Device	SNOMEDCT_US
+32626001	RO	uses energy Radiation	SNOMEDCT_US
+38104006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+38104006	PT	Teleradiotherapy by linear accelerator		SNOMEDCT_US
+38104006	SY	Linear accelerator X-ray therapy		SNOMEDCT_US
+38104006	SY	LINNAC - Linear accelerator X-ray therapy		SNOMEDCT_US
+38104006	CHD	Megavoltage radiation therapy	SNOMEDCT_US
+38104006	PAR	Linear accelerator photon therapy	SNOMEDCT_US
+38104006	PAR	Linear accelerator electron teletherapy	SNOMEDCT_US
+38104006	RO	uses energy Ionizing radiation	SNOMEDCT_US
+38104006	RO	has intent Therapeutic	SNOMEDCT_US
+169407006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169407006	PT	Radiosensitizing measure		SNOMEDCT_US
+169407006	SY	Radiosensitising measure		SNOMEDCT_US
+169407006	CHD	Radiation	SNOMEDCT_US
+169407006	RO	has intent Therapeutic	SNOMEDCT_US
+169407006	SY	same as Radiosensitising measure	SNOMEDCT_US
+49097004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+49097004	PT	Special dosimetry, TLD		SNOMEDCT_US
+49097004	SY	Special dosimetry, thermoluminescent dosimetry		SNOMEDCT_US
+49097004	CHD	Special dosimetry	SNOMEDCT_US
+49097004	RO	has intent Therapeutic	SNOMEDCT_US
+49097004	RO	uses energy Radiation	SNOMEDCT_US
+69568002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+69568002	PT	Oral radiation		SNOMEDCT_US
+69568002	CHD	Radiation	SNOMEDCT_US
+69568002	RO	has intent Therapeutic	SNOMEDCT_US
+169360009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169360009	PT	Radiotherapy: seeds into hypophysis		SNOMEDCT_US
+169360009	CHD	Operation on pituitary gland	SNOMEDCT_US
+169360009	CHD	Radiotherapy: seeds into brain	SNOMEDCT_US
+169360009	RO	has method Brachytherapy	SNOMEDCT_US
+169360009	RO	has indirect procedure site Pituitary	SNOMEDCT_US
+169360009	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169360009	RO	has intent Therapeutic	SNOMEDCT_US
+169360009	RO	uses device Radioactive seed, device	SNOMEDCT_US
+169360009	SY	same as Radiotherapy: seeds into hypophysis	SNOMEDCT_US
+169318005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169318005	PT	Fast neutron therapy		SNOMEDCT_US
+169318005	CHD	Teleradiotherapy neutrons	SNOMEDCT_US
+169318005	RO	has intent Therapeutic	SNOMEDCT_US
+169318005	RO	uses energy Neutron radiation	SNOMEDCT_US
+169318005	SY	same as Fast neutron therapy	SNOMEDCT_US
+169328001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169328001	PT	Beta source contact therapy		SNOMEDCT_US
+169328001	CHD	Radionuclide therapy	SNOMEDCT_US
+169328001	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169328001	RO	has intent Therapeutic	SNOMEDCT_US
+169328001	RO	has method Radioactive destruction	SNOMEDCT_US
+169328001	SY	same as Beta source contact therapy	SNOMEDCT_US
+169334008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169334008	PT	External beam - surgery with postoperative radiotherapy		SNOMEDCT_US
+169334008	SY	External beam		SNOMEDCT_US
+169334008	CHD	Combined radiotherapy	SNOMEDCT_US
+169334008	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169334008	RO	has intent Therapeutic	SNOMEDCT_US
+169334008	SY	same as External beam	SNOMEDCT_US
+172286002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+172286002	PT	Radiotherapy to lacrimal gland		SNOMEDCT_US
+172286002	CHD	Procedure on lacrimal gland	SNOMEDCT_US
+172286002	CHD	Radiotherapy to head	SNOMEDCT_US
+172286002	RO	has direct procedure site Lacrimal gland	SNOMEDCT_US
+172286002	RO	has intent Therapeutic	SNOMEDCT_US
+172286002	RO	uses energy Radiation	SNOMEDCT_US
+172286002	RO	has method Therapy	SNOMEDCT_US
+231585009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+231585009	PT	Radiotherapy to lesion of lateral canthus		SNOMEDCT_US
+231585009	CHD	Destruction of lesion of lateral canthus	SNOMEDCT_US
+231585009	CHD	Radiotherapy to lesion of canthus	SNOMEDCT_US
+231585009	RO	has direct morphology Lesion	SNOMEDCT_US
+231585009	RO	has direct procedure site Lateral canthus	SNOMEDCT_US
+231585009	RO	has intent Therapeutic	SNOMEDCT_US
+231585009	RO	has method Destruction	SNOMEDCT_US
+228660009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228660009	PT	Contact therapy		SNOMEDCT_US
+228660009	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+228660009	RO	uses energy Ionizing radiation	SNOMEDCT_US
+228660009	RO	has intent Therapeutic	SNOMEDCT_US
+228703003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228703003	PT	Radiotherapy planning		SNOMEDCT_US
+228703003	SY	RTP - Radiotherapy planning		SNOMEDCT_US
+228703003	CHD	Radiation therapy treatment planning service	SNOMEDCT_US
+228703003	PAR	Treatment planning for teletherapy	SNOMEDCT_US
+228703003	PAR	Radiation therapy treatment planning, patient contour and localization of internal structures	SNOMEDCT_US
+228703003	PAR	Therapeutic radiology port film interpretation and verification	SNOMEDCT_US
+228703003	PAR	Treatment planning for brachytherapy	SNOMEDCT_US
+228703003	PAR	Radiotherapy planning using a free set up	SNOMEDCT_US
+228703003	PAR	Radiotherapy planning using a simulator	SNOMEDCT_US
+228703003	PAR	Radiotherapy planning using diagnostic radiology	SNOMEDCT_US
+228703003	PAR	Radiotherapy planning using mold room preparation	SNOMEDCT_US
+228703003	PAR	CT guidance for treatment planning, teletherapy	SNOMEDCT_US
+228703003	RO	has intent Therapeutic	SNOMEDCT_US
+228703003	RO	uses energy Radiation	SNOMEDCT_US
+228703003	RO	focus of MRI of head for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI of prostate for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI of pelvis for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI of orbit for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of Computed tomography for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI of neck for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI of breast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI of chest for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI of urinary bladder for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of urinary bladder for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of thorax for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of breast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of Computed tomography for simultaneous modulated accelerated radiation therapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of orbit for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of pelvis for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of prostate for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of head for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of spine for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI for simultaneous modulated accelerated radiation therapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of neck for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of Radiotherapy planning using cone beam computed tomography	SNOMEDCT_US
+228703003	RO	focus of CT of central nervous system for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of head with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of esophagus with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of pelvis with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of cervical spine for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of lower leg for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of prostate with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of thorax with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of urinary bladder with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of esophagus for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of neck with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of abdomen with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of breast with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of lumbosacral spine for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of head and neck with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of lower limb for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of axilla with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of abdomen for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of thigh for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of thoracic spine for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of axilla for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of CT of head and neck for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI of female pelvis for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of MRI with contrast for radiotherapy planning	SNOMEDCT_US
+228703003	RO	focus of Magnetic resonance imaging for radiotherapy planning	SNOMEDCT_US
+304412000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304412000	PT	Pulsed electromagnetic energy to trunk		SNOMEDCT_US
+304412000	CHD	Pulsed electromagnetic energy therapy	SNOMEDCT_US
+304412000	CHD	Procedure on trunk	SNOMEDCT_US
+304412000	PAR	Pulsed electromagnetic energy to back	SNOMEDCT_US
+304412000	PAR	Pulsed electromagnetic energy to pelvis	SNOMEDCT_US
+304412000	PAR	Pulsed electromagnetic energy to abdomen	SNOMEDCT_US
+304412000	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304412000	RO	has intent Therapeutic	SNOMEDCT_US
+304412000	RO	has direct procedure site Trunk	SNOMEDCT_US
+169340001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169340001	PT	Internal metabolic radiotherapy		SNOMEDCT_US
+169340001	CHD	Radionuclide therapy	SNOMEDCT_US
+169340001	PAR	Bone marrow suppression	SNOMEDCT_US
+169340001	PAR	Radioactive drug therapy	SNOMEDCT_US
+169340001	PAR	Combined internal radiotherapy	SNOMEDCT_US
+169340001	PAR	Thyroid tumor/metastasis irradiation	SNOMEDCT_US
+169340001	PAR	Polycythemia irradiation	SNOMEDCT_US
+169340001	PAR	Bone tumor/metastasis irradiation	SNOMEDCT_US
+169340001	RB	inverse was a Internal metabolic radiotherapy NOS	SNOMEDCT_US
+169340001	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169340001	RO	has intent Therapeutic	SNOMEDCT_US
+169340001	RO	has method Radioactive destruction	SNOMEDCT_US
+169340001	SY	same as Internal metabolic radiotherapy	SNOMEDCT_US
+314604005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+314604005	PT	Palliative course of deep X-ray therapy		SNOMEDCT_US
+314604005	CHD	Deep radiation therapy, 200-300 KVP	SNOMEDCT_US
+314604005	CHD	Palliative course of radiotherapy	SNOMEDCT_US
+314604005	RO	uses energy X-ray	SNOMEDCT_US
+314604005	RO	has intent Therapeutic	SNOMEDCT_US
+314604005	RO	has intent Palliative intent	SNOMEDCT_US
+108290001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+108290001	PT	Radiation		SNOMEDCT_US
+108290001	SY	Radiotherapy		SNOMEDCT_US
+108290001	SY	Radiation oncology AND/OR radiotherapy		SNOMEDCT_US
+108290001	SY	RT - Radiotherapy		SNOMEDCT_US
+108290001	CHD	Therapeutic procedure	SNOMEDCT_US
+108290001	PAR	Vaginal cone irradiation	SNOMEDCT_US
+108290001	PAR	Oral radiation	SNOMEDCT_US
+108290001	PAR	Betatron teleradiotherapy	SNOMEDCT_US
+108290001	PAR	Radionuclide therapy	SNOMEDCT_US
+108290001	PAR	Hemibody irradiation	SNOMEDCT_US
+108290001	PAR	Radioimmunoguided surgery	SNOMEDCT_US
+108290001	PAR	Radiotherapy to lesion of peripheral nerve	SNOMEDCT_US
+108290001	PAR	Radiotherapy to orbital lesion	SNOMEDCT_US
+108290001	PAR	Radiotherapy of corneal lesion	SNOMEDCT_US
+108290001	PAR	Destruction of lesion of choroid by radiation therapy	SNOMEDCT_US
+108290001	PAR	Radiotherapy treatment groups	SNOMEDCT_US
+108290001	PAR	Teleradiotherapy procedure	SNOMEDCT_US
+108290001	PAR	Combined therapy follow-up	SNOMEDCT_US
+108290001	PAR	Purpose of radiotherapy	SNOMEDCT_US
+108290001	PAR	Preoperative course of radiotherapy	SNOMEDCT_US
+108290001	PAR	Radiotherapy	SNOMEDCT_US
+108290001	PAR	Postoperative course of radiotherapy	SNOMEDCT_US
+108290001	PAR	Combined radiotherapy	SNOMEDCT_US
+108290001	PAR	Radiosensitizing measure	SNOMEDCT_US
+108290001	PAR	Support transfusion therapy	SNOMEDCT_US
+108290001	PAR	Gamma ray therapy	SNOMEDCT_US
+108290001	PAR	Radiotherapy to lesion of canthus	SNOMEDCT_US
+108290001	PAR	Conformal radiotherapy	SNOMEDCT_US
+108290001	PAR	Electromagnetic energy therapy	SNOMEDCT_US
+108290001	PAR	Selectron therapy	SNOMEDCT_US
+108290001	PAR	Iridium wire therapy	SNOMEDCT_US
+108290001	PAR	Radioprotective drug	SNOMEDCT_US
+108290001	PAR	Intensity modulated radiation therapy	SNOMEDCT_US
+108290001	PAR	Radiation therapy procedure or service	SNOMEDCT_US
+108290001	PAR	Radiotherapy by body site	SNOMEDCT_US
+108290001	PAR	High dose rate electronic brachytherapy	SNOMEDCT_US
+108290001	PAR	Boost radiation therapy	SNOMEDCT_US
+108290001	PAR	Intravenous radionuclide therapy	SNOMEDCT_US
+108290001	PAR	Intracavitary brachytherapy of mouth	SNOMEDCT_US
+108290001	PAR	 Mantle field radiation	SNOMEDCT_US
+108290001	RB	inverse was a External radiotherapy NOS	SNOMEDCT_US
+108290001	RB	inverse was a Other radiotherapy misc.	SNOMEDCT_US
+108290001	RB	inverse was a Other radiotherapy miscellaneous	SNOMEDCT_US
+108290001	RB	inverse was a Other radiotherapy NOS	SNOMEDCT_US
+108290001	RO	possibly equivalent to Phototherapy and/or radiation therapy	SNOMEDCT_US
+108290001	RO	cause of Radiation kyphosis	SNOMEDCT_US
+108290001	RO	cause of Scoliosis due to radiation	SNOMEDCT_US
+108290001	RO	has associated procedure Special medical radiation physics consultation	SNOMEDCT_US
+108290001	RO	has associated procedure Therapeutic radiology treatment planning; complex	SNOMEDCT_US
+108290001	RO	has associated procedure Unlisted procedure, therapeutic radiology clinical treatment planning	SNOMEDCT_US
+108290001	RO	has associated procedure Treatment devices, design and construction; simple (simple block, simple bolus)	SNOMEDCT_US
+108290001	RO	has associated procedure Treatment devices, design and construction; intermediate (multiple blocks, stents, bite blocks, special bolus)	SNOMEDCT_US
+108290001	RO	has associated procedure Treatment devices, design and construction; complex (irregular blocks, special shields, compensators, wedges, molds or casts)	SNOMEDCT_US
+108290001	RO	occurs before Post-radiation pericarditis	SNOMEDCT_US
+108290001	RO	occurs before Postirradiation vaginitis	SNOMEDCT_US
+108290001	RO	occurs before Postirradiation ovarian failure	SNOMEDCT_US
+108290001	RO	occurs before Postirradiation testicular hypofunction	SNOMEDCT_US
+108290001	RO	has intent Therapeutic	SNOMEDCT_US
+108290001	RO	occurs before Ulceration of skin due to therapeutic ionizing radiation	SNOMEDCT_US
+108290001	RO	occurs before Irradiation hypothyroidism	SNOMEDCT_US
+108290001	RO	occurs before Hypopituitarism due to radiotherapy	SNOMEDCT_US
+108290001	RO	has associated procedure Anesthesia for non-invasive imaging or radiation therapy	SNOMEDCT_US
+108290001	RO	has associated procedure Therapeutic radiology treatment planning; simple	SNOMEDCT_US
+108290001	RO	has associated procedure Therapeutic radiology treatment planning; intermediate	SNOMEDCT_US
+108290001	RO	has associated procedure Therapeutic radiology simulation-aided field setting; simple	SNOMEDCT_US
+108290001	RO	has associated procedure Therapeutic radiology simulation-aided field setting; intermediate	SNOMEDCT_US
+108290001	RO	has associated procedure Therapeutic radiology simulation-aided field setting; complex	SNOMEDCT_US
+108290001	RO	has associated procedure Basic radiation dosimetry calculation, central axis depth dose calculation, TDF, NSD, gap calculation, off axis factor, tissue inhomogeneity factors, calculation of non-ionizing radiation surface and depth dose, as required during course of treatment, only when prescribed by the treating physician	SNOMEDCT_US
+108290001	RO	has associated procedure Continuing medical physics consultation, including assessment of treatment parameters, quality assurance of dose delivery, and review of patient treatment documentation in support of the radiation oncologist, reported per week of therapy	SNOMEDCT_US
+108290001	RO	has associated procedure Radiation therapy management with complete course of therapy consisting of 1 or 2 fractions only	SNOMEDCT_US
+108290001	RO	has associated procedure Stereotactic radiation treatment management of cranial lesion(s) (complete course of treatment consisting of 1 session)	SNOMEDCT_US
+108290001	RO	occurs before Mucositis following radiation therapy	SNOMEDCT_US
+108290001	RO	occurs before Adverse effect of radiation therapy	SNOMEDCT_US
+108290001	RO	associated with Radiation therapy complication	SNOMEDCT_US
+108290001	RO	occurs before Post-radiotherapy laryngitis	SNOMEDCT_US
+108290001	RO	associated procedure of Radiotherapy started	SNOMEDCT_US
+108290001	RO	associated procedure of Radiotherapy changed	SNOMEDCT_US
+108290001	RO	associated procedure of Radiotherapy stopped	SNOMEDCT_US
+108290001	RO	associated procedure of Radiotherapy completed	SNOMEDCT_US
+108290001	RO	occurs before Post-radiotherapy telangiectasis of vocal cord	SNOMEDCT_US
+108290001	RO	occurs before Post-radiotherapy laryngeal edema	SNOMEDCT_US
+108290001	RO	occurs before Immunodeficiency secondary to radiation therapy	SNOMEDCT_US
+108290001	RO	associated with Salivary dysfunction caries secondary to radiation therapy	SNOMEDCT_US
+108290001	RO	has associated procedure Radiation treatment management, 5 treatments	SNOMEDCT_US
+108290001	RO	has associated procedure Intensity modulated radiotherapy plan, including dose-volume histograms for target and critical structure partial tolerance specifications	SNOMEDCT_US
+108290001	RO	associated procedure of Awaiting radiotherapy	SNOMEDCT_US
+108290001	RO	occurs before Radiotherapy scar	SNOMEDCT_US
+108290001	RO	occurs before Generalized enamel hypoplasia associated with radiation therapy	SNOMEDCT_US
+108290001	RO	associated with Toxicity due to radiotherapy	SNOMEDCT_US
+108290001	RO	occurs before Dermatosis due to therapeutic ionizing irradiation	SNOMEDCT_US
+108290001	RO	occurs before Post-radiotherapy pneumonitis	SNOMEDCT_US
+108290001	RO	cause of Pulmonary fibrosis due to and following radiotherapy	SNOMEDCT_US
+108290001	RO	replaces Radiation therapy	SNOMEDCT_US
+108290001	RO	occurs before Post-radiotherapy somnolence syndrome	SNOMEDCT_US
+108290001	RO	has associated procedure Special treatment procedure (eg, total body irradiation, hemibody radiation, per oral or endocavitary irradiation)	SNOMEDCT_US
+108290001	RO	has associated procedure Stereotactic body radiation therapy, treatment management, per treatment course, to 1 or more lesions, including image guidance, entire course not to exceed 5 fractions	SNOMEDCT_US
+108290001	RO	associated procedure of History of radiation therapy	SNOMEDCT_US
+108290001	RO	occurs before Short stature due to radiation therapy	SNOMEDCT_US
+108290001	RO	associated procedure of Family history of radiation therapy	SNOMEDCT_US
+108290001	RO	occurs before Late effect of radiation therapy	SNOMEDCT_US
+108290001	RO	has associated procedure Multi-leaf collimator (MLC) device(s) for intensity modulated radiation therapy (IMRT), design and construction per IMRT plan	SNOMEDCT_US
+108290001	RO	associated procedure of Radiotherapy procedure with explicit context	SNOMEDCT_US
+108290001	RO	has associated procedure Intraoperative radiation treatment management	SNOMEDCT_US
+108290001	RO	associated procedure of Mother receiving radiation therapy	SNOMEDCT_US
+108290001	RO	occurs before Post-radiotherapy cerebral vasculopathy	SNOMEDCT_US
+108290001	RO	has associated procedure Respiratory motion management simulation (List separately in addition to code for primary procedure)	SNOMEDCT_US
+108290001	RO	has associated procedure 3-dimensional radiotherapy plan, including dose-volume histograms	SNOMEDCT_US
+108290001	RO	has associated procedure Guidance for localization of target volume for delivery of radiation treatment, includes intrafraction tracking, when performed	SNOMEDCT_US
+108290001	RO	occurs before Dehydration due to radiation	SNOMEDCT_US
+108290001	RO	occurs before Xerostomia following radiotherapy	SNOMEDCT_US
+108290001	RO	has associated procedure Therapeutic radiology port image(s)	SNOMEDCT_US
+108290001	RO	associated procedure of Radiation therapy not done	SNOMEDCT_US
+108290001	RO	occurs before Injury of spinal cord caused by ionizing radiation following radiotherapy procedure	SNOMEDCT_US
+108290001	RO	occurs before Radiation injury of brain caused by ionizing radiation following radiotherapy procedure	SNOMEDCT_US
+108290001	RO	occurs before Radiation injury of nervous system following radiotherapy procedure	SNOMEDCT_US
+108290001	RO	occurs before Optic neuropathy caused by ionizing radiation following radiotherapy procedure	SNOMEDCT_US
+108290001	RO	cause of Lumbosacral plexopathy due to and following procedure caused by ionizing radiation	SNOMEDCT_US
+108290001	RO	occurs before Chronic radiodermatitis due to and following radiotherapy caused by ionizing radiation	SNOMEDCT_US
+108290001	RO	cause of Primary malignant neoplasm of skin due to and following radiotherapy caused by ionizing radiation	SNOMEDCT_US
+108290001	RO	cause of Acute radiodermatitis due to and following radiotherapy caused by ionizing radiation	SNOMEDCT_US
+108290001	RO	cause of Lymphedema due to and following radiotherapy caused by ionizing radiation	SNOMEDCT_US
+108290001	RO	occurs before Pain following radiation therapy	SNOMEDCT_US
+108290001	RO	has associated procedure Preparation of tumor cavity, with placement of a radiation therapy applicator for intraoperative radiation therapy (IORT) concurrent with partial mastectomy (List separately in addition to code for primary procedure)	SNOMEDCT_US
+108290001	RO	occurs before Chronic pain following radiotherapy	SNOMEDCT_US
+108290001	RO	cause of Radiation myelitis	SNOMEDCT_US
+108290001	RO	cause of Acute myeloid leukemia and myelodysplastic syndrome related to radiation	SNOMEDCT_US
+108290001	RO	cause of Stenosis of external auditory canal due to and after radiation therapy	SNOMEDCT_US
+108290001	RO	occurs before Dermatitis as late effect of radiation	SNOMEDCT_US
+46044009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+46044009	PT	Megavoltage radiation therapy		SNOMEDCT_US
+46044009	SY	Supervoltage X-ray therapy		SNOMEDCT_US
+46044009	SY	Supervoltage radiation therapy		SNOMEDCT_US
+46044009	SY	High voltage X-ray therapy		SNOMEDCT_US
+46044009	SY	Megavoltage X-ray therapy		SNOMEDCT_US
+46044009	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+46044009	PAR	Ultrahard X-rays 400-2000 kV	SNOMEDCT_US
+46044009	PAR	Teleradiotherapy by linear accelerator	SNOMEDCT_US
+46044009	PAR	Betatron X-ray therapy	SNOMEDCT_US
+46044009	PAR	Microtron X-ray therapy	SNOMEDCT_US
+46044009	PAR	Van der Graaff X-ray therapy	SNOMEDCT_US
+46044009	PAR	Megavoltage radiation therapy using photons and electrons	SNOMEDCT_US
+46044009	PAR	Stereotactic radiation therapy using megavoltage radiation	SNOMEDCT_US
+46044009	PAR	Megavoltage radiation therapy using photons	SNOMEDCT_US
+46044009	RO	uses energy Ionizing radiation	SNOMEDCT_US
+46044009	RO	has intent Therapeutic	SNOMEDCT_US
+228718002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228718002	PT	Making of docking unit for radiotherapy		SNOMEDCT_US
+228718002	CHD	Preparation of radiation therapy aid	SNOMEDCT_US
+228718002	CHD	Procedure categorized by device involved	SNOMEDCT_US
+228718002	RO	has intent Therapeutic	SNOMEDCT_US
+228718002	RO	has direct device Device	SNOMEDCT_US
+228718002	RO	uses energy Radiation	SNOMEDCT_US
+228663006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228663006	PT	Microtron X-ray therapy		SNOMEDCT_US
+228663006	CHD	Megavoltage radiation therapy	SNOMEDCT_US
+228663006	RO	uses energy Ionizing radiation	SNOMEDCT_US
+228663006	RO	has intent Therapeutic	SNOMEDCT_US
+64522003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+64522003	PT	Destruction of chorioretinal lesion by implantation of radiation source		SNOMEDCT_US
+64522003	CHD	Destruction of chorioretinal lesion by radiation therapy	SNOMEDCT_US
+64522003	CHD	Destruction of lesion of retina by implantation of radiation source	SNOMEDCT_US
+64522003	CHD	Destruction of lesion of choroid by implantation of radiation source	SNOMEDCT_US
+64522003	RO	has direct procedure site Choroidal structure	SNOMEDCT_US
+64522003	RO	has direct procedure site Retinal structure	SNOMEDCT_US
+64522003	RO	has direct morphology Lesion	SNOMEDCT_US
+64522003	RO	has intent Therapeutic	SNOMEDCT_US
+64522003	RO	has method Insertion	SNOMEDCT_US
+64522003	RO	has direct device Radioactive implant	SNOMEDCT_US
+64522003	RO	uses energy Radiation	SNOMEDCT_US
+64522003	RO	has method Destruction	SNOMEDCT_US
+64522003	RO	has method Therapy	SNOMEDCT_US
+64522003	RO	has direct procedure site Anatomical or acquired body	SNOMEDCT_US
+271291003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+271291003	PT	Temporary implant radiotherapy		SNOMEDCT_US
+271291003	CHD	Brachytherapy	SNOMEDCT_US
+271291003	CHD	Procedure categorized by device involved	SNOMEDCT_US
+271291003	PAR	Radiotherapy: temporary head/neck implant	SNOMEDCT_US
+271291003	PAR	Radiotherapy: temporary thorax implant	SNOMEDCT_US
+271291003	PAR	Radiotherapy: temporary abdominal implant	SNOMEDCT_US
+271291003	PAR	Radiotherapy: temporary pelvic implant	SNOMEDCT_US
+271291003	PAR	Radiotherapy: temporary limb implant	SNOMEDCT_US
+271291003	PAR	Radiotherapy: temporary lymphatic implant	SNOMEDCT_US
+271291003	RB	inverse was a Radiotherapy: temporary implant NOS	SNOMEDCT_US
+271291003	RO	uses substance Radioactive isotope	SNOMEDCT_US
+271291003	RO	has intent Therapeutic	SNOMEDCT_US
+271291003	RO	possibly equivalent to Radiotherapy implant: [needles] or [therapy]	SNOMEDCT_US
+271291003	RO	uses device Radioactive implant	SNOMEDCT_US
+271291003	SY	same as Temporary implant radiotherapy	SNOMEDCT_US
+169409009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169409009	PT	Radioprotective drug		SNOMEDCT_US
+169409009	CHD	Radiation	SNOMEDCT_US
+169409009	RO	has intent Therapeutic	SNOMEDCT_US
+169409009	SY	same as Radioprotective drug	SNOMEDCT_US
+39646005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+39646005	PT	Hemibody irradiation		SNOMEDCT_US
+39646005	CHD	Radiation	SNOMEDCT_US
+39646005	RO	has intent Therapeutic	SNOMEDCT_US
+169335009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169335009	PT	External beam - surgery with chemotherapy		SNOMEDCT_US
+169335009	SY	External beam		SNOMEDCT_US
+169335009	CHD	Combined radiotherapy	SNOMEDCT_US
+169335009	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169335009	RO	has intent Therapeutic	SNOMEDCT_US
+169335009	SY	same as External beam	SNOMEDCT_US
+53438000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+53438000	PT	Radiation therapy procedure or service		SNOMEDCT_US
+53438000	SY	Radiotherapy procedures		SNOMEDCT_US
+53438000	CHD	Radiation	SNOMEDCT_US
+53438000	PAR	Radiation therapy care	SNOMEDCT_US
+53438000	PAR	General radiation therapy consultation and report	SNOMEDCT_US
+53438000	PAR	Radiation therapy simulator aided field setting	SNOMEDCT_US
+53438000	PAR	Radiation therapy, tissue and geometric inhomogeneity correction	SNOMEDCT_US
+53438000	PAR	Radiation therapy treatment planning, interpretation of special testing ordered by radiation therapist	SNOMEDCT_US
+53438000	PAR	Compensating filter design and fabrication	SNOMEDCT_US
+53438000	PAR	Radiation therapy treatment management	SNOMEDCT_US
+53438000	PAR	Hyperthermia generated by intracavitary probes	SNOMEDCT_US
+53438000	PAR	Preparation of radioactive source	SNOMEDCT_US
+53438000	PAR	Disposal of radioactive source	SNOMEDCT_US
+53438000	PAR	Supervision, handling and loading of radioelement	SNOMEDCT_US
+53438000	PAR	Preparation of radiation therapy aid	SNOMEDCT_US
+53438000	PAR	Combined chemotherapy and radiation therapy	SNOMEDCT_US
+53438000	RB	inverse was a Radiation/phototherapy NOS	SNOMEDCT_US
+53438000	RB	inverse was a Infrared therapy NOS	SNOMEDCT_US
+53438000	RO	has intent Therapeutic	SNOMEDCT_US
+53438000	RO	has associated procedure Computed tomography guidance for placement of radiation therapy fields	SNOMEDCT_US
+118641002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+118641002	PT	Three dimensional treatment planning		SNOMEDCT_US
+118641002	SY	3D treatment planning		SNOMEDCT_US
+118641002	SY	Three dimensional treatment planning for teleradiotherapy		SNOMEDCT_US
+118641002	CHD	Treatment planning for teletherapy	SNOMEDCT_US
+118641002	RO	has intent Therapeutic	SNOMEDCT_US
+118641002	RO	uses energy Radiation	SNOMEDCT_US
+9990009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+9990009	PT	Radiation therapy treatment planning service		SNOMEDCT_US
+9990009	CHD	Radiation therapy treatment management	SNOMEDCT_US
+9990009	PAR	Special dosimetry	SNOMEDCT_US
+9990009	PAR	Radiotherapy planning	SNOMEDCT_US
+9990009	PAR	Radiotherapy calculation	SNOMEDCT_US
+9990009	RO	has intent Therapeutic	SNOMEDCT_US
+9990009	RO	uses energy Radiation	SNOMEDCT_US
+24689001	STY	Diagnostic Procedure		SNOMEDCT_US
+24689001	PT	CT guidance for treatment planning, teletherapy		SNOMEDCT_US
+24689001	SY	Radiotherapy planning using computerised tomography		SNOMEDCT_US
+24689001	SY	Radiotherapy planning CT scan		SNOMEDCT_US
+24689001	SY	Radiotherapy planning using computerized tomography		SNOMEDCT_US
+24689001	SY	Computed tomography guidance for treatment planning, teletherapy		SNOMEDCT_US
+24689001	CHD	Computerized axial tomography	SNOMEDCT_US
+24689001	CHD	Radiotherapy planning	SNOMEDCT_US
+24689001	PAR	Radiotherapy planning using four dimensional computed tomography	SNOMEDCT_US
+24689001	RO	has intent Therapeutic	SNOMEDCT_US
+24689001	RO	has method Computed tomography imaging	SNOMEDCT_US
+24689001	RO	uses energy Radiation	SNOMEDCT_US
+168525009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168525009	PT	Postoperative course of radiotherapy		SNOMEDCT_US
+168525009	SY	Radiotherapy		SNOMEDCT_US
+168525009	CHD	Radiation	SNOMEDCT_US
+168525009	PAR	Postoperative course of deep X-ray therapy	SNOMEDCT_US
+168525009	PAR	Post-mastectomy radiotherapy	SNOMEDCT_US
+168525009	RO	has intent Therapeutic	SNOMEDCT_US
+168525009	SY	same as Postoperative course of radiotherapy	SNOMEDCT_US
+438816004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+438816004	PT	Radiolabeled technetium 99m antibody therapy		SNOMEDCT_US
+438816004	SY	Radiolabelled Tc99m antibody therapy		SNOMEDCT_US
+438816004	SY	Radiolabelled technetium 99m antibody therapy		SNOMEDCT_US
+438816004	CHD	Radiolabeled antibody therapy	SNOMEDCT_US
+438816004	RO	has intent Therapeutic	SNOMEDCT_US
+438816004	RO	uses substance Technetium-99m	SNOMEDCT_US
+438816004	RO	has method Radioactive destruction	SNOMEDCT_US
+169296006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169296006	PT	Ultrahard X-rays 400-2000 kV		SNOMEDCT_US
+169296006	CHD	Megavoltage radiation therapy	SNOMEDCT_US
+169296006	RO	uses energy X-ray	SNOMEDCT_US
+169296006	RO	has intent Therapeutic	SNOMEDCT_US
+169296006	SY	same as Ultrahard X-rays 400-2000 kV	SNOMEDCT_US
+228695007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228695007	PT	Tantalum 182 brachytherapy		SNOMEDCT_US
+228695007	CHD	Brachytherapy	SNOMEDCT_US
+228695007	RO	has intent Therapeutic	SNOMEDCT_US
+228695007	RO	uses substance Tantalum-182	SNOMEDCT_US
+228726005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228726005	PT	Calculation of radiotherapy isodose distribution		SNOMEDCT_US
+228726005	CHD	Calculation of teletherapy	SNOMEDCT_US
+228726005	RO	has intent Therapeutic	SNOMEDCT_US
+228726005	RO	uses energy Radiation	SNOMEDCT_US
+169346007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169346007	PT	Radioactive drug therapy		SNOMEDCT_US
+169346007	CHD	Internal metabolic radiotherapy	SNOMEDCT_US
+169346007	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169346007	RO	has intent Therapeutic	SNOMEDCT_US
+169346007	RO	has method Radioactive destruction	SNOMEDCT_US
+169346007	RO	possibly equivalent to Radioactive drug therapy (and I131)	SNOMEDCT_US
+172408001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+172408001	PT	Radiotherapy of corneal lesion		SNOMEDCT_US
+172408001	CHD	Destruction of lesion of cornea	SNOMEDCT_US
+172408001	CHD	Radiation	SNOMEDCT_US
+172408001	RO	has direct procedure site Corneal structure	SNOMEDCT_US
+172408001	RO	has direct morphology Lesion	SNOMEDCT_US
+172408001	RO	has intent Therapeutic	SNOMEDCT_US
+172408001	RO	has method Destruction	SNOMEDCT_US
+32947004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+32947004	PT	Radiation therapy isodose plan, isocentric		SNOMEDCT_US
+32947004	CHD	Special dosimetry	SNOMEDCT_US
+32947004	RO	has intent Therapeutic	SNOMEDCT_US
+32947004	RO	uses energy Radiation	SNOMEDCT_US
+431399005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+431399005	PT	Brachytherapy using iodine (131-I) ethiodized oil		SNOMEDCT_US
+431399005	CHD	Iodine 131 therapy	SNOMEDCT_US
+431399005	CHD	Brachytherapy using radioiodine	SNOMEDCT_US
+431399005	RO	has method Brachytherapy	SNOMEDCT_US
+431399005	RO	has intent Therapeutic	SNOMEDCT_US
+431399005	RO	uses substance Iodine (131-I) ethiodized oil	SNOMEDCT_US
+431399005	RO	possibly equivalent to Selective internal radiation using iodine radioisotope labelled ethiodised oil	SNOMEDCT_US
+61109003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+61109003	PT	Therapeutic radiology port film interpretation and verification		SNOMEDCT_US
+61109003	CHD	Radiotherapy planning	SNOMEDCT_US
+61109003	RO	has intent Therapeutic	SNOMEDCT_US
+61109003	RO	uses energy Radiation	SNOMEDCT_US
+38915000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+38915000	PT	Radionuclide therapy for gland ablation		SNOMEDCT_US
+38915000	CHD	Radionuclide therapy	SNOMEDCT_US
+38915000	RO	uses substance Radioactive isotope	SNOMEDCT_US
+38915000	RO	has intent Therapeutic	SNOMEDCT_US
+38915000	RO	has method Radioactive destruction	SNOMEDCT_US
+304424007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304424007	PT	Pulsed electromagnetic energy to foot		SNOMEDCT_US
+304424007	CHD	Procedure on foot	SNOMEDCT_US
+304424007	CHD	Pulsed electromagnetic energy to lower limb	SNOMEDCT_US
+304424007	RO	has direct procedure site Foot	SNOMEDCT_US
+304424007	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304424007	RO	has intent Therapeutic	SNOMEDCT_US
+16554931000119102	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+16554931000119102	PT	Intravenous radionuclide therapy using radium 223 dichloride		SNOMEDCT_US
+16554931000119102	SY	Intravenous radioisotope therapy using radium 223 dichloride		SNOMEDCT_US
+16554931000119102	CHD	Intravenous radionuclide therapy	SNOMEDCT_US
+16554931000119102	RO	has indirect procedure site Venous	SNOMEDCT_US
+16554931000119102	RO	has intent Therapeutic	SNOMEDCT_US
+16554931000119102	RO	has direct substance Radium-223	SNOMEDCT_US
+16554931000119102	RO	has method Infusion	SNOMEDCT_US
+16554931000119102	RO	has route of administration Intravenous route	SNOMEDCT_US
+428829005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+428829005	PT	Radiotherapy to pelvis		SNOMEDCT_US
+428829005	CHD	Procedure on pelvis	SNOMEDCT_US
+428829005	CHD	Radiotherapy by body site	SNOMEDCT_US
+428829005	RO	has direct procedure site Pelvic structure	SNOMEDCT_US
+428829005	RO	has intent Therapeutic	SNOMEDCT_US
+428829005	RO	uses energy Radiation	SNOMEDCT_US
+428829005	RO	has method Therapy	SNOMEDCT_US
+228719005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228719005	PT	Making of template for radiotherapy		SNOMEDCT_US
+228719005	CHD	Preparation of radiation therapy aid	SNOMEDCT_US
+228719005	CHD	Procedure categorized by device involved	SNOMEDCT_US
+228719005	RO	has intent Therapeutic	SNOMEDCT_US
+228719005	RO	has direct device Device	SNOMEDCT_US
+228719005	RO	uses energy Radiation	SNOMEDCT_US
+429579007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+429579007	PT	Radiotherapy to axilla		SNOMEDCT_US
+429579007	CHD	Procedure on axilla	SNOMEDCT_US
+429579007	CHD	Radiotherapy by body site	SNOMEDCT_US
+429579007	RO	has direct procedure site Axillary region	SNOMEDCT_US
+429579007	RO	has intent Therapeutic	SNOMEDCT_US
+429579007	RO	uses energy Radiation	SNOMEDCT_US
+429579007	RO	has method Therapy	SNOMEDCT_US
+312243002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+312243002	PT	Cesium 137 brachytherapy remote afterloading		SNOMEDCT_US
+312243002	SY	Caesium 137 brachytherapy remote afterloading		SNOMEDCT_US
+312243002	CHD	Cesium 137 brachytherapy	SNOMEDCT_US
+312243002	CHD	Procedure categorized by device involved	SNOMEDCT_US
+312243002	RO	has method Brachytherapy	SNOMEDCT_US
+312243002	RO	uses device Remote-afterloading brachytherapy system	SNOMEDCT_US
+312243002	RO	has intent Therapeutic	SNOMEDCT_US
+312243002	RO	uses substance Cesium-137	SNOMEDCT_US
+113117004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+113117004	PT	Teleradiotherapy particulate radiation		SNOMEDCT_US
+113117004	SY	Heavy particle therapy		SNOMEDCT_US
+113117004	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+113117004	PAR	Teleradiotherapy neutrons	SNOMEDCT_US
+113117004	PAR	Teleradiotherapy protons	SNOMEDCT_US
+113117004	PAR	Pi-meson therapy	SNOMEDCT_US
+113117004	PAR	Combined heavy particle therapy	SNOMEDCT_US
+113117004	PAR	Heavy ion teletherapy	SNOMEDCT_US
+113117004	RB	inverse was a Heavy particle therapy NOS	SNOMEDCT_US
+113117004	RO	uses energy Ionizing radiation	SNOMEDCT_US
+113117004	RO	has intent Therapeutic	SNOMEDCT_US
+113117004	SY	same as Heavy particle therapy	SNOMEDCT_US
+80893007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+80893007	PT	Hyperthermia generated by intracavitary probes		SNOMEDCT_US
+80893007	CHD	Hyperthermia treatment	SNOMEDCT_US
+80893007	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+80893007	RO	has intent Therapeutic	SNOMEDCT_US
+80893007	RO	uses energy Radiation	SNOMEDCT_US
+304415003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304415003	PT	Pulsed electromagnetic energy to elbow		SNOMEDCT_US
+304415003	CHD	Pulsed electromagnetic energy to upper limb	SNOMEDCT_US
+304415003	CHD	Procedure on elbow	SNOMEDCT_US
+304415003	RO	has direct procedure site Elbow region	SNOMEDCT_US
+304415003	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304415003	RO	has intent Therapeutic	SNOMEDCT_US
+394918006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+394918006	PT	Iodine seed radiotherapy		SNOMEDCT_US
+394918006	CHD	Procedure categorized by device involved	SNOMEDCT_US
+394918006	CHD	Brachytherapy using radioiodine	SNOMEDCT_US
+394918006	RO	has method Brachytherapy	SNOMEDCT_US
+394918006	RO	uses substance Iodine radioisotope	SNOMEDCT_US
+394918006	RO	has intent Therapeutic	SNOMEDCT_US
+394918006	RO	uses device Radioactive seed, device	SNOMEDCT_US
+394918006	SY	same as Iodine seed radiotherapy	SNOMEDCT_US
+228707002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228707002	PT	Radiotherapy planning using a simulator X-ray film		SNOMEDCT_US
+228707002	SY	Radiotherapy simulator X-ray film		SNOMEDCT_US
+228707002	CHD	Radiotherapy planning using a simulator	SNOMEDCT_US
+228707002	RO	has intent Therapeutic	SNOMEDCT_US
+228707002	RO	uses energy Radiation	SNOMEDCT_US
+451017006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+451017006	PT	Radiotherapy planning using four dimensional computed tomography		SNOMEDCT_US
+451017006	SY	Radiotherapy planning using 4D CT		SNOMEDCT_US
+451017006	CHD	CT guidance for treatment planning, teletherapy	SNOMEDCT_US
+451017006	RO	has intent Therapeutic	SNOMEDCT_US
+451017006	RO	has method Computed tomography imaging	SNOMEDCT_US
+451017006	RO	uses energy Radiation	SNOMEDCT_US
+64978007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+64978007	PT	Radionuclide therapy for hyperthyroidism		SNOMEDCT_US
+64978007	CHD	Radionuclide therapy	SNOMEDCT_US
+64978007	CHD	Purpose of radiotherapy	SNOMEDCT_US
+64978007	RO	uses substance Radioactive isotope	SNOMEDCT_US
+64978007	RO	has intent Therapeutic	SNOMEDCT_US
+64978007	RO	has method Radioactive destruction	SNOMEDCT_US
+228725009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228725009	PT	Outlining for radiotherapy dose calculation		SNOMEDCT_US
+228725009	CHD	Calculation of teletherapy	SNOMEDCT_US
+228725009	RO	has intent Therapeutic	SNOMEDCT_US
+228725009	RO	uses energy Radiation	SNOMEDCT_US
+49569001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+49569001	PT	Consultation in teletherapy		SNOMEDCT_US
+49569001	CHD	Consultation	SNOMEDCT_US
+49569001	CHD	General radiation therapy consultation and report	SNOMEDCT_US
+49569001	RO	has intent Therapeutic	SNOMEDCT_US
+49569001	RO	uses energy Radiation	SNOMEDCT_US
+169331000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169331000	PT	Combined radiotherapy		SNOMEDCT_US
+169331000	CHD	Radiation	SNOMEDCT_US
+169331000	PAR	External beam with internal radiotherapy	SNOMEDCT_US
+169331000	PAR	External beam	SNOMEDCT_US
+169331000	PAR	External beam with chemotherapy	SNOMEDCT_US
+169331000	RB	inverse was a Combined radiotherapy NOS	SNOMEDCT_US
+169331000	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169331000	RO	has intent Therapeutic	SNOMEDCT_US
+169331000	SY	same as Combined radiotherapy	SNOMEDCT_US
+169321007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169321007	PT	Gamma ray and intermediate distance curietherapy		SNOMEDCT_US
+169321007	CHD	Gamma ray therapy	SNOMEDCT_US
+169321007	PAR	Gamma-ray telecurie therapy	SNOMEDCT_US
+169321007	PAR	Combined teletherapy and intermediate distance curietherapy	SNOMEDCT_US
+169321007	RB	inverse was a Distant gamma therapy NOS	SNOMEDCT_US
+169321007	RO	uses energy Gamma radiation	SNOMEDCT_US
+169321007	RO	has intent Therapeutic	SNOMEDCT_US
+169321007	SY	same as Gamma ray and intermediate distance curietherapy	SNOMEDCT_US
+152198000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+152198000	PT	Brachytherapy		SNOMEDCT_US
+152198000	CHD	Radionuclide therapy	SNOMEDCT_US
+152198000	PAR	Intracavitary brachytherapy	SNOMEDCT_US
+152198000	PAR	Surface brachytherapy	SNOMEDCT_US
+152198000	PAR	Internal radiotherapy	SNOMEDCT_US
+152198000	PAR	Radiotherapy: seeds into brain	SNOMEDCT_US
+152198000	PAR	Temporary implant radiotherapy	SNOMEDCT_US
+152198000	PAR	Afterload radiotherapy of oropharyngeal cavity	SNOMEDCT_US
+152198000	PAR	Cobalt 60 brachytherapy	SNOMEDCT_US
+152198000	PAR	Iridium 192 brachytherapy	SNOMEDCT_US
+152198000	PAR	Californium 252 brachytherapy	SNOMEDCT_US
+152198000	PAR	Gold 198 brachytherapy	SNOMEDCT_US
+152198000	PAR	Phosphorus 32 brachytherapy	SNOMEDCT_US
+152198000	PAR	Radium 226 brachytherapy	SNOMEDCT_US
+152198000	PAR	Radon 222 brachytherapy	SNOMEDCT_US
+152198000	PAR	Ruthenium 106 brachytherapy	SNOMEDCT_US
+152198000	PAR	Strontium 90 brachytherapy	SNOMEDCT_US
+152198000	PAR	Tantalum 182 brachytherapy	SNOMEDCT_US
+152198000	PAR	Yttrium 90 brachytherapy	SNOMEDCT_US
+152198000	PAR	Cesium 137 brachytherapy	SNOMEDCT_US
+152198000	PAR	Brachytherapy of breast	SNOMEDCT_US
+152198000	PAR	High dose brachytherapy	SNOMEDCT_US
+152198000	PAR	Radiation plaque therapy	SNOMEDCT_US
+152198000	PAR	Interstitial brachytherapy	SNOMEDCT_US
+152198000	PAR	Implantation of radioactive seed into prostate	SNOMEDCT_US
+152198000	PAR	Brachytherapy of prostate using fluoroscopic guidance	SNOMEDCT_US
+152198000	PAR	Brachytherapy using radioiodine	SNOMEDCT_US
+152198000	PAR	Radium 223 brachytherapy	SNOMEDCT_US
+152198000	PAR	Epiretinal brachytherapy with vitrectomy	SNOMEDCT_US
+152198000	RO	has method Brachytherapy	SNOMEDCT_US
+152198000	RO	uses substance Radioactive isotope	SNOMEDCT_US
+152198000	RO	has intent Therapeutic	SNOMEDCT_US
+152198000	RO	possibly equivalent to Intermediate distance curietherapy	SNOMEDCT_US
+448167001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448167001	PT	Intraluminal brachytherapy of rectum		SNOMEDCT_US
+448167001	CHD	Operation on rectum	SNOMEDCT_US
+448167001	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+448167001	CHD	Intraluminal brachytherapy	SNOMEDCT_US
+448167001	RO	has method Brachytherapy	SNOMEDCT_US
+448167001	RO	uses substance Radioactive isotope	SNOMEDCT_US
+448167001	RO	has indirect procedure site Rectal lumen	SNOMEDCT_US
+448167001	RO	has intent Therapeutic	SNOMEDCT_US
+168527001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168527001	PT	Radiotherapy for inflammation		SNOMEDCT_US
+168527001	CHD	Purpose of radiotherapy	SNOMEDCT_US
+168527001	RO	has intent Therapeutic	SNOMEDCT_US
+168527001	SY	same as Radiotherapy for inflammation	SNOMEDCT_US
+9728002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+9728002	PT	Special dosimetry, microdosimetry		SNOMEDCT_US
+9728002	CHD	Special dosimetry	SNOMEDCT_US
+9728002	RO	has intent Therapeutic	SNOMEDCT_US
+9728002	RO	uses energy Radiation	SNOMEDCT_US
+228691003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228691003	PT	Phosphorus 32 brachytherapy		SNOMEDCT_US
+228691003	CHD	Brachytherapy	SNOMEDCT_US
+228691003	CHD	Phosphorus 32 therapy	SNOMEDCT_US
+228691003	RO	has intent Therapeutic	SNOMEDCT_US
+228691003	RO	uses substance Phosphorus-32	SNOMEDCT_US
+228716003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228716003	PT	Making of compensator for radiotherapy		SNOMEDCT_US
+228716003	CHD	Compensating filter design and fabrication	SNOMEDCT_US
+228716003	CHD	Preparation of radiation therapy aid	SNOMEDCT_US
+228716003	CHD	Procedure categorized by device involved	SNOMEDCT_US
+228716003	PAR	Wedge filter design and fabrication	SNOMEDCT_US
+228716003	RO	has intent Therapeutic	SNOMEDCT_US
+228716003	RO	has direct device Device	SNOMEDCT_US
+228716003	RO	uses energy Radiation	SNOMEDCT_US
+394902000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+394902000	PT	High dose brachytherapy		SNOMEDCT_US
+394902000	CHD	Brachytherapy	SNOMEDCT_US
+394902000	PAR	Preoperative high dose brachytherapy	SNOMEDCT_US
+394902000	RO	uses substance Radioactive isotope	SNOMEDCT_US
+394902000	RO	has intent Therapeutic	SNOMEDCT_US
+394902000	SY	same as High dose brachytherapy	SNOMEDCT_US
+314605006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+314605006	PT	Preoperative course of deep X-ray therapy		SNOMEDCT_US
+314605006	CHD	Deep radiation therapy, 200-300 KVP	SNOMEDCT_US
+314605006	CHD	Preoperative course of radiotherapy	SNOMEDCT_US
+314605006	RO	uses energy X-ray	SNOMEDCT_US
+314605006	RO	has intent Therapeutic	SNOMEDCT_US
+8502007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+8502007	PT	Radiation physics consultation with therapeutic radiologist		SNOMEDCT_US
+8502007	CHD	Consultation	SNOMEDCT_US
+8502007	CHD	General radiation therapy consultation and report	SNOMEDCT_US
+8502007	RO	has intent Therapeutic	SNOMEDCT_US
+8502007	RO	uses energy Radiation	SNOMEDCT_US
+169327006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169327006	PT	Radium contact therapy		SNOMEDCT_US
+169327006	CHD	Radionuclide therapy	SNOMEDCT_US
+169327006	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169327006	RO	has intent Therapeutic	SNOMEDCT_US
+169327006	RO	has method Radioactive destruction	SNOMEDCT_US
+169327006	SY	same as Radium contact therapy	SNOMEDCT_US
+36679009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+36679009	PT	Vaginal cone irradiation		SNOMEDCT_US
+36679009	CHD	Procedure on vagina	SNOMEDCT_US
+36679009	CHD	Radiation	SNOMEDCT_US
+36679009	RO	has direct procedure site Vaginal structure	SNOMEDCT_US
+36679009	RO	has intent Therapeutic	SNOMEDCT_US
+169345006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169345006	PT	Bone tumor/metastasis irradiation		SNOMEDCT_US
+169345006	SY	Bone tumour/metastasis irradiation		SNOMEDCT_US
+169345006	CHD	Internal metabolic radiotherapy	SNOMEDCT_US
+169345006	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169345006	RO	has intent Therapeutic	SNOMEDCT_US
+169345006	RO	has method Radioactive destruction	SNOMEDCT_US
+169345006	SY	same as Bone tumor/metastasis irradiation	SNOMEDCT_US
+399124002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+399124002	PT	Unsealed radionuclide procedure		SNOMEDCT_US
+399124002	SY	Unsealed radionuclide procedures		SNOMEDCT_US
+399124002	CHD	Radionuclide therapy	SNOMEDCT_US
+399124002	RO	uses substance Radioactive isotope	SNOMEDCT_US
+399124002	RO	possibly equivalent to Interstitial radionuclide therapy	SNOMEDCT_US
+399124002	RO	has intent Therapeutic	SNOMEDCT_US
+399124002	RO	has method Radioactive destruction	SNOMEDCT_US
+312235007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+312235007	PT	Radiolabeled antibody therapy		SNOMEDCT_US
+312235007	SY	Radiolabelled antibody therapy		SNOMEDCT_US
+312235007	CHD	Radionuclide therapy	SNOMEDCT_US
+312235007	PAR	Radiolabeled indium 111 antibody therapy	SNOMEDCT_US
+312235007	PAR	Radiolabeled Iodine 131 antibody therapy	SNOMEDCT_US
+312235007	PAR	Radiolabeled technetium 99m antibody therapy	SNOMEDCT_US
+312235007	RO	uses substance Radioactive isotope	SNOMEDCT_US
+312235007	RO	has intent Therapeutic	SNOMEDCT_US
+312235007	RO	has method Radioactive destruction	SNOMEDCT_US
+169421008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169421008	PT	Infrared radiation therapy		SNOMEDCT_US
+169421008	SY	Infrared therapy		SNOMEDCT_US
+169421008	SY	Radiant heat: infrared:physio.		SNOMEDCT_US
+169421008	SY	Radiant heat therapy		SNOMEDCT_US
+169421008	CHD	Heat therapy	SNOMEDCT_US
+169421008	CHD	Electromagnetic energy therapy	SNOMEDCT_US
+169421008	PAR	Local heating	SNOMEDCT_US
+169421008	PAR	Inflammatory infrared therapy	SNOMEDCT_US
+169421008	RO	uses energy Infrared radiation	SNOMEDCT_US
+169421008	RO	has intent Therapeutic	SNOMEDCT_US
+169421008	RO	has method Therapy	SNOMEDCT_US
+169421008	RO	possibly equivalent to Heat therapy (and infra-red)	SNOMEDCT_US
+169421008	SY	same as Infrared radiation therapy	SNOMEDCT_US
+59690005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+59690005	PT	Compensating filter design and fabrication		SNOMEDCT_US
+59690005	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+59690005	PAR	Making of compensator for radiotherapy	SNOMEDCT_US
+59690005	RO	has intent Therapeutic	SNOMEDCT_US
+59690005	RO	uses energy Radiation	SNOMEDCT_US
+228692005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228692005	PT	Radon 222 brachytherapy		SNOMEDCT_US
+228692005	CHD	Brachytherapy	SNOMEDCT_US
+228692005	RO	has intent Therapeutic	SNOMEDCT_US
+228692005	RO	uses substance Radon-222	SNOMEDCT_US
+169304003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169304003	PT	Van der Graaff photon therapy		SNOMEDCT_US
+169304003	CHD	Van der Graaff X-ray therapy	SNOMEDCT_US
+169304003	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+169304003	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169304003	RO	has intent Therapeutic	SNOMEDCT_US
+169304003	SY	same as Van der Graaff photon therapy	SNOMEDCT_US
+448168006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448168006	PT	Intracavitary brachytherapy of nasopharynx		SNOMEDCT_US
+448168006	CHD	Intracavitary brachytherapy	SNOMEDCT_US
+448168006	CHD	Operation on nasopharynx	SNOMEDCT_US
+448168006	CHD	Airway procedure	SNOMEDCT_US
+448168006	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+448168006	RO	has method Brachytherapy	SNOMEDCT_US
+448168006	RO	uses substance Radioactive isotope	SNOMEDCT_US
+448168006	RO	has indirect procedure site Nasopharyngeal cavity	SNOMEDCT_US
+448168006	RO	has intent Therapeutic	SNOMEDCT_US
+168523002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168523002	PT	Preoperative course of radiotherapy		SNOMEDCT_US
+168523002	SY	Radiotherapy		SNOMEDCT_US
+168523002	CHD	Radiation	SNOMEDCT_US
+168523002	PAR	Preoperative course of deep X-ray therapy	SNOMEDCT_US
+168523002	PAR	Preoperative high dose brachytherapy	SNOMEDCT_US
+168523002	RO	has intent Therapeutic	SNOMEDCT_US
+168523002	SY	same as Preoperative course of radiotherapy	SNOMEDCT_US
+448461009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448461009	PT	Stereotactic radiation therapy using megavoltage radiation		SNOMEDCT_US
+448461009	CHD	Megavoltage radiation therapy	SNOMEDCT_US
+448461009	CHD	Stereotactic radiotherapy	SNOMEDCT_US
+448461009	RO	uses energy Ionizing radiation	SNOMEDCT_US
+448461009	RO	has intent Therapeutic	SNOMEDCT_US
+228688003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228688003	PT	Californium 252 brachytherapy		SNOMEDCT_US
+228688003	CHD	Brachytherapy	SNOMEDCT_US
+228688003	RO	has intent Therapeutic	SNOMEDCT_US
+228688003	RO	uses substance Californium-252	SNOMEDCT_US
+115960007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+115960007	PT	Total skin electron beam therapy		SNOMEDCT_US
+115960007	CHD	Teleradiotherapy using electrons	SNOMEDCT_US
+115960007	RO	uses energy Electron beam	SNOMEDCT_US
+115960007	RO	has intent Therapeutic	SNOMEDCT_US
+80347004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+80347004	PT	Teleradiotherapy neutrons		SNOMEDCT_US
+80347004	SY	Fast neutron teletherapy		SNOMEDCT_US
+80347004	SY	Neutron teletherapy		SNOMEDCT_US
+80347004	CHD	Teleradiotherapy particulate radiation	SNOMEDCT_US
+80347004	PAR	Neutron capture therapy	SNOMEDCT_US
+80347004	PAR	Fast neutron therapy	SNOMEDCT_US
+80347004	PAR	Cyclotron neutron teletherapy	SNOMEDCT_US
+80347004	PAR	Deuterium on tritium neutron teletherapy	SNOMEDCT_US
+80347004	RO	has intent Therapeutic	SNOMEDCT_US
+80347004	RO	uses energy Neutron radiation	SNOMEDCT_US
+228672003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228672003	PT	Microtron electron teletherapy		SNOMEDCT_US
+228672003	CHD	Teleradiotherapy using electrons	SNOMEDCT_US
+228672003	RO	uses energy Electron beam	SNOMEDCT_US
+228672003	RO	has intent Therapeutic	SNOMEDCT_US
+429584001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+429584001	PT	Stereotactic radiosurgery of brain tissue		SNOMEDCT_US
+429584001	CHD	Procedure on brain	SNOMEDCT_US
+429584001	CHD	Stereotactic radiosurgery	SNOMEDCT_US
+429584001	PAR	Stereotactic focused gamma radiosurgery of cerebrum	SNOMEDCT_US
+429584001	PAR	Stereotactic focused proton beam on cerebrum	SNOMEDCT_US
+429584001	RO	uses energy Ionizing radiation	SNOMEDCT_US
+429584001	RO	has direct procedure site Cerebral structure	SNOMEDCT_US
+429584001	RO	has intent Therapeutic	SNOMEDCT_US
+429584001	RO	has method Surgical action	SNOMEDCT_US
+10611004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+10611004	PT	Teleradiotherapy protons		SNOMEDCT_US
+10611004	SY	Proton teletherapy		SNOMEDCT_US
+10611004	CHD	Teleradiotherapy particulate radiation	SNOMEDCT_US
+10611004	PAR	Teleradiotherapy of 1 to 25 MEV protons	SNOMEDCT_US
+10611004	PAR	Proton therapy	SNOMEDCT_US
+10611004	RO	has intent Therapeutic	SNOMEDCT_US
+10611004	RO	uses energy Proton beam	SNOMEDCT_US
+228685000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228685000	PT	Gammamed brachytherapy		SNOMEDCT_US
+228685000	CHD	Iridium 192 brachytherapy	SNOMEDCT_US
+228685000	RO	has method Brachytherapy	SNOMEDCT_US
+228685000	RO	has intent Therapeutic	SNOMEDCT_US
+228685000	RO	uses substance Iridium-192	SNOMEDCT_US
+21372000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+21372000	PT	Radium therapy		SNOMEDCT_US
+21372000	CHD	Radionuclide therapy	SNOMEDCT_US
+21372000	PAR	Interstitial radium application	SNOMEDCT_US
+21372000	PAR	Radium 226 brachytherapy	SNOMEDCT_US
+21372000	PAR	Radium 223 brachytherapy	SNOMEDCT_US
+21372000	RO	uses substance Radium radioisotope	SNOMEDCT_US
+21372000	RO	has intent Therapeutic	SNOMEDCT_US
+21372000	RO	has method Radioactive destruction	SNOMEDCT_US
+21372000	RO	replaces Teletherapy with radium collar	SNOMEDCT_US
+33195004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+33195004	PT	Teleradiotherapy procedure		SNOMEDCT_US
+33195004	SY	EB - External beam radiotherapy		SNOMEDCT_US
+33195004	SY	Teletherapy		SNOMEDCT_US
+33195004	SY	Teletherapy procedure		SNOMEDCT_US
+33195004	SY	External beam radiotherapy		SNOMEDCT_US
+33195004	CHD	Radiation	SNOMEDCT_US
+33195004	PAR	Total body irradiation	SNOMEDCT_US
+33195004	PAR	Deep radiation therapy, 200-300 KVP	SNOMEDCT_US
+33195004	PAR	Teleradiotherapy with iodine-125	SNOMEDCT_US
+33195004	PAR	X-ray beam therapy	SNOMEDCT_US
+33195004	PAR	Intracavitary X-ray therapy	SNOMEDCT_US
+33195004	PAR	Positron therapy	SNOMEDCT_US
+33195004	PAR	Contact therapy	SNOMEDCT_US
+33195004	PAR	Megavoltage radiation therapy	SNOMEDCT_US
+33195004	PAR	Teletherapy with dual headed cobalt unit	SNOMEDCT_US
+33195004	PAR	Teleradiotherapy using electrons	SNOMEDCT_US
+33195004	PAR	Teleradiotherapy particulate radiation	SNOMEDCT_US
+33195004	PAR	Teleradiotherapy with radioactive cesium	SNOMEDCT_US
+33195004	PAR	Cyclotron teleradiotherapy	SNOMEDCT_US
+33195004	PAR	External radiation therapy using superficial radiation	SNOMEDCT_US
+33195004	PAR	Total body electron beam therapy	SNOMEDCT_US
+33195004	PAR	Stereotactic radiotherapy	SNOMEDCT_US
+33195004	PAR	Superficial radiation therapy	SNOMEDCT_US
+33195004	RO	uses energy Ionizing radiation	SNOMEDCT_US
+33195004	RO	has associated procedure Special teletherapy port plan, particles, hemibody, total body	SNOMEDCT_US
+33195004	RO	replaces Teleradiotherapy of unlisted particulate radiation	SNOMEDCT_US
+33195004	RO	occurs before Hypothyroidism following external radiotherapy	SNOMEDCT_US
+33195004	RO	has intent Therapeutic	SNOMEDCT_US
+33195004	RO	possibly equivalent to X-ray teletherapy	SNOMEDCT_US
+33195004	RO	has associated procedure Teletherapy isodose plan; complex (multiple treatment areas, tangential ports, the use of wedges, blocking, rotational beam, or special beam considerations), includes basic dosimetry calculation(s)	SNOMEDCT_US
+33195004	RO	has associated procedure Teletherapy isodose plan; simple (1 or 2 unmodified ports directed to a single area of interest), includes basic dosimetry calculation(s)	SNOMEDCT_US
+33195004	RO	associated procedure of History of external beam radiation therapy	SNOMEDCT_US
+33195004	RO	associated procedure of History of external beam radiation to thyroid	SNOMEDCT_US
+33195004	RO	occurs before Hypoparathyroidism after external beam radiotherapy	SNOMEDCT_US
+33195004	SY	same as Teletherapy	SNOMEDCT_US
+431743005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+431743005	PT	Yttrium 90 somatostatin analog therapy		SNOMEDCT_US
+431743005	SY	Yttrium 90 somatostatin analogue therapy		SNOMEDCT_US
+431743005	CHD	Yttrium 90 therapy	SNOMEDCT_US
+431743005	RO	has intent Therapeutic	SNOMEDCT_US
+431743005	RO	has method Radioactive destruction	SNOMEDCT_US
+431743005	RO	uses substance Yttrium (90-Y) somatostatin analog	SNOMEDCT_US
+74023000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+74023000	PT	Teleradiotherapy of 1 to 25 MEV protons		SNOMEDCT_US
+74023000	SY	Teleradiotherapy of 1 to 25 mega electronvolt protons		SNOMEDCT_US
+74023000	CHD	Teleradiotherapy protons	SNOMEDCT_US
+74023000	RO	has direct substance Proton	SNOMEDCT_US
+74023000	RO	has intent Therapeutic	SNOMEDCT_US
+74023000	RO	uses energy Proton beam	SNOMEDCT_US
+228698009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228698009	PT	Iodine 131 therapy		SNOMEDCT_US
+228698009	SY	I131 therapy		SNOMEDCT_US
+228698009	CHD	Radionuclide therapy	SNOMEDCT_US
+228698009	PAR	Iodine 131 meta-iodobenzylguanidine therapy	SNOMEDCT_US
+228698009	PAR	Brachytherapy using iodine (131-I) ethiodized oil	SNOMEDCT_US
+228698009	PAR	Radiolabeled Iodine 131 antibody therapy	SNOMEDCT_US
+228698009	PAR	Radionuclide iodine 131 therapy to thyroid	SNOMEDCT_US
+228698009	RO	has intent Therapeutic	SNOMEDCT_US
+228698009	RO	uses substance Iodine-131	SNOMEDCT_US
+228698009	RO	has method Radioactive destruction	SNOMEDCT_US
+169410004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169410004	PT	Support transfusion therapy		SNOMEDCT_US
+169410004	CHD	Radiation	SNOMEDCT_US
+169410004	RO	has intent Therapeutic	SNOMEDCT_US
+169410004	SY	same as Support transfusion therapy	SNOMEDCT_US
+168521000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168521000	PT	Radiotherapy for hemopoietic irradiation		SNOMEDCT_US
+168521000	SY	Radiotherapy for haemopoietic irradiation		SNOMEDCT_US
+168521000	CHD	Purpose of radiotherapy	SNOMEDCT_US
+168521000	RO	has intent Therapeutic	SNOMEDCT_US
+168521000	SY	same as Radiotherapy for haemopoietic irradiation	SNOMEDCT_US
+169297002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169297002	PT	Short distance X-ray therapy		SNOMEDCT_US
+169297002	CHD	X-ray beam therapy	SNOMEDCT_US
+169297002	RO	uses energy X-ray	SNOMEDCT_US
+169297002	RO	has intent Therapeutic	SNOMEDCT_US
+169297002	SY	same as Short distance X-ray therapy	SNOMEDCT_US
+449290006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+449290006	PT	Megavoltage radiation therapy using photons and electrons		SNOMEDCT_US
+449290006	CHD	Megavoltage radiation therapy	SNOMEDCT_US
+449290006	RO	uses energy Ionizing radiation	SNOMEDCT_US
+449290006	RO	has intent Therapeutic	SNOMEDCT_US
+169370006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169370006	PT	Radiotherapy: temporary pelvic implant		SNOMEDCT_US
+169370006	CHD	Operative procedure on pelvis	SNOMEDCT_US
+169370006	CHD	Temporary implant radiotherapy	SNOMEDCT_US
+169370006	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169370006	RO	has method Brachytherapy	SNOMEDCT_US
+169370006	RO	has indirect procedure site Pelvic structure	SNOMEDCT_US
+169370006	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169370006	RO	has intent Therapeutic	SNOMEDCT_US
+169370006	RO	uses device Radioactive implant	SNOMEDCT_US
+169370006	SY	same as Radiotherapy: temporary pelvic implant	SNOMEDCT_US
+228675001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228675001	PT	Deuterium on tritium neutron teletherapy		SNOMEDCT_US
+228675001	CHD	Teleradiotherapy neutrons	SNOMEDCT_US
+228675001	PAR	Hiletron neutron teletherapy	SNOMEDCT_US
+228675001	RO	has intent Therapeutic	SNOMEDCT_US
+228675001	RO	uses energy Neutron radiation	SNOMEDCT_US
+304416002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304416002	PT	Pulsed electromagnetic energy to wrist		SNOMEDCT_US
+304416002	CHD	Pulsed electromagnetic energy to upper limb	SNOMEDCT_US
+304416002	CHD	Procedure on wrist	SNOMEDCT_US
+304416002	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304416002	RO	has direct procedure site Wrist region	SNOMEDCT_US
+304416002	RO	has intent Therapeutic	SNOMEDCT_US
+87390000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+87390000	PT	Radiation therapy, central axis depth dose computation		SNOMEDCT_US
+87390000	CHD	Radiotherapy calculation	SNOMEDCT_US
+87390000	RO	has intent Therapeutic	SNOMEDCT_US
+87390000	RO	uses energy Radiation	SNOMEDCT_US
+78110003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+78110003	PT	Destruction of lesion of choroid by implantation of radiation source		SNOMEDCT_US
+78110003	CHD	Insertion of therapeutic device	SNOMEDCT_US
+78110003	CHD	Destruction of lesion of choroid by radiation therapy	SNOMEDCT_US
+78110003	PAR	Destruction of chorioretinal lesion by implantation of radiation source	SNOMEDCT_US
+78110003	RO	has direct procedure site Choroidal structure	SNOMEDCT_US
+78110003	RO	has direct morphology Lesion	SNOMEDCT_US
+78110003	RO	has intent Therapeutic	SNOMEDCT_US
+78110003	RO	has method Insertion	SNOMEDCT_US
+78110003	RO	has direct device Radioactive implant	SNOMEDCT_US
+78110003	RO	uses energy Radiation	SNOMEDCT_US
+78110003	RO	has method Destruction	SNOMEDCT_US
+782204001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+782204001	PT	Superficial radiation therapy		SNOMEDCT_US
+782204001	SY	SRT		SNOMEDCT_US
+782204001	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+782204001	PAR	Superficial X-ray therapy 10-60 kV	SNOMEDCT_US
+782204001	PAR	Half-deep therapy 60-150 kV	SNOMEDCT_US
+782204001	PAR	Grenz ray therapy	SNOMEDCT_US
+782204001	RO	uses energy Ionizing electromagnetic radiation	SNOMEDCT_US
+782204001	RO	has intent Therapeutic	SNOMEDCT_US
+782204001	RO	possibly equivalent to Superficial teletherapy procedure, Grenz type	SNOMEDCT_US
+473237008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+473237008	PT	Stereotactic radiosurgery for acoustic neuroma		SNOMEDCT_US
+473237008	CHD	Procedure on body system	SNOMEDCT_US
+473237008	CHD	Destruction of lesion by anatomic site	SNOMEDCT_US
+473237008	CHD	Surgical procedure for clinical finding and/or disorder	SNOMEDCT_US
+473237008	CHD	Tumor destruction	SNOMEDCT_US
+473237008	CHD	Stereotactic radiosurgery	SNOMEDCT_US
+473237008	RO	has direct morphology Neurilemoma	SNOMEDCT_US
+473237008	RO	has focus Acoustic neuroma	SNOMEDCT_US
+473237008	RO	uses energy Ionizing radiation	SNOMEDCT_US
+473237008	RO	has direct procedure site Special senses organ system	SNOMEDCT_US
+473237008	RO	has intent Therapeutic	SNOMEDCT_US
+473237008	RO	has method Destruction	SNOMEDCT_US
+228694006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228694006	PT	Strontium 90 brachytherapy		SNOMEDCT_US
+228694006	CHD	Brachytherapy	SNOMEDCT_US
+228694006	RO	has intent Therapeutic	SNOMEDCT_US
+228694006	RO	uses substance Strontium-90	SNOMEDCT_US
+169316009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169316009	PT	Pi-meson therapy		SNOMEDCT_US
+169316009	CHD	Teleradiotherapy particulate radiation	SNOMEDCT_US
+169316009	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169316009	RO	has intent Therapeutic	SNOMEDCT_US
+169316009	SY	same as Pi-meson therapy	SNOMEDCT_US
+43111005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+43111005	PT	Destruction of lesion of retina by implantation of radiation source		SNOMEDCT_US
+43111005	CHD	Insertion of therapeutic device	SNOMEDCT_US
+43111005	CHD	Destruction of lesion of retina by radiation therapy	SNOMEDCT_US
+43111005	PAR	Destruction of chorioretinal lesion by implantation of radiation source	SNOMEDCT_US
+43111005	RO	has direct procedure site Retinal structure	SNOMEDCT_US
+43111005	RO	has direct morphology Lesion	SNOMEDCT_US
+43111005	RO	has intent Therapeutic	SNOMEDCT_US
+43111005	RO	has method Insertion	SNOMEDCT_US
+43111005	RO	has direct device Radioactive implant	SNOMEDCT_US
+43111005	RO	uses energy Radiation	SNOMEDCT_US
+43111005	RO	has method Destruction	SNOMEDCT_US
+43111005	RO	has method Therapy	SNOMEDCT_US
+43111005	RO	has direct procedure site Anatomical or acquired body	SNOMEDCT_US
+773335005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+773335005	PT	Epiretinal brachytherapy with vitrectomy		SNOMEDCT_US
+773335005	SY	Epimacular brachytherapy with vitrectomy		SNOMEDCT_US
+773335005	CHD	Brachytherapy	SNOMEDCT_US
+773335005	CHD	Vitrectomy	SNOMEDCT_US
+773335005	CHD	Operation on choroid	SNOMEDCT_US
+773335005	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+773335005	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+773335005	CHD	Procedure categorized by device involved	SNOMEDCT_US
+773335005	RO	has indirect procedure site Choroidal structure	SNOMEDCT_US
+773335005	RO	uses substance Radioactive isotope	SNOMEDCT_US
+773335005	RO	has direct procedure site Vitreous body	SNOMEDCT_US
+773335005	RO	has intent Therapeutic	SNOMEDCT_US
+773335005	RO	has method Surgical removal	SNOMEDCT_US
+773335005	RO	uses access device Brachytherapy device	SNOMEDCT_US
+33356009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+33356009	PT	Betatron teleradiotherapy		SNOMEDCT_US
+33356009	SY	Betatron therapy		SNOMEDCT_US
+33356009	CHD	Radiation	SNOMEDCT_US
+33356009	RO	uses energy Ionizing radiation	SNOMEDCT_US
+33356009	RO	has intent Therapeutic	SNOMEDCT_US
+118640001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+118640001	PT	Radioimmunotherapy		SNOMEDCT_US
+118640001	CHD	Radionuclide therapy	SNOMEDCT_US
+118640001	PAR	Intravenous radioimmunotherapy using monoclonal antibodies	SNOMEDCT_US
+118640001	RO	has intent Therapeutic	SNOMEDCT_US
+118640001	RO	has method Radioactive destruction	SNOMEDCT_US
+118640001	RO	uses substance Radioisotope labeled monoclonal antibody	SNOMEDCT_US
+169292008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169292008	PT	Grenz ray therapy up to 10 kV		SNOMEDCT_US
+169292008	CHD	Grenz ray therapy	SNOMEDCT_US
+169292008	RO	has intent Therapeutic	SNOMEDCT_US
+169292008	RO	uses energy Grenz radiation	SNOMEDCT_US
+169292008	SY	same as Grenz ray therapy up to 10 kV	SNOMEDCT_US
+428624002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+428624002	PT	Radiotherapy to chest wall		SNOMEDCT_US
+428624002	CHD	Chest wall procedure	SNOMEDCT_US
+428624002	CHD	Radiotherapy to thorax	SNOMEDCT_US
+428624002	RO	has direct procedure site Chest wall	SNOMEDCT_US
+428624002	RO	has intent Therapeutic	SNOMEDCT_US
+428624002	RO	uses energy Radiation	SNOMEDCT_US
+428624002	RO	has method Therapy	SNOMEDCT_US
+312244008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+312244008	PT	Cobalt 60 brachytherapy remote afterloading		SNOMEDCT_US
+312244008	CHD	Cobalt-60 therapy	SNOMEDCT_US
+312244008	RO	has intent Therapeutic	SNOMEDCT_US
+312244008	RO	uses substance Cobalt-60	SNOMEDCT_US
+312244008	RO	has method Radioactive destruction	SNOMEDCT_US
+433150007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+433150007	PT	Radiolabeled indium 111 antibody therapy		SNOMEDCT_US
+433150007	SY	Indium 111 antibody therapy		SNOMEDCT_US
+433150007	SY	Radiolabelled indium 111 antibody therapy		SNOMEDCT_US
+433150007	CHD	Radiolabeled antibody therapy	SNOMEDCT_US
+433150007	RO	has intent Therapeutic	SNOMEDCT_US
+433150007	RO	uses substance Indium-111	SNOMEDCT_US
+433150007	RO	has method Radioactive destruction	SNOMEDCT_US
+169357002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169357002	PT	Radiotherapy: infiltrate tissue		SNOMEDCT_US
+169357002	CHD	Internal radiotherapy	SNOMEDCT_US
+169357002	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169357002	RO	has intent Therapeutic	SNOMEDCT_US
+169357002	RO	has method Radioactive destruction	SNOMEDCT_US
+169357002	SY	same as Radiotherapy: infiltrate tissue	SNOMEDCT_US
+47479005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+47479005	PT	Total body irradiation		SNOMEDCT_US
+47479005	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+47479005	CHD	Radiotherapy by body site	SNOMEDCT_US
+47479005	RO	uses energy Ionizing radiation	SNOMEDCT_US
+47479005	RO	has direct procedure site Entire body as a whole	SNOMEDCT_US
+47479005	RO	has intent Therapeutic	SNOMEDCT_US
+47479005	RO	has method Therapy	SNOMEDCT_US
+65381004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+65381004	PT	Intra-articular radionuclide therapy		SNOMEDCT_US
+65381004	CHD	Radionuclide therapy	SNOMEDCT_US
+65381004	RO	uses substance Radioactive isotope	SNOMEDCT_US
+65381004	RO	has intent Therapeutic	SNOMEDCT_US
+65381004	RO	has method Radioactive destruction	SNOMEDCT_US
+169291001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169291001	PT	X-ray beam therapy		SNOMEDCT_US
+169291001	SY	X-ray therapy		SNOMEDCT_US
+169291001	SY	XRT - Teletherapy		SNOMEDCT_US
+169291001	SY	X-ray teletherapy		SNOMEDCT_US
+169291001	SY	XRT - Radiotherapy		SNOMEDCT_US
+169291001	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+169291001	PAR	Short distance X-ray therapy	SNOMEDCT_US
+169291001	PAR	Combined X-ray therapy	SNOMEDCT_US
+169291001	PAR	High-energy beam therapy	SNOMEDCT_US
+169291001	RB	inverse was a X-ray beam therapy NOS	SNOMEDCT_US
+169291001	RO	uses energy X-ray	SNOMEDCT_US
+169291001	RO	has intent Therapeutic	SNOMEDCT_US
+169291001	RO	possibly equivalent to X-ray teletherapy	SNOMEDCT_US
+169291001	SY	same as X-ray therapy	SNOMEDCT_US
+169291001	SY	same as X-ray beam therapy	SNOMEDCT_US
+169291001	SY	same as XRT - Teletherapy	SNOMEDCT_US
+231568007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+231568007	PT	Radiotherapy to lesion of medial canthus		SNOMEDCT_US
+231568007	CHD	Destruction of lesion of medial canthus	SNOMEDCT_US
+231568007	CHD	Radiotherapy to lesion of canthus	SNOMEDCT_US
+231568007	RO	has direct morphology Lesion	SNOMEDCT_US
+231568007	RO	has direct procedure site Medial canthus	SNOMEDCT_US
+231568007	RO	has intent Therapeutic	SNOMEDCT_US
+231568007	RO	has method Destruction	SNOMEDCT_US
+589631000119102	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+589631000119102	PT	Intravenous radioimmunotherapy using monoclonal antibodies		SNOMEDCT_US
+589631000119102	CHD	Drug therapy	SNOMEDCT_US
+589631000119102	CHD	Radioimmunotherapy	SNOMEDCT_US
+589631000119102	CHD	Infusion of drug or medicament via intravenous route	SNOMEDCT_US
+589631000119102	RO	has direct substance Monoclonal antibody	SNOMEDCT_US
+589631000119102	RO	has indirect procedure site Venous	SNOMEDCT_US
+589631000119102	RO	has intent Therapeutic	SNOMEDCT_US
+589631000119102	RO	has method Radioactive destruction	SNOMEDCT_US
+589631000119102	RO	has method Infusion	SNOMEDCT_US
+589631000119102	RO	has route of administration Intravenous route	SNOMEDCT_US
+589631000119102	RO	uses substance Radioisotope labeled monoclonal antibody	SNOMEDCT_US
+228708007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228708007	PT	Radiotherapy planning using diagnostic radiology		SNOMEDCT_US
+228708007	SY	Radiotherapy planning X-ray film		SNOMEDCT_US
+228708007	CHD	Radiotherapy planning	SNOMEDCT_US
+228708007	RO	has intent Therapeutic	SNOMEDCT_US
+228708007	RO	uses energy Radiation	SNOMEDCT_US
+169356006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169356006	PT	Radiotherapy: infuse organ cavity		SNOMEDCT_US
+169356006	CHD	Internal radiotherapy	SNOMEDCT_US
+169356006	CHD	Infusion	SNOMEDCT_US
+169356006	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169356006	CHD	Procedure on organ	SNOMEDCT_US
+169356006	PAR	Radiotherapy: infuse pleural cavity	SNOMEDCT_US
+169356006	PAR	Radiotherapy: infuse peritoneal cavity	SNOMEDCT_US
+169356006	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169356006	RO	has intent Therapeutic	SNOMEDCT_US
+169356006	RO	has method Radioactive destruction	SNOMEDCT_US
+169356006	RO	has indirect procedure site Organ cavity	SNOMEDCT_US
+169356006	SY	same as Radiotherapy: infuse organ cavity	SNOMEDCT_US
+169315008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169315008	PT	Deuteron therapy		SNOMEDCT_US
+169315008	CHD	Heavy ion teletherapy	SNOMEDCT_US
+169315008	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169315008	RO	has intent Therapeutic	SNOMEDCT_US
+169315008	SY	same as Deuteron therapy	SNOMEDCT_US
+10226009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+10226009	PT	Disposal of radioactive source		SNOMEDCT_US
+10226009	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+10226009	RO	has intent Therapeutic	SNOMEDCT_US
+10226009	RO	uses energy Radiation	SNOMEDCT_US
+427561000119104	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+427561000119104	PT	Intravenous radionuclide therapy using samarium Sm 153 lexidronam		SNOMEDCT_US
+427561000119104	SY	Intravenous radioisotope therapy using samarium Sm 153 lexidronam		SNOMEDCT_US
+427561000119104	CHD	Drug therapy	SNOMEDCT_US
+427561000119104	CHD	Infusion of drug or medicament via intravenous route	SNOMEDCT_US
+427561000119104	CHD	Intravenous radionuclide therapy	SNOMEDCT_US
+427561000119104	RO	has indirect procedure site Venous	SNOMEDCT_US
+427561000119104	RO	has intent Therapeutic	SNOMEDCT_US
+427561000119104	RO	has method Infusion	SNOMEDCT_US
+427561000119104	RO	has direct substance Samarium (153-Sm) lexidronam	SNOMEDCT_US
+427561000119104	RO	has route of administration Intravenous route	SNOMEDCT_US
+429685005	STY	Health Care Activity		SNOMEDCT_US
+429685005	PT	Radiotherapy by body site		SNOMEDCT_US
+429685005	CHD	Procedure by site	SNOMEDCT_US
+429685005	CHD	Procedure by method	SNOMEDCT_US
+429685005	CHD	Radiation	SNOMEDCT_US
+429685005	PAR	Total body irradiation	SNOMEDCT_US
+429685005	PAR	Destruction of lesion of retina by radiation therapy	SNOMEDCT_US
+429685005	PAR	Radiotherapy to pelvis	SNOMEDCT_US
+429685005	PAR	Radiotherapy to axilla	SNOMEDCT_US
+429685005	PAR	Radiotherapy to perineum	SNOMEDCT_US
+429685005	PAR	Radiotherapy to head	SNOMEDCT_US
+429685005	PAR	Radiotherapy to abdomen	SNOMEDCT_US
+429685005	PAR	Radiotherapy to neck	SNOMEDCT_US
+429685005	PAR	Radiotherapy to thorax	SNOMEDCT_US
+429685005	PAR	Total body electron beam therapy	SNOMEDCT_US
+429685005	PAR	Regional nodal irradiation of breast	SNOMEDCT_US
+429685005	RO	has intent Therapeutic	SNOMEDCT_US
+429685005	RO	has method Therapy	SNOMEDCT_US
+429685005	RO	has direct procedure site Anatomical or acquired body	SNOMEDCT_US
+312248006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+312248006	PT	Heavy ion teletherapy		SNOMEDCT_US
+312248006	CHD	Teleradiotherapy particulate radiation	SNOMEDCT_US
+312248006	PAR	Deuteron therapy	SNOMEDCT_US
+312248006	RO	uses energy Ionizing radiation	SNOMEDCT_US
+312248006	RO	has intent Therapeutic	SNOMEDCT_US
+169361008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169361008	PT	Radiotherapy: seeds into brain		SNOMEDCT_US
+169361008	CHD	Brachytherapy	SNOMEDCT_US
+169361008	CHD	Operation on brain	SNOMEDCT_US
+169361008	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+169361008	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169361008	CHD	Procedure categorized by device involved	SNOMEDCT_US
+169361008	PAR	Radiotherapy: seeds into hypophysis	SNOMEDCT_US
+169361008	RO	has indirect procedure site Brain	SNOMEDCT_US
+169361008	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169361008	RO	has intent Therapeutic	SNOMEDCT_US
+169361008	RO	uses device Radioactive seed, device	SNOMEDCT_US
+169361008	SY	same as Radiotherapy: seeds into brain	SNOMEDCT_US
+1699009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+1699009	PT	Special dosimetry		SNOMEDCT_US
+1699009	CHD	Radiation therapy treatment planning service	SNOMEDCT_US
+1699009	PAR	Special dosimetry, microdosimetry	SNOMEDCT_US
+1699009	PAR	Special dosimetry, TLD	SNOMEDCT_US
+1699009	PAR	Isodose computation for teletherapy	SNOMEDCT_US
+1699009	PAR	Radiation therapy isodose plan, arc field	SNOMEDCT_US
+1699009	PAR	Radiation therapy isodose plan, wedge fields	SNOMEDCT_US
+1699009	PAR	Radiation therapy isodose plan, rotation field	SNOMEDCT_US
+1699009	PAR	Radiation therapy isodose plan, moving strip field	SNOMEDCT_US
+1699009	PAR	Radiation therapy isodose plan, isocentric	SNOMEDCT_US
+1699009	PAR	Isodose computation for brachytherapy	SNOMEDCT_US
+1699009	PAR	Brachytherapy isodose calculation, intermediate	SNOMEDCT_US
+1699009	RO	has intent Therapeutic	SNOMEDCT_US
+1699009	RO	has associated procedure Special dosimetry (eg, TLD, microdosimetry) (specify), only when prescribed by the treating physician	SNOMEDCT_US
+1699009	RO	uses energy Radiation	SNOMEDCT_US
+35437002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+35437002	PT	Consultation in computer dosimetry and isodose chart for brachytherapy		SNOMEDCT_US
+35437002	CHD	Isodose computation for brachytherapy	SNOMEDCT_US
+35437002	CHD	Consultation in brachytherapy	SNOMEDCT_US
+35437002	RO	has intent Therapeutic	SNOMEDCT_US
+35437002	RO	uses energy Radiation	SNOMEDCT_US
+35437002	RO	has method Consultation	SNOMEDCT_US
+228724008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228724008	PT	Calculation of teletherapy parameters		SNOMEDCT_US
+228724008	CHD	Calculation of teletherapy	SNOMEDCT_US
+228724008	RO	has intent Therapeutic	SNOMEDCT_US
+228724008	RO	uses energy Radiation	SNOMEDCT_US
+228681009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228681009	PT	Cobalt 60 brachytherapy		SNOMEDCT_US
+228681009	CHD	Brachytherapy	SNOMEDCT_US
+228681009	CHD	Cobalt-60 therapy	SNOMEDCT_US
+228681009	RO	has intent Therapeutic	SNOMEDCT_US
+228681009	RO	uses substance Cobalt-60	SNOMEDCT_US
+427541000119103	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+427541000119103	PT	Intravenous radionuclide therapy		SNOMEDCT_US
+427541000119103	SY	Intravenous radioisotope therapy		SNOMEDCT_US
+427541000119103	CHD	Intravenous infusion	SNOMEDCT_US
+427541000119103	CHD	Radiation	SNOMEDCT_US
+427541000119103	CHD	Administration of radiopharmaceutical agent via intravenous route	SNOMEDCT_US
+427541000119103	PAR	Intravenous radionuclide therapy using radium 223 dichloride	SNOMEDCT_US
+427541000119103	PAR	Intravenous radionuclide therapy using samarium Sm 153 lexidronam	SNOMEDCT_US
+427541000119103	PAR	Intravenous radionuclide therapy using strontium 89	SNOMEDCT_US
+427541000119103	RO	has direct substance Radioactive isotope	SNOMEDCT_US
+427541000119103	RO	has indirect procedure site Venous	SNOMEDCT_US
+427541000119103	RO	possibly equivalent to Intravascular radionuclide therapy	SNOMEDCT_US
+427541000119103	RO	has intent Therapeutic	SNOMEDCT_US
+427541000119103	RO	has method Infusion	SNOMEDCT_US
+427541000119103	RO	has route of administration Intravenous route	SNOMEDCT_US
+169366003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169366003	PT	Radiotherapy: temporary head/neck implant		SNOMEDCT_US
+169366003	CHD	Temporary implant radiotherapy	SNOMEDCT_US
+169366003	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169366003	CHD	Procedure on head AND/OR neck	SNOMEDCT_US
+169366003	PAR	Radiotherapy: temporary brain implant	SNOMEDCT_US
+169366003	PAR	Radiotherapy: temporary tongue implant	SNOMEDCT_US
+169366003	RO	has method Brachytherapy	SNOMEDCT_US
+169366003	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169366003	RO	has intent Therapeutic	SNOMEDCT_US
+169366003	RO	has indirect procedure site Head and/or neck	SNOMEDCT_US
+169366003	RO	uses device Radioactive implant	SNOMEDCT_US
+169366003	SY	same as Radiotherapy: temporary head/neck implant	SNOMEDCT_US
+429774000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+429774000	PT	Radiotherapy to abdomen		SNOMEDCT_US
+429774000	CHD	Procedure on abdomen	SNOMEDCT_US
+429774000	CHD	Radiotherapy by body site	SNOMEDCT_US
+429774000	RO	has direct procedure site Abdominal structure	SNOMEDCT_US
+429774000	RO	has intent Therapeutic	SNOMEDCT_US
+429774000	RO	uses energy Radiation	SNOMEDCT_US
+429774000	RO	has method Therapy	SNOMEDCT_US
+447759004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+447759004	PT	Brachytherapy of breast		SNOMEDCT_US
+447759004	CHD	Brachytherapy	SNOMEDCT_US
+447759004	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+447759004	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+447759004	CHD	Operation on breast	SNOMEDCT_US
+447759004	RO	has indirect procedure site Breast	SNOMEDCT_US
+447759004	RO	uses substance Radioactive isotope	SNOMEDCT_US
+447759004	RO	has intent Therapeutic	SNOMEDCT_US
+77613002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+77613002	PT	Teleradiotherapy with iodine-125		SNOMEDCT_US
+77613002	SY	RAI - Radioactive iodine therapy		SNOMEDCT_US
+77613002	SY	Radioactive iodine therapy		SNOMEDCT_US
+77613002	CHD	Radionuclide therapy	SNOMEDCT_US
+77613002	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+77613002	RO	uses energy Ionizing radiation	SNOMEDCT_US
+77613002	RO	uses substance Radioactive isotope	SNOMEDCT_US
+77613002	RO	has intent Therapeutic	SNOMEDCT_US
+77613002	RO	has method Radioactive destruction	SNOMEDCT_US
+14473006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+14473006	PT	Surface brachytherapy		SNOMEDCT_US
+14473006	SY	Surface radioactive source application		SNOMEDCT_US
+14473006	SY	Surface application of radioelement		SNOMEDCT_US
+14473006	CHD	Brachytherapy	SNOMEDCT_US
+14473006	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+14473006	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+14473006	CHD	Nuclear medicine study by site	SNOMEDCT_US
+14473006	RO	uses substance Radioactive isotope	SNOMEDCT_US
+14473006	RO	has intent Therapeutic	SNOMEDCT_US
+14473006	RO	has direct procedure site Skin and/or skin-associated mucous membrane	SNOMEDCT_US
+228723002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228723002	PT	Calculation of teletherapy		SNOMEDCT_US
+228723002	CHD	Treatment planning for teletherapy	SNOMEDCT_US
+228723002	CHD	Radiotherapy calculation	SNOMEDCT_US
+228723002	PAR	Calculation of teletherapy parameters	SNOMEDCT_US
+228723002	PAR	Outlining for radiotherapy dose calculation	SNOMEDCT_US
+228723002	PAR	Calculation of radiotherapy isodose distribution	SNOMEDCT_US
+228723002	PAR	Calculation of radiotherapy dose corrections	SNOMEDCT_US
+228723002	PAR	Calculation of radiotherapy dose-volume histogram	SNOMEDCT_US
+228723002	RO	has intent Therapeutic	SNOMEDCT_US
+228723002	RO	uses energy Radiation	SNOMEDCT_US
+169319002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169319002	PT	Combined heavy particle therapy		SNOMEDCT_US
+169319002	CHD	Teleradiotherapy particulate radiation	SNOMEDCT_US
+169319002	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169319002	RO	has intent Therapeutic	SNOMEDCT_US
+169319002	SY	same as Combined heavy particle therapy	SNOMEDCT_US
+431530008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+431530008	PT	Percutaneous brachytherapy of hepatic artery using fluoroscopic guidance		SNOMEDCT_US
+431530008	CHD	Insertion of therapeutic device	SNOMEDCT_US
+431530008	CHD	Operative procedure on the arteries of the thorax and abdomen	SNOMEDCT_US
+431530008	CHD	Operation on abdominal region	SNOMEDCT_US
+431530008	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+431530008	CHD	Therapeutic procedure on soft tissue	SNOMEDCT_US
+431530008	CHD	Fluoroscopic angiography of hepatic artery	SNOMEDCT_US
+431530008	CHD	Interstitial brachytherapy	SNOMEDCT_US
+431530008	CHD	Insertion using fluoroscopic guidance	SNOMEDCT_US
+431530008	CHD	Procedure on artery using imaging guidance	SNOMEDCT_US
+431530008	RO	has method Brachytherapy	SNOMEDCT_US
+431530008	RO	has method Fluoroscopic imaging	SNOMEDCT_US
+431530008	RO	has direct procedure site Hepatic artery	SNOMEDCT_US
+431530008	RO	uses substance Radioactive isotope	SNOMEDCT_US
+431530008	RO	has intent Therapeutic	SNOMEDCT_US
+431530008	RO	has method Insertion	SNOMEDCT_US
+431530008	RO	has direct device Radioactive implant	SNOMEDCT_US
+431530008	RO	has access Percutaneous approach	SNOMEDCT_US
+431530008	RO	has intent Guidance intent	SNOMEDCT_US
+168528006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168528006	PT	Palliative course of radiotherapy		SNOMEDCT_US
+168528006	SY	Radiotherapy for tumor palliation		SNOMEDCT_US
+168528006	SY	Radiotherapy for tumour palliation		SNOMEDCT_US
+168528006	CHD	Purpose of radiotherapy	SNOMEDCT_US
+168528006	CHD	Palliative procedure	SNOMEDCT_US
+168528006	PAR	Palliative course of deep X-ray therapy	SNOMEDCT_US
+168528006	RO	uses energy Ionizing radiation	SNOMEDCT_US
+168528006	RO	has intent Therapeutic	SNOMEDCT_US
+168528006	RO	has intent Palliative intent	SNOMEDCT_US
+168528006	SY	same as Palliative course of radiotherapy	SNOMEDCT_US
+84755001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+84755001	PT	Radiation therapy treatment management		SNOMEDCT_US
+84755001	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+84755001	PAR	Radiation therapy treatment planning service	SNOMEDCT_US
+84755001	RO	has intent Therapeutic	SNOMEDCT_US
+84755001	RO	uses energy Radiation	SNOMEDCT_US
+304414004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304414004	PT	Pulsed electromagnetic energy to shoulder		SNOMEDCT_US
+304414004	CHD	Pulsed electromagnetic energy to upper limb	SNOMEDCT_US
+304414004	CHD	Procedure on shoulder	SNOMEDCT_US
+304414004	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304414004	RO	has direct procedure site Shoulder region	SNOMEDCT_US
+304414004	RO	has intent Therapeutic	SNOMEDCT_US
+448552007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448552007	PT	Interstitial brachytherapy using gold grain		SNOMEDCT_US
+448552007	CHD	Procedure categorized by device involved	SNOMEDCT_US
+448552007	CHD	Interstitial brachytherapy	SNOMEDCT_US
+448552007	RO	has method Brachytherapy	SNOMEDCT_US
+448552007	RO	uses substance Gold radioisotope	SNOMEDCT_US
+448552007	RO	has indirect procedure site Soft tissues	SNOMEDCT_US
+448552007	RO	has intent Therapeutic	SNOMEDCT_US
+448552007	RO	uses device Radioactive implant	SNOMEDCT_US
+35587007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+35587007	PT	Supervision, handling and loading of radioelement		SNOMEDCT_US
+35587007	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+35587007	RO	has intent Therapeutic	SNOMEDCT_US
+35587007	RO	uses energy Radiation	SNOMEDCT_US
+228701001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228701001	PT	Strontium 89 therapy		SNOMEDCT_US
+228701001	SY	Sr89 therapy		SNOMEDCT_US
+228701001	CHD	Radionuclide therapy	SNOMEDCT_US
+228701001	RO	uses substance Radioactive isotope	SNOMEDCT_US
+228701001	RO	has intent Therapeutic	SNOMEDCT_US
+228701001	RO	has method Radioactive destruction	SNOMEDCT_US
+228701001	SY	same as Strontium 89 therapy	SNOMEDCT_US
+169372003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169372003	PT	Radiotherapy: temporary lymphatic implant		SNOMEDCT_US
+169372003	CHD	Lymphatic, spleen and bone marrow procedures	SNOMEDCT_US
+169372003	CHD	Temporary implant radiotherapy	SNOMEDCT_US
+169372003	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+169372003	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169372003	RO	has method Brachytherapy	SNOMEDCT_US
+169372003	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169372003	RO	has intent Therapeutic	SNOMEDCT_US
+169372003	RO	has indirect procedure site Lymphoreticular system	SNOMEDCT_US
+169372003	RO	uses device Radioactive implant	SNOMEDCT_US
+169372003	SY	same as Radiotherapy: temporary lymphatic implant	SNOMEDCT_US
+183649005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+183649005	PT	Combined therapy follow-up		SNOMEDCT_US
+183649005	CHD	Radiation	SNOMEDCT_US
+183649005	RO	has intent Therapeutic	SNOMEDCT_US
+183649005	SY	same as Combined therapy follow-up	SNOMEDCT_US
+228697004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228697004	PT	Yttrium 90 therapy		SNOMEDCT_US
+228697004	SY	Yr90 therapy		SNOMEDCT_US
+228697004	CHD	Radionuclide therapy	SNOMEDCT_US
+228697004	PAR	Yttrium 90 brachytherapy	SNOMEDCT_US
+228697004	PAR	Yttrium 90 somatostatin analog therapy	SNOMEDCT_US
+228697004	RO	has intent Therapeutic	SNOMEDCT_US
+228697004	RO	uses substance Yttrium-90	SNOMEDCT_US
+228697004	RO	has method Radioactive destruction	SNOMEDCT_US
+228697004	RO	possibly equivalent to Selective internal radiation using yttrium	SNOMEDCT_US
+231764006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+231764006	PT	Destruction of lesion of retina by radiation therapy		SNOMEDCT_US
+231764006	SY	Radiotherapy to lesion of retina		SNOMEDCT_US
+231764006	SY	Radiotherapy to retina		SNOMEDCT_US
+231764006	CHD	Destruction of lesion of retina	SNOMEDCT_US
+231764006	CHD	Radiotherapy by body site	SNOMEDCT_US
+231764006	PAR	Destruction of lesion of retina by implantation of radiation source	SNOMEDCT_US
+231764006	PAR	External beam radiotherapy to lesion of retina	SNOMEDCT_US
+231764006	RO	has direct procedure site Retinal structure	SNOMEDCT_US
+231764006	RO	has direct morphology Lesion	SNOMEDCT_US
+231764006	RO	has intent Therapeutic	SNOMEDCT_US
+231764006	RO	possibly equivalent to Destruction of lesion of retina by radiation therapy	SNOMEDCT_US
+231764006	RO	uses energy Radiation	SNOMEDCT_US
+231764006	RO	has method Destruction	SNOMEDCT_US
+231764006	RO	has method Therapy	SNOMEDCT_US
+231764006	RO	has direct procedure site Anatomical or acquired body	SNOMEDCT_US
+231544004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+231544004	PT	Radiotherapy to orbital lesion		SNOMEDCT_US
+231544004	CHD	Destruction of orbital lesion	SNOMEDCT_US
+231544004	CHD	Radiation	SNOMEDCT_US
+231544004	RO	has direct procedure site Orbit proper	SNOMEDCT_US
+231544004	RO	has direct morphology Lesion	SNOMEDCT_US
+231544004	RO	has intent Therapeutic	SNOMEDCT_US
+231544004	RO	has method Destruction	SNOMEDCT_US
+31632008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+31632008	PT	Stereotactic focused proton beam on cerebrum		SNOMEDCT_US
+31632008	CHD	Stereotactic radiosurgery of brain tissue	SNOMEDCT_US
+31632008	RO	uses energy Ionizing radiation	SNOMEDCT_US
+31632008	RO	has direct procedure site Cerebral structure	SNOMEDCT_US
+31632008	RO	has intent Therapeutic	SNOMEDCT_US
+31632008	RO	has method Surgical action	SNOMEDCT_US
+31632008	RO	uses energy Proton beam	SNOMEDCT_US
+314606007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+314606007	PT	Postoperative course of deep X-ray therapy		SNOMEDCT_US
+314606007	CHD	Deep radiation therapy, 200-300 KVP	SNOMEDCT_US
+314606007	CHD	Postoperative course of radiotherapy	SNOMEDCT_US
+314606007	RO	uses energy X-ray	SNOMEDCT_US
+314606007	RO	has intent Therapeutic	SNOMEDCT_US
+228713006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228713006	PT	Radiotherapy planning using mold room preparation		SNOMEDCT_US
+228713006	SY	Radiotherapy planning using mould room preparation		SNOMEDCT_US
+228713006	CHD	Radiotherapy planning	SNOMEDCT_US
+228713006	RO	has intent Therapeutic	SNOMEDCT_US
+228713006	RO	uses energy Radiation	SNOMEDCT_US
+169355005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169355005	PT	Radiotherapy: infuse urinary bladder		SNOMEDCT_US
+169355005	CHD	Operation on bladder	SNOMEDCT_US
+169355005	CHD	Internal radiotherapy	SNOMEDCT_US
+169355005	CHD	Infusion	SNOMEDCT_US
+169355005	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+169355005	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169355005	RO	has indirect procedure site Urinary bladder	SNOMEDCT_US
+169355005	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169355005	RO	has intent Therapeutic	SNOMEDCT_US
+169355005	RO	has method Radioactive destruction	SNOMEDCT_US
+169355005	SY	same as Radiotherapy: infuse urinary bladder	SNOMEDCT_US
+228706006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228706006	PT	Radiotherapy planning using simulator fluoroscopy		SNOMEDCT_US
+228706006	SY	Radiotherapy planning using simulator screening		SNOMEDCT_US
+228706006	CHD	Radiotherapy planning using a simulator	SNOMEDCT_US
+228706006	RO	has intent Therapeutic	SNOMEDCT_US
+228706006	RO	uses energy Radiation	SNOMEDCT_US
+454541000124108	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+454541000124108	PT	Whole brain radiation therapy		SNOMEDCT_US
+454541000124108	CHD	Therapy	SNOMEDCT_US
+454541000124108	CHD	Procedure on brain	SNOMEDCT_US
+454541000124108	CHD	Radiotherapy to head	SNOMEDCT_US
+454541000124108	RO	has intent Therapeutic	SNOMEDCT_US
+454541000124108	RO	uses energy Radiation	SNOMEDCT_US
+454541000124108	RO	has direct procedure site Entire brain	SNOMEDCT_US
+703423002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+703423002	PT	Combined chemotherapy and radiation therapy		SNOMEDCT_US
+703423002	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+703423002	CHD	Chemotherapy	SNOMEDCT_US
+703423002	PAR	Combined post-operative chemotherapy and radiotherapy	SNOMEDCT_US
+703423002	RO	has direct substance Drug or medicament	SNOMEDCT_US
+703423002	RO	has intent Therapeutic	SNOMEDCT_US
+703423002	RO	uses energy Radiation	SNOMEDCT_US
+703423002	RO	has method Administration	SNOMEDCT_US
+399315003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+399315003	PT	Radionuclide therapy		SNOMEDCT_US
+399315003	SY	RI - Radioisotope therapy		SNOMEDCT_US
+399315003	SY	Short distance and contact radiotherapy		SNOMEDCT_US
+399315003	SY	Internal radiotherapy		SNOMEDCT_US
+399315003	SY	Radioisotope teleradiotherapy		SNOMEDCT_US
+399315003	SY	Radiotherapy		SNOMEDCT_US
+399315003	SY	Radioisotope therapy		SNOMEDCT_US
+399315003	CHD	Nuclear medicine procedure	SNOMEDCT_US
+399315003	CHD	Destructive procedure	SNOMEDCT_US
+399315003	CHD	Radiation	SNOMEDCT_US
+399315003	PAR	Brachytherapy	SNOMEDCT_US
+399315003	PAR	Radioimmunotherapy	SNOMEDCT_US
+399315003	PAR	Teleradiotherapy with iodine-125	SNOMEDCT_US
+399315003	PAR	Interstitial radioactive colloid therapy	SNOMEDCT_US
+399315003	PAR	Intra-articular radionuclide therapy	SNOMEDCT_US
+399315003	PAR	Radionuclide therapy for glandular suppression	SNOMEDCT_US
+399315003	PAR	Radionuclide therapy for gland ablation	SNOMEDCT_US
+399315003	PAR	Radionuclide therapy for hyperthyroidism	SNOMEDCT_US
+399315003	PAR	Unsealed radionuclide procedure	SNOMEDCT_US
+399315003	PAR	Radium contact therapy	SNOMEDCT_US
+399315003	PAR	Beta source contact therapy	SNOMEDCT_US
+399315003	PAR	Mold technique gamma/beta	SNOMEDCT_US
+399315003	PAR	Internal metabolic radiotherapy	SNOMEDCT_US
+399315003	PAR	Internal radiotherapy	SNOMEDCT_US
+399315003	PAR	Radium therapy	SNOMEDCT_US
+399315003	PAR	Yttrium 90 therapy	SNOMEDCT_US
+399315003	PAR	Iodine 131 therapy	SNOMEDCT_US
+399315003	PAR	Phosphorus 32 therapy	SNOMEDCT_US
+399315003	PAR	Strontium 89 therapy	SNOMEDCT_US
+399315003	PAR	Gold 198 therapy	SNOMEDCT_US
+399315003	PAR	Radiolabeled antibody therapy	SNOMEDCT_US
+399315003	PAR	Teleradiotherapy with radioactive cesium	SNOMEDCT_US
+399315003	PAR	Cobalt-60 therapy	SNOMEDCT_US
+399315003	PAR	Radionuclide rhenium 186 hydroxyethylidene diphosphonate therapy	SNOMEDCT_US
+399315003	PAR	Targeted radionuclide therapy	SNOMEDCT_US
+399315003	PAR	Oral radionuclide therapy	SNOMEDCT_US
+399315003	RB	inverse was a Short distance/contact radiotherapy NOS	SNOMEDCT_US
+399315003	RB	inverse was a Other nuclear therapy	SNOMEDCT_US
+399315003	RB	inverse was a Other nuclear therapy NOS	SNOMEDCT_US
+399315003	RO	uses substance Radioactive isotope	SNOMEDCT_US
+399315003	RO	possibly equivalent to Radionuclide therapy	SNOMEDCT_US
+399315003	RO	possibly equivalent to Interstitial radionuclide therapy	SNOMEDCT_US
+399315003	RO	has intent Therapeutic	SNOMEDCT_US
+399315003	RO	occurs before Hypothyroidism following radioiodine therapy	SNOMEDCT_US
+399315003	RO	has method Radioactive destruction	SNOMEDCT_US
+399315003	RO	possibly equivalent to (Radiotherapy - internal) or (other nuclear therapy)	SNOMEDCT_US
+399315003	RO	focus of Brachytherapy monitoring	SNOMEDCT_US
+399315003	RO	associated procedure of Mother receiving radionuclide therapy	SNOMEDCT_US
+399315003	RO	has associated procedure Brachytherapy isodose plan; complex (calculation[s] made from over 10 sources, or remote afterloading brachytherapy, over 12 channels), includes basic dosimetry calculation(s)	SNOMEDCT_US
+399315003	RO	has associated procedure Brachytherapy isodose plan; intermediate (calculation[s] made from 5 to 10 sources, or remote afterloading brachytherapy, 2-12 channels), includes basic dosimetry calculation(s)	SNOMEDCT_US
+399315003	RO	has associated procedure Brachytherapy isodose plan; simple (calculation[s] made from 1 to 4 sources, or remote afterloading brachytherapy, 1 channel), includes basic dosimetry calculation(s)	SNOMEDCT_US
+399315003	SY	same as Short distance and contact radiotherapy	SNOMEDCT_US
+399315003	SY	same as Radiotherapy	SNOMEDCT_US
+449157000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+449157000	PT	Interstitial brachytherapy using iridium wire		SNOMEDCT_US
+449157000	CHD	Procedure categorized by device involved	SNOMEDCT_US
+449157000	CHD	Interstitial brachytherapy	SNOMEDCT_US
+449157000	RO	has method Brachytherapy	SNOMEDCT_US
+449157000	RO	uses substance Iridium radioisotope	SNOMEDCT_US
+449157000	RO	has indirect procedure site Soft tissues	SNOMEDCT_US
+449157000	RO	has intent Therapeutic	SNOMEDCT_US
+449157000	RO	uses device Iridium wire	SNOMEDCT_US
+16554781000119103	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+16554781000119103	PT	Intravenous radionuclide therapy using strontium 89		SNOMEDCT_US
+16554781000119103	SY	Intravenous radioisotope therapy using strontium 89		SNOMEDCT_US
+16554781000119103	CHD	Intravenous radionuclide therapy	SNOMEDCT_US
+16554781000119103	RO	has indirect procedure site Venous	SNOMEDCT_US
+16554781000119103	RO	has direct substance Strontium-89	SNOMEDCT_US
+16554781000119103	RO	has intent Therapeutic	SNOMEDCT_US
+16554781000119103	RO	has method Infusion	SNOMEDCT_US
+16554781000119103	RO	has route of administration Intravenous route	SNOMEDCT_US
+431778005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+431778005	PT	Brachytherapy of prostate using fluoroscopic guidance		SNOMEDCT_US
+431778005	CHD	Brachytherapy	SNOMEDCT_US
+431778005	CHD	Operation on prostate	SNOMEDCT_US
+431778005	CHD	Radiography of prostate	SNOMEDCT_US
+431778005	CHD	Fluoroscopic guidance	SNOMEDCT_US
+431778005	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+431778005	CHD	Fluoroscopy of abdomen	SNOMEDCT_US
+431778005	CHD	Urogenital system fluoroscopy	SNOMEDCT_US
+431778005	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+431778005	CHD	Fluoroscopy of pelvis	SNOMEDCT_US
+431778005	RO	has method Fluoroscopic imaging	SNOMEDCT_US
+431778005	RO	has direct procedure site Prostate	SNOMEDCT_US
+431778005	RO	uses substance Radioactive isotope	SNOMEDCT_US
+431778005	RO	has intent Therapeutic	SNOMEDCT_US
+431778005	RO	has intent Guidance intent	SNOMEDCT_US
+431778005	RO	occurs before Erectile dysfunction following prostate brachytherapy	SNOMEDCT_US
+304423001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304423001	PT	Pulsed electromagnetic energy to ankle		SNOMEDCT_US
+304423001	CHD	Pulsed electromagnetic energy to lower limb	SNOMEDCT_US
+304423001	CHD	Procedure on ankle	SNOMEDCT_US
+304423001	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304423001	RO	has intent Therapeutic	SNOMEDCT_US
+304423001	RO	has direct procedure site Ankle region	SNOMEDCT_US
+90982009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+90982009	PT	Wedge filter design and fabrication		SNOMEDCT_US
+90982009	CHD	Making of compensator for radiotherapy	SNOMEDCT_US
+90982009	RO	has intent Therapeutic	SNOMEDCT_US
+90982009	RO	has direct device Device	SNOMEDCT_US
+90982009	RO	uses energy Radiation	SNOMEDCT_US
+17876001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+17876001	PT	Radiation therapy treatment planning, interpretation of special testing ordered by radiation therapist		SNOMEDCT_US
+17876001	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+17876001	RO	has intent Therapeutic	SNOMEDCT_US
+17876001	RO	uses energy Radiation	SNOMEDCT_US
+461541000124102	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+461541000124102	PT	Regional nodal irradiation of breast		SNOMEDCT_US
+461541000124102	SY	Irradiation of breast regional lymph nodes		SNOMEDCT_US
+461541000124102	CHD	Procedure on trunk	SNOMEDCT_US
+461541000124102	CHD	Procedure on lymph node	SNOMEDCT_US
+461541000124102	CHD	Radiotherapy by body site	SNOMEDCT_US
+461541000124102	RO	has direct procedure site Lymph node of thorax	SNOMEDCT_US
+461541000124102	RO	has intent Therapeutic	SNOMEDCT_US
+461541000124102	RO	uses energy Radiation	SNOMEDCT_US
+461541000124102	RO	has method Therapy	SNOMEDCT_US
+5304008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+5304008	PT	Deep radiation therapy, 200-300 KVP		SNOMEDCT_US
+5304008	SY	Orthovoltage radiation		SNOMEDCT_US
+5304008	SY	Conventional X-ray therapy		SNOMEDCT_US
+5304008	SY	Orthovoltage X-ray therapy		SNOMEDCT_US
+5304008	SY	Orthovoltage radiation therapy		SNOMEDCT_US
+5304008	SY	Kilovoltage X-ray therapy		SNOMEDCT_US
+5304008	SY	High voltage radiation therapy, 200-300 KVP		SNOMEDCT_US
+5304008	SY	Deep X-ray therapy		SNOMEDCT_US
+5304008	SY	DXT - Radiotherapy		SNOMEDCT_US
+5304008	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+5304008	PAR	Deep X-ray therapy 150-400 kV	SNOMEDCT_US
+5304008	PAR	Palliative course of deep X-ray therapy	SNOMEDCT_US
+5304008	PAR	Preoperative course of deep X-ray therapy	SNOMEDCT_US
+5304008	PAR	Postoperative course of deep X-ray therapy	SNOMEDCT_US
+5304008	RO	uses energy Ionizing radiation	SNOMEDCT_US
+5304008	RO	has intent Therapeutic	SNOMEDCT_US
+5304008	RO	possibly equivalent to Radiotherapy NEC	SNOMEDCT_US
+5304008	RO	possibly equivalent to Radiotherapy	SNOMEDCT_US
+57966002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+57966002	PT	Radiation therapy, tissue and geometric inhomogeneity correction		SNOMEDCT_US
+57966002	CHD	Radiation therapy procedure or service	SNOMEDCT_US
+57966002	RO	has intent Therapeutic	SNOMEDCT_US
+57966002	RO	uses energy Radiation	SNOMEDCT_US
+384691004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+384691004	PT	Intraluminal brachytherapy		SNOMEDCT_US
+384691004	CHD	Intracavitary brachytherapy	SNOMEDCT_US
+384691004	CHD	Procedure on organ	SNOMEDCT_US
+384691004	PAR	Intraluminal brachytherapy of biliary tract	SNOMEDCT_US
+384691004	PAR	Intraluminal brachytherapy of rectum	SNOMEDCT_US
+384691004	PAR	Intraluminal brachytherapy of esophagus	SNOMEDCT_US
+384691004	PAR	Intraluminal brachytherapy of tracheobronchial tree	SNOMEDCT_US
+384691004	RO	possibly equivalent to Brachytherapy procedure	SNOMEDCT_US
+384691004	RO	has method Brachytherapy	SNOMEDCT_US
+384691004	RO	uses substance Radioactive isotope	SNOMEDCT_US
+384691004	RO	has intent Therapeutic	SNOMEDCT_US
+384691004	RO	has indirect procedure site Lumen of body system	SNOMEDCT_US
+384691004	RO	possibly equivalent to Delivery of a fraction of intraluminal brachytherapy	SNOMEDCT_US
+228690002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228690002	PT	Iodine 125 brachytherapy		SNOMEDCT_US
+228690002	CHD	Brachytherapy using radioiodine	SNOMEDCT_US
+228690002	RO	has method Brachytherapy	SNOMEDCT_US
+228690002	RO	has intent Therapeutic	SNOMEDCT_US
+228690002	RO	uses substance Iodine-125	SNOMEDCT_US
+182655007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+182655007	PT	Local heating - infrared irradiation		SNOMEDCT_US
+182655007	SY	Local heating - infrared irr.		SNOMEDCT_US
+182655007	SY	Local heating		SNOMEDCT_US
+182655007	CHD	Infrared radiation therapy	SNOMEDCT_US
+182655007	CHD	Procedure on body region	SNOMEDCT_US
+182655007	RO	has procedure site Body region	SNOMEDCT_US
+182655007	RO	uses energy Infrared radiation	SNOMEDCT_US
+182655007	RO	has intent Therapeutic	SNOMEDCT_US
+182655007	RO	has method Therapy	SNOMEDCT_US
+182655007	SY	same as Local heating	SNOMEDCT_US
+448467008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448467008	PT	Interstitial brachytherapy using cesium needle		SNOMEDCT_US
+448467008	SY	Interstitial brachytherapy using caesium needle		SNOMEDCT_US
+448467008	CHD	Procedure categorized by device involved	SNOMEDCT_US
+448467008	CHD	Interstitial brachytherapy	SNOMEDCT_US
+448467008	RO	has method Brachytherapy	SNOMEDCT_US
+448467008	RO	uses substance Cesium radioisotope	SNOMEDCT_US
+448467008	RO	has indirect procedure site Soft tissues	SNOMEDCT_US
+448467008	RO	has intent Therapeutic	SNOMEDCT_US
+448467008	RO	uses device Radioactive implant	SNOMEDCT_US
+448467008	RO	uses access device Brachytherapy needle	SNOMEDCT_US
+304422006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304422006	PT	Pulsed electromagnetic energy to knee		SNOMEDCT_US
+304422006	CHD	Pulsed electromagnetic energy to lower limb	SNOMEDCT_US
+304422006	CHD	Procedure on knee	SNOMEDCT_US
+304422006	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304422006	RO	has intent Therapeutic	SNOMEDCT_US
+304422006	RO	has direct procedure site Knee region	SNOMEDCT_US
+431200001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+431200001	PT	Radionuclide iodine 131 therapy to thyroid		SNOMEDCT_US
+431200001	CHD	Destructive procedure on thyroid gland	SNOMEDCT_US
+431200001	CHD	Iodine 131 therapy	SNOMEDCT_US
+431200001	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+431200001	CHD	Nuclear medicine study by site	SNOMEDCT_US
+431200001	PAR	Radionuclide iodine 131 therapy for thyrotoxicosis	SNOMEDCT_US
+431200001	RO	has direct procedure site Thyroid	SNOMEDCT_US
+431200001	RO	has intent Therapeutic	SNOMEDCT_US
+431200001	RO	uses substance Iodine-131	SNOMEDCT_US
+431200001	RO	has method Radioactive destruction	SNOMEDCT_US
+449155008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+449155008	PT	Intraluminal brachytherapy of esophagus		SNOMEDCT_US
+449155008	SY	Intraluminal brachytherapy of oesophagus		SNOMEDCT_US
+449155008	CHD	Operation on esophagus	SNOMEDCT_US
+449155008	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+449155008	CHD	Intraluminal brachytherapy	SNOMEDCT_US
+449155008	RO	has method Brachytherapy	SNOMEDCT_US
+449155008	RO	uses substance Radioactive isotope	SNOMEDCT_US
+449155008	RO	has indirect procedure site Esophageal lumen	SNOMEDCT_US
+449155008	RO	has intent Therapeutic	SNOMEDCT_US
+90564003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+90564003	PT	Field block design and fabrication		SNOMEDCT_US
+90564003	CHD	Making of shielding block for radiotherapy	SNOMEDCT_US
+90564003	RO	has intent Therapeutic	SNOMEDCT_US
+90564003	RO	has direct device Device	SNOMEDCT_US
+90564003	RO	uses energy Radiation	SNOMEDCT_US
+169333002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169333002	PT	External beam - surgery with preoperative radiotherapy		SNOMEDCT_US
+169333002	SY	External beam		SNOMEDCT_US
+169333002	CHD	Combined radiotherapy	SNOMEDCT_US
+169333002	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169333002	RO	has intent Therapeutic	SNOMEDCT_US
+169333002	SY	same as External beam	SNOMEDCT_US
+448385000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+448385000	PT	Megavoltage radiation therapy using photons		SNOMEDCT_US
+448385000	CHD	Megavoltage radiation therapy	SNOMEDCT_US
+448385000	RO	uses energy Ionizing radiation	SNOMEDCT_US
+448385000	RO	has intent Therapeutic	SNOMEDCT_US
+228714000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228714000	PT	Making of beam direction shell for radiotherapy		SNOMEDCT_US
+228714000	SY	Making of mask for radiotherapy		SNOMEDCT_US
+228714000	SY	Making of cut-out for radiotherapy		SNOMEDCT_US
+228714000	CHD	Preparation of radiation therapy aid	SNOMEDCT_US
+228714000	CHD	Procedure categorized by device involved	SNOMEDCT_US
+228714000	RO	has intent Therapeutic	SNOMEDCT_US
+228714000	RO	has direct device Device	SNOMEDCT_US
+228714000	RO	uses energy Radiation	SNOMEDCT_US
+228714000	SY	same as Making of cut-out for radiotherapy	SNOMEDCT_US
+228674002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228674002	PT	Cyclotron neutron teletherapy		SNOMEDCT_US
+228674002	CHD	Teleradiotherapy neutrons	SNOMEDCT_US
+228674002	RO	has intent Therapeutic	SNOMEDCT_US
+228674002	RO	uses energy Neutron radiation	SNOMEDCT_US
+169322000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169322000	PT	Gamma-ray telecurie therapy		SNOMEDCT_US
+169322000	CHD	Gamma ray and intermediate distance curietherapy	SNOMEDCT_US
+169322000	RO	uses energy Gamma radiation	SNOMEDCT_US
+169322000	RO	has intent Therapeutic	SNOMEDCT_US
+169322000	SY	same as Gamma-ray telecurie therapy	SNOMEDCT_US
+169332007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169332007	PT	External beam with internal radiotherapy		SNOMEDCT_US
+169332007	CHD	Combined radiotherapy	SNOMEDCT_US
+169332007	RO	uses energy Ionizing radiation	SNOMEDCT_US
+169332007	RO	has intent Therapeutic	SNOMEDCT_US
+169332007	SY	same as External beam with internal radiotherapy	SNOMEDCT_US
+85257004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+85257004	PT	Destruction of chorioretinal lesion by radiation therapy		SNOMEDCT_US
+85257004	CHD	Destruction of lesion of retina	SNOMEDCT_US
+85257004	CHD	Destruction of lesion of choroid by radiation therapy	SNOMEDCT_US
+85257004	PAR	Destruction of chorioretinal lesion by implantation of radiation source	SNOMEDCT_US
+85257004	RO	has direct procedure site Choroidal structure	SNOMEDCT_US
+85257004	RO	has direct procedure site Retinal structure	SNOMEDCT_US
+85257004	RO	has direct morphology Lesion	SNOMEDCT_US
+85257004	RO	has intent Therapeutic	SNOMEDCT_US
+85257004	RO	uses energy Radiation	SNOMEDCT_US
+85257004	RO	has method Destruction	SNOMEDCT_US
+228729003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228729003	PT	Calculation of brachytherapy		SNOMEDCT_US
+228729003	CHD	Treatment planning for brachytherapy	SNOMEDCT_US
+228729003	CHD	Radiotherapy calculation	SNOMEDCT_US
+228729003	PAR	Isodose computation for brachytherapy	SNOMEDCT_US
+228729003	PAR	Brachytherapy isodose calculation, intermediate	SNOMEDCT_US
+228729003	RO	has intent Therapeutic	SNOMEDCT_US
+228729003	RO	uses energy Radiation	SNOMEDCT_US
+24242005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+24242005	PT	Cobalt-60 therapy		SNOMEDCT_US
+24242005	SY	Teleradiotherapy with cobalt-60		SNOMEDCT_US
+24242005	SY	Cobalt 60 teletherapy		SNOMEDCT_US
+24242005	SY	Cobalt therapy		SNOMEDCT_US
+24242005	CHD	Radionuclide therapy	SNOMEDCT_US
+24242005	PAR	Cobalt 60 brachytherapy	SNOMEDCT_US
+24242005	PAR	Cobalt 60 brachytherapy manual loading	SNOMEDCT_US
+24242005	PAR	Cobalt 60 brachytherapy remote afterloading	SNOMEDCT_US
+24242005	RO	possibly equivalent to Cobalt 60 teletherapy	SNOMEDCT_US
+24242005	RO	has intent Therapeutic	SNOMEDCT_US
+24242005	RO	uses substance Cobalt-60	SNOMEDCT_US
+24242005	RO	has method Radioactive destruction	SNOMEDCT_US
+24242005	SY	same as Therapy with cobalt-60	SNOMEDCT_US
+425767004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+425767004	PT	Implantation of radioactive seed into prostate		SNOMEDCT_US
+425767004	SY	Seed implantation into prostate		SNOMEDCT_US
+425767004	CHD	Brachytherapy	SNOMEDCT_US
+425767004	CHD	Insertion of therapeutic device	SNOMEDCT_US
+425767004	CHD	Operation on prostate	SNOMEDCT_US
+425767004	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+425767004	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+425767004	CHD	Prostate implantation	SNOMEDCT_US
+425767004	RO	has indirect procedure site Prostate	SNOMEDCT_US
+425767004	RO	uses substance Radioactive isotope	SNOMEDCT_US
+425767004	RO	has intent Therapeutic	SNOMEDCT_US
+425767004	RO	has method Insertion	SNOMEDCT_US
+425767004	RO	associated procedure of History of prostate seed brachytherapy	SNOMEDCT_US
+425767004	RO	has direct device Radioactive seed, device	SNOMEDCT_US
+228671005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228671005	PT	Linear accelerator electron teletherapy		SNOMEDCT_US
+228671005	SY	LINNAC - Linear accelerator electron therapy		SNOMEDCT_US
+228671005	CHD	Teleradiotherapy by linear accelerator	SNOMEDCT_US
+228671005	RO	uses energy Ionizing radiation	SNOMEDCT_US
+228671005	RO	has intent Therapeutic	SNOMEDCT_US
+12566000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+12566000	PT	Consultation in computer dosimetry and isodose chart, teletherapy		SNOMEDCT_US
+12566000	CHD	Consultation	SNOMEDCT_US
+12566000	CHD	General radiation therapy consultation and report	SNOMEDCT_US
+12566000	RO	has intent Therapeutic	SNOMEDCT_US
+12566000	RO	uses energy Radiation	SNOMEDCT_US
+228661008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228661008	PT	Grenz ray therapy		SNOMEDCT_US
+228661008	CHD	Superficial radiation therapy	SNOMEDCT_US
+228661008	PAR	Grenz ray therapy up to 10 kV	SNOMEDCT_US
+228661008	RO	has intent Therapeutic	SNOMEDCT_US
+228661008	RO	possibly equivalent to Superficial teletherapy procedure, Grenz type	SNOMEDCT_US
+228661008	RO	uses energy Grenz radiation	SNOMEDCT_US
+50632006	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+50632006	PT	Cyclotron teleradiotherapy		SNOMEDCT_US
+50632006	SY	Cyclotron therapy		SNOMEDCT_US
+50632006	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+50632006	RO	uses energy Ionizing radiation	SNOMEDCT_US
+50632006	RO	has intent Therapeutic	SNOMEDCT_US
+169324004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169324004	PT	Combined teletherapy and intermediate distance curietherapy		SNOMEDCT_US
+169324004	CHD	Gamma ray and intermediate distance curietherapy	SNOMEDCT_US
+169324004	RO	uses energy Gamma radiation	SNOMEDCT_US
+169324004	RO	has intent Therapeutic	SNOMEDCT_US
+169324004	SY	same as Combined teletherapy and intermediate distance curietherapy	SNOMEDCT_US
+228721000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228721000	PT	Making of surface mold for brachytherapy		SNOMEDCT_US
+228721000	SY	Making of surface mould for brachytherapy		SNOMEDCT_US
+228721000	CHD	Treatment planning for brachytherapy	SNOMEDCT_US
+228721000	CHD	Preparation of radiation therapy aid	SNOMEDCT_US
+228721000	RO	has intent Therapeutic	SNOMEDCT_US
+228721000	RO	uses energy Radiation	SNOMEDCT_US
+169350000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169350000	PT	Radiotherapy: infuse skull/brain		SNOMEDCT_US
+169350000	CHD	Operative procedure on head	SNOMEDCT_US
+169350000	CHD	Radiotherapy: infuse head/neck	SNOMEDCT_US
+169350000	RO	has indirect procedure site Head	SNOMEDCT_US
+169350000	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169350000	RO	has intent Therapeutic	SNOMEDCT_US
+169350000	RO	has method Radioactive destruction	SNOMEDCT_US
+169350000	RO	has method Infusion	SNOMEDCT_US
+169350000	SY	same as Radiotherapy: infuse skull/brain	SNOMEDCT_US
+228704009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228704009	PT	Radiotherapy planning using a free set up		SNOMEDCT_US
+228704009	CHD	Radiotherapy planning	SNOMEDCT_US
+228704009	RO	has intent Therapeutic	SNOMEDCT_US
+228704009	RO	uses energy Radiation	SNOMEDCT_US
+84336003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+84336003	PT	Radiation therapy isodose plan, rotation field		SNOMEDCT_US
+84336003	CHD	Special dosimetry	SNOMEDCT_US
+84336003	RO	has intent Therapeutic	SNOMEDCT_US
+84336003	RO	uses energy Radiation	SNOMEDCT_US
+304419009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304419009	PT	Pulsed electromagnetic energy to pelvis		SNOMEDCT_US
+304419009	CHD	Pulsed electromagnetic energy to trunk	SNOMEDCT_US
+304419009	CHD	Procedure on pelvis	SNOMEDCT_US
+304419009	RO	has direct procedure site Pelvic structure	SNOMEDCT_US
+304419009	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304419009	RO	has intent Therapeutic	SNOMEDCT_US
+228673008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228673008	PT	Strontium 90 electron teletherapy		SNOMEDCT_US
+228673008	CHD	Teleradiotherapy using electrons	SNOMEDCT_US
+228673008	RO	uses energy Electron beam	SNOMEDCT_US
+228673008	RO	has intent Therapeutic	SNOMEDCT_US
+168522007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168522007	PT	Radiotherapy for lymphatic irradiation		SNOMEDCT_US
+168522007	CHD	Purpose of radiotherapy	SNOMEDCT_US
+168522007	RO	has intent Therapeutic	SNOMEDCT_US
+168522007	SY	same as Radiotherapy for lymphatic irradiation	SNOMEDCT_US
+169294009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169294009	PT	Half-deep therapy 60-150 kV		SNOMEDCT_US
+169294009	CHD	Superficial radiation therapy	SNOMEDCT_US
+169294009	RO	uses energy Ionizing electromagnetic radiation	SNOMEDCT_US
+169294009	RO	has intent Therapeutic	SNOMEDCT_US
+169294009	SY	same as Half-deep therapy 60-150 kV	SNOMEDCT_US
+449255003	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+449255003	PT	Intraluminal brachytherapy of tracheobronchial tree		SNOMEDCT_US
+449255003	CHD	Intraluminal brachytherapy	SNOMEDCT_US
+449255003	RO	has method Brachytherapy	SNOMEDCT_US
+449255003	RO	uses substance Radioactive isotope	SNOMEDCT_US
+449255003	RO	has intent Therapeutic	SNOMEDCT_US
+449255003	RO	has indirect procedure site Lumen of body system	SNOMEDCT_US
+169352008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169352008	PT	Radiotherapy: infuse pleural cavity		SNOMEDCT_US
+169352008	CHD	Operation on pleural cavity	SNOMEDCT_US
+169352008	CHD	Radiotherapy: infuse organ cavity	SNOMEDCT_US
+169352008	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+169352008	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169352008	RO	has indirect procedure site Pleural cavity	SNOMEDCT_US
+169352008	RO	has intent Therapeutic	SNOMEDCT_US
+169352008	RO	has method Radioactive destruction	SNOMEDCT_US
+169352008	RO	has method Infusion	SNOMEDCT_US
+169352008	SY	same as Radiotherapy: infuse pleural cavity	SNOMEDCT_US
+169369005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169369005	PT	Radiotherapy: temporary abdominal implant		SNOMEDCT_US
+169369005	CHD	Operation on abdominal region	SNOMEDCT_US
+169369005	CHD	Temporary implant radiotherapy	SNOMEDCT_US
+169369005	CHD	Destructive procedure by anatomic site	SNOMEDCT_US
+169369005	RO	has indirect procedure site Abdominal structure	SNOMEDCT_US
+169369005	RO	has method Brachytherapy	SNOMEDCT_US
+169369005	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169369005	RO	has intent Therapeutic	SNOMEDCT_US
+169369005	RO	uses device Radioactive implant	SNOMEDCT_US
+169369005	SY	same as Radiotherapy: temporary abdominal implant	SNOMEDCT_US
+395096001	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+395096001	PT	Stereotactic radiotherapy		SNOMEDCT_US
+395096001	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+395096001	PAR	Stereotactic cobalt teletherapy	SNOMEDCT_US
+395096001	PAR	Stereotactic destruction of lesion using gamma radiation	SNOMEDCT_US
+395096001	PAR	Stereotactic radiation therapy using megavoltage radiation	SNOMEDCT_US
+395096001	PAR	Stereotactic radiosurgery	SNOMEDCT_US
+395096001	RO	uses energy Ionizing radiation	SNOMEDCT_US
+395096001	RO	has intent Therapeutic	SNOMEDCT_US
+395096001	SY	same as Stereotactic radiotherapy	SNOMEDCT_US
+169305002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169305002	PT	Combined photon therapy		SNOMEDCT_US
+169305002	CHD	High-energy beam therapy	SNOMEDCT_US
+169305002	RO	uses energy X-ray	SNOMEDCT_US
+169305002	RO	has intent Therapeutic	SNOMEDCT_US
+169305002	SY	same as Combined photon therapy	SNOMEDCT_US
+15543008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+15543008	PT	Isodose computation for brachytherapy		SNOMEDCT_US
+15543008	CHD	Special dosimetry	SNOMEDCT_US
+15543008	CHD	Calculation of brachytherapy	SNOMEDCT_US
+15543008	PAR	Consultation in computer dosimetry and isodose chart for brachytherapy	SNOMEDCT_US
+15543008	RO	has intent Therapeutic	SNOMEDCT_US
+15543008	RO	uses energy Radiation	SNOMEDCT_US
+228700000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228700000	PT	Iodine 131 meta-iodobenzylguanidine therapy		SNOMEDCT_US
+228700000	SY	I131 MIBG therapy		SNOMEDCT_US
+228700000	CHD	Iodine 131 therapy	SNOMEDCT_US
+228700000	RO	has intent Therapeutic	SNOMEDCT_US
+228700000	RO	has method Radioactive destruction	SNOMEDCT_US
+228700000	RO	uses substance Iobenguane (131-I)	SNOMEDCT_US
+168524008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168524008	PT	Radiotherapy - intraoperative control		SNOMEDCT_US
+168524008	SY	Radiotherapy		SNOMEDCT_US
+168524008	CHD	Radiation	SNOMEDCT_US
+168524008	RO	has intent Therapeutic	SNOMEDCT_US
+168524008	SY	same as Radiotherapy	SNOMEDCT_US
+168526005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+168526005	PT	Radiotherapy for analgesia		SNOMEDCT_US
+168526005	CHD	Purpose of radiotherapy	SNOMEDCT_US
+168526005	RO	has intent Therapeutic	SNOMEDCT_US
+168526005	SY	same as Radiotherapy for analgesia	SNOMEDCT_US
+31344000	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+31344000	PT	Radiation therapy treatment planning, patient contour and localization of internal structures		SNOMEDCT_US
+31344000	SY	Radiation therapy treatment planning, patient contour and localisation of internal structures		SNOMEDCT_US
+31344000	CHD	Radiotherapy planning	SNOMEDCT_US
+31344000	RO	has intent Therapeutic	SNOMEDCT_US
+31344000	RO	uses energy Proton beam	SNOMEDCT_US
+431667009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+431667009	PT	Intracoronary brachytherapy using fluoroscopic guidance		SNOMEDCT_US
+431667009	CHD	Intracavitary brachytherapy	SNOMEDCT_US
+431667009	CHD	Operative procedure on coronary artery	SNOMEDCT_US
+431667009	CHD	Fluoroscopic guidance	SNOMEDCT_US
+431667009	CHD	Nuclear medicine study of systems	SNOMEDCT_US
+431667009	CHD	Therapeutic procedure on soft tissue	SNOMEDCT_US
+431667009	CHD	Destructive procedure by organ system	SNOMEDCT_US
+431667009	CHD	Nuclear medicine study by site	SNOMEDCT_US
+431667009	CHD	Fluoroscopic angiography of coronary arteries	SNOMEDCT_US
+431667009	CHD	Interstitial brachytherapy	SNOMEDCT_US
+431667009	CHD	Procedure on coronary artery using imaging guidance	SNOMEDCT_US
+431667009	RO	has method Brachytherapy	SNOMEDCT_US
+431667009	RO	has method Fluoroscopic imaging	SNOMEDCT_US
+431667009	RO	uses substance Radioactive isotope	SNOMEDCT_US
+431667009	RO	has direct procedure site Coronary artery	SNOMEDCT_US
+431667009	RO	has intent Therapeutic	SNOMEDCT_US
+431667009	RO	has direct procedure site Lumen of body system	SNOMEDCT_US
+431667009	RO	has intent Guidance intent	SNOMEDCT_US
+169329009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169329009	PT	Mold technique gamma/beta		SNOMEDCT_US
+169329009	SY	Mould technique gamma/beta		SNOMEDCT_US
+169329009	CHD	Radionuclide therapy	SNOMEDCT_US
+169329009	RO	uses substance Radioactive isotope	SNOMEDCT_US
+169329009	RO	has intent Therapeutic	SNOMEDCT_US
+169329009	RO	has method Radioactive destruction	SNOMEDCT_US
+169329009	SY	same as Mold technique gamma/beta	SNOMEDCT_US
+304413005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304413005	PT	Pulsed electromagnetic energy to lower limb		SNOMEDCT_US
+304413005	CHD	Pulsed electromagnetic energy therapy	SNOMEDCT_US
+304413005	CHD	Procedure on lower extremity	SNOMEDCT_US
+304413005	PAR	Pulsed electromagnetic energy to hip	SNOMEDCT_US
+304413005	PAR	Pulsed electromagnetic energy to knee	SNOMEDCT_US
+304413005	PAR	Pulsed electromagnetic energy to ankle	SNOMEDCT_US
+304413005	PAR	Pulsed electromagnetic energy to foot	SNOMEDCT_US
+304413005	RO	has direct procedure site Lower limb	SNOMEDCT_US
+304413005	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304413005	RO	has intent Therapeutic	SNOMEDCT_US
+115959002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+115959002	PT	Stereotactic radiosurgery		SNOMEDCT_US
+115959002	CHD	Surgical procedure	SNOMEDCT_US
+115959002	CHD	Stereotactic radiotherapy	SNOMEDCT_US
+115959002	PAR	Stereotactic radiosurgery of brain tissue	SNOMEDCT_US
+115959002	PAR	Single dose stereotactic radiosurgery using linear accelerator system	SNOMEDCT_US
+115959002	PAR	Fractionated dose stereotactic radiosurgery using linear accelerator system	SNOMEDCT_US
+115959002	PAR	Stereotactic radiosurgery for acoustic neuroma	SNOMEDCT_US
+115959002	RO	uses energy Ionizing radiation	SNOMEDCT_US
+115959002	RO	has intent Therapeutic	SNOMEDCT_US
+115959002	RO	has method Surgical action	SNOMEDCT_US
+115959002	RO	has associated procedure Application of stereotactic headframe for stereotactic radiosurgery (List separately in addition to code for primary procedure)	SNOMEDCT_US
+4914002	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+4914002	PT	Treatment planning for teletherapy		SNOMEDCT_US
+4914002	CHD	Radiotherapy planning	SNOMEDCT_US
+4914002	PAR	Calculation of teletherapy	SNOMEDCT_US
+4914002	PAR	Three dimensional treatment planning	SNOMEDCT_US
+4914002	RO	has intent Therapeutic	SNOMEDCT_US
+4914002	RO	uses energy Radiation	SNOMEDCT_US
+4914002	SY	same as Treatment planning for teletherapy	SNOMEDCT_US
+431588009	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+431588009	PT	Radionuclide iodine 131 therapy for thyrotoxicosis		SNOMEDCT_US
+431588009	CHD	Surgical procedure for clinical finding and/or disorder	SNOMEDCT_US
+431588009	CHD	Radionuclide iodine 131 therapy to thyroid	SNOMEDCT_US
+431588009	RO	has direct procedure site Thyroid	SNOMEDCT_US
+431588009	RO	has focus Thyrotoxicosis	SNOMEDCT_US
+431588009	RO	has intent Therapeutic	SNOMEDCT_US
+431588009	RO	uses substance Iodine-131	SNOMEDCT_US
+431588009	RO	has method Radioactive destruction	SNOMEDCT_US
+169311004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+169311004	PT	Positron therapy		SNOMEDCT_US
+169311004	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+169311004	RO	has intent Therapeutic	SNOMEDCT_US
+169311004	RO	uses energy Positron beam radiation	SNOMEDCT_US
+169311004	SY	same as Positron therapy	SNOMEDCT_US
+62867004	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+62867004	PT	Teleradiotherapy with radioactive cesium		SNOMEDCT_US
+62867004	SY	Caesium 137 teletherapy		SNOMEDCT_US
+62867004	SY	Cesium 137 teletherapy		SNOMEDCT_US
+62867004	SY	Teleradiotherapy with radioactive caesium		SNOMEDCT_US
+62867004	CHD	Radionuclide therapy	SNOMEDCT_US
+62867004	CHD	Teleradiotherapy procedure	SNOMEDCT_US
+62867004	CHD	Gamma ray therapy	SNOMEDCT_US
+62867004	CHD	Procedure categorized by device involved	SNOMEDCT_US
+62867004	RO	has direct substance Cesium	SNOMEDCT_US
+62867004	RO	uses energy Gamma radiation	SNOMEDCT_US
+62867004	RO	uses substance Radioactive isotope	SNOMEDCT_US
+62867004	RO	has intent Therapeutic	SNOMEDCT_US
+62867004	RO	has method Radioactive destruction	SNOMEDCT_US
+62867004	RO	has indirect device Radioactive implant	SNOMEDCT_US
+228705005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228705005	PT	Radiotherapy planning using a simulator		SNOMEDCT_US
+228705005	CHD	Radiotherapy planning	SNOMEDCT_US
+228705005	PAR	Radiotherapy planning using simulator fluoroscopy	SNOMEDCT_US
+228705005	PAR	Radiotherapy planning using a simulator X-ray film	SNOMEDCT_US
+228705005	RO	has intent Therapeutic	SNOMEDCT_US
+228705005	RO	uses energy Radiation	SNOMEDCT_US
+228702008	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+228702008	PT	Gold 198 therapy		SNOMEDCT_US
+228702008	SY	Au198 therapy		SNOMEDCT_US
+228702008	CHD	Radionuclide therapy	SNOMEDCT_US
+228702008	PAR	Gold 198 brachytherapy	SNOMEDCT_US
+228702008	RO	has intent Therapeutic	SNOMEDCT_US
+228702008	RO	uses substance Gold-198	SNOMEDCT_US
+228702008	RO	has method Radioactive destruction	SNOMEDCT_US
+432094005	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+432094005	PT	Radiolabeled Iodine 131 antibody therapy		SNOMEDCT_US
+432094005	SY	Radiolabelled Iodine 131 antibody therapy		SNOMEDCT_US
+432094005	SY	Iodine 131 antibody therapy		SNOMEDCT_US
+432094005	CHD	Iodine 131 therapy	SNOMEDCT_US
+432094005	CHD	Radiolabeled antibody therapy	SNOMEDCT_US
+432094005	RO	has intent Therapeutic	SNOMEDCT_US
+432094005	RO	uses substance Iodine-131	SNOMEDCT_US
+432094005	RO	has method Radioactive destruction	SNOMEDCT_US
+304411007	STY	Therapeutic or Preventive Procedure		SNOMEDCT_US
+304411007	PT	Pulsed electromagnetic energy to neck		SNOMEDCT_US
+304411007	CHD	Procedure on neck	SNOMEDCT_US
+304411007	CHD	Pulsed electromagnetic energy therapy	SNOMEDCT_US
+304411007	RO	has direct procedure site Neck	SNOMEDCT_US
+304411007	RO	uses energy Electromagnetic radiation	SNOMEDCT_US
+304411007	RO	has intent Therapeutic	SNOMEDCT_US
