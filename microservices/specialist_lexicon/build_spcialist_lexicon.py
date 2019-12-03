@@ -110,9 +110,23 @@ class AustinSimpleParser:
         token_dic_id = self.token_dict.get(tokens[idx], None)
         if token_dic_id in self.children_tries:
             return self.children_tries[token_dic_id]._get_tries(tokens, start_idx, idx + 1)
-        new_tokens = [(' '.join(tokens[start_idx: idx]), self.tags)]
-        new_tokens.extend(self._get_top()._parse_tokens(tokens, idx))
-        return new_tokens
+        if token_dic_id:
+            new_tokens = [(' '.join(tokens[start_idx: idx]), self.tags)]
+            new_tokens.extend(self._get_top()._parse_tokens(tokens, idx))
+            return new_tokens
+        variants = self.get_variants(tokens[idx])
+        if variants is None:
+            new_tokens = [(' '.join(tokens[start_idx: idx]), self.tags)]
+            new_tokens.extend(self._get_top()._parse_tokens(tokens, idx))
+            return new_tokens
+        if isinstance(variants, list):
+            new_tokens = tokens[:idx] + (variants + tokens[idx + 1:])
+            token_dic_id = self.token_dict.get(new_tokens[idx], None)
+            if token_dic_id in self.children_tries:
+                return self.children_tries[token_dic_id]._get_tries(new_tokens, start_idx, idx + 1)
+        tokens[idx] = variants
+        token_dic_id = self.token_dict.get(tokens[idx], None)
+        return self.children_tries[token_dic_id]._get_tries(tokens, start_idx, idx + 1)
 
     def build_trie(self, words, tags=None):
         tokens = [token.lower() for token in words.split()]
@@ -126,9 +140,9 @@ class AustinSimpleParser:
             variants = token[:-2]
         elif token[-2:] == "s'" and token[:-1] in self.token_dict and len(token) > 2:
             variants = token[:-1]
-        elif token[-2:] == "s" and token[:-1] in self.token_dict and len(token) > 1:
+        elif token[-1:] == "s" and token[:-1] in self.token_dict and len(token) > 1:
             variants = token[:-1]
-        elif token[-2:] == "d" and token[:-1] in self.token_dict and len(token) > 1:
+        elif token[-1:] == "d" and token[:-1] in self.token_dict and len(token) > 1:
             variants = token[:-1]
         elif token[-2:] == "es" and token[:-2] in self.token_dict and len(token) > 2:
             variants = token[:-2]
@@ -137,7 +151,7 @@ class AustinSimpleParser:
         elif token[-2:] == "er" and token[:-2] in self.token_dict and len(token) > 2:
             variants = token[:-2]
         elif token[-3:] == "est" and token[:-3] in self.token_dict and len(token) > 3:
-            variants = token[:-2]
+            variants = token[:-3]
         elif token[-1:] in string.punctuation:
             variants = [token[:-1], token[-1:]]
         elif token[:1] in string.punctuation:
@@ -150,6 +164,10 @@ class AustinSimpleParser:
         token_dic_id = self.token_dict.get(tokens[idx], None)
         if token_dic_id in self.children_tries:
             return self.children_tries[token_dic_id]._get_tries(tokens, idx, idx + 1)
+        if token_dic_id:
+            new_tokens = [(tokens[idx], {})]
+            new_tokens.extend(self._get_top()._parse_tokens(tokens, idx + 1))
+            return new_tokens
         variants = self.get_variants(tokens[idx])
         if variants is None:
             new_tokens = [(tokens[idx], {})]
@@ -157,9 +175,12 @@ class AustinSimpleParser:
             return new_tokens
         if isinstance(variants, list):
             new_tokens = tokens[:idx] + (variants + tokens[idx + 1:])
-            return self._parse_tokens(new_tokens, idx)
+            token_dic_id = self.token_dict.get(new_tokens[idx], None)
+            if token_dic_id in self.children_tries:
+                return self.children_tries[token_dic_id]._get_tries(new_tokens, idx, idx + 1)
         tokens[idx] = variants
-        return self._parse_tokens(tokens, idx)
+        token_dic_id = self.token_dict.get(tokens[idx], None)
+        return self.children_tries[token_dic_id]._get_tries(tokens, idx, idx + 1)
 
     def parse_words(self, words):
         tokens = [token.lower() for token in words.split()]
@@ -298,6 +319,8 @@ def parse_test():
     parsed8 = specialist_lexicon_parser.parse_words('I had a breast cancer treatments and cancer test')
     print(parsed8)
     parsed8 = specialist_lexicon_parser.parse_words('I had Chronic idiopathic hemolytic anemia.')
+    print(parsed8)
+    parsed8 = specialist_lexicon_parser.parse_words('I had Chronic idiopathic hemolytic anemia C.A.P.')
     print(parsed8)
 
 
