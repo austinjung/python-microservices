@@ -3,6 +3,7 @@ import datetime
 import tracemalloc
 from collections import defaultdict
 import re
+import string
 
 import jsonpickle
 from pyciiml.utils.file_utils import get_basename, write_json
@@ -117,15 +118,48 @@ class AustinSimpleParser:
         tokens = [token.lower() for token in words.split()]
         self._add_next_tokens(tokens, tags)
 
+    def get_variants(self, token):
+        variants = None
+        if token in ['', None]:
+            return variants
+        elif token[-2:] == "'s" and token[:-2] in self.token_dict and len(token) > 2:
+            variants = token[:-2]
+        elif token[-2:] == "s'" and token[:-1] in self.token_dict and len(token) > 2:
+            variants = token[:-1]
+        elif token[-2:] == "s" and token[:-1] in self.token_dict and len(token) > 1:
+            variants = token[:-1]
+        elif token[-2:] == "d" and token[:-1] in self.token_dict and len(token) > 1:
+            variants = token[:-1]
+        elif token[-2:] == "es" and token[:-2] in self.token_dict and len(token) > 2:
+            variants = token[:-2]
+        elif token[-2:] == "ed" and token[:-2] in self.token_dict and len(token) > 2:
+            variants = token[:-2]
+        elif token[-2:] == "er" and token[:-2] in self.token_dict and len(token) > 2:
+            variants = token[:-2]
+        elif token[-3:] == "est" and token[:-3] in self.token_dict and len(token) > 3:
+            variants = token[:-2]
+        elif token[-1:] in string.punctuation:
+            variants = [token[:-1], token[-1:]]
+        elif token[:1] in string.punctuation:
+            variants = [token[:1], token[1:]]
+        return variants
+
     def _parse_tokens(self, tokens, idx):
         if idx >= len(tokens):
             return []
         token_dic_id = self.token_dict.get(tokens[idx], None)
         if token_dic_id in self.children_tries:
             return self.children_tries[token_dic_id]._get_tries(tokens, idx, idx + 1)
-        new_tokens = [(tokens[idx], {})]
-        new_tokens.extend(self._get_top()._parse_tokens(tokens, idx + 1))
-        return new_tokens
+        variants = self.get_variants(tokens[idx])
+        if variants is None:
+            new_tokens = [(tokens[idx], {})]
+            new_tokens.extend(self._get_top()._parse_tokens(tokens, idx + 1))
+            return new_tokens
+        if isinstance(variants, list):
+            new_tokens = tokens[:idx] + (variants + tokens[idx + 1:])
+            return self._parse_tokens(new_tokens, idx)
+        tokens[idx] = variants
+        return self._parse_tokens(tokens, idx)
 
     def parse_words(self, words):
         tokens = [token.lower() for token in words.split()]
@@ -193,6 +227,9 @@ def save_specialist_lexicon_parser():
 
 # @profile()
 def build_specialist_lexicon_parser():
+    global global_specialist_lexicon_parser
+    for punct in string.punctuation:
+        global_specialist_lexicon_parser.build_trie(punct, tags={'cat': 'punct'})
     with open('LEXICON', mode='r', encoding='utf-8', errors='replace') as lexicon_file:
         lexicon = initialize_lexicon()
         for line in lexicon_file:
@@ -260,7 +297,7 @@ def parse_test():
     print(datetime.datetime.now())
     parsed8 = specialist_lexicon_parser.parse_words('I had a breast cancer treatments and cancer test')
     print(parsed8)
-    parsed8 = specialist_lexicon_parser.parse_words('I had Chronic idiopathic hemolytic anemia')
+    parsed8 = specialist_lexicon_parser.parse_words('I had Chronic idiopathic hemolytic anemia.')
     print(parsed8)
 
 
