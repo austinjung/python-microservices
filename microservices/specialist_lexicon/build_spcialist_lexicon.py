@@ -281,14 +281,18 @@ def normalize_and_expand_to_build_terminology(line):
         if len(lines) == 1:  # Has no conj
             lines.append(suppressed_line.replace(', ', ' '))  # append without ', '
 
-    if 'on examination' in suppressed_line:
-        suppressed_line = suppressed_line.replace('on examination', '')
-        if suppressed_line.strip() != '' and ' - ' not in suppressed_line:
-            lines.append(suppressed_line.strip())
+    for token in ['on examination', 'o/e']:
+        if token in suppressed_line:
+            suppressed_line = suppressed_line.replace(token, '')
+            if suppressed_line.strip() != '' and ' - ' not in suppressed_line:
+                lines.append(suppressed_line.strip())
 
-    if ' - ' in suppressed_line:
+    if ' - ' in suppressed_line:  # It may have full name of acronym
         split_lines = suppressed_line.split(' - ')
-        lines.append(' '.join(split_lines[1:]).strip())
+        if split_lines[0].strip() != '':
+            lines.append(split_lines[0].strip())
+        if ' '.join(split_lines[1:]).strip() != '':
+            lines.append(' '.join(split_lines[1:]).strip())
 
     return lines
 
