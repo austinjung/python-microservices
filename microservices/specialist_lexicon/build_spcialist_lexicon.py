@@ -195,8 +195,9 @@ class AustinSimpleParser:
         return self._parse_tokens(tokens, 0)
 
     def fix_token_dict(self):
-        for idx, key in enumerate(self.token_dict.dic_list):
-            if key not in self.token_dict:
+        dic_set = set(enumerate(self.token_dict.dic_list))
+        token_set = set([(idx, key) for key, idx in self.token_dict.items()])
+        for idx, key in dic_set.difference(token_set):
                 self.token_dict[key] = idx
 
 
@@ -383,6 +384,11 @@ if __name__ == '__main__':
     # print('----------------------')
     # build_med_terminology('terminology/adverseReaction.txt')
     # print('----------------------')
+    print(datetime.datetime.now())
     parse_test()
+    print(datetime.datetime.now())
+    # build_med_terminology('terminology/biomarker.txt')
+    # build_med_terminology('terminology/chemotherapy.txt')
+    print(datetime.datetime.now())
     print('----------------------')
     print("Current: %d, Peak %d" % tracemalloc.get_traced_memory())
