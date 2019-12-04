@@ -142,6 +142,8 @@ class AustinSimpleParser:
         variants = None
         if token in ['', None]:
             return variants
+        elif token in string.punctuation:
+            return variants
         elif token[-2:] == "'s" and token[:-2] in self.token_dict and len(token) > 2:
             variants = token[:-2]
         elif token[-2:] == "s'" and token[:-1] in self.token_dict and len(token) > 2:
@@ -327,16 +329,16 @@ def build_med_terminology(terminology_file_path, entity_name=None):
                 }
                 terminologies = normalize_and_expand_to_build_terminology(desc)
                 for terminology in terminologies:
-                    if terminology not in added_terminology:
+                    if (code, terminology) not in added_terminology:
                         global_specialist_lexicon_parser.build_trie(terminology, tags)
-                        added_terminology.add(terminology)
+                        added_terminology.add((code, terminology))
                 if generic_code and generic_terminology:
                     terminology = generic_terminology.strip()
-                    if terminology not in added_terminology:
+                    if (code, terminology) not in added_terminology:
                         tags['t2_code'] = generic_code
                         global_specialist_lexicon_parser.build_trie(terminology, tags)
-                        added_terminology.add(terminology)
-    # save_specialist_lexicon_parser()
+                        added_terminology.add((code, terminology))
+    save_specialist_lexicon_parser()
     write_json(list(added_terminology), '{0}_added.json'.format(entity_name))
 
 
@@ -352,9 +354,8 @@ def read_specialist_lexicon_parser():
 # @profile
 def parse_test():
     print(datetime.datetime.now())
-    # specialist_lexicon_parser = read_specialist_lexicon_parser()
     global global_specialist_lexicon_parser
-    # global_specialist_lexicon_parser = read_specialist_lexicon_parser()
+    global_specialist_lexicon_parser = read_specialist_lexicon_parser()
     specialist_lexicon_parser = global_specialist_lexicon_parser
     print(datetime.datetime.now())
     parsed8 = specialist_lexicon_parser.parse_words('I had a breast cancer treatments and cancer test')
@@ -368,12 +369,12 @@ def parse_test():
 
 
 if __name__ == '__main__':
-    print(datetime.datetime.now())
-    build_specialist_lexicon_parser()
-    print(datetime.datetime.now())
-    print('----------------------')
-    build_med_terminology('terminology/adverseReaction.txt')
-    print('----------------------')
+    # print(datetime.datetime.now())
+    # build_specialist_lexicon_parser()
+    # print(datetime.datetime.now())
+    # print('----------------------')
+    # build_med_terminology('terminology/adverseReaction.txt')
+    # print('----------------------')
     parse_test()
     print('----------------------')
     print("Current: %d, Peak %d" % tracemalloc.get_traced_memory())
