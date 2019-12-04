@@ -194,6 +194,11 @@ class AustinSimpleParser:
         tokens = [token.lower() for token in words.split()]
         return self._parse_tokens(tokens, 0)
 
+    def fix_token_dict(self):
+        for idx, key in enumerate(self.token_dict.dic_list):
+            if key not in self.token_dict:
+                self.token_dict[key] = idx
+
 
 def initialize_lexicon():
     return {
@@ -334,10 +339,10 @@ def build_med_terminology(terminology_file_path, entity_name=None):
                         added_terminology.add((code, terminology))
                 if generic_code and generic_terminology:
                     terminology = generic_terminology.strip()
-                    if (code, terminology) not in added_terminology:
+                    if (generic_code, terminology) not in added_terminology:
                         tags['t2_code'] = generic_code
                         global_specialist_lexicon_parser.build_trie(terminology, tags)
-                        added_terminology.add((code, terminology))
+                        added_terminology.add((generic_code, terminology))
     save_specialist_lexicon_parser()
     write_json(list(added_terminology), '{0}_added.json'.format(entity_name))
 
@@ -348,6 +353,7 @@ def read_specialist_lexicon_parser():
     global_specialist_lexicon_parser = AustinSimpleParser()
     with open(global_specialist_lexicon_parser_pickle, mode='r', encoding='utf-8', errors='replace') as pickle:
         global_specialist_lexicon_parser = jsonpickle.decode(pickle.read(), keys=True)
+    global_specialist_lexicon_parser.fix_token_dict()
     return global_specialist_lexicon_parser
 
 
@@ -365,6 +371,8 @@ def parse_test():
     parsed8 = specialist_lexicon_parser.parse_words('I had Chronic idiopathic hemolytic anemia C.A.P.')
     pprint.pprint(parsed8)
     parsed8 = specialist_lexicon_parser.parse_words('I had a Neoplasm of uncertain behavior of left upper lobe of lung')
+    pprint.pprint(parsed8)
+    parsed8 = specialist_lexicon_parser.parse_words('spinocerebellar ataxia type 14')
     pprint.pprint(parsed8)
 
 
