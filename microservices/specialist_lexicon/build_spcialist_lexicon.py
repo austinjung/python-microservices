@@ -1,4 +1,6 @@
 import datetime
+import json
+import os
 import pprint
 import re
 import string
@@ -7,9 +9,17 @@ import tracemalloc
 from collections import defaultdict
 
 import jsonpickle
-from pyciiml.utils.file_utils import get_basename, write_json
+from pyciiml.api_service_client_utils.nlp_terminology_service_clients import NLPTerminologyServiceClient
+from pyciiml.utils.file_utils import get_basename, write_json, check_create_dir, remove_file
+from pyciiml.utils.logging_utils import CustomLogger
 
 tracemalloc.start()
+logs_dir = "log"
+check_create_dir(logs_dir)
+log_file = os.path.join(logs_dir, '{}.log'.format("build_specialist_lexicon"))
+remove_file(log_file)
+logger = CustomLogger(name="build_specialist_lexicon", log_file=log_file).get_logger()
+
 added_terminology = set()
 
 suppress_words_patterns = [
@@ -198,7 +208,7 @@ class AustinSimpleParser:
         dic_set = set(enumerate(self.token_dict.dic_list))
         token_set = set([(idx, key) for key, idx in self.token_dict.items()])
         for idx, key in dic_set.difference(token_set):
-                self.token_dict[key] = idx
+            self.token_dict[key] = idx
 
 
 def initialize_lexicon():
@@ -261,7 +271,7 @@ def save_specialist_lexicon_parser():
 
 
 # @profile()
-def build_specialist_lexicon_parser():
+def build_specialist_lexicon_parser(save=False):
     global global_specialist_lexicon_parser
     for punct in string.punctuation:
         global_specialist_lexicon_parser.build_trie(punct, tags={'cat': 'punct'})
@@ -269,39 +279,133 @@ def build_specialist_lexicon_parser():
         lexicon = initialize_lexicon()
         for line in lexicon_file:
             lexicon = process_line_of_special_lexicon(line, lexicon)
-    # save_specialist_lexicon_parser()
+    if save:
+        save_specialist_lexicon_parser()
 
 
-def normalize_and_expand_to_build_terminology(line):
+def check_token_exists_in_med_terminology(token, terminology_entry_type):
+    nlp_terminology_service_client = NLPTerminologyServiceClient()
+    expression = None
+    response = nlp_terminology_service_client.get_terminology(token.strip(), expression, env='prod', handler='ATOM',
+                                                              terminology=terminology_entry_type)
+    result = json.loads(response.content)
+    try:
+        if result['total'] > 0:
+            for item in result['items']:
+                if item['name'].lower().strip() == token.strip():
+                    return True
+    except Exception as e:
+        global logger
+        logger.error(e)
+    return False
+
+
+def get_terminology_from_code(code, terminology_type):
+    nlp_terminology_service_client = NLPTerminologyServiceClient()
+    response = nlp_terminology_service_client.get_terminology_from_code(code, env='qa', terminology=terminology_type)
+    result = json.loads(response.content)
+    return result['name']
+
+def normalize_and_expand_to_build_terminology(line, terminology_entry_type, code, entity_name):
     """
     After building terminology with this method, we need to skip punct and conj to build med-embedding
+    be careful to modify this method
     """
     lower_line = line.lower()
+    if lower_line.strip() in ['o/e', 'on examination']:
+        lower_line = get_terminology_from_code(code, terminology_entry_type).lower()
     suppressed_line = re.sub(suppress_words, '', lower_line).strip()
     lines = [suppressed_line]
+
+    if '/' in suppressed_line:
+        tokens = suppressed_line.split()
+        for idx, token in enumerate(tokens):
+            if token in ['o/e']:
+                continue
+            if token != '/' and '/' in token:
+                if check_token_exists_in_med_terminology(token, terminology_entry_type):
+                    continue
+                tokens[idx] = ' / '.join(token.split('/'))
+        new_line = ' '.join(tokens)
+        if new_line not in lines and new_line != suppressed_line:
+            suppressed_line = new_line
+            lines = [new_line]
+
     if ', ' in suppressed_line:
         lines = [suppressed_line.replace(', ', ' , ')]  # make ', ' as separate token
         for conj in [' and ', ' or ', ' and/or ']:
             if conj in suppressed_line:
                 lines.append(suppressed_line.replace(', ', conj))
                 lines.append(suppressed_line.replace(', ', ' ').replace(conj, ' '))
+                if 'or' in conj:
+                    lines.extend([l.strip() for l in suppressed_line.split(conj)])
                 break
         if len(lines) == 1:  # Has no conj
             lines.append(suppressed_line.replace(', ', ' '))  # append without ', '
+            lines.extend([l.strip() for l in suppressed_line.split(', ')])
 
     for token in ['on examination', 'o/e']:
         if token in suppressed_line:
-            suppressed_line = suppressed_line.replace(token, '')
-            if suppressed_line.strip() != '' and ' - ' not in suppressed_line:
-                lines.append(suppressed_line.strip())
+            local_suppressed_line = suppressed_line.replace(token + ' - ', '').replace(token, '').strip()
+            if local_suppressed_line.strip() != '' and ' - ' not in local_suppressed_line:
+                lines.append(local_suppressed_line.strip())
+            # Duplicate with o/e - on examination
+            duplicate_lines = []
+            if token == 'o/e':
+                other_token = 'on examination'
+            else:
+                other_token = 'o/e'
+            for line in lines:
+                new_line = line.replace(token, other_token)
+                if new_line not in duplicate_lines and new_line not in lines:
+                    duplicate_lines.append(new_line)
+            lines.extend(duplicate_lines)
 
     if ' - ' in suppressed_line:  # It may have full name of acronym
         split_lines = suppressed_line.split(' - ')
-        if split_lines[0].strip() != '':
-            lines.append(split_lines[0].strip())
-        if ' '.join(split_lines[1:]).strip() != '':
-            lines.append(' '.join(split_lines[1:]).strip())
+        new_line = split_lines[0].strip()
+        if new_line not in ['', 'o/e', 'on examination'] and new_line not in lines:
+            lines.append(new_line)
+        new_line = ' '.join(split_lines[1:]).strip()
+        if new_line != '' and new_line not in lines:
+            lines.append(new_line)
 
+    if '-' in suppressed_line:
+        tokens = suppressed_line.split()
+        for idx, token in enumerate(tokens):
+            if token != '-' and '-' in token:
+                if check_token_exists_in_med_terminology(token, terminology_entry_type):
+                    continue
+                new_token = ''
+                tkns = token.split('-')
+                for tkn in tkns:
+                    if not new_token.endswith('-') and check_token_exists_in_med_terminology(tkn,
+                                                                                             terminology_entry_type):
+                        if new_token == '':
+                            new_token = tkn
+                        else:
+                            new_token += ' - ' + tkn
+                    else:
+                        if new_token == '':
+                            new_token = tkn + '-'
+                        elif new_token.endswith('-'):
+                            new_token += tkn
+                        else:
+                            new_token += '-' + tkn
+                tokens[idx] = new_token
+        new_line = ' '.join(tokens)
+        if new_line not in lines and new_line != suppressed_line:
+            lines.append(new_line)
+    if len(lines) > 1 and not lower_line.startswith('same as'):
+        global logger
+        log_obj = {
+            'code': code,
+            'input': line,
+            'expanded': {}
+        }
+        for idx, line in enumerate(lines):
+            log_obj['expanded'][idx] = line
+        logger.info(log_obj)
     return lines
 
 
@@ -317,13 +421,13 @@ def normalize_line_of_terminology(line):
     return code, attr, desc, generic_code, generic_terminology, terminology_of_entry_type
 
 
-def build_med_terminology(terminology_file_path, entity_name=None):
+def build_med_terminology(terminology_file_path, entity_name=None, save=False):
     global added_terminology, split_characters, global_specialist_lexicon_parser
     if entity_name is None:
         entity_name = get_basename(terminology_file_path).replace('.txt', '')
     with open(terminology_file_path, 'r', encoding='utf-8', errors='replace') as fp:
         for line in fp:
-            code, attr, desc, generic_code, generic_terminology, terminology_of_entry_type = \
+            code, attr, desc, generic_code, generic_terminology, terminology_entry_type = \
                 normalize_line_of_terminology(line)
             if attr in ['SY', 'PT']:
                 tags = {
@@ -333,7 +437,8 @@ def build_med_terminology(terminology_file_path, entity_name=None):
                         'entity': entity_name
                     }
                 }
-                terminologies = normalize_and_expand_to_build_terminology(desc)
+                terminologies = normalize_and_expand_to_build_terminology(desc, terminology_entry_type, code,
+                                                                          entity_name)
                 for terminology in terminologies:
                     if (code, terminology) not in added_terminology:
                         global_specialist_lexicon_parser.build_trie(terminology, tags)
@@ -344,7 +449,8 @@ def build_med_terminology(terminology_file_path, entity_name=None):
                         tags['t2_code'] = generic_code
                         global_specialist_lexicon_parser.build_trie(terminology, tags)
                         added_terminology.add((generic_code, terminology))
-    save_specialist_lexicon_parser()
+    if save:
+        save_specialist_lexicon_parser()
     write_json(list(added_terminology), '{0}_added.json'.format(entity_name))
 
 
@@ -378,17 +484,16 @@ def parse_test():
 
 
 if __name__ == '__main__':
-    # print(datetime.datetime.now())
-    # build_specialist_lexicon_parser()
-    # print(datetime.datetime.now())
-    # print('----------------------')
-    # build_med_terminology('terminology/adverseReaction.txt')
-    # print('----------------------')
     print(datetime.datetime.now())
+    build_specialist_lexicon_parser(save=False)
+    print(datetime.datetime.now())
+    build_med_terminology('terminology/adverseReaction.txt', save=False)
+    print(datetime.datetime.now())
+    build_med_terminology('terminology/biomarker.txt', save=False)
+    print(datetime.datetime.now())
+    build_med_terminology('terminology/chemotherapy.txt', save=True)
+    print(datetime.datetime.now())
+    print('----------------------')
     parse_test()
-    print(datetime.datetime.now())
-    # build_med_terminology('terminology/biomarker.txt')
-    # build_med_terminology('terminology/chemotherapy.txt')
-    print(datetime.datetime.now())
     print('----------------------')
     print("Current: %d, Peak %d" % tracemalloc.get_traced_memory())

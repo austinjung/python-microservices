@@ -7,6 +7,7 @@
     <list default="true" id="18ccd132-05a7-44e9-abbe-f435325b99f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py" beforeDir="false" afterPath="$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +44,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true&#10;/Users/austinjung/study/python-microservices/instance/flask_test.cfg" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservices/specialist_lexicon/terminology" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/microservices/specialist_lexicon" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -53,18 +54,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/microservices/specialist_lexicon" />
+      <recent name="$PROJECT_DIR$/microservices/specialist_lexicon/terminology" />
+      <recent name="$PROJECT_DIR$/tests/units" />
+      <recent name="$PROJECT_DIR$/microservices/models" />
+      <recent name="$PROJECT_DIR$/microservices" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/microservices/specialist_lexicon" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/microservices/static/js" />
       <recent name="$PROJECT_DIR$/microservices/dataset" />
-      <recent name="$PROJECT_DIR$/microservices" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/microservices/specialist_lexicon/terminology" />
-      <recent name="$PROJECT_DIR$/microservices/specialist_lexicon" />
-      <recent name="$PROJECT_DIR$/tests/units" />
-      <recent name="$PROJECT_DIR$/microservices/models" />
       <recent name="$PROJECT_DIR$/microservices" />
     </key>
   </component>
@@ -247,14 +248,8 @@
       <workItem from="1575313054105" duration="4064000" />
       <workItem from="1575317184823" duration="11058000" />
       <workItem from="1575332911183" duration="363000" />
-      <workItem from="1575333288346" duration="46078000" />
-    </task>
-    <task id="LOCAL-00052" summary="Modify to skip dataset and show status UI">
-      <created>1573605004937</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1573605004937</updated>
+      <workItem from="1575333288346" duration="65733000" />
+      <workItem from="1575509905292" duration="1273000" />
     </task>
     <task id="LOCAL-00053" summary="Fix select checkbox at view status UI">
       <created>1573605279246</created>
@@ -592,7 +587,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575439979680</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Improve jsonpickle decode error fixing">
+      <created>1575483929581</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1575483929583</updated>
+    </task>
+    <option name="localTasksCounter" value="102" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -612,7 +614,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add get code detail of t2 and extractor extracted code" />
     <MESSAGE value="temp shelves for tries" />
     <MESSAGE value="Add IrregVariant, TokenDictionary, and WordTrie" />
     <MESSAGE value="Shelves for having same token_dic through WordTrie" />
@@ -637,7 +638,8 @@
     <MESSAGE value="Add normalize and extend line" />
     <MESSAGE value="Fix get variants" />
     <MESSAGE value="Fix jsonpickle decode error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix jsonpickle decode error" />
+    <MESSAGE value="Improve jsonpickle decode error fixing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve jsonpickle decode error fixing" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -645,70 +647,78 @@
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state x="733" y="-792" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575333082817" />
-    <state x="947" y="-948" width="669" height="775" key="#xdebugger.evaluate" timestamp="1575483023982">
+    <state x="947" y="-948" width="669" height="775" key="#xdebugger.evaluate" timestamp="1575491287712">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state x="904" y="273" width="684" height="573" key="#xdebugger.evaluate/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354290965" />
-    <state x="947" y="-948" width="669" height="775" key="#xdebugger.evaluate/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483023982" />
-    <state x="498" y="-898" key="CommitChangelistDialog2" timestamp="1575439979519">
-      <screen x="0" y="-1027" width="1680" height="1027" />
+    <state x="947" y="-948" width="669" height="775" key="#xdebugger.evaluate/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575491287712" />
+    <state x="654" y="-924" key="CommitChangelistDialog2" timestamp="1575483929422">
+      <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state x="498" y="-898" key="CommitChangelistDialog2/0.-1027.1680.1027/0.23.1680.965@0.-1027.1680.1027" timestamp="1575439979519" />
     <state x="498" y="144" key="CommitChangelistDialog2/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575354845897" />
-    <state x="654" y="-924" key="CommitChangelistDialog2/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575419737848" />
-    <state x="185" y="-957" width="1720" height="857" key="DiffContextDialog" timestamp="1575483609051">
+    <state x="654" y="-924" key="CommitChangelistDialog2/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483929422" />
+    <state x="185" y="-957" width="1720" height="857" key="DiffContextDialog" timestamp="1575511202868">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state x="88" y="114" width="1505" height="783" key="DiffContextDialog/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575349307853" />
-    <state x="185" y="-957" width="1720" height="857" key="DiffContextDialog/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483609051" />
-    <state width="1878" height="413" key="GridCell.Tab.0.bottom" timestamp="1575483899756">
+    <state x="185" y="-957" width="1720" height="857" key="DiffContextDialog/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575511202868" />
+    <state width="1878" height="413" key="GridCell.Tab.0.bottom" timestamp="1575511174038">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1638" height="413" key="GridCell.Tab.0.bottom/0.-1027.1680.1027/0.23.1680.965@0.-1027.1680.1027" timestamp="1575442192869" />
     <state width="1638" height="381" key="GridCell.Tab.0.bottom/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493312" />
-    <state width="1878" height="413" key="GridCell.Tab.0.bottom/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483899756" />
-    <state width="1878" height="413" key="GridCell.Tab.0.center" timestamp="1575483899755">
+    <state width="1878" height="467" key="GridCell.Tab.0.bottom/0.23.1920.988@0.23.1920.988" timestamp="1575507068832" />
+    <state width="1878" height="413" key="GridCell.Tab.0.bottom/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575511174038" />
+    <state width="1878" height="413" key="GridCell.Tab.0.center" timestamp="1575511174037">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1638" height="413" key="GridCell.Tab.0.center/0.-1027.1680.1027/0.23.1680.965@0.-1027.1680.1027" timestamp="1575442192868" />
     <state width="1638" height="381" key="GridCell.Tab.0.center/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493310" />
-    <state width="1878" height="413" key="GridCell.Tab.0.center/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483899755" />
-    <state width="1878" height="413" key="GridCell.Tab.0.left" timestamp="1575483899754">
+    <state width="1878" height="467" key="GridCell.Tab.0.center/0.23.1920.988@0.23.1920.988" timestamp="1575507068831" />
+    <state width="1878" height="413" key="GridCell.Tab.0.center/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575511174037" />
+    <state width="1878" height="413" key="GridCell.Tab.0.left" timestamp="1575511174036">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1638" height="413" key="GridCell.Tab.0.left/0.-1027.1680.1027/0.23.1680.965@0.-1027.1680.1027" timestamp="1575442192867" />
     <state width="1638" height="381" key="GridCell.Tab.0.left/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493309" />
-    <state width="1878" height="413" key="GridCell.Tab.0.left/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483899754" />
-    <state width="1878" height="413" key="GridCell.Tab.0.right" timestamp="1575483899755">
+    <state width="1878" height="467" key="GridCell.Tab.0.left/0.23.1920.988@0.23.1920.988" timestamp="1575507068830" />
+    <state width="1878" height="413" key="GridCell.Tab.0.left/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575511174036" />
+    <state width="1878" height="413" key="GridCell.Tab.0.right" timestamp="1575511174038">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1638" height="413" key="GridCell.Tab.0.right/0.-1027.1680.1027/0.23.1680.965@0.-1027.1680.1027" timestamp="1575442192869" />
     <state width="1638" height="381" key="GridCell.Tab.0.right/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493310" />
-    <state width="1878" height="413" key="GridCell.Tab.0.right/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483899755" />
-    <state width="1878" height="416" key="GridCell.Tab.1.bottom" timestamp="1575483047934">
+    <state width="1878" height="467" key="GridCell.Tab.0.right/0.23.1920.988@0.23.1920.988" timestamp="1575507068831" />
+    <state width="1878" height="413" key="GridCell.Tab.0.right/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575511174038" />
+    <state width="1878" height="470" key="GridCell.Tab.1.bottom" timestamp="1575510540193">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1638" height="402" key="GridCell.Tab.1.bottom/0.-1027.1680.1027/0.23.1680.965@0.-1027.1680.1027" timestamp="1575438351002" />
     <state width="1638" height="381" key="GridCell.Tab.1.bottom/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493314" />
-    <state width="1878" height="416" key="GridCell.Tab.1.bottom/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483047934" />
-    <state width="1878" height="416" key="GridCell.Tab.1.center" timestamp="1575483047934">
+    <state width="1878" height="467" key="GridCell.Tab.1.bottom/0.23.1920.988@0.23.1920.988" timestamp="1575507068832" />
+    <state width="1878" height="470" key="GridCell.Tab.1.bottom/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575510540193" />
+    <state width="1878" height="470" key="GridCell.Tab.1.center" timestamp="1575510540192">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1638" height="402" key="GridCell.Tab.1.center/0.-1027.1680.1027/0.23.1680.965@0.-1027.1680.1027" timestamp="1575438351002" />
     <state width="1638" height="381" key="GridCell.Tab.1.center/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493313" />
-    <state width="1878" height="416" key="GridCell.Tab.1.center/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483047934" />
-    <state width="1878" height="416" key="GridCell.Tab.1.left" timestamp="1575483047933">
+    <state width="1878" height="467" key="GridCell.Tab.1.center/0.23.1920.988@0.23.1920.988" timestamp="1575507068832" />
+    <state width="1878" height="470" key="GridCell.Tab.1.center/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575510540192" />
+    <state width="1878" height="470" key="GridCell.Tab.1.left" timestamp="1575510540192">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1638" height="402" key="GridCell.Tab.1.left/0.-1027.1680.1027/0.23.1680.965@0.-1027.1680.1027" timestamp="1575438351002" />
     <state width="1638" height="381" key="GridCell.Tab.1.left/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493312" />
-    <state width="1878" height="416" key="GridCell.Tab.1.left/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483047933" />
-    <state width="1878" height="416" key="GridCell.Tab.1.right" timestamp="1575483047934">
+    <state width="1878" height="467" key="GridCell.Tab.1.left/0.23.1920.988@0.23.1920.988" timestamp="1575507068832" />
+    <state width="1878" height="470" key="GridCell.Tab.1.left/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575510540192" />
+    <state width="1878" height="470" key="GridCell.Tab.1.right" timestamp="1575510540192">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
     <state width="1638" height="402" key="GridCell.Tab.1.right/0.-1027.1680.1027/0.23.1680.965@0.-1027.1680.1027" timestamp="1575438351002" />
     <state width="1638" height="381" key="GridCell.Tab.1.right/0.-1027.1680.1027/0.23.1680.965@0.23.1680.965" timestamp="1575355493313" />
-    <state width="1878" height="416" key="GridCell.Tab.1.right/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575483047934" />
+    <state width="1878" height="467" key="GridCell.Tab.1.right/0.23.1920.988@0.23.1920.988" timestamp="1575507068832" />
+    <state width="1878" height="470" key="GridCell.Tab.1.right/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575510540192" />
     <state x="588" y="-812" key="Vcs.Push.Dialog.v2" timestamp="1575416985291">
       <screen x="85" y="-1057" width="1920" height="1057" />
     </state>
@@ -719,6 +729,10 @@
     </state>
     <state x="494" y="340" key="com.intellij.ide.util.TipDialog/85.-1057.1920.1057/0.23.1680.965@0.23.1680.965" timestamp="1575332910300" />
     <state x="650" y="-710" key="com.intellij.ide.util.TipDialog/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575333290775" />
+    <state x="710" y="-838" width="670" height="676" key="search.everywhere.popup" timestamp="1575486085727">
+      <screen x="85" y="-1057" width="1920" height="1057" />
+    </state>
+    <state x="710" y="-838" width="670" height="676" key="search.everywhere.popup/85.-1057.1920.1057/0.23.1680.965@85.-1057.1920.1057" timestamp="1575486085727" />
     <state x="160" y="272" key="vcs.ApplyPatchDifferentiatedDialog" timestamp="1575349334994">
       <screen x="0" y="23" width="1680" height="965" />
     </state>
@@ -729,7 +743,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/microservices/specialist_lexicon/build_spcialist_lexicon.py</url>
-          <line>376</line>
+          <line>482</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
@@ -743,7 +757,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1575483590528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
+    <SUITE FILE_PATH="coverage/python_microservices$build_spcialist_lexicon.coverage" NAME="build_spcialist_lexicon Coverage Results" MODIFIED="1575510542508" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices/specialist_lexicon" />
     <SUITE FILE_PATH="coverage/python_microservices$pytest.coverage" NAME="pytest Coverage Results" MODIFIED="1575055444000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/python_microservices$app.coverage" NAME="app Coverage Results" MODIFIED="1574119068417" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/microservices" />
     <SUITE FILE_PATH="coverage/python_microservices$pytest_in_tests.coverage" NAME="pytest in tests Coverage Results" MODIFIED="1575092172752" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />

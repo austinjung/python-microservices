@@ -4,7 +4,7 @@ pytest==4.2.0
 mock==2.0.0
 pytest-mock==1.10.0
 requests==2.22.0
-pyciiml==1.0.15
+pyciiml==1.0.16
 nltk==3.4.5
 PyJWT==1.7.1
 jsonpickle==1.2
