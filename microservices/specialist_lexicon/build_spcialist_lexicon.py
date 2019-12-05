@@ -292,7 +292,7 @@ def check_token_exists_in_med_terminology(token, terminology_entry_type):
     try:
         if result['total'] > 0:
             for item in result['items']:
-                if item['name'].lower().strip() == token.strip():
+                if token.strip() in item['name'].lower().strip():
                     return True
     except Exception as e:
         global logger
@@ -329,7 +329,10 @@ def normalize_and_expand_to_build_terminology(line, terminology_entry_type, code
         new_line = ' '.join(tokens)
         if new_line not in lines and new_line != suppressed_line:
             suppressed_line = new_line
-            lines = [new_line]
+            if entity_name in ['biomarker']:
+                lines = [suppressed_line, new_line]
+            else:
+                lines = [new_line]
 
     if ', ' in suppressed_line:
         lines = [suppressed_line.replace(', ', ' , ')]  # make ', ' as separate token
@@ -398,14 +401,9 @@ def normalize_and_expand_to_build_terminology(line, terminology_entry_type, code
             lines.append(new_line)
     if len(lines) > 1 and not lower_line.startswith('same as'):
         global logger
-        log_obj = {
-            'code': code,
-            'input': line,
-            'expanded': {}
-        }
-        for idx, line in enumerate(lines):
-            log_obj['expanded'][idx] = line
-        logger.info(log_obj)
+        log_lines = [code, entity_name, lower_line]
+        log_lines.extend(lines)
+        logger.info(log_lines)
     return lines
 
 
@@ -440,15 +438,15 @@ def build_med_terminology(terminology_file_path, entity_name=None, save=False):
                 terminologies = normalize_and_expand_to_build_terminology(desc, terminology_entry_type, code,
                                                                           entity_name)
                 for terminology in terminologies:
-                    if (code, terminology) not in added_terminology:
+                    if (code, terminology, terminology_entry_type, entity_name) not in added_terminology:
                         global_specialist_lexicon_parser.build_trie(terminology, tags)
-                        added_terminology.add((code, terminology))
+                        added_terminology.add((code, terminology, terminology_entry_type, entity_name))
                 if generic_code and generic_terminology:
                     terminology = generic_terminology.strip()
-                    if (generic_code, terminology) not in added_terminology:
+                    if (generic_code, terminology, terminology_entry_type, entity_name) not in added_terminology:
                         tags['t2_code'] = generic_code
                         global_specialist_lexicon_parser.build_trie(terminology, tags)
-                        added_terminology.add((generic_code, terminology))
+                        added_terminology.add((generic_code, terminology, terminology_entry_type, entity_name))
     if save:
         save_specialist_lexicon_parser()
     write_json(list(added_terminology), '{0}_added.json'.format(entity_name))
